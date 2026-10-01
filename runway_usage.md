@@ -12,24 +12,24 @@ Source: `runway_usage.csv` — one row per track, 66 columns. Regenerate with
 
 | | known | high | medium | low | from the roll | from climb/approach heading |
 |---|---|---|---|---|---|---|
-| Departure runway | **324/342** | 290 | 25 | 9 | 298 | 26 |
-| Arrival runway | **327/342** | 250 | 75 | 2 | 257 | 70 |
-| Take-off distance measured | **287/342** (12 fallback only) | | | | | |
-| Landing distance measured | **257/342** | | | | | |
+| Departure runway | **694/731** | 623 | 56 | 15 | 642 | 52 |
+| Arrival runway | **700/731** | 551 | 146 | 3 | 565 | 135 |
+| Take-off distance measured | **612/731** (27 fallback only) | | | | | |
+| Landing distance measured | **565/731** | | | | | |
 
-- both runway ends known: **310/342** (91%)
-- the airline's own (UR/UGD) tracks: departures **285/300**, arrivals **291/300**, both ends **276/300**
-- tail (5X-… / ET-APL) attached from your screenshots: **222** rows — every UR track whose (date, flight, route) key matches exactly one screenshot row
+- both runway ends known: **664/731** (91%)
+- the airline's own (UR/UGD) tracks: departures **648/682**, arrivals **658/682**, both ends **624/682**
+- tail (5X-… / ET-APL) attached from your screenshots: **594** rows — every UR track whose (date, flight, route) key matches exactly one screenshot row
 - `high` = roll captured, on the centreline (mean cross-track ≤ 70 m) and heading within 10°
 - `medium` = roll captured but shorter/looser, or the heading fallback with a clear margin
 - `low` = heading-only evidence at an airport with a parallel strip, or a weak fit — a hint
-- **16 rows get their runway from alignment rather than a roll.** Where the export starts just after the rotation or stops on short final there is nothing on the ground to match, but the aircraft is low, close to the field and lined up with one runway: the call is made from its position against that runway's extended centreline plus the heading between two fixes ~2 km apart (`climb-alignment` / `approach-alignment`). No roll, touchdown or distance figures come out of those rows.
+- **33 rows get their runway from alignment rather than a roll.** Where the export starts just after the rotation or stops on short final there is nothing on the ground to match, but the aircraft is low, close to the field and lined up with one runway: the call is made from its position against that runway's extended centreline plus the heading between two fixes ~2 km apart (`climb-alignment` / `approach-alignment`). No roll, touchdown or distance figures come out of those rows.
 
 ## Why it is trustworthy
 
 | check | departure | arrival |
 |---|---|---|
-| heading error vs the runway's true heading (median / p95) | 1.0° / 1.1° | 1.1° / 3.0° |
+| heading error vs the runway's true heading (median / p95) | 1.0° / 1.1° | 1.1° / 2.0° |
 | position fixes inside the roll (median) | 10 | 11 |
 
 The paved surface is 45–60 m wide, so a heading error of 0–1° is unambiguously *that*
@@ -40,13 +40,13 @@ measure of how good the position data is.
 
 Independent checks that were run:
 
-- **Day-direction coherence.** Wind holds one direction all day, so every flight at an airport that day should use the same runway direction. Of the flights that could be compared, departures **161/161** and arrivals **158/158** agree with their day's dominant direction — **0 exceptions**.
+- **Day-direction coherence.** Wind holds one direction all day, so every flight at an airport that day should use the same runway direction. Of the flights that could be compared, departures **399/399** and arrivals **394/394** agree with their day's dominant direction — **0 exceptions**.
 - **Airport geometry.** Threshold-to-threshold bearings of every runway in scope were
   checked against the published runway true headings; no swapped runway ends.
 - **Gatwick** returns 26L for both arrivals and departures (LGW is a single-runway
   operation); **Johannesburg** returns arrivals on 03R/21L and departures on 03L/21R —
   the parallel-strip split the airport actually uses.
-- **Worked example.** `UR110-4180268d.csv` (UGD110, 5X-NIL) leaves Entebbe (HUEN) 17: the roll starts 113 m past the threshold at 17 kt, the wheels leave the ground 2,819 m down a 3,681 m runway (77% used), leaving 862 m. Bracket around the lift-off: 617 m, i.e. that is the export's time resolution.
+- **Worked example.** `UR110-416c0a6a.csv` (UGD110, 5X-NIL) leaves Entebbe (HUEN) 17: the roll starts 136 m past the threshold at 15 kt, the wheels leave the ground 2,537 m down a 3,681 m runway (69% used), leaving 1,143 m. Bracket around the lift-off: 239 m, i.e. that is the export's time resolution.
 
 ## How much runway was used
 
@@ -99,34 +99,35 @@ How the two moments are pinned down, and why they can be trusted:
 
 | type | flights | roll starts at | take-off run | runway used | runway left | runway in use |
 |---|---|---|---|---|---|---|
-| A330-800neo | 12 | 240 m | **2,052 m** (p10–p90 1,830–2,706) | 2,292 m | 1,169 m | 3,479 m |
-| 737-800 | 32 | 156 m | **2,478 m** (p10–p90 2,165–3,674) | 2,668 m | 1,052 m | 3,681 m |
-| CRJ900 | 137 | 102 m | **2,634 m** (p10–p90 2,104–3,290) | 2,768 m | 879 m | 3,681 m |
+| A330-800neo | 38 | 205 m | **2,224 m** (p10–p90 1,778–2,752) | 2,440 m | 1,104 m | 3,681 m |
+| 737-800 | 94 | 160 m | **2,440 m** (p10–p90 2,056–3,539) | 2,673 m | 1,046 m | 3,681 m |
+| CRJ900 | 348 | 109 m | **2,709 m** (p10–p90 2,115–3,332) | 2,816 m | 866 m | 3,681 m |
 
 | type | flights | touchdown past threshold | landing roll | runway used | runway left | over the threshold at |
 |---|---|---|---|---|---|---|
-| A330-800neo | 9 | 373 m | **2,561 m** (p10–p90 1,997–2,865) | 2,942 m | 735 m | 148 kt |
-| 737-800 | 35 | 391 m | **2,434 m** (p10–p90 1,714–2,934) | 2,932 m | 746 m | 150 kt |
-| CRJ900 | 128 | 306 m | **2,516 m** (p10–p90 1,519–2,823) | 2,936 m | 746 m | 141 kt |
+| A330-800neo | 23 | 356 m | **2,624 m** (p10–p90 2,412–2,850) | 2,946 m | 735 m | 148 kt |
+| 737-800 | 97 | 384 m | **2,534 m** (p10–p90 1,782–2,860) | 2,936 m | 745 m | 151 kt |
+| CRJ900 | 343 | 331 m | **2,490 m** (p10–p90 1,503–2,800) | 2,931 m | 750 m | 142 kt |
 
 ### Take-off, by airport (≥5 flights measured)
 
 | airport | flights | measured at | roll | runway used | runway left | runway length | share used |
 |---|---|---|---|---|---|---|---|
-| Entebbe (HUEN) | 162 | 123 m past threshold | 2,619 m | 2,760 m | 920 m | 3,681 m | 75% |
-| Nairobi (HKJK) | 27 | 97 m past threshold | 3,247 m | 3,395 m | 724 m | 4,119 m | 82% |
-| Bujumbura (HBBA) | 13 | 98 m past threshold | 2,264 m | 2,478 m | 1,129 m | 3,608 m | 69% |
-| Lusaka (FLLS) | 12 | 100 m past threshold | 2,708 m | 2,840 m | 1,100 m | 3,941 m | 72% |
-| Johannesburg (FAOR) | 11 | 147 m past threshold | 3,637 m | 3,860 m | 564 m | 4,424 m | 87% |
-| Mombasa (HKMO) | 9 | 102 m past threshold | 2,076 m | 2,154 m | 1,207 m | 3,361 m | 64% |
-| Juba (HJJJ) | 8 | -190 m past threshold | 1,970 m | 1,958 m | 445 m | 2,403 m | 81% |
-| Lagos (DNMM) | 7 | 517 m past threshold | 2,099 m | 2,459 m | 1,071 m | 3,921 m | 63% |
+| Entebbe (HUEN) | 346 | 129 m past threshold | 2,619 m | 2,774 m | 906 m | 3,681 m | 75% |
+| Nairobi (HKJK) | 70 | 106 m past threshold | 3,240 m | 3,351 m | 768 m | 4,119 m | 81% |
+| Bujumbura (HBBA) | 28 | 95 m past threshold | 2,270 m | 2,418 m | 1,190 m | 3,608 m | 67% |
+| Lusaka (FLLS) | 26 | 110 m past threshold | 2,574 m | 2,670 m | 1,272 m | 3,941 m | 68% |
+| Johannesburg (FAOR) | 24 | 144 m past threshold | 3,530 m | 3,693 m | 702 m | 4,424 m | 83% |
+| Juba (HJJJ) | 20 | -112 m past threshold | 1,952 m | 1,986 m | 418 m | 2,403 m | 83% |
+| Mombasa (HKMO) | 16 | 98 m past threshold | 2,199 m | 2,285 m | 1,076 m | 3,361 m | 68% |
+| Lagos (DNMM) | 16 | 688 m past threshold | 2,152 m | 2,840 m | 970 m | 3,921 m | 72% |
+| London Gatwick (EGKK) | 14 | 255 m past threshold | 2,000 m | 2,174 m | 1,136 m | 3,310 m | 66% |
+| Mumbai (VABB) | 6 | 214 m past threshold | 1,976 m | 2,201 m | 1,278 m | 3,479 m | 63% |
 | Kigali (HRYR) | 5 | 140 m past threshold | 2,684 m | 2,887 m | 622 m | 3,509 m | 82% |
-| London Gatwick (EGKK) | 5 | 260 m past threshold | 2,067 m | 2,332 m | 978 m | 3,310 m | 70% |
 
 - A negative "roll starts at" (Juba 13) means the line-up point sits *before* the published
   threshold — the crew held at the displaced position, which is where line-up begins.
-- 12 further take-offs have no usable lift-off signature (the export is too coarse), so
+- 27 further take-offs have no usable lift-off signature (the export is too coarse), so
   they are left out of these tables; those rows carry the last sub-95 kt position instead,
   which under-reads. They are flagged in `dep_roll_source`.
 
@@ -134,12 +135,12 @@ How the two moments are pinned down, and why they can be trusted:
 
 | airport | flights | measured at | roll | runway used | runway left | runway length | share used |
 |---|---|---|---|---|---|---|---|
-| Entebbe (HUEN) | 159 | 310 m past threshold | 2,640 m | 2,942 m | 739 m | 3,681 m | 80% |
-| Nairobi (HKJK) | 28 | 501 m past threshold | 1,890 m | 2,299 m | 1,820 m | 4,119 m | 56% |
-| Johannesburg (FAOR) | 15 | 511 m past threshold | 2,100 m | 2,647 m | 756 m | 3,404 m | 78% |
-| Bujumbura (HBBA) | 12 | 402 m past threshold | 1,814 m | 2,202 m | 1,406 m | 3,608 m | 61% |
-| Lusaka (FLLS) | 11 | 278 m past threshold | 2,452 m | 2,730 m | 1,211 m | 3,941 m | 69% |
-| Juba (HJJJ) | 10 | 190 m past threshold | 936 m | 1,204 m | 1,200 m | 2,403 m | 50% |
+| Entebbe (HUEN) | 344 | 320 m past threshold | 2,633 m | 2,942 m | 738 m | 3,681 m | 80% |
+| Nairobi (HKJK) | 71 | 536 m past threshold | 1,871 m | 2,296 m | 1,824 m | 4,119 m | 56% |
+| Johannesburg (FAOR) | 34 | 552 m past threshold | 2,038 m | 2,649 m | 755 m | 3,404 m | 78% |
+| Juba (HJJJ) | 28 | 236 m past threshold | 1,076 m | 1,476 m | 927 m | 2,403 m | 61% |
+| Bujumbura (HBBA) | 28 | 370 m past threshold | 1,876 m | 2,204 m | 1,404 m | 3,608 m | 61% |
+| Lusaka (FLLS) | 28 | 366 m past threshold | 2,364 m | 2,730 m | 1,210 m | 3,941 m | 69% |
 
 ### Per runway end (≥6 flights measured)
 
@@ -148,49 +149,53 @@ between a 2,400 m strip and a 4,400 m one shows up.
 
 | runway end | ops | take-off: run / used / left (% of runway) | landing: touchdown / roll / used / left |
 |---|---|---|---|
-| Entebbe (HUEN) 17 | 299 | 153 × 2,600 / 2,734 / 947 m (74%) | 146 × 313 / 2,630 / 2,942 / 739 m |
-| Nairobi (HKJK) 06 | 55 | 27 × 3,247 / 3,395 / 724 m (82%) | 28 × 501 / 1,890 / 2,299 / 1,820 m |
-| Bujumbura (HBBA) 17 | 25 | 13 × 2,264 / 2,478 / 1,129 m (69%) | 12 × 402 / 1,814 / 2,202 / 1,406 m |
-| Lusaka (FLLS) 10 | 23 | 12 × 2,708 / 2,840 / 1,100 m (72%) | 11 × 278 / 2,452 / 2,730 / 1,211 m |
-| Entebbe (HUEN) 35 | 22 | 9 × 2,747 / 2,902 / 779 m (79%) | 13 × 306 / 2,794 / 3,075 / 606 m |
-| Juba (HJJJ) 13 | 16 | 8 × 1,970 / 1,958 / 445 m (81%) | 8 × 183 / 934 / 1,092 / 1,310 m |
-| Johannesburg (FAOR) 03R | 11 | — | 11 × 414 / 2,136 / 2,648 / 755 m |
-| Lagos (DNMM) 18R | 9 | 5 × 2,183 / 2,727 / 1,193 m (70%) | 4 × 1,211 / 1,303 / 2,516 / 1,406 m |
-| Mombasa (HKMO) 21 | 9 | 9 × 2,076 / 2,154 / 1,207 m (64%) | — |
-| Johannesburg (FAOR) 03L | 9 | 9 × 3,674 / 3,992 / 432 m (90%) | — |
-| London Gatwick (EGKK) 26L | 6 | 4 × 2,002 / 2,257 / 1,053 m (68%) | 2 × 600 / 2,000 / 2,600 / 710 m |
+| Entebbe (HUEN) 17 | 624 | 318 × 2,619 / 2,774 / 906 m (75%) | 306 × 324 / 2,621 / 2,942 / 739 m |
+| Nairobi (HKJK) 06 | 141 | 70 × 3,240 / 3,351 / 768 m (81%) | 71 × 536 / 1,871 / 2,296 / 1,824 m |
+| Entebbe (HUEN) 35 | 66 | 28 × 2,610 / 2,751 / 930 m (75%) | 38 × 288 / 2,793 / 3,074 / 607 m |
+| Bujumbura (HBBA) 17 | 55 | 27 × 2,264 / 2,441 / 1,167 m (68%) | 28 × 370 / 1,876 / 2,204 / 1,404 m |
+| Lusaka (FLLS) 10 | 54 | 26 × 2,574 / 2,670 / 1,272 m (68%) | 28 × 366 / 2,364 / 2,730 / 1,210 m |
+| Juba (HJJJ) 13 | 39 | 18 × 1,952 / 1,922 / 482 m (80%) | 21 × 221 / 1,059 / 1,307 / 1,096 m |
+| Johannesburg (FAOR) 03R | 25 | — | 25 × 511 / 2,093 / 2,649 / 755 m |
+| Johannesburg (FAOR) 03L | 21 | 20 × 3,579 / 3,722 / 702 m (84%) | 1 × 662 / 1,548 / 2,210 / 2,214 m |
+| Lagos (DNMM) 18R | 18 | 14 × 2,172 / 2,884 / 1,036 m (74%) | 4 × 1,211 / 1,286 / 2,496 / 1,426 m |
+| Mombasa (HKMO) 21 | 16 | 16 × 2,199 / 2,285 / 1,076 m (68%) | — |
+| London Gatwick (EGKK) 26L | 14 | 12 × 1,918 / 2,172 / 1,138 m (66%) | 2 × 600 / 2,000 / 2,600 / 710 m |
+| Juba (HJJJ) 31 | 9 | 2 × 1,986 / 2,110 / 292 m (88%) | 7 × 270 / 1,931 / 2,201 / 202 m |
 | Kilimanjaro (HTKJ) 09 | 6 | 4 × 2,508 / 2,607 / 992 m (72%) | 2 × 542 / 1,633 / 2,176 / 1,424 m |
+| Johannesburg (FAOR) 21L | 6 | 1 × 2,623 / 2,762 / 641 m (81%) | 5 × 633 / 1,781 / 2,625 / 778 m |
+| Mumbai (VABB) 27 | 6 | 6 × 1,976 / 2,201 / 1,278 m (63%) | — |
+| Johannesburg (FAOR) 21R | 6 | 3 × 3,522 / 3,678 / 746 m (83%) | 3 × 402 / 2,370 / 3,497 / 927 m |
 
 Across the whole dataset:
 
-- take-off uses a median **75%** of the runway in use (p10–p90 62–87%); **17 of 275** take-offs used more than 90% of the pavement, and **9** had less than 300 m left in front of them
-- landing uses a median **80%** (p10–p90 56–82%), and **9** landings ran to within 300 m of the far end (a taxiway exit, not
+- take-off uses a median **75%** of the runway in use (p10–p90 62–87%); **35 of 585** take-offs used more than 90% of the pavement, and **21** had less than 300 m left in front of them
+- landing uses a median **80%** (p10–p90 56–83%), and **23** landings ran to within 300 m of the far end (a taxiway exit, not
   necessarily a short runway)
-- the median take-off run is **2,565 m** and the median landing roll **2,514 m**
+- the median take-off run is **2,576 m** and the median landing roll **2,514 m**
 
 | longest take-off runs | runway | run | used / length |
 |---|---|---|---|
 | UGD713 (ET-APL) 2026-09-07 | Johannesburg (FAOR) 03L | 4,017 m | 4,123 / 4,424 m |
 | UGD713 (ET-APL) 2026-09-08 | Johannesburg (FAOR) 03L | 3,938 m | 4,086 / 4,424 m |
 | UGD713 (ET-APL) 2026-09-09 | Johannesburg (FAOR) 03L | 3,915 m | 4,018 / 4,424 m |
+| UGD713 (ET-APL) 2026-09-15 | Johannesburg (FAOR) 03L | 3,875 m | 3,963 / 4,424 m |
 | UGD711 (—) 2026-03-21 | Johannesburg (FAOR) 03L | 3,789 m | 4,110 / 4,424 m |
-| KQ418 (—) — | Nairobi (HKJK) 06 | 3,682 m | 3,762 / 4,119 m |
 
 | longest landing rolls | runway | roll | used / length |
 |---|---|---|---|
+| UR523 (—) — | Entebbe (HUEN) 35 | 6,160 m | 6,391 / 3,681 m |
 | UGD521 (5X-EQU) 2026-09-04 | Entebbe (HUEN) 17 | 3,435 m | 3,653 / 3,681 m |
 | UGD209 (5X-KDP) 2026-09-10 | Entebbe (HUEN) 17 | 3,386 m | 3,645 / 3,681 m |
 | UGD722 (ET-APL) 2026-09-10 | Harare (FVHA) 05 | 3,369 m | 3,574 / 4,723 m |
-| UGD711 (ET-APL) 2026-09-04 | Entebbe (HUEN) 17 | 3,329 m | 3,654 / 3,681 m |
-| UGD123 (5X-KOB) 2026-09-07 | Entebbe (HUEN) 17 | 3,301 m | 3,646 / 3,681 m |
+| UGD201 (5X-EQU) 2026-09-25 | Entebbe (HUEN) 17 | 3,347 m | 3,645 / 3,681 m |
 
 ### How tightly is each moment pinned?
 
-- **Wheels-off**: resolution = the export's fix interval. Median bracket **650 m** (p90 1,180 m), i.e. typically ±300 m on the along-runway figure. Sources: altitude × 274; speed fallback (below the altitude-valid speed) × 12; acceleration × 1.
-- **Take-off capture**: full × 273; full / no wheel-off signature × 10; no stop captured (rolling take-off) / no wheel-off signature × 2; no stop captured (rolling take-off) × 2.
-- **Touchdown**: median bracket **0 m** (p90 514 m) — the sharper of the two signals, since the deceleration onset is sampled directly.
-- **Landing capture**: full × 222; full / track ends on the runway (roll is a lower bound) × 32; no deceleration captured (coarse export) / track ends on the runway (roll is a lower bound) × 2; no deceleration captured (coarse export) × 1.
-- **34 landings are lower bounds**: the export ends while the aircraft is still on
+- **Wheels-off**: resolution = the export's fix interval. Median bracket **648 m** (p90 1,167 m), i.e. typically ±300 m on the along-runway figure. Sources: altitude × 580; speed fallback (below the altitude-valid speed) × 27; acceleration × 5.
+- **Take-off capture**: full × 578; full / no wheel-off signature × 24; no stop captured (rolling take-off) × 7; no stop captured (rolling take-off) / no wheel-off signature × 3.
+- **Touchdown**: median bracket **0 m** (p90 525 m) — the sharper of the two signals, since the deceleration onset is sampled directly.
+- **Landing capture**: full × 484; full / track ends on the runway (roll is a lower bound) × 70; no deceleration captured (coarse export) × 7; no deceleration captured (coarse export) / track ends on the runway (roll is a lower bound) × 4.
+- **74 landings are lower bounds**: the export ends while the aircraft is still on
   the runway, so the roll-out continues past the last fix. They are marked in
   `arr_roll_capture`.
 
@@ -201,33 +206,33 @@ signed + = right of the direction of travel.
 
 | | flights | median | p90 | max | within 10 m | within 20 m |
 |---|---|---|---|---|---|---|
-| At lift-off (wheels leaving the runway) | 287 | 3 m | 8 m | 38 m | 93% | 99% |
-| At touchdown | 257 | 2 m | 5 m | 16 m | 98% | 100% |
+| At lift-off (wheels leaving the runway) | 612 | 2 m | 8 m | 38 m | 95% | 99% |
+| At touchdown | 565 | 2 m | 5 m | 275 m | 96% | 99% |
 
 Touchdown is the tighter of the two: the aircraft has just flown an instrument approach,
-so 98% of landings are within 10 m of the centreline.
+so 96% of landings are within 10 m of the centreline.
 At lift-off the aircraft has already been rolling for two to three kilometres and is
-beginning to climb away, so the spread is wider (3 of
-287 fixes sit more than 20 m off — the tail end of a long, fast roll).
+beginning to climb away, so the spread is wider (4 of
+612 fixes sit more than 20 m off — the tail end of a long, fast roll).
 
 | runway end | flights | roll fixes | fit residual | offset at threshold | offset at far end | rotation |
 |---|---|---|---|---|---|---|
-| Entebbe (HUEN) 17 | 299 | 3178 | 2.1 m | 0 m | 0 m | -0.0° |
-| Nairobi (HKJK) 06 | 55 | 619 | 1.8 m | -2 m | 0 m | 0.02° |
-| Bujumbura (HBBA) 17 | 25 | 279 | 1.5 m | 0 m | -4 m | -0.06° |
-| Lusaka (FLLS) 10 | 23 | 232 | 2.2 m | 0 m | 0 m | 0.0° |
-| Entebbe (HUEN) 35 | 22 | 368 | 1.4 m | 0 m | -1 m | -0.01° |
-| Juba (HJJJ) 13 | 18 | 66 | 2.4 m | 4 m | 4 m | -0.02° |
-| Johannesburg (FAOR) 03R | 12 | 175 | 19.3 m | 11 m | -37 m | -0.81° |
-| Johannesburg (FAOR) 03L | 11 | 77 | 1.3 m | 8 m | -3 m | -0.14° |
-| Lagos (DNMM) 18R | 10 | 79 | 12.3 m | 58 m | -26 m | -1.23° |
-| Mombasa (HKMO) 21 | 9 | 109 | 1.9 m | -4 m | 5 m | 0.17° |
-| Kilimanjaro (HTKJ) 09 | 8 | 50 | 2.2 m | -3 m | -3 m | 0.0° |
-| London Gatwick (EGKK) 26L | 6 | 114 | 2.7 m | -1 m | 5 m | 0.1° |
+| Entebbe (HUEN) 17 | 626 | 6759 | 2.0 m | 0 m | 0 m | -0.0° |
+| Nairobi (HKJK) 06 | 141 | 1678 | 1.8 m | -3 m | -1 m | 0.03° |
+| Entebbe (HUEN) 35 | 66 | 1090 | 1.5 m | -1 m | -1 m | -0.0° |
+| Bujumbura (HBBA) 17 | 55 | 608 | 1.6 m | 0 m | -4 m | -0.06° |
+| Lusaka (FLLS) 10 | 54 | 560 | 2.2 m | 0 m | 1 m | 0.02° |
+| Juba (HJJJ) 13 | 43 | 202 | 2.1 m | 4 m | 3 m | -0.04° |
+| Johannesburg (FAOR) 03R | 26 | 398 | 19.9 m | 15 m | -38 m | -0.88° |
+| Johannesburg (FAOR) 03L | 26 | 166 | 2.1 m | 9 m | -8 m | -0.21° |
+| Harare (FVHA) 05 | 23 | 57 | 7.7 m | 2 m | -5 m | -0.08° |
+| Lagos (DNMM) 18R | 20 | 136 | 7.6 m | 54 m | -15 m | -1.0° |
+| Mombasa (HKMO) 21 | 16 | 186 | 2.0 m | -5 m | 5 m | 0.18° |
+| London Gatwick (EGKK) 26L | 14 | 253 | 1.8 m | -1 m | 4 m | 0.08° |
 
-19 runway ends have enough ground-roll fixes for a fit. Where there is none the
+23 runway ends have enough ground-roll fixes for a fit. Where there is none the
 published line is used — that applies to the residual-deviation figures of
-85 rows.
+166 rows.
 
 ### Entebbe 17/35 — a corrected centreline, and why it matters
 
@@ -317,16 +322,16 @@ all geometry here is computed from the coordinate pairs, never from that heading
 
 ## Caveats
 
-- **18 departures and 15 arrivals stay blank.** Either the export starts after the rotation or stops before the landing, or the only ground fix is a single sparse sample.
-  Departure blanks: Mogadishu (HCMM) × 7, (no airport) × 5, Shaqra (OESB) × 2, Entebbe (HUEN) × 1, Butembo (FZKA) × 1, Nairobi (HKJK) × 1, Windhoek (FYWH) × 1.
-  Arrival blanks: (no airport) × 6, Mogadishu (HCMM) × 5, Entebbe (HUEN) × 1, Doha (OTHH) × 1, Constantine (DABC) × 1, Windhoek (FYWH) × 1.
+- **37 departures and 31 arrivals stay blank.** Either the export starts after the rotation or stops before the landing, or the only ground fix is a single sparse sample.
+  Departure blanks: Mogadishu (HCMM) × 17, (no airport) × 11, Shaqra (OESB) × 2, Harare (FVHA) × 2, Entebbe (HUEN) × 1, Butembo (FZKA) × 1, Nairobi (HKJK) × 1, Kilimanjaro (HTKJ) × 1, Windhoek (FYWH) × 1.
+  Arrival blanks: Mogadishu (HCMM) × 15, (no airport) × 10, Entebbe (HUEN) × 2, Doha (OTHH) × 1, Constantine (DABC) × 1, Windhoek (FYWH) × 1, Harare (FVHA) × 1.
   A finer export (or the full track history) is the only way to recover those.
 - **"Wheels-off" is not the rotation.** The nose lifts before the wheels leave, and the
   export only samples every few seconds, so `dep_runway_used_m` carries the bracket above
   (median ±300 m along the runway). The lateral figure barely moves over that distance.
 - **Coarse exports.** A handful of tracks are sampled at 30 s or more; there the roll
   start, the lift-off bracket and the landing roll are all widened, and the rows are
-  flagged in `*_roll_source` / `*_roll_capture`. 34 landings are marked as lower bounds.
+  flagged in `*_roll_source` / `*_roll_capture`. 74 landings are marked as lower bounds.
 - **Displaced thresholds.** Touchdown is measured past the *published* threshold, which
   for a displaced threshold includes the displaced part — Los Angeles-style, the runway
   available for landing is shorter than the length quoted here. Lagos 18R (touchdowns
