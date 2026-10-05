@@ -1,0 +1,83 @@
+date,flight,origin,dest,tail,dep_local,dep_utc,app_status,punctuality,dep_delay_min,arr_delay_min,sched_dep_utc,sched_arr_utc,slot_basis,slot_regular,source_file
+2026-10-01,UGD209,NBO,EBB,,0014,2026-09-30 21:14:59Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR209-41e99651.csv
+2026-10-01,UGD323,DAR,EBB,,0030,2026-09-30 21:30:37Z,,not captured,3,,,,usual time (no timetable for this date),Y,UR323-41e9a202.csv
+2026-10-01,UGD431,BOM,EBB,,0819,2026-10-01 02:49:18Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR431-41ea6abb.csv
+2026-10-01,UGD200,EBB,NBO,,0756,2026-10-01 04:56:43Z,,not captured,-5,,,,usual time (no timetable for this date),Y,UR200-41eab7db.csv
+2026-10-01,UGD201,NBO,EBB,,1010,2026-10-01 07:10:03Z,,not captured,-8,,,,usual time (no timetable for this date),Y,UR201-41eafd1e.csv
+2026-10-01,UGD722,EBB,HRE,,1334,2026-10-01 10:34:55Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR722-41eb7315.csv
+2026-10-01,UGD120,EBB,JUB,,1348,2026-10-01 10:48:27Z,,not captured,,,,,usual time (no timetable for this date),irregular,UR120-41eb8825.csv
+2026-10-01,UGD121,JUB,EBB,,1518,2026-10-01 13:18:09Z,,not captured,,,,,usual time (no timetable for this date),irregular,UR121-41ec0628.csv
+2026-10-01,UGD360,EBB,BJM,,1624,2026-10-01 13:24:54Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR360-41ec0adc.csv
+2026-10-01,UGD722,HRE,LUN,,1611,2026-10-01 14:11:57Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR722-41ec2de3.csv
+2026-10-01,UGD361,BJM,EBB,,1727,2026-10-01 15:27:43Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR361-41ec8036.csv
+2026-10-01,UGD722,LUN,EBB,,1758,2026-10-01 15:58:31Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR722-41ec9a02.csv
+2026-10-01,UGD322,EBB,DAR,,2149,2026-10-01 18:49:59Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR322-41ed31fe.csv
+2026-10-01,UGD208,EBB,NBO,,2215,2026-10-01 19:15:48Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR208-41ed489c.csv
+2026-10-01,UGD712,EBB,JNB,,2247,2026-10-01 19:47:53Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR712-41ed6366.csv
+2026-10-01,UGD902,EBB,LOS,,2308,2026-10-01 20:08:13Z,,not captured,,,,,usual time (no timetable for this date),too few flights,UR902-41ed6a1d.csv
+2026-10-02,UGD209,NBO,EBB,,0018,2026-10-01 21:18:27Z,,not captured,-7,-20,2026-10-01 21:25Z,2026-10-01 22:30Z,published schedule,too few flights,UR209-41eda850.csv
+2026-10-02,UGD323,DAR,EBB,,0024,2026-10-01 21:24:45Z,,not captured,-25,-45,2026-10-01 21:50Z,2026-10-01 23:40Z,published schedule,Y,UR323-41edadd6.csv
+2026-10-02,UGD713,JNB,EBB,,0255,2026-10-02 00:55:22Z,,not captured,-5,-36,2026-10-02 01:00Z,2026-10-02 05:15Z,published schedule,too few flights,UR713-41ee3c28.csv
+2026-10-02,UGD903,LOS,EBB,,0224,2026-10-02 01:24:59Z,,not captured,25,15,2026-10-02 01:00Z,2026-10-02 05:30Z,published schedule,too few flights,UR903-41ee4d89.csv
+2026-10-02,UGD520,EBB,MGQ,,0521,2026-10-02 02:21:19Z,,not captured,21,-6,2026-10-02 02:00Z,2026-10-02 04:30Z,published schedule,too few flights,UR520-41ee744d.csv
+2026-10-02,UGD200,EBB,NBO,,0752,2026-10-02 04:52:55Z,,not captured,-7,-34,2026-10-02 05:00Z,2026-10-02 06:15Z,published schedule,Y,UR200-41eec497.csv
+2026-10-02,UGD521,MGQ,EBB,,0841,2026-10-02 05:41:36Z,,not captured,12,-15,2026-10-02 05:30Z,2026-10-02 08:00Z,published schedule,too few flights,UR521-41eedcb8.csv
+2026-10-02,UGD334,EBB,ZNZ,,0925,2026-10-02 06:25:47Z,,not captured,11,-14,2026-10-02 06:15Z,2026-10-02 08:05Z,published schedule,too few flights,UR334-41eef417.csv
+2026-10-02,UGD201,NBO,EBB,,1007,2026-10-02 07:07:36Z,,not captured,-7,-30,2026-10-02 07:15Z,2026-10-02 08:30Z,published schedule,Y,UR201-41ef0b96.csv
+2026-10-02,UGD710,EBB,JNB,,1014,2026-10-02 07:14:05Z,,not captured,44,25,2026-10-02 06:30Z,2026-10-02 10:45Z,published schedule,too few flights,UR710-41ef0b53.csv
+2026-10-02,UGD110,EBB,LGW,,1112,2026-10-02 08:12:08Z,,not captured,12,-4,2026-10-02 08:00Z,2026-10-02 16:40Z,published schedule,too few flights,UR110-41ef26c4.csv
+2026-10-02,UGD334,ZNZ,JRO,,1149,2026-10-02 08:49:15Z,,not captured,-16,-34,2026-10-02 09:05Z,2026-10-02 10:05Z,published schedule,too few flights,UR334-41ef47c6.csv
+2026-10-02,UGD334,JRO,EBB,,1343,2026-10-02 10:43:42Z,,not captured,-21,-39,2026-10-02 11:05Z,2026-10-02 12:20Z,published schedule,too few flights,UR334-41ef90fb.csv
+2026-10-02,UGD120,EBB,JUB,,1414,2026-10-02 11:14:18Z,,not captured,14,-13,2026-10-02 11:00Z,2026-10-02 12:25Z,published schedule,irregular,UR120-41efa5e5.csv
+2026-10-02,UGD711,JNB,EBB,,1508,2026-10-02 13:08:52Z,,not captured,84,67,2026-10-02 11:45Z,2026-10-02 16:00Z,published schedule,too few flights,UR711-41efff0b.csv
+2026-10-02,UGD121,JUB,EBB,,1527,2026-10-02 13:27:58Z,,not captured,3,-33,2026-10-02 13:25Z,2026-10-02 14:50Z,published schedule,irregular,UR121-41f010d9.csv
+2026-10-02,UGD360,EBB,BJM,,1634,2026-10-02 13:34:40Z,,not captured,5,-21,2026-10-02 13:30Z,2026-10-02 14:45Z,published schedule,too few flights,UR360-41f022d8.csv
+2026-10-02,UGD206,EBB,NBO,,1752,2026-10-02 14:52:32Z,,not captured,13,-12,2026-10-02 14:40Z,2026-10-02 15:55Z,published schedule,too few flights,UR206-41f07068.csv
+2026-10-02,UGD361,BJM,EBB,,1713,2026-10-02 15:13:39Z,,not captured,-31,-51,2026-10-02 15:45Z,2026-10-02 17:00Z,published schedule,too few flights,UR361-41f08564.csv
+2026-10-02,UGD342,EBB,MBA,,1856,2026-10-02 15:56:44Z,,not captured,7,-23,2026-10-02 15:50Z,2026-10-02 17:40Z,published schedule,too few flights,UR342-41f0b124.csv
+2026-10-02,UGD207,NBO,EBB,,2003,2026-10-02 17:03:50Z,,not captured,9,-13,2026-10-02 16:55Z,2026-10-02 18:10Z,published schedule,too few flights,UR207-41f0f239.csv
+2026-10-02,UGD720,EBB,LUN,,2105,2026-10-02 18:05:23Z,,not captured,5,-16,2026-10-02 18:00Z,2026-10-02 20:45Z,published schedule,too few flights,UR720-41f12728.csv
+2026-10-02,UGD343,MBA,EBB,,2132,2026-10-02 18:32:20Z,,not captured,-8,-36,2026-10-02 18:40Z,2026-10-02 20:30Z,published schedule,too few flights,UR343-41f13e2a.csv
+2026-10-02,UGD322,EBB,DAR,,2203,2026-10-02 19:03:02Z,,not captured,3,-18,2026-10-02 19:00Z,2026-10-02 20:50Z,published schedule,too few flights,UR322-41f157c4.csv
+2026-10-02,UGD111,LGW,EBB,,2005,2026-10-02 19:05:58Z,,not captured,31,-12,2026-10-02 18:35Z,2026-10-03 03:15Z,published schedule,too few flights,UR111-41f14933.csv
+2026-10-02,UGD902,EBB,LOS,,2207,2026-10-02 19:07:53Z,,not captured,8,-8,2026-10-02 19:00Z,2026-10-02 23:30Z,published schedule,too few flights,UR902-41f153aa.csv
+2026-10-02,UGD720,LUN,HRE,,2325,2026-10-02 21:25:55Z,,not captured,-19,-38,2026-10-02 21:45Z,2026-10-02 22:45Z,published schedule,too few flights,UR720-41f1ca5d.csv
+2026-10-03,UGD323,DAR,EBB,,0041,2026-10-02 21:41:03Z,,not captured,-9,-31,2026-10-02 21:50Z,2026-10-02 23:40Z,published schedule,Y,UR323-41f1d57c.csv
+2026-10-03,UGD720,HRE,EBB,,0106,2026-10-02 23:06:21Z,,not captured,-39,-61,2026-10-02 23:45Z,2026-10-03 02:45Z,published schedule,too few flights,UR720-41f21296.csv
+2026-10-03,UGD903,LOS,EBB,,0141,2026-10-03 00:41:29Z,,not captured,-19,-27,2026-10-03 01:00Z,2026-10-03 05:30Z,published schedule,too few flights,UR903-41f2472f.csv
+2026-10-03,UGD520,EBB,MGQ,,0450,2026-10-03 01:50:20Z,,not captured,-10,-36,2026-10-03 02:00Z,2026-10-03 04:30Z,published schedule,too few flights,UR520-41f27345.csv
+2026-10-03,UGD200,EBB,NBO,,0806,2026-10-03 05:06:20Z,,not captured,6,-17,2026-10-03 05:00Z,2026-10-03 06:15Z,published schedule,Y,UR200-41f2d460.csv
+2026-10-03,UGD521,MGQ,EBB,,0813,2026-10-03 05:13:35Z,,not captured,-16,-43,2026-10-03 05:30Z,2026-10-03 08:00Z,published schedule,too few flights,UR521-41f2d80f.csv
+2026-10-03,UGD710,EBB,JNB,,0938,2026-10-03 06:38:59Z,,not captured,9,-7,2026-10-03 06:30Z,2026-10-03 10:45Z,published schedule,too few flights,UR710-41f2f8e9.csv
+2026-10-03,UGD201,NBO,EBB,,1030,2026-10-03 07:30:34Z,,not captured,16,-9,2026-10-03 07:15Z,2026-10-03 08:30Z,published schedule,Y,UR201-41f31849.csv
+2026-10-03,UGD722,EBB,HRE,,1301,2026-10-03 10:01:16Z,,not captured,1,-16,2026-10-03 10:00Z,2026-10-03 13:00Z,published schedule,too few flights,UR722-41f372ac.csv
+2026-10-03,UGD120,EBB,JUB,,1306,2026-10-03 10:06:29Z,,not captured,-54,-81,2026-10-03 11:00Z,2026-10-03 12:25Z,published schedule,irregular,UR120-41f37392.csv
+2026-10-03,UGD430,EBB,BOM,,1403,2026-10-03 11:03:52Z,,not captured,4,-10,2026-10-03 11:00Z,2026-10-03 17:30Z,published schedule,too few flights,UR430-41f390ca.csv
+2026-10-03,UGD711,JNB,EBB,,1347,2026-10-03 11:47:40Z,,not captured,3,-14,2026-10-03 11:45Z,2026-10-03 16:00Z,published schedule,too few flights,UR711-41f3b7a9.csv
+2026-10-03,UGD121,JUB,EBB,,1403,2026-10-03 12:03:51Z,,not captured,-81,-117,2026-10-03 13:25Z,2026-10-03 14:50Z,published schedule,irregular,UR121-41f3c84a.csv
+2026-10-03,UGD722,LUN,EBB,,1746,2026-10-03 15:46:44Z,,not captured,-13,-31,2026-10-03 16:00Z,2026-10-03 18:45Z,published schedule,too few flights,UR722-41f49a4e.csv
+2026-10-03,UGD720,EBB,LUN,,2103,2026-10-03 18:03:13Z,,not captured,3,-19,2026-10-03 18:00Z,2026-10-03 20:45Z,published schedule,too few flights,UR720-41f4ffee.csv
+2026-10-03,UGD322,EBB,DAR,,2134,2026-10-03 18:34:58Z,,not captured,-25,-45,2026-10-03 19:00Z,2026-10-03 20:50Z,published schedule,too few flights,UR322-41f51dda.csv
+2026-10-03,UGD208,EBB,NBO,,2148,2026-10-03 18:48:20Z,,not captured,-22,-47,2026-10-03 19:10Z,2026-10-03 20:25Z,published schedule,too few flights,UR208-41f5271f.csv
+2026-10-04,UGD431,BOM,EBB,,0123,2026-10-03 19:53:36Z,,not captured,14,-22,2026-10-03 19:40Z,2026-10-04 02:10Z,published schedule,too few flights,UR431-41f54494.csv
+2026-10-04,UGD209,NBO,EBB,,0000,2026-10-03 21:00:44Z,,not captured,-24,-38,2026-10-03 21:25Z,2026-10-03 22:30Z,published schedule,too few flights,UR209-41f57df7.csv
+2026-10-04,UGD323,DAR,EBB,,0019,2026-10-03 21:19:02Z,,not captured,-31,-50,2026-10-03 21:50Z,2026-10-03 23:40Z,published schedule,Y,UR323-41f58967.csv
+2026-10-04,UGD720,HRE,EBB,,0133,2026-10-03 23:33:42Z,,not captured,-11,-31,2026-10-03 23:45Z,2026-10-04 02:45Z,published schedule,too few flights,UR720-41f5d231.csv
+2026-10-04,UGD520,EBB,MGQ,,0503,2026-10-04 02:03:48Z,,not captured,4,-22,2026-10-04 02:00Z,2026-10-04 04:30Z,published schedule,too few flights,UR520-41f6251e.csv
+2026-10-04,UGD200,EBB,NBO,,0813,2026-10-04 05:13:08Z,,not captured,13,-12,2026-10-04 05:00Z,2026-10-04 06:15Z,published schedule,Y,UR200-41f679e6.csv
+2026-10-04,UGD521,MGQ,EBB,,0838,2026-10-04 05:38:07Z,,not captured,8,-16,2026-10-04 05:30Z,2026-10-04 08:00Z,published schedule,too few flights,UR521-41f6842b.csv
+2026-10-04,UGD900,EBB,LOS,,1007,2026-10-04 07:07:55Z,,not captured,8,-10,2026-10-04 07:00Z,2026-10-04 11:30Z,published schedule,too few flights,UR900-41f6ab02.csv
+2026-10-04,UGD201,NBO,EBB,,1025,2026-10-04 07:25:47Z,,not captured,11,-12,2026-10-04 07:15Z,2026-10-04 08:30Z,published schedule,Y,UR201-41f6b7db.csv
+2026-10-04,UGD110,EBB,LGW,,1031,2026-10-04 07:31:34Z,,not captured,17,-6,2026-10-04 07:15Z,2026-10-04 15:55Z,published schedule,too few flights,UR110-41f6b268.csv
+2026-10-04,UGD334,EBB,ZNZ,,1213,2026-10-04 09:13:48Z,,not captured,179,155,2026-10-04 06:15Z,2026-10-04 08:05Z,published schedule,too few flights,UR334-41f6f2e4.csv
+2026-10-04,UGD120,EBB,JUB,,1245,2026-10-04 09:45:26Z,,not captured,-75,-105,2026-10-04 11:00Z,2026-10-04 12:25Z,published schedule,irregular,UR120-41f706c9.csv
+2026-10-04,UGD121,JUB,EBB,,1356,2026-10-04 11:56:39Z,,not captured,-88,-122,2026-10-04 13:25Z,2026-10-04 14:50Z,published schedule,irregular,UR121-41f760f0.csv
+2026-10-04,UGD901,LOS,EBB,,1359,2026-10-04 12:59:27Z,,not captured,29,20,2026-10-04 12:30Z,2026-10-04 17:00Z,published schedule,too few flights,UR901-41f75995.csv
+2026-10-04,UGD334,ZNZ,JRO,,1639,2026-10-04 13:39:40Z,,not captured,275,257,2026-10-04 09:05Z,2026-10-04 10:05Z,published schedule,too few flights,UR334-41f7b81f.csv
+2026-10-04,UGD320,EBB,DAR,,1657,2026-10-04 13:57:46Z,,not captured,313,294,2026-10-04 08:45Z,2026-10-04 10:35Z,published schedule,too few flights,UR320-41f7c66c.csv
+2026-10-04,UGD334,JRO,EBB,,1823,2026-10-04 15:23:05Z,,not captured,258,244,2026-10-04 11:05Z,2026-10-04 12:20Z,published schedule,too few flights,UR334-41f8146a.csv
+2026-10-04,UGD321,DAR,EBB,,1944,2026-10-04 16:44:19Z,,not captured,324,307,2026-10-04 11:20Z,2026-10-04 13:10Z,published schedule,too few flights,UR321-41f85400.csv
+2026-10-04,UGD206,EBB,NBO,,2041,2026-10-04 17:41:11Z,,not captured,181,159,2026-10-04 14:40Z,2026-10-04 15:55Z,published schedule,too few flights,UR206-41f881dd.csv
+2026-10-04,UGD360,EBB,BJM,,2221,2026-10-04 19:21:10Z,,not captured,351,322,2026-10-04 13:30Z,2026-10-04 14:45Z,published schedule,too few flights,UR360-41f8ca4d.csv
+2026-10-04,UGD712,EBB,JNB,,2256,2026-10-04 19:56:25Z,,not captured,11,-14,2026-10-04 19:45Z,2026-10-05 00:00Z,published schedule,too few flights,UR712-41f8dcef.csv
+2026-10-05,UGD720,LUN,HRE,,0343,2026-10-05 01:43:03Z,,not captured,-1202,-1224,2026-10-05 21:45Z,2026-10-05 22:45Z,published schedule,too few flights,UR720-41f9b86b.csv

@@ -1,0 +1,202 @@
+date,day,flight,from_,to,aircraft,dep_local,arr_local,sched_dep_utc,sched_arr_utc,sched_block_min,fr24_status,actual_utc,status,state,basis,dep_delay_min,arr_delay_min,punctuality,clock_note,op_median_dep_utc,sched_vs_op_min,sched_vs_op_arr_min,compare_ok,compare_note,op_median_block_min,op_median_air_min,block_slack_min,baseline_legs,baseline_spread_min
+2026-10-02,Fri,UR209,NBO,EBB,CRJ9,00:25,01:30,2026-10-01 21:25Z,2026-10-01 22:30Z,65,Landed 22:10,2026-10-01 22:10Z,landed,observed,actual,,-20,early,,21:22Z,2,16,Y,,54.8,51.5,10.2,22,9
+2026-10-02,Fri,UR323,DAR,EBB,CRJ9,00:50,02:40,2026-10-01 21:50Z,2026-10-01 23:40Z,110,Landed 22:54,2026-10-01 22:54Z,landed,observed,actual,,-46,early,,21:30Z,20,36,Y,,94.2,90.6,15.8,20,8
+2026-10-02,Fri,UR903,LOS,EBB,B737-800,02:00,08:30,2026-10-02 01:00Z,2026-10-02 05:30Z,270,Landed 05:45,2026-10-02 05:45Z,landed,observed,actual,,15,late,,01:44Z,-44,-28,Y,,281.4,259.8,-11.4,10,44
+2026-10-02,Fri,UR713,JNB,EBB,CRJ9,03:00,08:15,2026-10-02 01:00Z,2026-10-02 05:15Z,255,Landed 04:39,2026-10-02 04:39Z,landed,observed,actual,,-36,early,,01:07Z,-7,18,Y,,249.4,230.1,5.6,17,7
+2026-10-02,Fri,UR520,EBB,MGQ,CRJ9,05:00,07:30,2026-10-02 02:00Z,2026-10-02 04:30Z,150,Landed 04:24,2026-10-02 04:24Z,landed,observed,actual,,-6,on time,,02:06Z,-6,28,Y,,130.0,120.3,20.0,19,3
+2026-10-02,Fri,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-02 05:00Z,2026-10-02 06:15Z,75,Landed 05:41,2026-10-02 05:41Z,landed,observed,actual,,-34,early,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-02,Fri,UR521,MGQ,EBB,CRJ9,08:30,11:00,2026-10-02 05:30Z,2026-10-02 08:00Z,150,Landed 07:44,2026-10-02 07:44Z,landed,observed,actual,,-16,early,,05:45Z,-15,16,Y,,130.9,121.4,19.1,19,13
+2026-10-02,Fri,UR334,EBB,ZNZ,CRJ9,09:15,11:05,2026-10-02 06:15Z,2026-10-02 08:05Z,110,Landed 07:51,2026-10-02 07:51Z,landed,observed,actual,,-14,on time,"arrives at ZNZ, printed +300 (airport clock +200)",06:28Z,-13,7,Y,,91.6,86.4,18.4,14,14
+2026-10-02,Fri,UR710,EBB,JNB,B737-800,09:30,12:45,2026-10-02 06:30Z,2026-10-02 10:45Z,255,Landed 11:10,2026-10-02 11:10Z,landed,observed,actual,,25,late,,06:59Z,-29,-14,Y,,258.3,239.2,-3.3,17,21
+2026-10-02,Fri,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-02 07:15Z,2026-10-02 08:30Z,75,Landed 08:00,2026-10-02 08:00Z,landed,observed,actual,,-30,early,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-02,Fri,UR110,EBB,LGW,A330-800neo,11:00,17:40,2026-10-02 08:00Z,2026-10-02 16:40Z,520,Estimated 16:33,2026-10-02 16:33Z,estimated,estimated,estimate,,-7,on time,,08:04Z,-4,31,Y,,522.9,494.1,-2.9,15,15
+2026-10-02,Fri,UR334,ZNZ,JRO,CRJ9,12:05,13:05,2026-10-02 09:05Z,2026-10-02 10:05Z,60,Landed 09:30,2026-10-02 09:30Z,landed,observed,actual,,-35,early,"arrives at JRO, printed +300 (airport clock +200)",09:11Z,-6,7,Y,,47.2,42.5,12.8,11,27
+2026-10-02,Fri,UR711,JNB,EBB,B737-800,13:45,19:00,2026-10-02 11:45Z,2026-10-02 16:00Z,255,Scheduled,,scheduled,no status at export,,,,,,12:40Z,-56,-31,Y,,251.9,229.7,3.1,16,36
+2026-10-02,Fri,UR120,EBB,JUB,CRJ9,14:00,14:25,2026-10-02 11:00Z,2026-10-02 12:25Z,85,Landed 12:12,2026-10-02 12:12Z,landed,observed,actual,,-13,on time,,10:58Z,2,32,Y,,59.8,55.4,25.2,25,18
+2026-10-02,Fri,UR334,JRO,EBB,CRJ9,14:05,15:20,2026-10-02 11:05Z,2026-10-02 12:20Z,75,Landed 11:41,2026-10-02 11:41Z,landed,observed,actual,,-39,early,,11:00Z,5,20,Y,,64.7,60.8,10.3,15,22
+2026-10-02,Fri,UR121,JUB,EBB,CRJ9,15:25,17:50,2026-10-02 13:25Z,2026-10-02 14:50Z,85,Scheduled,,scheduled,no status at export,,,,,,13:03Z,22,57,Y,,54.8,50.6,30.2,23,15
+2026-10-02,Fri,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-02 13:30Z,2026-10-02 14:45Z,75,Scheduled,,scheduled,no status at export,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-02,Fri,UR206,EBB,NBO,CRJ9,17:40,18:55,2026-10-02 14:40Z,2026-10-02 15:55Z,75,Scheduled,,scheduled,no status at export,,,,,,14:49Z,-9,14,Y,,55.8,49.9,19.2,19,15
+2026-10-02,Fri,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-02 15:45Z,2026-10-02 17:00Z,75,Scheduled,,scheduled,no status at export,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-02,Fri,UR342,EBB,MBA,CRJ9,18:50,20:40,2026-10-02 15:50Z,2026-10-02 17:40Z,110,Scheduled,,scheduled,no status at export,,,,,,16:27Z,-38,-8,Y,,86.3,80.1,23.7,14,42
+2026-10-02,Fri,UR111,LGW,EBB,A330-800neo,19:35,06:15,2026-10-02 18:35Z,2026-10-03 03:15Z,520,Estimated departure 18:35,2026-10-02 18:35Z,est_dep,estimated,estimate,0,,,,19:09Z,-34,-14,Y,,512.2,484.8,7.8,14,16
+2026-10-02,Fri,UR207,NBO,EBB,CRJ9,19:55,21:10,2026-10-02 16:55Z,2026-10-02 18:10Z,75,Scheduled,,scheduled,no status at export,,,,,,16:57Z,-2,21,Y,,55.2,51.9,19.8,19,14
+2026-10-02,Fri,UR720,EBB,LUN,CRJ9,21:00,22:45,2026-10-02 18:00Z,2026-10-02 20:45Z,165,Scheduled,,scheduled,no status at export,,,,,,18:13Z,-13,7,Y,,152.8,144.2,12.2,17,8
+2026-10-02,Fri,UR343,MBA,EBB,CRJ9,21:40,23:30,2026-10-02 18:40Z,2026-10-02 20:30Z,110,Scheduled,,scheduled,not yet flown,,,,,,19:05Z,-26,24,Y,,83.7,79.2,26.3,14,42
+2026-10-02,Fri,UR322,EBB,DAR,CRJ9,22:00,23:50,2026-10-02 19:00Z,2026-10-02 20:50Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",18:59Z,1,20,Y,,99.6,89.6,10.4,20,7
+2026-10-02,Fri,UR444,EBB,DXB,A330-800neo,22:00,04:30,2026-10-02 19:00Z,2026-10-03 00:30Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-02,Fri,UR902,EBB,LOS,B737-800,22:00,00:30,2026-10-02 19:00Z,2026-10-02 23:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,20:00Z,-60,-101,Y,,281.0,253.0,-11.0,10,40
+2026-10-02,Fri,UR720,LUN,HRE,CRJ9,23:45,00:45,2026-10-02 21:45Z,2026-10-02 22:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,21:49Z,-4,17,Y,,43.8,41.3,16.2,11,24
+2026-10-03,Sat,UR323,DAR,EBB,CRJ9,00:50,02:40,2026-10-02 21:50Z,2026-10-02 23:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,21:30Z,20,36,Y,,94.2,90.6,15.8,20,8
+2026-10-03,Sat,UR880,EBB,FIH,CRJ9,01:30,02:30,2026-10-02 22:30Z,2026-10-03 01:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-03,Sat,UR720,HRE,EBB,CRJ9,01:45,05:45,2026-10-02 23:45Z,2026-10-03 02:45Z,180,Scheduled,,scheduled,not yet flown,,,,,,23:28Z,17,32,Y,,165.9,159.0,14.1,16,13
+2026-10-03,Sat,UR903,LOS,EBB,B737-800,02:00,08:30,2026-10-03 01:00Z,2026-10-03 05:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,01:44Z,-44,-28,Y,,281.4,259.8,-11.4,10,44
+2026-10-03,Sat,UR881,FIH,EBB,CRJ9,03:30,08:30,2026-10-03 02:30Z,2026-10-03 05:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-03,Sat,UR520,EBB,MGQ,CRJ9,05:00,07:30,2026-10-03 02:00Z,2026-10-03 04:30Z,150,Scheduled,,scheduled,not yet flown,,,,,,02:06Z,-6,28,Y,,130.0,120.3,20.0,19,3
+2026-10-03,Sat,UR445,DXB,EBB,A330-800neo,06:30,11:00,2026-10-03 02:30Z,2026-10-03 08:00Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-03,Sat,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-03 05:00Z,2026-10-03 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-03,Sat,UR521,MGQ,EBB,CRJ9,08:30,11:00,2026-10-03 05:30Z,2026-10-03 08:00Z,150,Scheduled,,scheduled,not yet flown,,,,,,05:45Z,-15,16,Y,,130.9,121.4,19.1,19,13
+2026-10-03,Sat,UR710,EBB,JNB,B737-800,09:30,12:45,2026-10-03 06:30Z,2026-10-03 10:45Z,255,Scheduled,,scheduled,not yet flown,,,,,,06:59Z,-29,-14,Y,,258.3,239.2,-3.3,17,21
+2026-10-03,Sat,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-03 07:15Z,2026-10-03 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-03,Sat,UR722,EBB,HRE,CRJ9,13:00,15:00,2026-10-03 10:00Z,2026-10-03 13:00Z,180,Scheduled,,scheduled,not yet flown,,,,,,10:11Z,-11,8,Y,,173.2,162.6,6.8,18,20
+2026-10-03,Sat,UR711,JNB,EBB,B737-800,13:45,19:00,2026-10-03 11:45Z,2026-10-03 16:00Z,255,Scheduled,,scheduled,not yet flown,,,,,,12:40Z,-56,-31,Y,,251.9,229.7,3.1,16,36
+2026-10-03,Sat,UR120,EBB,JUB,CRJ9,14:00,14:25,2026-10-03 11:00Z,2026-10-03 12:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,10:58Z,2,32,Y,,59.8,55.4,25.2,25,18
+2026-10-03,Sat,UR430,EBB,BOM,A330-800neo,14:00,23:00,2026-10-03 11:00Z,2026-10-03 17:30Z,390,Scheduled,,scheduled,not yet flown,,,,,,14:45Z,,,,service re-timed since the archive’s month (>3 h apart),399.8,375.1,-9.8,10,222
+2026-10-03,Sat,UR121,JUB,EBB,CRJ9,15:25,17:50,2026-10-03 13:25Z,2026-10-03 14:50Z,85,Scheduled,,scheduled,not yet flown,,,,,,13:03Z,22,57,Y,,54.8,50.6,30.2,23,15
+2026-10-03,Sat,UR722,HRE,LUN,CRJ9,16:00,17:00,2026-10-03 14:00Z,2026-10-03 15:00Z,60,Scheduled,,scheduled,not yet flown,,,,,,14:04Z,-4,10,Y,,60.8,44.9,-0.8,16,22
+2026-10-03,Sat,UR722,LUN,EBB,CRJ9,18:00,21:45,2026-10-03 16:00Z,2026-10-03 18:45Z,165,Scheduled,,scheduled,not yet flown,,,,,,15:49Z,11,29,Y,,154.0,144.0,11.0,19,23
+2026-10-03,Sat,UR720,EBB,LUN,B737-800,21:00,22:45,2026-10-03 18:00Z,2026-10-03 20:45Z,165,Scheduled,,scheduled,not yet flown,,,,,,18:13Z,-13,7,Y,,152.8,144.2,12.2,17,8
+2026-10-03,Sat,UR322,EBB,DAR,CRJ9,22:00,23:50,2026-10-03 19:00Z,2026-10-03 20:50Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",18:59Z,1,20,Y,,99.6,89.6,10.4,20,7
+2026-10-03,Sat,UR208,EBB,NBO,CRJ9,22:10,23:25,2026-10-03 19:10Z,2026-10-03 20:25Z,75,Scheduled,,scheduled,not yet flown,,,,,,19:12Z,-2,24,Y,,54.7,49.3,20.3,22,6
+2026-10-03,Sat,UR720,LUN,HRE,B737-800,23:45,00:45,2026-10-03 21:45Z,2026-10-03 22:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,21:49Z,-4,17,Y,,43.8,41.3,16.2,11,24
+2026-10-04,Sun,UR209,NBO,EBB,CRJ9,00:25,01:30,2026-10-03 21:25Z,2026-10-03 22:30Z,65,Scheduled,,scheduled,not yet flown,,,,,,21:22Z,2,16,Y,,54.8,51.5,10.2,22,9
+2026-10-04,Sun,UR323,DAR,EBB,CRJ9,00:50,02:40,2026-10-03 21:50Z,2026-10-03 23:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,21:30Z,20,36,Y,,94.2,90.6,15.8,20,8
+2026-10-04,Sun,UR431,BOM,EBB,A330-800neo,01:10,05:10,2026-10-03 19:40Z,2026-10-04 02:10Z,390,Scheduled,,scheduled,not yet flown,,,,,,11:16Z,,,,service re-timed since the archive’s month (>3 h apart),385.7,354.9,4.3,10,502
+2026-10-04,Sun,UR720,HRE,EBB,B737-800,01:45,05:45,2026-10-03 23:45Z,2026-10-04 02:45Z,180,Scheduled,,scheduled,not yet flown,,,,,,23:28Z,17,32,Y,,165.9,159.0,14.1,16,13
+2026-10-04,Sun,UR520,EBB,MGQ,CRJ9,05:00,07:30,2026-10-04 02:00Z,2026-10-04 04:30Z,150,Scheduled,,scheduled,not yet flown,,,,,,02:06Z,-6,28,Y,,130.0,120.3,20.0,19,3
+2026-10-04,Sun,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-04 05:00Z,2026-10-04 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-04,Sun,UR521,MGQ,EBB,CRJ9,08:30,11:00,2026-10-04 05:30Z,2026-10-04 08:00Z,150,Scheduled,,scheduled,not yet flown,,,,,,05:45Z,-15,16,Y,,130.9,121.4,19.1,19,13
+2026-10-04,Sun,UR334,EBB,ZNZ,CRJ9,09:15,11:05,2026-10-04 06:15Z,2026-10-04 08:05Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at ZNZ, printed +300 (airport clock +200)",06:28Z,-13,7,Y,,91.6,86.4,18.4,14,14
+2026-10-04,Sun,UR900,EBB,LOS,B737-800,10:00,12:30,2026-10-04 07:00Z,2026-10-04 11:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,07:18Z,-18,5,Y,,272.3,251.3,-2.3,7,7
+2026-10-04,Sun,UR110,EBB,LGW,A330-800neo,10:15,16:55,2026-10-04 07:15Z,2026-10-04 15:55Z,520,Scheduled,,scheduled,not yet flown,,,,,,08:04Z,-49,-14,Y,,522.9,494.1,-2.9,15,15
+2026-10-04,Sun,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-04 07:15Z,2026-10-04 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-04,Sun,UR320,EBB,DAR,CRJ9,11:45,13:35,2026-10-04 08:45Z,2026-10-04 10:35Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",08:49Z,-4,14,Y,,91.4,91.4,18.6,13,13
+2026-10-04,Sun,UR334,ZNZ,JRO,CRJ9,12:05,13:05,2026-10-04 09:05Z,2026-10-04 10:05Z,60,Scheduled,,scheduled,not yet flown,,,,,"arrives at JRO, printed +300 (airport clock +200)",09:11Z,-6,7,Y,,47.2,42.5,12.8,11,27
+2026-10-04,Sun,UR901,LOS,EBB,B737-800,13:30,20:00,2026-10-04 12:30Z,2026-10-04 17:00Z,270,Scheduled,,scheduled,not yet flown,,,,,,12:53Z,-23,-12,Y,,292.5,261.3,-22.5,8,8
+2026-10-04,Sun,UR120,EBB,JUB,CRJ9,14:00,14:25,2026-10-04 11:00Z,2026-10-04 12:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,10:58Z,2,32,Y,,59.8,55.4,25.2,25,18
+2026-10-04,Sun,UR334,JRO,EBB,CRJ9,14:05,15:20,2026-10-04 11:05Z,2026-10-04 12:20Z,75,Scheduled,,scheduled,not yet flown,,,,,,11:00Z,5,20,Y,,64.7,60.8,10.3,15,22
+2026-10-04,Sun,UR321,DAR,EBB,CRJ9,14:20,16:10,2026-10-04 11:20Z,2026-10-04 13:10Z,110,Scheduled,,scheduled,not yet flown,,,,,,11:27Z,-7,14,Y,,96.0,92.0,14.0,13,11
+2026-10-04,Sun,UR121,JUB,EBB,CRJ9,15:25,17:50,2026-10-04 13:25Z,2026-10-04 14:50Z,85,Scheduled,,scheduled,not yet flown,,,,,,13:03Z,22,57,Y,,54.8,50.6,30.2,23,15
+2026-10-04,Sun,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-04 13:30Z,2026-10-04 14:45Z,75,Scheduled,,scheduled,not yet flown,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-04,Sun,UR206,EBB,NBO,CRJ9,17:40,18:55,2026-10-04 14:40Z,2026-10-04 15:55Z,75,Scheduled,,scheduled,not yet flown,,,,,,14:49Z,-9,14,Y,,55.8,49.9,19.2,19,15
+2026-10-04,Sun,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-04 15:45Z,2026-10-04 17:00Z,75,Scheduled,,scheduled,not yet flown,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-04,Sun,UR342,EBB,MBA,CRJ9,18:50,20:40,2026-10-04 15:50Z,2026-10-04 17:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,16:27Z,-38,-8,Y,,86.3,80.1,23.7,14,42
+2026-10-04,Sun,UR111,LGW,EBB,A330-800neo,19:05,05:45,2026-10-04 18:05Z,2026-10-05 02:45Z,520,Scheduled,,scheduled,not yet flown,,,,,,19:09Z,-64,-44,Y,,512.2,484.8,7.8,14,16
+2026-10-04,Sun,UR207,NBO,EBB,CRJ9,19:55,21:10,2026-10-04 16:55Z,2026-10-04 18:10Z,75,Scheduled,,scheduled,not yet flown,,,,,,16:57Z,-2,21,Y,,55.2,51.9,19.8,19,14
+2026-10-04,Sun,UR720,EBB,LUN,CRJ9,21:00,22:45,2026-10-04 18:00Z,2026-10-04 20:45Z,165,Scheduled,,scheduled,not yet flown,,,,,,18:13Z,-13,7,Y,,152.8,144.2,12.2,17,8
+2026-10-04,Sun,UR343,MBA,EBB,CRJ9,21:40,23:30,2026-10-04 18:40Z,2026-10-04 20:30Z,110,Scheduled,,scheduled,not yet flown,,,,,,19:05Z,-26,24,Y,,83.7,79.2,26.3,14,42
+2026-10-04,Sun,UR444,EBB,DXB,A330-800neo,22:00,04:30,2026-10-04 19:00Z,2026-10-05 00:30Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-04,Sun,UR208,EBB,NBO,CRJ9,22:10,23:25,2026-10-04 19:10Z,2026-10-04 20:25Z,75,Scheduled,,scheduled,not yet flown,,,,,,19:12Z,-2,24,Y,,54.7,49.3,20.3,22,6
+2026-10-04,Sun,UR712,EBB,JNB,B737-800,22:45,02:00,2026-10-04 19:45Z,2026-10-05 00:00Z,255,Scheduled,,scheduled,not yet flown,,,,,,19:47Z,-2,22,Y,,255.7,237.4,-0.7,16,8
+2026-10-04,Sun,UR720,LUN,HRE,CRJ9,23:45,00:45,2026-10-04 21:45Z,2026-10-04 22:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,21:49Z,-4,17,Y,,43.8,41.3,16.2,11,24
+2026-10-05,Mon,UR209,NBO,EBB,CRJ9,00:25,01:30,2026-10-04 21:25Z,2026-10-04 22:30Z,65,Scheduled,,scheduled,not yet flown,,,,,,21:22Z,2,16,Y,,54.8,51.5,10.2,22,9
+2026-10-05,Mon,UR880,EBB,FIH,CRJ9,01:30,02:30,2026-10-04 22:30Z,2026-10-05 01:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-05,Mon,UR720,HRE,EBB,CRJ9,01:45,05:45,2026-10-04 23:45Z,2026-10-05 02:45Z,180,Scheduled,,scheduled,not yet flown,,,,,,23:28Z,17,32,Y,,165.9,159.0,14.1,16,13
+2026-10-05,Mon,UR713,JNB,EBB,B737-800,03:00,08:15,2026-10-05 01:00Z,2026-10-05 05:15Z,255,Scheduled,,scheduled,not yet flown,,,,,,01:07Z,-7,18,Y,,249.4,230.1,5.6,17,7
+2026-10-05,Mon,UR881,FIH,EBB,CRJ9,03:30,08:30,2026-10-05 02:30Z,2026-10-05 05:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-05,Mon,UR445,DXB,EBB,A330-800neo,06:30,11:00,2026-10-05 02:30Z,2026-10-05 08:00Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-05,Mon,UR122,EBB,JUB,CRJ9,07:00,07:25,2026-10-05 04:00Z,2026-10-05 05:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,04:03Z,-3,28,Y,,56.8,52.7,28.2,9,6
+2026-10-05,Mon,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-05 05:00Z,2026-10-05 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-05,Mon,UR123,JUB,EBB,CRJ9,08:10,10:35,2026-10-05 06:10Z,2026-10-05 07:35Z,85,Scheduled,,scheduled,not yet flown,,,,,,06:05Z,5,40,Y,,55.7,50.9,29.3,9,15
+2026-10-05,Mon,UR710,EBB,JNB,CRJ9,09:30,12:45,2026-10-05 06:30Z,2026-10-05 10:45Z,255,Scheduled,,scheduled,not yet flown,,,,,,06:59Z,-29,-14,Y,,258.3,239.2,-3.3,17,21
+2026-10-05,Mon,UR900,EBB,LOS,B737-800,10:00,12:30,2026-10-05 07:00Z,2026-10-05 11:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,07:18Z,-18,5,Y,,272.3,251.3,-2.3,7,7
+2026-10-05,Mon,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-05 07:15Z,2026-10-05 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-05,Mon,UR320,EBB,DAR,CRJ9,11:45,13:35,2026-10-05 08:45Z,2026-10-05 10:35Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",08:49Z,-4,14,Y,,91.4,91.4,18.6,13,13
+2026-10-05,Mon,UR901,LOS,EBB,B737-800,13:30,20:00,2026-10-05 12:30Z,2026-10-05 17:00Z,270,Scheduled,,scheduled,not yet flown,,,,,,12:53Z,-23,-12,Y,,292.5,261.3,-22.5,8,8
+2026-10-05,Mon,UR711,JNB,EBB,CRJ9,13:45,19:00,2026-10-05 11:45Z,2026-10-05 16:00Z,255,Scheduled,,scheduled,not yet flown,,,,,,12:40Z,-56,-31,Y,,251.9,229.7,3.1,16,36
+2026-10-05,Mon,UR321,DAR,EBB,CRJ9,14:20,16:10,2026-10-05 11:20Z,2026-10-05 13:10Z,110,Scheduled,,scheduled,not yet flown,,,,,,11:27Z,-7,14,Y,,96.0,92.0,14.0,13,11
+2026-10-05,Mon,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-05 13:30Z,2026-10-05 14:45Z,75,Scheduled,,scheduled,not yet flown,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-05,Mon,UR206,EBB,NBO,CRJ9,17:40,18:55,2026-10-05 14:40Z,2026-10-05 15:55Z,75,Scheduled,,scheduled,not yet flown,,,,,,14:49Z,-9,14,Y,,55.8,49.9,19.2,19,15
+2026-10-05,Mon,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-05 15:45Z,2026-10-05 17:00Z,75,Scheduled,,scheduled,not yet flown,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-05,Mon,UR207,NBO,EBB,CRJ9,19:55,21:10,2026-10-05 16:55Z,2026-10-05 18:10Z,75,Scheduled,,scheduled,not yet flown,,,,,,16:57Z,-2,21,Y,,55.2,51.9,19.8,19,14
+2026-10-05,Mon,UR322,EBB,DAR,CRJ9,21:00,22:50,2026-10-05 18:00Z,2026-10-05 19:50Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",18:59Z,-59,-40,Y,,99.6,89.6,10.4,20,7
+2026-10-05,Mon,UR720,EBB,LUN,CRJ9,21:00,22:45,2026-10-05 18:00Z,2026-10-05 20:45Z,165,Scheduled,,scheduled,not yet flown,,,,,,18:13Z,-13,7,Y,,152.8,144.2,12.2,17,8
+2026-10-05,Mon,UR208,EBB,NBO,CRJ9,22:10,23:25,2026-10-05 19:10Z,2026-10-05 20:25Z,75,Scheduled,,scheduled,not yet flown,,,,,,19:12Z,-2,24,Y,,54.7,49.3,20.3,22,6
+2026-10-05,Mon,UR712,EBB,JNB,B737-800,22:45,01:59,2026-10-05 19:45Z,2026-10-05 23:59Z,254,Scheduled,,scheduled,not yet flown,,,,,,19:47Z,-2,20,Y,,255.7,237.4,-1.7,16,8
+2026-10-05,Mon,UR720,LUN,HRE,CRJ9,23:45,00:45,2026-10-05 21:45Z,2026-10-05 22:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,21:49Z,-4,17,Y,,43.8,41.3,16.2,11,24
+2026-10-05,Mon,UR323,DAR,EBB,CRJ9,23:50,01:40,2026-10-05 20:50Z,2026-10-05 22:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,21:30Z,-40,-24,Y,,94.2,90.6,15.8,20,8
+2026-10-06,Tue,UR209,NBO,EBB,CRJ9,00:25,01:30,2026-10-05 21:25Z,2026-10-05 22:30Z,65,Scheduled,,scheduled,not yet flown,,,,,,21:22Z,2,16,Y,,54.8,51.5,10.2,22,9
+2026-10-06,Tue,UR720,HRE,EBB,CRJ9,01:45,05:45,2026-10-05 23:45Z,2026-10-06 02:45Z,180,Scheduled,,scheduled,not yet flown,,,,,,23:28Z,17,32,Y,,165.9,159.0,14.1,16,13
+2026-10-06,Tue,UR713,JNB,EBB,B737-800,03:00,08:15,2026-10-06 01:00Z,2026-10-06 05:15Z,255,Scheduled,,scheduled,not yet flown,,,,,,01:07Z,-7,18,Y,,249.4,230.1,5.6,17,7
+2026-10-06,Tue,UR520,EBB,MGQ,CRJ9,05:00,07:30,2026-10-06 02:00Z,2026-10-06 04:30Z,150,Scheduled,,scheduled,not yet flown,,,,,,02:06Z,-6,28,Y,,130.0,120.3,20.0,19,3
+2026-10-06,Tue,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-06 05:00Z,2026-10-06 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-06,Tue,UR521,MGQ,EBB,CRJ9,08:30,11:00,2026-10-06 05:30Z,2026-10-06 08:00Z,150,Scheduled,,scheduled,not yet flown,,,,,,05:45Z,-15,16,Y,,130.9,121.4,19.1,19,13
+2026-10-06,Tue,UR882,EBB,FIH,CRJ9,08:30,09:30,2026-10-06 05:30Z,2026-10-06 08:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-06,Tue,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-06 07:15Z,2026-10-06 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-06,Tue,UR110,EBB,LGW,A330-800neo,10:30,17:10,2026-10-06 07:30Z,2026-10-06 16:10Z,520,Scheduled,,scheduled,not yet flown,,,,,,08:04Z,-34,1,Y,,522.9,494.1,-2.9,15,15
+2026-10-06,Tue,UR883,FIH,EBB,CRJ9,10:30,15:30,2026-10-06 09:30Z,2026-10-06 12:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-06,Tue,UR320,EBB,DAR,CRJ9,11:45,13:35,2026-10-06 08:45Z,2026-10-06 10:35Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",08:49Z,-4,14,Y,,91.4,91.4,18.6,13,13
+2026-10-06,Tue,UR722,EBB,HRE,B737-800,13:00,15:00,2026-10-06 10:00Z,2026-10-06 13:00Z,180,Scheduled,,scheduled,not yet flown,,,,,,10:11Z,-11,8,Y,,173.2,162.6,6.8,18,20
+2026-10-06,Tue,UR120,EBB,JUB,CRJ9,14:00,14:25,2026-10-06 11:00Z,2026-10-06 12:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,10:58Z,2,32,Y,,59.8,55.4,25.2,25,18
+2026-10-06,Tue,UR321,DAR,EBB,CRJ9,14:20,16:10,2026-10-06 11:20Z,2026-10-06 13:10Z,110,Scheduled,,scheduled,not yet flown,,,,,,11:27Z,-7,14,Y,,96.0,92.0,14.0,13,11
+2026-10-06,Tue,UR121,JUB,EBB,CRJ9,15:25,17:50,2026-10-06 13:25Z,2026-10-06 14:50Z,85,Scheduled,,scheduled,not yet flown,,,,,,13:03Z,22,57,Y,,54.8,50.6,30.2,23,15
+2026-10-06,Tue,UR722,HRE,LUN,B737-800,16:00,17:00,2026-10-06 14:00Z,2026-10-06 15:00Z,60,Scheduled,,scheduled,not yet flown,,,,,,14:04Z,-4,10,Y,,60.8,44.9,-0.8,16,22
+2026-10-06,Tue,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-06 13:30Z,2026-10-06 14:45Z,75,Scheduled,,scheduled,not yet flown,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-06,Tue,UR206,EBB,NBO,CRJ9,17:40,18:55,2026-10-06 14:40Z,2026-10-06 15:55Z,75,Scheduled,,scheduled,not yet flown,,,,,,14:49Z,-9,14,Y,,55.8,49.9,19.2,19,15
+2026-10-06,Tue,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-06 15:45Z,2026-10-06 17:00Z,75,Scheduled,,scheduled,not yet flown,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-06,Tue,UR722,LUN,EBB,B737-800,18:00,21:45,2026-10-06 16:00Z,2026-10-06 18:45Z,165,Scheduled,,scheduled,not yet flown,,,,,,15:49Z,11,29,Y,,154.0,144.0,11.0,19,23
+2026-10-06,Tue,UR207,NBO,EBB,CRJ9,19:55,21:10,2026-10-06 16:55Z,2026-10-06 18:10Z,75,Scheduled,,scheduled,not yet flown,,,,,,16:57Z,-2,21,Y,,55.2,51.9,19.8,19,14
+2026-10-06,Tue,UR111,LGW,EBB,A330-800neo,20:10,06:50,2026-10-06 19:10Z,2026-10-07 03:50Z,520,Scheduled,,scheduled,not yet flown,,,,,,19:09Z,0,22,Y,,512.2,484.8,7.8,14,16
+2026-10-06,Tue,UR712,EBB,JNB,B737-800,22:45,01:59,2026-10-06 19:45Z,2026-10-06 23:59Z,254,Scheduled,,scheduled,not yet flown,,,,,,19:47Z,-2,20,Y,,255.7,237.4,-1.7,16,8
+2026-10-07,Wed,UR880,EBB,FIH,CRJ9,01:30,02:30,2026-10-06 22:30Z,2026-10-07 01:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-07,Wed,UR713,JNB,EBB,B737-800,03:00,08:15,2026-10-07 01:00Z,2026-10-07 05:15Z,255,Scheduled,,scheduled,not yet flown,,,,,,01:07Z,-7,18,Y,,249.4,230.1,5.6,17,7
+2026-10-07,Wed,UR881,FIH,EBB,CRJ9,03:30,08:30,2026-10-07 02:30Z,2026-10-07 05:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-07,Wed,UR122,EBB,JUB,CRJ9,07:00,07:25,2026-10-07 04:00Z,2026-10-07 05:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,04:03Z,-3,28,Y,,56.8,52.7,28.2,9,6
+2026-10-07,Wed,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-07 05:00Z,2026-10-07 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-07,Wed,UR123,JUB,EBB,CRJ9,08:10,10:35,2026-10-07 06:10Z,2026-10-07 07:35Z,85,Scheduled,,scheduled,not yet flown,,,,,,06:05Z,5,40,Y,,55.7,50.9,29.3,9,15
+2026-10-07,Wed,UR710,EBB,JNB,B737-800,09:30,12:45,2026-10-07 06:30Z,2026-10-07 10:45Z,255,Scheduled,,scheduled,not yet flown,,,,,,06:59Z,-29,-14,Y,,258.3,239.2,-3.3,17,21
+2026-10-07,Wed,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-07 07:15Z,2026-10-07 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-07,Wed,UR722,EBB,HRE,CRJ9,12:00,14:00,2026-10-07 09:00Z,2026-10-07 12:00Z,180,Scheduled,,scheduled,not yet flown,,,,,,10:11Z,-71,-52,Y,,173.2,162.6,6.8,18,20
+2026-10-07,Wed,UR334,EBB,ZNZ,CRJ9,12:30,14:20,2026-10-07 09:30Z,2026-10-07 11:20Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at ZNZ, printed +300 (airport clock +200)",06:28Z,,,,service re-timed since the archive’s month (>3 h apart),91.6,86.4,18.4,14,14
+2026-10-07,Wed,UR711,JNB,EBB,B737-800,13:45,19:00,2026-10-07 11:45Z,2026-10-07 16:00Z,255,Scheduled,,scheduled,not yet flown,,,,,,12:40Z,-56,-31,Y,,251.9,229.7,3.1,16,36
+2026-10-07,Wed,UR722,HRE,LUN,CRJ9,14:45,15:45,2026-10-07 12:45Z,2026-10-07 13:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,14:04Z,-80,-64,Y,,60.8,44.9,-0.8,16,22
+2026-10-07,Wed,UR334,ZNZ,JRO,CRJ9,15:20,16:20,2026-10-07 12:20Z,2026-10-07 13:20Z,60,Scheduled,,scheduled,not yet flown,,,,,"arrives at JRO, printed +300 (airport clock +200)",09:11Z,,,,service re-timed since the archive’s month (>3 h apart),47.2,42.5,12.8,11,27
+2026-10-07,Wed,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-07 13:30Z,2026-10-07 14:45Z,75,Scheduled,,scheduled,not yet flown,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-07,Wed,UR722,LUN,EBB,CRJ9,16:30,20:15,2026-10-07 14:30Z,2026-10-07 17:15Z,165,Scheduled,,scheduled,not yet flown,,,,,,15:49Z,-79,-61,Y,,154.0,144.0,11.0,19,23
+2026-10-07,Wed,UR334,JRO,EBB,CRJ9,17:20,18:35,2026-10-07 14:20Z,2026-10-07 15:35Z,75,Scheduled,,scheduled,not yet flown,,,,,,11:00Z,,,,service re-timed since the archive’s month (>3 h apart),64.7,60.8,10.3,15,22
+2026-10-07,Wed,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-07 15:45Z,2026-10-07 17:00Z,75,Scheduled,,scheduled,not yet flown,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-07,Wed,UR342,EBB,MBA,CRJ9,19:50,21:40,2026-10-07 16:50Z,2026-10-07 18:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,16:27Z,22,52,Y,,86.3,80.1,23.7,14,42
+2026-10-07,Wed,UR430,EBB,BOM,A330-800neo,21:05,06:05,2026-10-07 18:05Z,2026-10-08 00:35Z,390,Scheduled,,scheduled,not yet flown,,,,,,14:45Z,,,,service re-timed since the archive’s month (>3 h apart),399.8,375.1,-9.8,10,222
+2026-10-07,Wed,UR322,EBB,DAR,CRJ9,22:00,23:50,2026-10-07 19:00Z,2026-10-07 20:50Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",18:59Z,1,20,Y,,99.6,89.6,10.4,20,7
+2026-10-07,Wed,UR208,EBB,NBO,CRJ9,22:10,23:25,2026-10-07 19:10Z,2026-10-07 20:25Z,75,Scheduled,,scheduled,not yet flown,,,,,,19:12Z,-2,24,Y,,54.7,49.3,20.3,22,6
+2026-10-07,Wed,UR444,EBB,DXB,A330-800neo,22:20,04:50,2026-10-07 19:20Z,2026-10-08 00:50Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-07,Wed,UR343,MBA,EBB,CRJ9,22:40,00:30,2026-10-07 19:40Z,2026-10-07 21:30Z,110,Scheduled,,scheduled,not yet flown,,,,,,19:05Z,34,84,Y,,83.7,79.2,26.3,14,42
+2026-10-08,Thu,UR209,NBO,EBB,CRJ9,00:25,01:30,2026-10-07 21:25Z,2026-10-07 22:30Z,65,Scheduled,,scheduled,not yet flown,,,,,,21:22Z,2,16,Y,,54.8,51.5,10.2,22,9
+2026-10-08,Thu,UR323,DAR,EBB,CRJ9,00:50,02:40,2026-10-07 21:50Z,2026-10-07 23:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,21:30Z,20,36,Y,,94.2,90.6,15.8,20,8
+2026-10-08,Thu,UR880,EBB,FIH,CRJ9,01:30,02:30,2026-10-07 22:30Z,2026-10-08 01:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-08,Thu,UR881,FIH,EBB,CRJ9,03:30,08:30,2026-10-08 02:30Z,2026-10-08 05:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-08,Thu,UR445,DXB,EBB,A330-800neo,06:30,11:00,2026-10-08 02:30Z,2026-10-08 08:00Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-08,Thu,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-08 05:00Z,2026-10-08 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-08,Thu,UR431,BOM,EBB,A330-800neo,08:00,12:00,2026-10-08 02:30Z,2026-10-08 09:00Z,390,Scheduled,,scheduled,not yet flown,,,,,,11:16Z,,,,service re-timed since the archive’s month (>3 h apart),385.7,354.9,4.3,10,502
+2026-10-08,Thu,UR882,EBB,FIH,CRJ9,08:30,09:30,2026-10-08 05:30Z,2026-10-08 08:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-08,Thu,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-08 07:15Z,2026-10-08 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-08,Thu,UR883,FIH,EBB,CRJ9,10:30,15:30,2026-10-08 09:30Z,2026-10-08 12:30Z,180,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-08,Thu,UR722,EBB,HRE,B737-800,13:00,15:00,2026-10-08 10:00Z,2026-10-08 13:00Z,180,Scheduled,,scheduled,not yet flown,,,,,,10:11Z,-11,8,Y,,173.2,162.6,6.8,18,20
+2026-10-08,Thu,UR120,EBB,JUB,CRJ9,14:00,14:25,2026-10-08 11:00Z,2026-10-08 12:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,10:58Z,2,32,Y,,59.8,55.4,25.2,25,18
+2026-10-08,Thu,UR121,JUB,EBB,CRJ9,15:25,17:50,2026-10-08 13:25Z,2026-10-08 14:50Z,85,Scheduled,,scheduled,not yet flown,,,,,,13:03Z,22,57,Y,,54.8,50.6,30.2,23,15
+2026-10-08,Thu,UR722,HRE,LUN,B737-800,15:45,16:45,2026-10-08 13:45Z,2026-10-08 14:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,14:04Z,-20,-4,Y,,60.8,44.9,-0.8,16,22
+2026-10-08,Thu,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-08 13:30Z,2026-10-08 14:45Z,75,Scheduled,,scheduled,not yet flown,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-08,Thu,UR722,LUN,EBB,B737-800,17:30,21:15,2026-10-08 15:30Z,2026-10-08 18:15Z,165,Scheduled,,scheduled,not yet flown,,,,,,15:49Z,-19,-1,Y,,154.0,144.0,11.0,19,23
+2026-10-08,Thu,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-08 15:45Z,2026-10-08 17:00Z,75,Scheduled,,scheduled,not yet flown,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-08,Thu,UR322,EBB,DAR,CRJ9,22:00,23:50,2026-10-08 19:00Z,2026-10-08 20:50Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",18:59Z,1,20,Y,,99.6,89.6,10.4,20,7
+2026-10-08,Thu,UR902,EBB,LOS,B737-800,22:00,00:30,2026-10-08 19:00Z,2026-10-08 23:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,20:00Z,-60,-101,Y,,281.0,253.0,-11.0,10,40
+2026-10-08,Thu,UR208,EBB,NBO,CRJ9,22:10,23:25,2026-10-08 19:10Z,2026-10-08 20:25Z,75,Scheduled,,scheduled,not yet flown,,,,,,19:12Z,-2,24,Y,,54.7,49.3,20.3,22,6
+2026-10-08,Thu,UR712,EBB,JNB,CRJ9,22:45,01:59,2026-10-08 19:45Z,2026-10-08 23:59Z,254,Scheduled,,scheduled,not yet flown,,,,,,19:47Z,-2,20,Y,,255.7,237.4,-1.7,16,8
+2026-10-09,Fri,UR209,NBO,EBB,CRJ9,00:25,01:30,2026-10-08 21:25Z,2026-10-08 22:30Z,65,Scheduled,,scheduled,not yet flown,,,,,,21:22Z,2,16,Y,,54.8,51.5,10.2,22,9
+2026-10-09,Fri,UR323,DAR,EBB,CRJ9,00:50,02:40,2026-10-08 21:50Z,2026-10-08 23:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,21:30Z,20,36,Y,,94.2,90.6,15.8,20,8
+2026-10-09,Fri,UR903,LOS,EBB,B737-800,02:00,08:30,2026-10-09 01:00Z,2026-10-09 05:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,01:44Z,-44,-28,Y,,281.4,259.8,-11.4,10,44
+2026-10-09,Fri,UR713,JNB,EBB,CRJ9,03:00,08:15,2026-10-09 01:00Z,2026-10-09 05:15Z,255,Scheduled,,scheduled,not yet flown,,,,,,01:07Z,-7,18,Y,,249.4,230.1,5.6,17,7
+2026-10-09,Fri,UR520,EBB,MGQ,CRJ9,05:00,07:30,2026-10-09 02:00Z,2026-10-09 04:30Z,150,Scheduled,,scheduled,not yet flown,,,,,,02:06Z,-6,28,Y,,130.0,120.3,20.0,19,3
+2026-10-09,Fri,UR200,EBB,NBO,CRJ9,08:00,09:15,2026-10-09 05:00Z,2026-10-09 06:15Z,75,Scheduled,,scheduled,not yet flown,,,,,,05:00Z,0,26,Y,,54.1,49.8,20.9,33,6
+2026-10-09,Fri,UR521,MGQ,EBB,CRJ9,08:30,11:00,2026-10-09 05:30Z,2026-10-09 08:00Z,150,Scheduled,,scheduled,not yet flown,,,,,,05:45Z,-15,16,Y,,130.9,121.4,19.1,19,13
+2026-10-09,Fri,UR334,EBB,ZNZ,CRJ9,09:15,11:05,2026-10-09 06:15Z,2026-10-09 08:05Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at ZNZ, printed +300 (airport clock +200)",06:28Z,-13,7,Y,,91.6,86.4,18.4,14,14
+2026-10-09,Fri,UR710,EBB,JNB,B737-800,09:30,12:45,2026-10-09 06:30Z,2026-10-09 10:45Z,255,Scheduled,,scheduled,not yet flown,,,,,,06:59Z,-29,-14,Y,,258.3,239.2,-3.3,17,21
+2026-10-09,Fri,UR201,NBO,EBB,CRJ9,10:15,11:30,2026-10-09 07:15Z,2026-10-09 08:30Z,75,Scheduled,,scheduled,not yet flown,,,,,,07:07Z,8,31,Y,,55.3,51.7,19.7,33,8
+2026-10-09,Fri,UR110,EBB,LGW,A330-800neo,11:00,17:40,2026-10-09 08:00Z,2026-10-09 16:40Z,520,Scheduled,,scheduled,not yet flown,,,,,,08:04Z,-4,31,Y,,522.9,494.1,-2.9,15,15
+2026-10-09,Fri,UR334,ZNZ,JRO,CRJ9,12:05,13:05,2026-10-09 09:05Z,2026-10-09 10:05Z,60,Scheduled,,scheduled,not yet flown,,,,,"arrives at JRO, printed +300 (airport clock +200)",09:11Z,-6,7,Y,,47.2,42.5,12.8,11,27
+2026-10-09,Fri,UR711,JNB,EBB,B737-800,13:45,19:00,2026-10-09 11:45Z,2026-10-09 16:00Z,255,Scheduled,,scheduled,not yet flown,,,,,,12:40Z,-56,-31,Y,,251.9,229.7,3.1,16,36
+2026-10-09,Fri,UR120,EBB,JUB,CRJ9,14:00,14:25,2026-10-09 11:00Z,2026-10-09 12:25Z,85,Scheduled,,scheduled,not yet flown,,,,,,10:58Z,2,32,Y,,59.8,55.4,25.2,25,18
+2026-10-09,Fri,UR334,JRO,EBB,CRJ9,14:05,15:20,2026-10-09 11:05Z,2026-10-09 12:20Z,75,Scheduled,,scheduled,not yet flown,,,,,,11:00Z,5,20,Y,,64.7,60.8,10.3,15,22
+2026-10-09,Fri,UR121,JUB,EBB,CRJ9,15:25,17:50,2026-10-09 13:25Z,2026-10-09 14:50Z,85,Scheduled,,scheduled,not yet flown,,,,,,13:03Z,22,57,Y,,54.8,50.6,30.2,23,15
+2026-10-09,Fri,UR360,EBB,BJM,CRJ9,16:30,16:45,2026-10-09 13:30Z,2026-10-09 14:45Z,75,Scheduled,,scheduled,not yet flown,,,,,,13:38Z,-8,17,Y,,55.5,49.2,19.5,29,11
+2026-10-09,Fri,UR206,EBB,NBO,CRJ9,17:40,18:55,2026-10-09 14:40Z,2026-10-09 15:55Z,75,Scheduled,,scheduled,not yet flown,,,,,,14:49Z,-9,14,Y,,55.8,49.9,19.2,19,15
+2026-10-09,Fri,UR361,BJM,EBB,CRJ9,17:45,20:00,2026-10-09 15:45Z,2026-10-09 17:00Z,75,Scheduled,,scheduled,not yet flown,,,,,,15:26Z,19,42,Y,,58.1,52.2,16.9,27,8
+2026-10-09,Fri,UR342,EBB,MBA,CRJ9,18:50,20:40,2026-10-09 15:50Z,2026-10-09 17:40Z,110,Scheduled,,scheduled,not yet flown,,,,,,16:27Z,-38,-8,Y,,86.3,80.1,23.7,14,42
+2026-10-09,Fri,UR111,LGW,EBB,A330-800neo,19:35,06:15,2026-10-09 18:35Z,2026-10-10 03:15Z,520,Scheduled,,scheduled,not yet flown,,,,,,19:09Z,-34,-14,Y,,512.2,484.8,7.8,14,16
+2026-10-09,Fri,UR207,NBO,EBB,CRJ9,19:55,21:10,2026-10-09 16:55Z,2026-10-09 18:10Z,75,Scheduled,,scheduled,not yet flown,,,,,,16:57Z,-2,21,Y,,55.2,51.9,19.8,19,14
+2026-10-09,Fri,UR720,EBB,LUN,CRJ9,21:00,22:45,2026-10-09 18:00Z,2026-10-09 20:45Z,165,Scheduled,,scheduled,not yet flown,,,,,,18:13Z,-13,7,Y,,152.8,144.2,12.2,17,8
+2026-10-09,Fri,UR343,MBA,EBB,CRJ9,21:40,23:30,2026-10-09 18:40Z,2026-10-09 20:30Z,110,Scheduled,,scheduled,not yet flown,,,,,,19:05Z,-26,24,Y,,83.7,79.2,26.3,14,42
+2026-10-09,Fri,UR322,EBB,DAR,CRJ9,22:00,23:50,2026-10-09 19:00Z,2026-10-09 20:50Z,110,Scheduled,,scheduled,not yet flown,,,,,"arrives at DAR, printed +300 (airport clock +200)",18:59Z,1,20,Y,,99.6,89.6,10.4,20,7
+2026-10-09,Fri,UR444,EBB,DXB,A330-800neo,22:00,04:30,2026-10-09 19:00Z,2026-10-10 00:30Z,330,Scheduled,,scheduled,not yet flown,,,,,,,,,Y,,,,,0,
+2026-10-09,Fri,UR902,EBB,LOS,B737-800,22:00,00:30,2026-10-09 19:00Z,2026-10-09 23:30Z,270,Scheduled,,scheduled,not yet flown,,,,,,20:00Z,-60,-101,Y,,281.0,253.0,-11.0,10,40
+2026-10-09,Fri,UR720,LUN,HRE,CRJ9,23:45,00:45,2026-10-09 21:45Z,2026-10-09 22:45Z,60,Scheduled,,scheduled,not yet flown,,,,,,21:49Z,-4,17,Y,,43.8,41.3,16.2,11,24
