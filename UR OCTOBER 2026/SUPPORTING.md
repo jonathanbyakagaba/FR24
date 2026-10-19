@@ -1,5 +1,13 @@
 # Supporting files — what each one is, and how to regenerate it
 
+> **Stale since 2026-10-19.** The folder's zip was replaced that day
+> (317 UR tracks, all Oct 2026, running to 16 Oct; sha256
+> `e7f92fe68a65bc567eb7d4ef32930b6d661fb05c87a97cb3c68d4c155877ce08`).
+> The files indexed below were **not** regenerated — every row count
+> in this index still describes the frozen file it names (which is
+> unchanged; the tables cover 01–05 Oct from the old 826-track
+> archive), not the current zip.
+
 Derived from the tracks already published here. Nothing in this list is hand-edited:
 every row count was read off the file itself when this index was written, and each
 file has a one-line command that rebuilds it after a new daily upload.

@@ -12,7 +12,7 @@ Frozen **2026-10-05** from the build of that name. This folder is a snapshot: no
 | file | size | rows |
 |---|---|---|
 | `SUPPORTING.md` | 5 KB | 54 lines |
-| `UR September flights.zip` | 4696 KB | — |
+| `UR September flights.zip` | 4820 KiB | 622 tracks (updated 2026-10-19, see note above) |
 | `all_flights_aeroroutes.md` | 23 KB | 766 lines |
 | `app_status.csv` | 77 KB | 705 |
 | `data_gaps.md` | 13 KB | 230 lines |
