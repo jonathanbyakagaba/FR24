@@ -25,6 +25,11 @@ a September track even if it ends in October (`UR430-41e8fb3a.csv`,
   was already September-valid. 607 of 622 rebuilt flights match a tail in
   it. `app_status.csv` and `punctuality.csv` likewise keep their frozen,
   app-based content; see `punctuality.md`.
+* **Schedule cross-check (added 2026-10-20):** the FTA utilization plans
+  for 1–30 Sep were transcribed (`work/fta_sep2026.csv`) — 660 operating
+  legs. 608 matched a track; **52 planned legs have no track** (see
+  `data_gaps.md`). `schedule_delays.csv` scores every leg against the
+  plan's STD/STA; departure delay includes taxi-out (actual = takeoff).
 * Weather: **new** — `metar/` holds the Iowa State IEM ASOS extract for
   Entebbe (HUEN), 1–30 Sep, and `flight_conditions.csv` /
   `weather_analysis.md` were rebuilt from it. Outstation METARs were not
@@ -44,19 +49,19 @@ a September track even if it ends in October (`UR430-41e8fb3a.csv`,
 | `runway_usage.csv` | 622 | runway in use per flight (simplified model — see `runway_usage.md`) |
 | `flight_conditions.csv` | 622 | Entebbe-end weather per flight from `metar/` |
 | `punctuality.csv` | 610 | app status + usual-time delay (frozen basis) |
+| `schedule_delays.csv` | 660 legs | FTA plan vs operated, delays, `no_track` flags (added 2026-10-20) |
 | `app_status.csv` | 705 | the app status dots underneath `tails.csv`/`punctuality.csv` |
 | `metar/` | 5 part files | IEM ASOS parsed extract, HUEN, Sep 2026 |
 
 Write-ups: `all_flights_aeroroutes.md`, `date_coverage.md`,
-`data_gaps.md`, `no_code_tracks.md`, `triangle_routes.md`,
-`runway_usage.md`, `weather_analysis.md`, `punctuality.md`,
-`schedule_delays.md` (why September has no schedule-basis file).
+`data_gaps.md` (the 52 unmatched FTA legs), `no_code_tracks.md`,
+`triangle_routes.md`, `runway_usage.md`, `weather_analysis.md`,
+`punctuality.md`, `schedule_delays.md`.
 
 ## Provenance and limits
 
 Tracks are the only flight source. Takeoff = first airborne fix, landing =
 last airborne fix before touchdown (verified against the frozen log).
-`schedule_delays.csv` is **absent** for September: no timetable baseline
-was transcribed (October's folder shows the FTA-based version). September
-was not cross-checked against the FTA plans in this rebuild — see
-`data_gaps.md` for exactly what that does and doesn't claim.
+`schedule_delays.csv` is FTA-plan-based (added 2026-10-20, one day after
+the rest of the rebuild); the plan transcription is
+`work/fta_sep2026.csv` and the join is `work/build_september_fta.py`.

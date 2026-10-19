@@ -19,7 +19,7 @@ which files they produce and which files are carried over frozen.
 | `weather_analysis.md` | — | September weather write-up | written from `flight_conditions.csv` + `metar/` |
 | `runway_usage.md` | — | runway write-up and model limits | written from `runway_usage.csv` |
 | `triangle_routes.md` | — | triangle write-up | written from `triangle_assignments.csv` |
-| `data_gaps.md` | — | what is missing, track-side only (no FTA cross-check for Sep) | written from `flights.csv`/`manifest.csv` |
+| `data_gaps.md` | — | the 52 FTA-planned legs with no track, plus track-side notes | `python3 work/build_september_fta.py` |
 | `punctuality.md` | — | punctuality basis note | — |
 | `schedule_delays.md` | — | why no schedule-basis file exists for September | — |
 | `tails.csv` | 701 | tail per flight, FR24 app pages — **frozen, not regenerated** | n/a (no app captures in repo) |

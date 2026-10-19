@@ -12,6 +12,8 @@ Hoima/test tracks the frozen log excluded. Those extra tracks have no app
 scoring and do not appear in `punctuality.csv`.
 
 Read with the usual warning: a usual-time baseline cannot see a habit — a
-service that always leaves 40 minutes late scores zero here. For a
-timetable-basis measurement, October's rebuilt files (FTA plan STD) are
-the worked example.
+service that always leaves 40 minutes late scores zero here. The
+timetable-basis measurement for September now exists separately:
+`schedule_delays.csv` (FTA plan STD, 608 matched legs — see
+`schedule_delays.md`). This file was left app-based deliberately, so the
+two scorings can be compared rather than one overwriting the other.
