@@ -1,5 +1,10 @@
 # Zip update — 19 Oct 2026
 
+> **Superseded in part, later the same day:** `FR data (1).zip` has
+> since been deleted and `FR data.zip` made UR-only (48 other-airline
+> tracks split out). See `UR_SPLIT.md`. The cleanup described below
+> (deduplication, coverage) still stands.
+
 ## What was done
 
 The two top-level archives were rebuilt from `FR data (1).zip`, the

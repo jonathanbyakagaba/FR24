@@ -6,8 +6,9 @@ month folders:
 
 | Folder | File | Tracks | Contents |
 |---|---|---|---|
-| `UR SEPTEMBER 2026/` | `september_tracks.zip` | 626 (621 UR + 5 other carriers) | every track starting in Sep 2026 |
-| `UR SEPTEMBER 2026/` | `september_tracks_manifest.csv` | 626 rows | file, flight, callsign, first/last fix (EAT), fix count |
+| `UR SEPTEMBER 2026/` | `september_tracks.zip` | 622 (UR only — split since; see `UR_SPLIT.md`) | every UR track starting in Sep 2026 |
+| `UR SEPTEMBER 2026/` | `september_tracks_manifest.csv` | 622 rows | file, flight, callsign, first/last fix (EAT), fix count |
+| `UR SEPTEMBER 2026/` | `september_other_airlines_tracks.zip` | 4 | the month's non-UR tracks (ET332, ET333, GA7840, GA7850) |
 | `UR OCTOBER 2026/` | `october_tracks.zip` | 317 (all UR) | every track starting in Oct 2026 |
 | `UR OCTOBER 2026/` | `october_tracks_manifest.csv` | 317 rows | same columns |
 
