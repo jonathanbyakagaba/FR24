@@ -1,31 +1,33 @@
-# Departure punctuality
+# Departure punctuality — 1–16 October 2026 (rebuilt 2026-10-20)
 
-The app status dot is available for **0 of 82** logged flights. It is the operator-facing judgement; the delay column is our own measurement.
+`punctuality.csv` was regenerated on a new basis: the **FTA utilization
+plan's** scheduled departure (STD) for the leg, joined to the track by
+`work/build_october_fta.py` (306 of 354 planned legs matched; the other 48
+are the gaps in `data_gaps.md`). This replaces the frozen build's
+"usual time" scoring for 1–5 Oct, which could not see a habitually late
+service. September's `punctuality.csv` (September folder) keeps the
+app/usual-time basis — the two months' files are not directly comparable.
 
-**66 of 82** legs are measured against the published timetable (`schedule_2026-10.csv`) — the only basis that can call a habit late. The rest fall back to each service’s usual time, because the build holds no timetable for their date. The `slot_basis` column says which of the two every row used; a table that mixed them without saying so would be comparing two different questions.
+**Read the delay column carefully:** the "actual" is the track's *takeoff*
+(first airborne fix), while STD is off-block. Departure delay therefore
+includes taxi-out — roughly 15–30 min at Entebbe. A flight showing +20 min
+here is typically on time at the gate.
 
-No leg in this month carries a status dot: the per-tail app screenshots for these dates have not arrived, so the operator’s own judgement is simply not in the build yet. Everything below is measured here, from the tracks.
+## Scoreboard (takeoff vs STD, 306 matched legs)
 
-## Worst departures in the month
+| early | on time (0–15m) | delayed (16–60m) | heavily delayed (>60m) |
+|---:|---:|---:|---:|
+| 110 | 97 | 81 | 18 |
 
-| date | flight | tail | sector | dep (local) | app dot | vs usual |
-|---|---|---|---|---|---|---|
-| 2026-10-04 | UGD360 |  | EBB-BJM | 2221 | — | +351 min |
-| 2026-10-04 | UGD321 |  | DAR-EBB | 1944 | — | +324 min |
-| 2026-10-04 | UGD320 |  | EBB-DAR | 1657 | — | +313 min |
-| 2026-10-04 | UGD334 |  | ZNZ-JRO | 1639 | — | +275 min |
-| 2026-10-04 | UGD334 |  | JRO-EBB | 1823 | — | +258 min |
-| 2026-10-04 | UGD206 |  | EBB-NBO | 2041 | — | +181 min |
-| 2026-10-04 | UGD334 |  | EBB-ZNZ | 1213 | — | +179 min |
-| 2026-10-02 | UGD711 |  | JNB-EBB | 1508 | — | +84 min |
-| 2026-10-02 | UGD710 |  | EBB-JNB | 1014 | — | +44 min |
-| 2026-10-02 | UGD111 |  | LGW-EBB | 2005 | — | +31 min |
-| 2026-10-04 | UGD901 |  | LOS-EBB | 1359 | — | +29 min |
-| 2026-10-02 | UGD903 |  | LOS-EBB | 0224 | — | +25 min |
+Two-thirds of legs got airborne within 15 minutes of the (taxi-inclusive)
+allowance — i.e. the operation ran close to plan. The heavily-delayed tail
+concentrates in the A330/leased-A350 long-hauls and in the disrupted first
+week (the plan itself carries DELAYED/RESCHEDULED statuses on 2, 4, 5, 6, 7
+and 9 Oct). `schedule_delays.csv` has the per-leg detail, including the
+plan's own status flags and arrival delays.
 
-## By aircraft
+## What is not here
 
-| tail | flights | on time | late | very late | not captured |
-|---|---|---|---|---|---|
-|  | 82 | 0 | 0 | 0 | 82 |
-
+The FR24 app status dots (`app_status.csv`) end at 30 Sep — no October app
+captures were available to this rebuild, so `app_status` is blank in
+`punctuality.csv` and no app-based judgement is offered for October.
