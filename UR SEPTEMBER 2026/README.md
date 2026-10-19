@@ -1,5 +1,16 @@
 # 2026-09 — closed flight log and track archive
 
+> **Zip updated 2026-10-19 (counts & checksums only).**
+> `UR September flights.zip` was replaced with the month's UR flights
+> from the current top-level archive: **622 UR tracks · 245,957 fixes**,
+> all starting in 2026-09 (it was previously a placeholder).
+> sha256 `e47228acad61a838b156257a273f219f3547518f24bd89352291c31abfd595e2`.
+> **Everything else in this folder is unchanged and now stale relative
+> to that zip**: the tables and write-ups below were frozen on
+> 2026-10-05 against the old 802-track cumulative archive, and have
+> deliberately not been regenerated. The 802-track figures quoted
+> below describe that frozen freeze, not the current zip.
+
 Frozen **2026-10-05** from the build of that name. This folder is a snapshot: nothing here is regenerated when a new export arrives, and the top level of the repository now describes the month being collected. The rule used throughout: **a flight belongs to the month its departure falls in, local time** — so a leg that departs 2026-09-30 and lands on the 1st of the next month is counted here, and a track that starts in this month is a track of this month even if it ends outside it.
 
 * **610 logged flights**, every one dated in 2026-09.
@@ -35,6 +46,15 @@ Frozen **2026-10-05** from the build of that name. This folder is a snapshot: no
 
 `FR data.zip` sha256 `8ccc910d92760d733fcc0aafc89833266e03658945da7cd3c3b935aa2d2b9d47`.
 It differs from the top-level archive, which has moved on since this month closed: this copy is the one that matches the tables beside it.
+
+**Updated zip, 2026-10-19:** the paragraph above is the freeze-time
+record. The current files verify differently: `UR September
+flights.zip` (in this folder) sha256
+`e47228acad61a838b156257a273f219f3547518f24bd89352291c31abfd595e2`,
+and the top-level `FR data.zip` it was split from sha256
+`0e7cacc3ec4ea0dfeba2e42a7b443948ceb81ff00e632f6ae62be06e514563d3`
+(1,065 tracks). The frozen tables beside the zip still match the
+8ccc… archive, not these.
 
 `reference/` and `metar/` are not duplicated here: they are shared lookups described by the top-level README, and the weather this month was measured against is the month-stamped file named in `flight_conditions.csv`'s own rebuild line.
 
