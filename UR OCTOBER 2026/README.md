@@ -49,6 +49,9 @@ falls in, local time at the origin**; a track is stored whole.
 | `runway_usage.csv` | 317 | runway in use (simplified model — see `runway_usage.md`) |
 | `flight_conditions.csv` | 317 | Entebbe-end weather per flight |
 | `metar/` | 3 part files | IEM ASOS parsed extract, HUEN, 1–17 Oct |
+| `od_matrix_october2026.pdf` | 16 matrices | OD matrix per day (1–16 Oct) + diversion findings — the readable version |
+| `od_matrix_october2026.xlsx` | 20 sheets | same matrices per day + TOTAL + tidy + DIVERSION_CHECK, for analysis |
+| `od_matrix_october2026.csv` | 265 rows | tidy OD counts (date, origin, dest, flights) |
 
 Write-ups: `all_flights_aeroroutes.md`, `date_coverage.md`,
 `data_gaps.md` (the 48 unmatched legs, day by day), `no_code_tracks.md`,

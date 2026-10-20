@@ -26,6 +26,9 @@ are carried over.
 | `punctuality.md` | — | punctuality basis and scoreboard | written from `punctuality.csv` |
 | `schedule_delays.md` | — | schedule-delay basis and caveats | written from `schedule_delays.csv` |
 | `app_status.csv` | 705 | app status dots — **the September copy, through 30 Sep; not an October source** | n/a |
+| `od_matrix_october2026.pdf` | 16 matrices | OD matrix per day (1–16 Oct, 10 Oct explicitly empty) + the diversion audit | `python3 work/build_od_matrix_october.py` (needs reportlab + openpyxl) |
+| `od_matrix_october2026.xlsx` | 20 sheets | READ_ME, tidy, TOTAL, one sheet per day, DIVERSION_CHECK | same |
+| `od_matrix_october2026.csv` | 265 | tidy OD counts: date, origin, dest, flights | same |
 | `metar/` | HUEN, 1–17 Oct | IEM ASOS parsed extract (drct/sknt/gust/vsby/tmpc/alti/wxcodes), 3 part files | see September folder's SUPPORTING.md, same request with October dates |
 
 ## Sources
