@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uganda Airlines — Flight Data Explorer (Sep–Oct 2026)</title>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">UR</div>
+    <div>
+      <h1>Uganda Airlines Flight Data Explorer</h1>
+      <p>982 tracked flights · 1 Sep – 18 Oct 2026 · plan vs actual, weather, NOTAMs</p>
+    </div>
+  </div>
+  <div class="monthswitch" role="group" aria-label="Month">
+    <button data-month="all" class="active">All</button>
+    <button data-month="September 2026">September</button>
+    <button data-month="October 2026">October</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <section class="stats" id="statCards"></section>
+
+    <section class="panel">
+      <h2>Filter flights</h2>
+      <label>Flight / callsign search
+        <input id="q" type="search" placeholder="e.g. UR720 or UGD323D">
+      </label>
+      <div class="grid2">
+        <label>From
+          <select id="fOrigin"><option value="">All airports</option></select>
+        </label>
+        <label>To
+          <select id="fDest"><option value="">All airports</option></select>
+        </label>
+      </div>
+      <div class="grid2">
+        <label>Aircraft tail
+          <select id="fTail"><option value="">All tails</option></select>
+        </label>
+        <label>Punctuality
+          <select id="fPunct">
+            <option value="">All</option>
+            <option>early</option>
+            <option>on time</option>
+            <option>delayed</option>
+            <option>heavily delayed</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid2">
+        <label>Date from <input id="dFrom" type="date"></label>
+        <label>Date to <input id="dTo" type="date"></label>
+      </div>
+      <div class="checks">
+        <label><input type="checkbox" id="lyrRoutes" checked> Route arcs</label>
+        <label><input type="checkbox" id="lyrAirports" checked> Airports</label>
+        <label><input type="checkbox" id="lyrNotam" checked> NOTAM badges</label>
+      </div>
+      <button id="reset" class="ghost">Reset all filters</button>
+    </section>
+
+    <section class="panel">
+      <h2>Flights per day</h2>
+      <canvas id="dailyChart" height="90"></canvas>
+      <p class="hint" id="dailyHint"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Busiest routes <span class="hint">(click to filter)</span></h2>
+      <ol id="topRoutes" class="routes"></ol>
+    </section>
+
+    <section class="panel grow">
+      <h2>Flights <span id="flightCount" class="badge"></span></h2>
+      <div id="flightList" class="flightlist"></div>
+    </section>
+  </aside>
+
+  <main class="mapwrap">
+    <div id="map"></div>
+
+    <div id="flightBar" class="flightbar hidden">
+      <button id="playBtn" title="Play / pause track replay">▶</button>
+      <input id="scrub" type="range" min="0" max="1000" value="0">
+      <div class="fbmeta">
+        <span id="fbFlight"></span>
+        <span id="fbReadout" class="mono"></span>
+      </div>
+      <select id="speed" title="Replay speed">
+        <option value="1">1×</option>
+        <option value="4" selected>4×</option>
+        <option value="12">12×</option>
+        <option value="40">40×</option>
+      </select>
+      <button id="closeFlight" title="Close flight">✕</button>
+    </div>
+
+    <aside id="detail" class="detail hidden"></aside>
+  </main>
+</div>
+
+<footer>
+  Data: FR24 tracks + FTA utilization plans + Iowa State IEM METAR + NOTAM snapshot 2026-10-20, from this repository
+  (`UR SEPTEMBER 2026/`, `UR OCTOBER 2026/`). Rebuild the site data with <code>python3 website/build_data.py</code>.
+  Map © OpenStreetMap contributors © CARTO. Delays are takeoff vs scheduled departure (include taxi-out).
+</footer>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
