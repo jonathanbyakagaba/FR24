@@ -20,6 +20,9 @@ which files they produce and which files are carried over frozen.
 | `runway_usage.md` | — | runway write-up and model limits | written from `runway_usage.csv` |
 | `triangle_routes.md` | — | triangle write-up | written from `triangle_assignments.csv` |
 | `data_gaps.md` | — | the 52 FTA-planned legs with no track, plus track-side notes | `python3 work/build_september_fta.py` |
+| `notams.csv` | 51 | NOTAM notices whose validity touches Sep 2026 - lower bound only: the 2026-10-20 snapshot cannot see September-expired notices (see `notams.md`) | `python3 work/build_notams.py` from `work/notams_snapshot_*.csv` |
+| `procedures.csv` | 20 | SID/STAR inventory seeded from NOTAM-named procedures + AIP evidence; no coded (ARINC 424) data - see `sid_star.md` | seeded from `work/procedures_seed.csv` |
+| `notams.md` / `sid_star.md` | — | NOTAM read-across and the SID/STAR publication findings | written from the snapshot / source check 2026-10-20 |
 | `punctuality.md` | — | punctuality basis note | — |
 | `schedule_delays.md` | — | why no schedule-basis file exists for September | — |
 | `tails.csv` | 701 | tail per flight, FR24 app pages — **frozen, not regenerated** | n/a (no app captures in repo) |
