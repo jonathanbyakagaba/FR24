@@ -1,4 +1,4 @@
-# Runway usage — 1–16 October 2026 (rebuilt 2026-10-20)
+# Runway usage — 1–18 October 2026 (rebuilt 2026-10-20)
 
 `runway_usage.csv` was regenerated from the month zip by
 `work/rebuild_month.py` using a **simplified model**: the mean ground-roll
@@ -9,20 +9,20 @@ frozen build's threshold-crossing, along-track and performance-survey
 columns are **blank** — they depended on reference data that is not in this
 repository and cannot be reproduced honestly.
 
-## Entebbe (HUEN) — 1–16 October
+## Entebbe (HUEN) — 1–18 October
 
 | | runway 17 | runway 35 | undetermined |
 |---|---:|---:|---:|
-| departures (161 from EBB) | 140 | 21 | 0 |
-| arrivals (158 to EBB) | 126 | 32 | 0 |
+| departures (175 from EBB) | 153 | 22 | 0 |
+| arrivals (169 to EBB) | 136 | 33 | 0 |
 
 Same pattern as September: runway 17 works ~87% of departures and ~80% of
 arrivals, with 35 used in overnight northerly flow.
 
 ## Confidence
 
-High (roll heading within 12° of a runway heading): 308 of 335 departures,
-297 of 335 arrivals. Blank runway = no usable ground roll in the track
+High (roll heading within 12° of a runway heading): 331 of 360 departures,
+316 of 360 arrivals. Blank runway = no usable ground roll in the track
 (takeoff/landing not observed, or no heading table for that airport).
 Treat medium/low-confidence rows as indicative only.
 

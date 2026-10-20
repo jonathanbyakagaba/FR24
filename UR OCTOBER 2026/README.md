@@ -1,80 +1,75 @@
-# 2026-10 — Uganda Airlines flight log and track archive (rebuilt 2026-10-20)
+# UR OCTOBER 2026 — dated Uganda Airlines (UR) tracks
 
-**Rebuilt 2026-10-20; refreshed the same day from the main-repo update**
-(`FR data.zip` upload of 2026-10-19, merged into this branch). Every
-derived file in this folder was regenerated against the current month
-zip. Reproducible from the repository:
+**State (checked 2026-10-20):**
 
-```
-python3 work/rebuild_month.py "UR OCTOBER 2026" "FR data.zip"
-python3 work/build_october_fta.py
-python3 work/rebuild_month.py "UR OCTOBER 2026" "FR data.zip"
-python3 work/build_conditions.py "UR OCTOBER 2026"
-python3 work/build_od_matrix_october.py
-```
+* Top-level `FR data.zip` now holds **1,108 unique UR+non-UR dated
+  tracks** (sha256 `ebdff074…`), after removing **35 content-identical
+  duplicates** from the 2026-10-20 export (1,143 files). Every earlier
+  track survived; the export added **25 tracks**, all Uganda Airlines,
+  extending October coverage to **18 Oct** (plus one missing 16 Oct
+  UR111 track, which closed the last October gap before the 17th).
+* This folder's `FR data.zip` was rebuilt from that archive: **360 UR
+  tracks, 1–18 Oct** (sha256 `01781f80…`), and every file derived from
+  the tracks was regenerated (`2026-10-20`): flights, tails from the
+  FTA plans, runway usage, flight conditions (Entebbe METAR to 19 Oct),
+  fleet summary, triangle assignments, punctuality and data gaps.
+* **360 logged flights** from **360 tracks · 151,068 fixes**, 1–18 Oct
+  2026, across **5 aircraft** (5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-APL).
+  Tails are **plan-assigned** aircraft from the FTA utilization plans,
+  not FR24 app pages (no October app captures were available).
+* **Schedule/punctuality basis changed to the FTA plans.** The airline's
+  utilization plans (fta.ugandairlines.com, 14:00Z snapshots) for
+  1–18 Oct were transcribed (`work/fta_oct2026.csv`) — 402 operating
+  legs. 351 matched a track; **40 planned legs have no track** and are
+  listed in `data_gaps.md`, plus 11 legs scheduled at/after the export's
+  last fix (18 Oct 15:19Z) that cannot be verified either way. Route
+  inference and tails use the plans — but the plan's assigned aircraft
+  can differ from the aircraft the app would have shown.
+* **Tails:** 356 of 360 flights carry the plan-assigned aircraft
+  (matched on flight number + route; unmatched mainly triangle middle
+  sectors and off-pattern legs).
+* Remaining known gaps: 40 + 11 legs without tracks (see
+  `data_gaps.md`), and NO app/status data for October at all. **No
+  tables or figures from the retired frozen build of this folder were
+  reused**; everything below was regenerated in the rebuild run.
 
-The rule used throughout: **a flight belongs to the month its departure
-falls in, local time at the origin**; a track is stored whole.
-
-* **335 logged flights** from **335 tracks · 139,526 fixes**, 1–16 Oct
-  (last fix 17 Oct 00:17 UTC — an inbound still airborne at export).
-  `FR data.zip` sha256
-  `a6add0e29b677720b997f762c7d1677c2aade0d2b3676f3eac5ed5c54803fd29`.
-  The main-repo update added 18 tracks (17 dated 10 Oct plus the UR111
-  inbound of 9 Oct) over the previous export — 10 Oct is no longer a
-  recording blackout (see *The 10 Oct story* below).
-* **Schedule cross-check (new basis):** the FTA utilization plans for
-  1–16 Oct were transcribed (`work/fta_oct2026.csv`) — 354 operating legs.
-  326 matched a track; **28 planned legs have no track** and are listed in
-  `data_gaps.md`. `schedule_delays.csv` and `punctuality.csv` are scored
-  against the plan's STD/STA, *not* the frozen build's "usual time"
-  baseline. Departure delay here includes taxi-out (actual = takeoff).
-* **Tails:** 330 of 335 flights carry the plan-assigned aircraft
-  (`tails.csv` rows from 2026-10-01 are FTA-based; its September history
-  rows are app-based). Two aircraft (5X-KNP, 5X-CRN) were grounded all
-  period.
-* **Weather:** `metar/` holds the IEM ASOS extract for Entebbe (HUEN),
-  1–17 Oct; `flight_conditions.csv` rebuilt from it (Entebbe end only).
-* **One file is deliberately stale:** `app_status.csv` is the September
-  copy (through 30 Sep) — no October FR24-app captures were available, so
-  October app statuses are blank throughout rather than invented.
-
-## What is in this folder
+## Files
 
 | file | rows | what it is |
-|---|---|---|
-| `FR data.zip` | 335 tracks | the month's UR track files |
-| `manifest.csv` | 335 | one row per track file |
-| `flights.csv` | 335 | flight log from the tracks |
-| `tails.csv` | 1052 (701 Sep history + 351 Oct) | tail per flight: app-based ≤30 Sep, FTA-plan-based from 1 Oct |
-| `app_status.csv` | 705 | app status dots — **September copy, through 30 Sep** |
-| `fleet_summary.csv` | 5 tails | per-aircraft totals recomputed for 1–16 Oct |
-| `triangle_assignments.csv` | 113 sectors | triangle sectors with plan/confirmed tails |
-| `schedule_delays.csv` | 354 legs | FTA plan vs operated, delays, `no_track` flags |
-| `punctuality.csv` | 326 | matched flights scored vs plan STD |
-| `runway_usage.csv` | 335 | runway in use (simplified model — see `runway_usage.md`) |
-| `flight_conditions.csv` | 335 | Entebbe-end weather per flight |
-| `metar/` | 3 part files | IEM ASOS parsed extract, HUEN, 1–17 Oct |
-| `od_matrix_october2026.pdf` | 16 matrices | OD matrix per day (1–16 Oct) + diversion findings — the readable version |
-| `od_matrix_october2026.xlsx` | 20 sheets | same matrices per day + TOTAL + tidy + DIVERSION_CHECK, for analysis |
-| `od_matrix_october2026.csv` | 282 rows | tidy OD counts (date, origin, dest, flights) |
+|---|---:|---|
+| `FR data.zip` | 360 tracks | the month's UR track files |
+| `manifest.csv` | 360 | one row per track file |
+| `flights.csv` | 360 | flight log from the tracks |
+| `coverage.csv` | 360 | track duration / completeness per flight |
+| `aircraft_config_check.csv`, `fleet_summary.csv` | 5 tails | per-aircraft totals recomputed for 1–18 Oct |
+| `tails.csv` | 1,100 | includes the September app history (689) + FTA plan rows for Oct |
+| `schedule_delays.csv` | 402 legs | FTA plan vs operated, delays, `no_track` flags |
+| `punctuality.csv` | 351 | matched flights scored vs plan STD |
+| `runway_usage.csv` | 360 | runway in use (simplified model — see `runway_usage.md`) |
+| `flight_conditions.csv` | 360 | Entebbe-end weather per flight |
+| `flight_log.md` | — | day-by-day narrative log, built from `flights.csv` |
+| `od_matrix_october2026.pdf` | 18 matrices | OD matrix per day (1–18 Oct) + diversion findings — the readable version |
+| `od_matrix_october2026.xlsx` | 18 + TOTAL + audit | same matrices, Excel (TOTAL sheet + DIVERSION_CHECK) |
+| `od_matrix_october2026.csv` | 306 tidy rows | long-format origin/destination/day counts |
 
-Write-ups: `all_flights_aeroroutes.md`, `date_coverage.md`,
-`data_gaps.md` (the 28 unmatched legs, day by day), `no_code_tracks.md`,
-`triangle_routes.md`, `runway_usage.md`, `weather_analysis.md`,
-`punctuality.md`, `schedule_delays.md`.
+`data_gaps.md` (the 40 unmatched legs, day by day), `no_code_tracks.md`,
+`aeroroutes_routes.csv` (distinct IATA pairs flown; no segment page data),
+`triangle_routes.md` and `triangle_assignments.csv` (UR720/722, UR334,
+UR206–209, UR342/343 sectors), `runway_usage.md`, `weather_analysis.md`,
+`summaries.txt`. See `SUPPORTING.md` for provenance per file.
 
-## Verifying
+## Known data problems
 
-* This folder's `FR data.zip`: sha256 `a6add0e29b677720b997f762c7d1677c2aade0d2b3676f3eac5ed5c54803fd29`
-* The top-level `FR data.zip` it was split from (1,083 tracks, deduplicated): sha256 `a60990fd14e24976b1d84e0b461d3e6def77fe2b9cfbeffeb92f5278e827ffff`
+* **No tracks after 18 Oct, 15:19Z (~18:19 EAT).** 11 legs scheduled
+  later on the 18th are unverifiable; 40 earlier legs are plain missing
+  (see `data_gaps.md`). The recurring holes: the LGW–EBB UR111
+  return legs, UR720/UR722/UR334 triangle middle sectors and UR343
+  MBA–EBB. The UR520/UR521 Mogadishu return was **CANCELLED** in the
+  17 Oct plan, so it is not counted as a recording gap.
+* **Plan times are published as-is** — including a couple of internally
+  inconsistent STA values; arrival delays inherit that (see
+  `schedule_delays.md`).
+* Codeshare/"operating" flight numbers never flown under that number
+  are excluded (non-scheduled entries in the source plan are dropped).
 
-## The 10 Oct story
-
-In the previous export, 10 Oct looked like a total recording blackout:
-a full 20-leg programme and one surviving track. The main-repo export
-merged into this branch on 2026-10-20 contained 17 tracks dated 10 Oct
-(plus the UR111 inbound that departed London on 9 Oct), and the day now
-matches the plan like any other (17 sectors in the OD matrix). The
-remaining 28 unmatched legs are listed in `data_gaps.md`; the recurring
-patterns are triangle middle sectors and the UR111 London return.
+Provenance and field-level notes are in `SUPPORTING.md`.

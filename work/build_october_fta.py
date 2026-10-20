@@ -38,7 +38,7 @@ def parse_utc(s):
 
 legs, seen = [], set()
 for r in csv.DictReader(open("work/fta_oct2026.csv")):
-    if r["flight"] == "NONSKED":
+    if r["flight"] == "NONSKED" or r["status"] in ("NON_SCHEDULED", "CANCELLED"):
         continue
     otz = ZoneInfo(AIRPORTS[r["origin"]][4]); dtz = ZoneInfo(AIRPORTS[r["dest"]][4])
     d0 = datetime.strptime(r["date"] + " " + r["std"], "%Y-%m-%d %H:%M").replace(tzinfo=otz)
@@ -169,7 +169,7 @@ missing = [l for l in legs if not l["track"] and l["status"] in ("SCHEDULED", "D
 at_end = [l for l in missing if l["std_utc"] > last_fix - timedelta(hours=2)]
 true_gaps = [l for l in missing if l not in at_end]
 lines = ["# Data gaps — FTA-planned legs with no FR24 track (rebuilt 2026-10-20)", "",
-         f"{len(true_gaps)} planned operating legs (1–16 Oct 2026) have no track in `FR data.zip`, plus",
+         f"{len(true_gaps)} planned operating legs (1–18 Oct 2026) have no track in `FR data.zip`, plus",
          f"{len(at_end)} leg(s) scheduled at/after the export's last fix ({last_fix.strftime('%Y-%m-%d %H:%MZ')})",
          "that cannot be verified either way.",
          "Source: FTA utilization plans (work/fta_oct2026.csv) joined to flights.csv by",
