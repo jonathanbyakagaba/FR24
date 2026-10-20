@@ -1,54 +1,54 @@
 # Supporting files — what each one is, and how to regenerate it
 
-Derived from the tracks already published here. Nothing in this list is hand-edited:
-every row count was read off the file itself when this index was written, and each
-file has a one-line command that rebuilds it after a new daily upload.
+Rewritten 2026-10-20 for the rebuilt folder. The frozen build's pipeline
+(`work/final.py`, `work/runways.py`, …) is not in this repository; the
+rebuild uses the two scripts now in `work/`, and this index says honestly
+which files they produce and which files are carried over frozen.
 
 | file | rows | what it is | rebuild with |
 |---|---|---|---|
-| `tails.csv` | 701 flights | which aircraft flew which leg, from the per-tail app pages, with the app's own status flag and a track-verified marker | `PYTHONPATH=. python3 work/final.py` |
-| `fleet_summary.csv` | 5 tails | per-aircraft totals from the tracks: flights, air hours, routes, cruise and top of climb, with MSN and cabin | `PYTHONPATH=. python3 work/final.py` |
-| `fleet_meta.csv` | 5 tails | the hardware record behind those columns: MSN, ICAO type code, mode-S hex, build month, cabin split | `maintained by hand, then re-run work/final.py` |
-| `triangle_assignments.csv` | 47 sectors | the fifth-freedom legs flown away from Entebbe (LUN-HRE, ZNZ-JRO), with flight numbers | `PYTHONPATH=. python3 work/final.py` |
-| `triangle_routes.md` | — | the triangle-route write-up | `PYTHONPATH=. python3 work/triangle_report.py` |
-| `runway_usage.csv` | 802 tracks | runway identification and runway-use measurement per track: which end, where the roll started, how much runway was used | `PYTHONPATH=. python3 work/runways.py` |
-| `runway_usage.md` | — | the runway report, including the corrected Entebbe centreline | `python3 work/runway_report.py` |
-| `flight_conditions.csv` | 610 flights | the published weather at each end of every flight: wind, gust, visibility, temperature, and the head/crosswind component on the runway actually used | `PYTHONPATH=. python3 work/weather.py` |
-| `weather_analysis.md` | — | what the weather explains: runway-in-use, wind against the measured rolls, delayed sectors | `PYTHONPATH=. python3 work/weather.py` |
-| `punctuality.csv` | 610 flights | the app's status flag for each leg (on time / late / very late) and the measured minutes against the usual departure time | `python3 work/punctuality.py` |
-| `punctuality.md` | — | the punctuality write-up, by aircraft and by worst departure | `python3 work/punctuality.py` |
-| `app_status.csv` | 705 rows | the flag table underneath: every status dot read off the per-tail screenshots, matched to its flight | `python3 work/app_status.py` |
-| `date_coverage.md` | — | day-by-day coverage: which days of the month are complete, which are holed, which rotations never finished | `PYTHONPATH=. python3 work/date_coverage.py` |
-| `data_gaps.md` | — | what is missing and why, counted against the other files in this folder | `PYTHONPATH=. python3 work/report_gaps.py` |
-| `no_code_tracks.md` | — | tracks that arrived without a flight code, and every one the log does not cite — its own line says how wide the scan was | `PYTHONPATH=. python3 work/no_code_tracks.py` |
-| `SUPPORTING.md` | — | one-line description and rebuild command for every derived file | `written by this same build: `python3 fr24_update.py --zip <export>`` |
-| `metar/` | 41 airports | every published METAR for each airport in this operation, one CSV per station plus `index.csv`, raw report text kept | `python3 work/metar_split.py` |
+| `manifest.csv` | 622 | one row per track file in the month zip | `python3 work/rebuild_month.py "UR SEPTEMBER 2026" "UR September flights.zip"` |
+| `flights.csv` | 622 | flight log from the tracks (takeoff/landing, route, air time) | same |
+| `fleet_summary.csv` | 5 tails | per-aircraft September totals; fleet meta carried from the frozen file | same (reads existing `fleet_summary.csv`/`tails.csv` first) |
+| `triangle_assignments.csv` | 225 | triangle sectors (UR720/722, UR334, UR206–209, UR342/343) with tails | same |
+| `runway_usage.csv` | 622 | runway in use, simplified heading model (legacy header; survey columns blank) | same |
+| `date_coverage.md` | — | flights per origin-local date | same |
+| `all_flights_aeroroutes.md` | — | every flight grouped by route | same |
+| `no_code_tracks.md` | — | tracks without a clean UGD flight identity (AF523, UGD720X) | same |
+| `flight_conditions.csv` | 622 | Entebbe-end weather per flight | `python3 work/build_conditions.py "UR SEPTEMBER 2026"` |
+| `weather_analysis.md` | — | September weather write-up | written from `flight_conditions.csv` + `metar/` |
+| `runway_usage.md` | — | runway write-up and model limits | written from `runway_usage.csv` |
+| `triangle_routes.md` | — | triangle write-up | written from `triangle_assignments.csv` |
+| `data_gaps.md` | — | the 52 FTA-planned legs with no track, plus track-side notes | `python3 work/build_september_fta.py` |
+| `notams.csv` | 51 | NOTAM notices whose validity touches Sep 2026 - lower bound only: the 2026-10-20 snapshot cannot see September-expired notices (see `notams.md`) | `python3 work/build_notams.py` from `work/notams_snapshot_*.csv` |
+| `notams.md` | — | NOTAM read-across for the month | written from `notams.csv` / the 2026-10-20 snapshot |
+| `punctuality.md` | — | punctuality basis note | — |
+| `schedule_delays.md` | — | why no schedule-basis file exists for September | — |
+| `tails.csv` | 701 | tail per flight, FR24 app pages — **frozen, not regenerated** | n/a (no app captures in repo) |
+| `app_status.csv` | 705 | app status dots — **frozen, not regenerated** | n/a |
+| `punctuality.csv` | 610 | app status + usual-time delays — **frozen, not regenerated** | n/a |
+| `metar/` | HUEN, Sep 2026 | IEM ASOS parsed extract (drct/sknt/gust/vsby/tmpc/alti/wxcodes), 5 part files | see below |
+
+## METAR
+
+Source: Iowa State IEM ASOS (mesonet.agron.iastate.edu), station HUEN,
+routine reports (report_type=3), UTC, parsed fields only — raw METAR
+strings were not archived in this pass; the same request with
+`data=metar` returns them. On a machine with internet access:
+
+```
+curl "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?station=HUEN&data=drct&data=sknt&data=gust&data=vsby&data=tmpc&data=alti&data=wxcodes&year1=2026&month1=9&day1=1&year2=2026&month2=10&day2=1&tz=Etc%2FUTC&format=onlycomma&latlon=no&elev=no&missing=empty&trace=empty&direct=no&report_type=3" -o metar/HUEN_202609_part0.csv
+```
+
+The frozen build archived 41 stations (Harare as FVRG, Lusaka as FLKK;
+Juba has no IEM observations). To extend coverage, drop IEM extracts for
+the other stations into `metar/` and re-run `work/build_conditions.py` —
+it uses every station file present. This rebuild covers Entebbe, which is
+one end of all but a handful of triangle middle sectors.
 
 ## Deliberately absent
 
-A month folder is not a smaller copy of the archive: some layers cannot be written for a month that has no input for them. They are listed so their absence is a fact and not an oversight.
-
-* `FR data.zip` — the archive is cumulative and lives at the top level, one copy for every month
-* `schedule_delays.csv` — not produced for this month; the command in `work/` will write it when the data arrives
-* `schedule_delays.md` — not produced for this month; the command in `work/` will write it when the data arrives
-
-
-## Two things worth knowing
-
-**The screenshots arrive in batches.** `tails.csv` is built from the per-tail app
-pages, transcribed into `work/screens_extra/batch_<date>.csv` and merged by
-`work/final.py`. A row that already exists is dropped rather than counted twice, so
-adding a batch never inflates the totals. To add a day, save its rows as a CSV with
-columns `tail,date,flight,origin,dest` in that folder and re-run the command.
-
-**Weather comes from the Iowa Environmental Mesonet ASOS archive** — the same
-published reports that feed NOAA's Integrated Surface Database, free and with no
-account. It is a live service: each airport is cached in `weather/raw/<ICAO>.csv`,
-so delete that folder to re-fetch. Harare files under **FVRG** and Lusaka under
-**FLKK** (both re-coded since the runway datasets were compiled); Juba (HSSJ) has no
-observations in the archive at all.
-
-Licences: the OurAirports tables are public domain; METAR observations are US
-government public-domain data redistributed by IEM under their free-use terms; the
-Entebbe centreline geometry derived from OpenStreetMap is ODbL — attribute it rather
-than republishing the geometry.
+* `schedule_delays.csv` — no September timetable baseline transcribed;
+  see `schedule_delays.md`.
+* `fleet_meta.csv` — the frozen fleet meta lives inside
+  `fleet_summary.csv`'s carried-over columns; no separate file was kept.

@@ -1,48 +1,67 @@
-# 2026-09 — closed flight log and track archive
+# 2026-09 — Uganda Airlines flight log and track archive (rebuilt 2026-10-20)
 
-Frozen **2026-10-05** from the build of that name. This folder is a snapshot: nothing here is regenerated when a new export arrives, and the top level of the repository now describes the month being collected. The rule used throughout: **a flight belongs to the month its departure falls in, local time** — so a leg that departs 2026-09-30 and lands on the 1st of the next month is counted here, and a track that starts in this month is a track of this month even if it ends outside it.
+**Rebuilt 2026-10-20.** Every derived file in this folder was regenerated
+against the current month zip (the counts-and-checksums pass of 2026-10-19
+only replaced the zip; this pass rebuilt the tables). The rebuild is
+reproducible from the repository: `python3 work/rebuild_month.py
+"UR SEPTEMBER 2026" "UR September flights.zip"` plus
+`python3 work/build_conditions.py "UR SEPTEMBER 2026"`.
 
-* **610 logged flights**, every one dated in 2026-09.
-* **802 tracks · 334,309 fixes** in the archive zip: **625 in 2026-09**, the rest 2026-02 ×5, 2026-03 ×80, 2026-04 ×2, 2026-07 ×2, 2026-08 ×20, 2026-10 ×56 and 4 more — the archive is cumulative, so earlier months stay in it and nothing here was pruned to fit the calendar.
-* **1 track crosses this month's boundary**: `UR430-41e8fb3a.csv` (2026-09-30 → 2026-10-01). It is stored whole — one track is never split across two zips.
-* `tails.csv` rows reach **2026-07 → 2026-09**: the per-tail app pages are rolling history rather than a calendar month, so a closed month keeps whatever the pages held on the day it was captured. Rows outside this month are the older tail-end of those pages, not contamination.
+The rule used throughout: **a flight belongs to the month its departure
+falls in, local time at the origin** — a track that starts in September is
+a September track even if it ends in October (`UR430-41e8fb3a.csv`,
+`UR343-41e94875.csv` land 1 Oct and stay here, whole).
+
+* **622 logged flights** from **622 tracks · 245,957 fixes**, all starting
+  in 2026-09. `UR September flights.zip` sha256
+  `e47228acad61a838b156257a273f219f3547518f24bd89352291c31abfd595e2`.
+* The frozen 2026-10-05 log carried 610 of these flights; 609 are
+  reproduced here from the same tracks (routes identical, departure times
+  to the second for 565 and within ~25 s for the rest). The rebuilt log
+  adds the AF523 Hoima/test tracks the frozen log excluded (see
+  `no_code_tracks.md`) and drops one 31 Aug sector that predates the
+  month.
+* `tails.csv` (701 rows, app-based, through 30 Sep) is **unchanged** — it
+  was already September-valid. 607 of 622 rebuilt flights match a tail in
+  it. `app_status.csv` and `punctuality.csv` likewise keep their frozen,
+  app-based content; see `punctuality.md`.
+* **Schedule cross-check (added 2026-10-20):** the FTA utilization plans
+  for 1–30 Sep were transcribed (`work/fta_sep2026.csv`) — 660 operating
+  legs. 608 matched a track; **52 planned legs have no track** (see
+  `data_gaps.md`). `schedule_delays.csv` scores every leg against the
+  plan's STD/STA; departure delay includes taxi-out (actual = takeoff).
+* Weather: **new** — `metar/` holds the Iowa State IEM ASOS extract for
+  Entebbe (HUEN), 1–30 Sep, and `flight_conditions.csv` /
+  `weather_analysis.md` were rebuilt from it. Outstation METARs were not
+  retrieved in this pass (the frozen build's 41-station archive is not in
+  this repository); the Entebbe end of every flight is covered.
 
 ## What is in this folder
 
-| file | size | rows |
+| file | rows | what it is |
 |---|---|---|
-| `SUPPORTING.md` | 5 KB | 54 lines |
-| `UR September flights.zip` | 4696 KB | — |
-| `all_flights_aeroroutes.md` | 23 KB | 766 lines |
-| `app_status.csv` | 77 KB | 705 |
-| `data_gaps.md` | 13 KB | 230 lines |
-| `date_coverage.md` | 13 KB | 269 lines |
-| `fleet_summary.csv` | 1 KB | 5 |
-| `flight_conditions.csv` | 85 KB | 610 |
-| `flights.csv` | 63 KB | 610 |
-| `manifest.csv` | 71 KB | 802 |
-| `no_code_tracks.md` | 6 KB | 81 lines |
-| `punctuality.csv` | 85 KB | 610 |
-| `punctuality.md` | 2 KB | 43 lines |
-| `runway_usage.csv` | 233 KB | 802 |
-| `runway_usage.md` | 25 KB | 354 lines |
-| `tails.csv` | 40 KB | 701 |
-| `triangle_assignments.csv` | 2 KB | 47 |
-| `triangle_routes.md` | 9 KB | 132 lines |
-| `weather_analysis.md` | 5 KB | 91 lines |
+| `UR September flights.zip` | 622 tracks | the month's UR track files |
+| `manifest.csv` | 622 | one row per track file in the zip |
+| `flights.csv` | 622 | the flight log (takeoff/landing from the tracks) |
+| `tails.csv` | 701 | tail per flight from the FR24 app pages (frozen, app-based) |
+| `fleet_summary.csv` | 5 tails | per-aircraft totals recomputed for September |
+| `triangle_assignments.csv` | 225 sectors | triangle/milk-run sectors with tails |
+| `runway_usage.csv` | 622 | runway in use per flight (simplified model — see `runway_usage.md`) |
+| `flight_conditions.csv` | 622 | Entebbe-end weather per flight from `metar/` |
+| `punctuality.csv` | 610 | app status + usual-time delay (frozen basis) |
+| `schedule_delays.csv` | 660 legs | FTA plan vs operated, delays, `no_track` flags (added 2026-10-20) |
+| `app_status.csv` | 705 | the app status dots underneath `tails.csv`/`punctuality.csv` |
+| `metar/` | 5 part files | IEM ASOS parsed extract, HUEN, Sep 2026 |
 
-## Verifying the freeze
+Write-ups: `all_flights_aeroroutes.md`, `date_coverage.md`,
+`data_gaps.md` (the 52 unmatched FTA legs), `no_code_tracks.md`,
+`triangle_routes.md`, `runway_usage.md`, `weather_analysis.md`,
+`punctuality.md`, `schedule_delays.md`.
 
-`FR data.zip` sha256 `8ccc910d92760d733fcc0aafc89833266e03658945da7cd3c3b935aa2d2b9d47`.
-It differs from the top-level archive, which has moved on since this month closed: this copy is the one that matches the tables beside it.
+## Provenance and limits
 
-`reference/` and `metar/` are not duplicated here: they are shared lookups described by the top-level README, and the weather this month was measured against is the month-stamped file named in `flight_conditions.csv`'s own rebuild line.
-
-## How this folder was made
-
-```
-python3 work/close_month.py 2026-09
-```
-
-Re-running it with `--force` re-freezes from the current build, which is only correct if the build still holds this month's log.
-
+Tracks are the only flight source. Takeoff = first airborne fix, landing =
+last airborne fix before touchdown (verified against the frozen log).
+`schedule_delays.csv` is FTA-plan-based (added 2026-10-20, one day after
+the rest of the rebuild); the plan transcription is
+`work/fta_sep2026.csv` and the join is `work/build_september_fta.py`.
