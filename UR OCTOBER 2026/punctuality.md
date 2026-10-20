@@ -2,7 +2,7 @@
 
 `punctuality.csv` was regenerated on a new basis: the **FTA utilization
 plan's** scheduled departure (STD) for the leg, joined to the track by
-`work/build_october_fta.py` (324 of 354 planned legs matched; the other 30
+`work/build_october_fta.py` (326 of 354 planned legs matched; the other 28
 are the gaps in `data_gaps.md`). This replaces the frozen build's
 "usual time" scoring for 1–5 Oct, which could not see a habitually late
 service. September's `punctuality.csv` (September folder) keeps the
@@ -13,11 +13,11 @@ app/usual-time basis — the two months' files are not directly comparable.
 includes taxi-out — roughly 15–30 min at Entebbe. A flight showing +20 min
 here is typically on time at the gate.
 
-## Scoreboard (takeoff vs STD, 324 matched legs)
+## Scoreboard (takeoff vs STD, 326 matched legs)
 
 | early | on time (0–15m) | delayed (16–60m) | heavily delayed (>60m) |
 |---:|---:|---:|---:|
-| 117 | 104 | 85 | 18 |
+| 117 | 104 | 87 | 18 |
 
 Two-thirds of legs got airborne within 15 minutes of the (taxi-inclusive)
 allowance — i.e. the operation ran close to plan. The heavily-delayed tail

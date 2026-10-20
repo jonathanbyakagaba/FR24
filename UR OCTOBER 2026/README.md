@@ -25,7 +25,7 @@ falls in, local time at the origin**; a track is stored whole.
   recording blackout (see *The 10 Oct story* below).
 * **Schedule cross-check (new basis):** the FTA utilization plans for
   1–16 Oct were transcribed (`work/fta_oct2026.csv`) — 354 operating legs.
-  324 matched a track; **30 planned legs have no track** and are listed in
+  326 matched a track; **28 planned legs have no track** and are listed in
   `data_gaps.md`. `schedule_delays.csv` and `punctuality.csv` are scored
   against the plan's STD/STA, *not* the frozen build's "usual time"
   baseline. Departure delay here includes taxi-out (actual = takeoff).
@@ -51,7 +51,7 @@ falls in, local time at the origin**; a track is stored whole.
 | `fleet_summary.csv` | 5 tails | per-aircraft totals recomputed for 1–16 Oct |
 | `triangle_assignments.csv` | 113 sectors | triangle sectors with plan/confirmed tails |
 | `schedule_delays.csv` | 354 legs | FTA plan vs operated, delays, `no_track` flags |
-| `punctuality.csv` | 324 | matched flights scored vs plan STD |
+| `punctuality.csv` | 326 | matched flights scored vs plan STD |
 | `runway_usage.csv` | 335 | runway in use (simplified model — see `runway_usage.md`) |
 | `flight_conditions.csv` | 335 | Entebbe-end weather per flight |
 | `metar/` | 3 part files | IEM ASOS parsed extract, HUEN, 1–17 Oct |
@@ -60,7 +60,7 @@ falls in, local time at the origin**; a track is stored whole.
 | `od_matrix_october2026.csv` | 282 rows | tidy OD counts (date, origin, dest, flights) |
 
 Write-ups: `all_flights_aeroroutes.md`, `date_coverage.md`,
-`data_gaps.md` (the 30 unmatched legs, day by day), `no_code_tracks.md`,
+`data_gaps.md` (the 28 unmatched legs, day by day), `no_code_tracks.md`,
 `triangle_routes.md`, `runway_usage.md`, `weather_analysis.md`,
 `punctuality.md`, `schedule_delays.md`.
 
@@ -76,5 +76,5 @@ a full 20-leg programme and one surviving track. The main-repo export
 merged into this branch on 2026-10-20 contained 17 tracks dated 10 Oct
 (plus the UR111 inbound that departed London on 9 Oct), and the day now
 matches the plan like any other (17 sectors in the OD matrix). The
-remaining 30 unmatched legs are listed in `data_gaps.md`; the recurring
+remaining 28 unmatched legs are listed in `data_gaps.md`; the recurring
 patterns are triangle middle sectors and the UR111 London return.

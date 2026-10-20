@@ -1,6 +1,6 @@
 # Data gaps — FTA-planned legs with no FR24 track (rebuilt 2026-10-20)
 
-30 planned operating legs (1–16 Oct 2026) have no track in `FR data.zip`, plus
+28 planned operating legs (1–16 Oct 2026) have no track in `FR data.zip`, plus
 0 leg(s) scheduled at/after the export's last fix (2026-10-17 00:17Z)
 that cannot be verified either way.
 Source: FTA utilization plans (work/fta_oct2026.csv) joined to flights.csv by
@@ -18,7 +18,6 @@ work/build_october_fta.py. CANCELLED and NON_SCHEDULED plan rows are not gaps.
 | 2026-10-04 | UR343 | MBA-EBB | 04:20 | 5X-EQU | RESCHEDULED |
 | 2026-10-04 | UR713 | JNB-EBB | 02:45 | ET-APL | SCHEDULED |
 | 2026-10-05 | UR720 | LUN-HRE | 23:45 | 5X-KDP | SCHEDULED |
-| 2026-10-05 | UR207 | NBO-EBB | 22:55 | 5X-EQU | DELAYED |
 | 2026-10-05 | UR111 | LGW-EBB | 19:35 | 5X-NIL | SCHEDULED |
 | 2026-10-07 | UR123 | JUB-EBB | 14:15 | 5X-KOB | SCHEDULED |
 | 2026-10-07 | UR111 | LGW-EBB | 20:10 | 5X-NIL | SCHEDULED |
@@ -28,7 +27,6 @@ work/build_october_fta.py. CANCELLED and NON_SCHEDULED plan rows are not gaps.
 | 2026-10-10 | UR722 | HRE-LUN | 16:00 | 5X-KDP | SCHEDULED |
 | 2026-10-10 | UR111 | LGW-EBB | 19:35 | 5X-NIL | SCHEDULED |
 | 2026-10-10 | UR720 | LUN-HRE | 23:45 | ET-APL | SCHEDULED |
-| 2026-10-11 | UR323 | NBO-EBB | 05:00 | 5X-EQU | DELAYED |
 | 2026-10-11 | UR343 | MBA-EBB | 21:40 | 5X-EQU | SCHEDULED |
 | 2026-10-11 | UR334 | ZNZ-JRO | 12:05 | 5X-KOB | SCHEDULED |
 | 2026-10-11 | UR720 | LUN-HRE | 23:45 | 5X-KOB | SCHEDULED |

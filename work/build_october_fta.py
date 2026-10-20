@@ -55,8 +55,14 @@ for r in csv.DictReader(open("work/fta_oct2026.csv")):
 flights = list(csv.DictReader(open(FOLDER / "flights.csv")))
 for f in flights:
     f["_dep"] = parse_utc(f["departure_utc"]); f["_arr"] = parse_utc(f["arrival_utc"])
-    m = {"UGD": "UR"}
-    f["_fno"] = "UR" + f["flight"][3:] if f["flight"].startswith("UGD") else ""
+    fno = f["flight"]
+    if fno.startswith("UGD"):
+        fno = "UR" + fno[3:]
+    elif fno.startswith("UG"):
+        fno = "UR" + fno[2:]
+    if fno.startswith("UR") and fno.endswith("D") and fno[2:-1].isdigit():
+        fno = fno[:-1]  # suffixed recovery legs: UGD323D = UR323, UGD121D = UR121, UGD207D = UR207
+    f["_fno"] = fno
 
 used = set()
 for leg in legs:

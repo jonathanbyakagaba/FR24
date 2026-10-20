@@ -17,8 +17,8 @@ are carried over.
 | `no_code_tracks.md` | — | tracks without a clean UGD identity | same |
 | `tails.csv` | 1052 | tail per flight. Rows ≤2026-09-30: FR24 app pages (frozen). Rows from 2026-10-01: **FTA utilization plan assignments**, appended idempotently; their `app_status` is blank because no October app captures exist | app rows n/a; FTA rows: `python3 work/build_october_fta.py` |
 | `schedule_delays.csv` | 354 legs | FTA plan STD/STA vs operated times; basis column reads `FTA utilization plan` — this **replaces** the frozen file's timetable/"usual time" basis for 1–5 Oct | `python3 work/build_october_fta.py` |
-| `punctuality.csv` | 324 | matched flights vs plan STD (takeoff-based; includes taxi-out) | same |
-| `data_gaps.md` | — | the 30 planned legs with no track, day by day (10 Oct resolved by the 2026-10-19 export) | same |
+| `punctuality.csv` | 326 | matched flights vs plan STD (takeoff-based; includes taxi-out) | same |
+| `data_gaps.md` | — | the 28 planned legs with no track, day by day (10 Oct resolved by the 2026-10-19 export) | same |
 | `flight_conditions.csv` | 335 | Entebbe-end weather per flight | `python3 work/build_conditions.py "UR OCTOBER 2026"` |
 | `weather_analysis.md` | — | weather write-up | written from `flight_conditions.csv` + `metar/` |
 | `runway_usage.md` | — | runway write-up and model limits | written from `runway_usage.csv` |
