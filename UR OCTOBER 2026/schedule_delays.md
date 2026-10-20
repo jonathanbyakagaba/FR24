@@ -7,8 +7,8 @@ fta.ugandairlines.com (354 operating legs, 1–16 Oct, after de-duplicating
 double-listed overnight legs) is kept at `work/fta_oct2026.csv`.
 
 For each leg: scheduled STD/STA (local, converted to UTC by airport
-timezone), the plan's aircraft and status, and — for the 306 legs with a
-track — actual takeoff/landing and delays. 48 legs have no track; they are
+timezone), the plan's aircraft and status, and — for the 324 legs with a
+track — actual takeoff/landing and delays. 30 legs have no track; they are
 listed in `data_gaps.md` and marked `no_track` here. CANCELLED and
 NON_SCHEDULED plan rows (the 15 Oct EBB–EBB test entry) are excluded.
 

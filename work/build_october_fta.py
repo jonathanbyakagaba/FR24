@@ -176,10 +176,11 @@ lines += ["", "## Legs at/after the export end (unverifiable)", "",
           "| date | flight | route | STD (local) | reg | plan status |", "|---|---|---|---|---|---|"]
 for l in at_end:
     lines.append(f"| {l['date']} | {l['flight']} | {l['origin']}-{l['dest']} | {l['std']} | {l['reg']} | {l['status']} |")
-lines += ["", "10 Oct 2026 is the stand-out day: the whole programme was planned but only the",
-          "UR431 BOM-EBB inbound was captured (export/recording gap, not a cancellation).",
-          "Recurring gap patterns: triangle middle sectors (UR720 LUN-HRE, UR722 HRE-LUN,",
-          "UR334 ZNZ-JRO), late UR343 MBA-EBB and the overnight UR111 LGW-EBB."]
+lines += ["", "Recurring gap patterns: triangle middle sectors (UR720 LUN-HRE, UR722 HRE-LUN,",
+          "UR334 ZNZ-JRO), late UR343 MBA-EBB and the overnight UR111 LGW-EBB.",
+          "Note: 10 Oct originally looked like a total recording blackout (1 track); the",
+          "main-repo export of 2026-10-19 added 18 tracks (17 on 10 Oct plus the UR111",
+          "inbound of 9 Oct) and that day now matches like any other."]
 (FOLDER / "data_gaps.md").write_text("\n".join(lines) + "\n")
 
 print(f"FTA legs {len(legs)} (deduped), matched {sum(1 for l in legs if l['track'])}, "
