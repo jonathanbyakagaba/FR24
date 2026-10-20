@@ -27,8 +27,8 @@ procedural: archive a snapshot on the 1st of each month (see
 * **JNB — procedures changed mid-month:** charted STAR level
   restrictions withdrawn (ATC levels only) and RNAV SIDs
   EGMEN/APDAK/GEROX suspended, both from **29 Sep**; three RNAV/GNSS
-  approach procedures suspended the same day. See `sid_star.md` —
-  UR710/711 arrival/departure profiles at JNB before/after 29 Sep are
+  approach procedures suspended the same day. UR710/711
+  arrival/departure profiles at JNB before/after 29 Sep are
   not directly comparable.
 * **BOM — bird concentration** in the vicinity from 9 Sep
   (05:01–07:59 and 14:30–21:00 daily windows), RVR/pressure sensors

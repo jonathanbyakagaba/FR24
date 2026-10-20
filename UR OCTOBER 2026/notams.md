@@ -40,7 +40,7 @@ month from now on, or bought back via the FAA NOTAM Search archive
   STARs' communication-failure procedures are suspended; from 29 Sep
   the charted STAR level restrictions are not to be flown (ATC levels
   only) and four RNAV SIDs (EGMEN/APDAK/GEROX) are suspended. Read
-  JNB arrival track shapes with this in mind — see `sid_star.md`.
+  JNB arrival track shapes with this in mind.
 * **BOM — works on Taxiway M** all month ("ARR/DEP TRAFFIC TO EXP DLA
   DRG TAX", Code-F restrictions), bird concentration at dawn/dusk
   windows, and two RVR (DRISHTI) sensors U/S (18 Sep – 27 Oct).
