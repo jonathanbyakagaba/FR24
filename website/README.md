@@ -46,7 +46,7 @@ Any static file server works; opening `index.html` via `file://` will
 |---|---|
 | `index.html`, `styles.css`, `app.js` | the site (Leaflet app) |
 | `build_data.py` | builds `data.json` from `../UR SEPTEMBER 2026/`, `../UR OCTOBER 2026/` and `../work/rebuild_month.py` (airport coordinates) |
-| `data.json` | generated (~4 MB): 982 flights with downsampled flown paths, airports, routes, daily counts, NOTAMs |
+| `data.json` | generated (~4 MB): 1,007 flights with downsampled flown paths, airports, routes, daily counts, NOTAMs |
 | `vendor/leaflet/` | Leaflet 1.9.4 vendored locally (BSD-2-Clause, see LICENSE.txt) so the app shell works offline — map tiles still come from CARTO/OpenStreetMap |
 
 Data provenance is the repository's: FR24 tracks, FTA utilization
