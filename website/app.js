@@ -28,6 +28,21 @@ L.control.layers({ "Dark": darkTiles, "Streets": osmTiles }, null,
 const routeLayer = L.layerGroup().addTo(map);
 const airportLayer = L.layerGroup().addTo(map);
 const trackLayer = L.layerGroup().addTo(map);
+const fixLayer = L.layerGroup().addTo(map);
+
+const FIX_COLORS = { fix: "#7dd3fc", navaid: "#f6b73c", location: "#94a3b8", coord_fix: "#64748b" };
+function renderWaypoints() {
+  fixLayer.clearLayers();
+  if (!DATA || !$("#lyrFixes").checked) return;
+  for (const w of DATA.waypoints) {
+    L.circleMarker([w.lat, w.lon], {
+      radius: w.kind === "fix" ? 2.2 : 3,
+      color: FIX_COLORS[w.kind] || "#7dd3fc", weight: 1,
+      fillColor: FIX_COLORS[w.kind] || "#7dd3fc", fillOpacity: 0.7,
+    }).addTo(fixLayer)
+      .bindTooltip(`${w.name} · ${w.kind}`, { direction: "top" });
+  }
+}
 let planeMarker = null;
 
 const aptByCode = {};
@@ -329,6 +344,7 @@ function showFlightDetail(f) {
       <tr><td class="k">Arrival delay*</td><td>${delayText(f.arr_delay)}</td></tr>
       <tr><td class="k">Runways (EBB end)</td><td>${[f.dep_rwy && "dep " + f.dep_rwy, f.arr_rwy && "arr " + f.arr_rwy].filter(Boolean).join(" · ") || "–"}</td></tr>
       <tr><td class="k">Weather codes</td><td>${[f.dep_wx, f.arr_wx].filter(Boolean).join(" · ") || "none reported"}</td></tr>
+      <tr><td class="k">Fixes passed (≤3 nm)</td><td>${f.fixes_passed && f.fixes_passed.length ? f.fixes_passed.join(" → ") : "none listed nearby"}</td></tr>
     </table>
     <p class="hint">* vs FTA plan STD/STA; takeoff-based, includes taxi-out.</p>
     <h4>Altitude profile — drag the replay slider below</h4>
@@ -400,6 +416,7 @@ $("#dFrom").addEventListener("change", e => { state.from = e.target.value; apply
 $("#dTo").addEventListener("change", e => { state.to = e.target.value; applyFilters(); });
 for (const id of ["#lyrRoutes", "#lyrAirports", "#lyrNotam"])
   $(id).addEventListener("change", renderAll);
+$("#lyrFixes").addEventListener("change", renderWaypoints);
 $("#reset").addEventListener("click", () => {
   state = { month: "all", q: "", origin: "", dest: "", tail: "", punct: "", from: "", to: "" };
   for (const id of ["#q", "#fOrigin", "#fDest", "#fTail", "#fPunct", "#dFrom", "#dTo"])

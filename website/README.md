@@ -30,9 +30,13 @@ Any static file server works; opening `index.html` via `file://` will
   altitude-profile chart in the detail panel.
 * **Detail panels** — per flight: tail, takeoff/landing UTC, air time,
   departure/arrival delay vs the FTA plan (takeoff-based, includes
-  taxi-out), runways used at the Entebbe end, weather codes, and the
-  NOTAMs in force at both ends. Per airport (click a marker): in/out
-  counts, busiest routes, NOTAM list.
+  taxi-out), runways used at the Entebbe end, weather codes, the
+  NOTAMs in force at both ends, and **fixes passed** — listed East
+  African waypoints within 3 nm of the flown path, in order. Per
+  airport (click a marker): in/out counts, busiest routes, NOTAM list.
+* **Waypoint overlay** (toggle) — the 536-point East African waypoint
+  list (`waypoints.csv` in the month folders): fixes, navaid idents,
+  ICAO locations and coordinate fixes.
 * **Daily traffic chart** — flights per day for the filtered set
   (blue = September, gold = October).
 

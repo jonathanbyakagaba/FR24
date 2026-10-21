@@ -15,6 +15,7 @@ daily counts and NOTAMs per airport. Rerun after any dataset update:
 import csv
 import importlib.util
 import json
+import math
 import zipfile
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
@@ -68,10 +69,35 @@ def read_track(zf, by_base, source_file):
     return downsample(pts), callsign
 
 
+def load_waypoints():
+    wps = []
+    wfile = ROOT / "UR OCTOBER 2026" / "waypoints.csv"
+    for r in csv.DictReader(open(wfile)):
+        wps.append({"name": r["name"], "kind": r["kind"],
+                    "lat": float(r["latitude"]), "lon": float(r["longitude"])})
+    return wps
+
+
+def fixes_passed(path, wps, within_nm=3.0):
+    """Listed waypoints the flown path passes within `within_nm`, in order."""
+    found = []
+    for lat, lon, *_ in path[::2]:
+        coslat = max(0.2, abs(math.cos(math.radians(lat))))
+        best, bestd = None, within_nm
+        for w in wps:
+            d = ((w["lat"] - lat) * 60) ** 2 + ((w["lon"] - lon) * 60 * coslat) ** 2
+            if d < bestd * bestd:
+                best, bestd = w["name"], d ** 0.5
+        if best and (not found or found[-1] != best):
+            found.append(best)
+    return found
+
+
 def main():
     flights = []
     notams = defaultdict(list)
     used_airports = Counter()
+    wps = load_waypoints()
 
     for label, prefix, folder, zipname in MONTHS:
         zf = zipfile.ZipFile(folder / zipname)
@@ -125,6 +151,7 @@ def main():
                 "punctuality": p.get("punctuality", ""),
                 "dep_wx": c.get("dep_wx", ""), "arr_wx": c.get("arr_wx", ""),
                 "dep_rwy": c.get("dep_rwy", ""), "arr_rwy": c.get("arr_rwy", ""),
+                "fixes_passed": fixes_passed(path, wps),
                 "path": path,
             }
             flights.append(f)
@@ -157,6 +184,7 @@ def main():
         "routes": route_rows,
         "daily": [{"date": d, "flights": daily[d]} for d in sorted(daily)],
         "notams": notams,
+        "waypoints": wps,
         "stats": {
             "flights": len(flights),
             "airports": len(airports),

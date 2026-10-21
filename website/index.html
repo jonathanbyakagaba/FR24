@@ -62,6 +62,7 @@
         <label><input type="checkbox" id="lyrRoutes" checked> Route arcs</label>
         <label><input type="checkbox" id="lyrAirports" checked> Airports</label>
         <label><input type="checkbox" id="lyrNotam" checked> NOTAM badges</label>
+        <label><input type="checkbox" id="lyrFixes"> Waypoints / fixes</label>
       </div>
       <button id="reset" class="ghost">Reset all filters</button>
     </section>
@@ -107,7 +108,7 @@
 </div>
 
 <footer>
-  Data: FR24 tracks + FTA utilization plans + Iowa State IEM METAR + NOTAM snapshot 2026-10-20, from this repository
+  Data: FR24 tracks + FTA utilization plans + Iowa State IEM METAR + NOTAM snapshot 2026-10-20 + East African waypoints (user-supplied 2026-10-21), from this repository
   (`UR SEPTEMBER 2026/`, `UR OCTOBER 2026/`). Rebuild the site data with <code>python3 website/build_data.py</code>.
   Map © OpenStreetMap contributors © CARTO. Delays are takeoff vs scheduled departure (include taxi-out).
 </footer>

@@ -21,6 +21,7 @@ which files they produce and which files are carried over frozen.
 | `triangle_routes.md` | — | triangle write-up | written from `triangle_assignments.csv` |
 | `data_gaps.md` | — | the 52 FTA-planned legs with no track, plus track-side notes | `python3 work/build_september_fta.py` |
 | `notams.csv` | 51 | NOTAM notices whose validity touches Sep 2026 - lower bound only: the 2026-10-20 snapshot cannot see September-expired notices (see `notams.md`) | `python3 work/build_notams.py` from `work/notams_snapshot_*.csv` |
+| `waypoints.csv` | 536 | East African waypoint reference list (user-supplied 2026-10-21; fixes/navaids/locations, classified) - see `waypoints.md` | `python3 work/build_waypoints.py` from `work/East African FIR.csv` |
 | `notams.md` | — | NOTAM read-across for the month | written from `notams.csv` / the 2026-10-20 snapshot |
 | `punctuality.md` | — | punctuality basis note | — |
 | `schedule_delays.md` | — | why no schedule-basis file exists for September | — |

@@ -26,6 +26,7 @@ are carried over.
 | `punctuality.md` | — | punctuality basis and scoreboard | written from `punctuality.csv` |
 | `schedule_delays.md` | — | schedule-delay basis and caveats | written from `schedule_delays.csv` |
 | `notams.csv` | 92 | NOTAM notices whose validity touches Oct 2026 (snapshot 2026-10-20; UCAA AIM for HUEN, Speedbird/FAA mirror elsewhere) | `python3 work/build_notams.py` from `work/notams_snapshot_*.csv` |
+| `waypoints.csv` | 536 | East African waypoint reference list (user-supplied 2026-10-21; fixes/navaids/locations, classified) - see `waypoints.md` | `python3 work/build_waypoints.py` from `work/East African FIR.csv` |
 | `notams.md` | — | NOTAM read-across for the month | written from `notams.csv` / the 2026-10-20 snapshot |
 | `app_status.csv` | 705 | app status dots — **the September copy, through 30 Sep; not an October source** | n/a |
 | `od_matrix_october2026.pdf` | 18 matrices (+TOTAL) | OD matrix per day (1–18 Oct) + the diversion audit | `python3 work/build_od_matrix_october.py` (needs reportlab + openpyxl) |
