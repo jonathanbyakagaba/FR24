@@ -1,4 +1,4 @@
-# Runway usage — 1–19 October 2026 (rebuilt 2026-10-20)
+# Runway usage — 1–22 October 2026 (rebuilt 2026-10-23)
 
 `runway_usage.csv` was regenerated from the month zip by
 `work/rebuild_month.py` using a **simplified model**: the mean ground-roll
@@ -13,16 +13,16 @@ repository and cannot be reproduced honestly.
 
 | | runway 17 | runway 35 | undetermined |
 |---|---:|---:|---:|
-| departures (191 from EBB) | 167 | 24 | 0 |
-| arrivals (191 to EBB) | 156 | 35 | 0 |
+| departures (219 from EBB) | 191 | 28 | 0 |
+| arrivals (218 to EBB) | 178 | 40 | 0 |
 
 Same pattern as September: runway 17 works ~87% of departures and ~82% of
 arrivals, with 35 used in overnight northerly flow.
 
 ## Confidence
 
-High (roll heading within 12° of a runway heading): 381 of 413 departures,
-364 of 413 arrivals. Blank runway = no usable ground roll in the track
+High (roll heading within 12° of a runway heading): 436 of 473 departures,
+420 of 473 arrivals. Blank runway = no usable ground roll in the track
 (takeoff/landing not observed, or no heading table for that airport).
 Treat medium/low-confidence rows as indicative only.
 

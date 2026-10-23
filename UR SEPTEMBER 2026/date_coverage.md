@@ -1,6 +1,6 @@
 # Date coverage (rebuilt from month zip)
 
-638 flight rows from 638 track files.
+640 flight rows from 640 track files.
 
 | date (origin local) | flights |
 |---|---:|
@@ -19,8 +19,8 @@
 | 2026-09-13 | 30 |
 | 2026-09-14 | 18 |
 | 2026-09-15 | 19 |
-| 2026-09-16 | 17 |
-| 2026-09-17 | 16 |
+| 2026-09-16 | 18 |
+| 2026-09-17 | 17 |
 | 2026-09-18 | 24 |
 | 2026-09-19 | 15 |
 | 2026-09-20 | 26 |

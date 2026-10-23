@@ -47,7 +47,7 @@ NEW_DIR = ROOT / "work" / "tracks_in"
 PREFIX = "FR data/FR data/"
 MONTHS = [
     (ROOT / "UR SEPTEMBER 2026" / "UR September flights.zip", "2026-09-01", "2026-09-30"),
-    (ROOT / "UR OCTOBER 2026" / "FR data.zip", "2026-10-01", "2026-10-19"),
+    (ROOT / "UR OCTOBER 2026" / "FR data.zip", "2026-10-01", "2026-10-22"),
 ]
 
 

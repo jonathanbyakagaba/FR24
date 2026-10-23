@@ -7,15 +7,15 @@ which files they produce and which files are carried over frozen.
 
 | file | rows | what it is | rebuild with |
 |---|---|---|---|
-| `manifest.csv` | 638 | one row per track file in the month zip | `python3 work/rebuild_month.py "UR SEPTEMBER 2026" "UR September flights.zip"` |
-| `flights.csv` | 638 | flight log from the tracks (takeoff/landing, route, air time) | same |
+| `manifest.csv` | 640 | one row per track file in the month zip | `python3 work/rebuild_month.py "UR SEPTEMBER 2026" "UR September flights.zip"` |
+| `flights.csv` | 640 | flight log from the tracks (takeoff/landing, route, air time) | same |
 | `fleet_summary.csv` | 5 tails | per-aircraft September totals; fleet meta carried from the frozen file | same (reads existing `fleet_summary.csv`/`tails.csv` first) |
-| `triangle_assignments.csv` | 236 | triangle sectors (UR720/722, UR334, UR206–209, UR342/343) with tails | same |
-| `runway_usage.csv` | 638 | runway in use, simplified heading model (legacy header; survey columns blank) | same |
+| `triangle_assignments.csv` | 237 | triangle sectors (UR720/722, UR334, UR206–209, UR342/343) with tails | same |
+| `runway_usage.csv` | 640 | runway in use, simplified heading model (legacy header; survey columns blank) | same |
 | `date_coverage.md` | — | flights per origin-local date | same |
 | `all_flights_aeroroutes.md` | — | every flight grouped by route | same |
 | `no_code_tracks.md` | — | tracks without a clean UGD flight identity (AF523, UGD720X) | same |
-| `flight_conditions.csv` | 638 | Entebbe-end weather per flight | `python3 work/build_conditions.py "UR SEPTEMBER 2026"` |
+| `flight_conditions.csv` | 640 | Entebbe-end weather per flight | `python3 work/build_conditions.py "UR SEPTEMBER 2026"` |
 | `weather_analysis.md` | — | September weather write-up | written from `flight_conditions.csv` + `metar/` |
 | `runway_usage.md` | — | runway write-up and model limits | written from `runway_usage.csv` |
 | `triangle_routes.md` | — | triangle write-up | written from `triangle_assignments.csv` |
@@ -24,7 +24,7 @@ which files they produce and which files are carried over frozen.
 | `waypoints.csv` | 536 | East African waypoint reference list (user-supplied 2026-10-21; fixes/navaids/locations, classified) - see `waypoints.md` | `python3 work/build_waypoints.py` from `work/East African FIR.csv` |
 | `notams.md` | — | NOTAM read-across for the month | written from `notams.csv` / the 2026-10-20 snapshot |
 | `punctuality.md` | — | punctuality basis note | — |
-| `schedule_delays.csv` | 659 legs | FTA plan STD/STA vs operated times, `no_track` flags | `python3 work/build_september_fta.py` |
+| `schedule_delays.csv` | 660 legs | FTA plan STD/STA vs operated times, `no_track` flags | `python3 work/build_september_fta.py` |
 | `schedule_delays.md` | — | FTA-plan delay basis and scoreboard | — |
 | `tails.csv` | 701 | tail per flight, FR24 app pages — **frozen, not regenerated** | n/a (no app captures in repo) |
 | `app_status.csv` | 705 | app status dots — **frozen, not regenerated** | n/a |

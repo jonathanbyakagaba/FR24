@@ -65,10 +65,9 @@ them (Phase 8). Files that are *inputs* and are safe to update: the zips,
 `work/fta_*.csv`, `work/notams_snapshot_*.csv`, `work/flightlists/`,
 `work/tracks_in/`, and each folder's `metar/` and `tails.csv` (see Phase 8).
 
-**Status at last verification (2026-10-23):** pool after the day's upload =
-1,239 tracks (unmerged); month zips still at September 638 flights /
-October 413 flights (1–19 Oct); website 1,051 flights, 1 Sep – 19 Oct.
-See §12 for what is pending.
+**Status at last verification (2026-10-23):** the 1,239-track pool is
+fully cascaded — September 640 flights, October 473 flights
+(1–22 Oct); website 1,113 flights, 1 Sep – 22 Oct. See §13.
 
 ---
 
@@ -213,7 +212,7 @@ python3 work/build_month_zips.py --check   # ALWAYS first; writes nothing
   non-empty, STOP: the new pool is missing tracks the archive relies on;
   investigate before proceeding. `--force` refuses in that case anyway.
 - **Extending coverage to new dates:** first edit the October window end
-  in `MONTHS` inside `work/build_month_zips.py` (currently `2026-10-19`)
+  in `MONTHS` inside `work/build_month_zips.py` (currently `2026-10-22`)
   and the matching day list `days = [...]` in
   `work/build_od_matrix_october.py`, and make sure Phase 7 inputs cover
   the new dates *before* the Phase 8 FTA join.
@@ -330,17 +329,20 @@ nothing is fetched live.
 
 ## 13. Where things stand (2026-10-23) & pending
 
-- Archives as committed: pool 1,177 tracks cascaded (Sep 638 flights,
-  Oct 413 flights, 1–19 Oct); website 1,051 flights.
-- A fresh user export was uploaded the same day (`FR data.zip`, 1,239
-  tracks, commit `4947071`): `--check` shows a pure superset — +2 September
-  and +4 October flights inside the current windows, nothing lost. To
-  absorb it: §7 fresh-export route, extend the October window past
-  2026-10-19 first (§7), extend FTA/METAR inputs (§8), then the full
-  cascade (§9) and website (§10).
-- `work/targets_uptodate.csv` (63 flights through 22 Oct) overlaps that
-  export heavily — after the cascade, regenerate it; whatever remains is
-  the true residual download list.
+- Archives as committed: pool 1,239 tracks cascaded (Sep 640 flights,
+  Oct 473 flights, 1–22 Oct); website 1,113 flights, 1 Sep – 22 Oct.
+- The 2026-10-23 fresh export (1,239 tracks, commit `4947071`) has
+  been absorbed: `--check` verified a pure superset (+62 tracks incl.
+  Oct 20–22 coverage, nothing lost), the October window was extended
+  to 2026-10-22, FTA plans and HUEN METARs extended, and the full
+  cascade + website rerun. All 58 remaining no-track legs are
+  classified in `work/gap_verdicts.csv` (53 did not operate, 2
+  operated with tracks outside the join window, 3 operated and
+  downloadable).
+- `work/targets_uptodate.csv` regenerated after the cascade: 15
+  flights (UR207 of 2026-09-01, the 3 recoverable October legs, 11
+  flights that arrived 23 Oct) — the current residual download list.
+  `work/pick_flights.py` remains the hand-pick route.
 - Security debt: rotate the browser FR24 login (logout/login) and refresh
   `subscription_key` in `fr24.conf` (§3) — a JWT was exposed in plaintext
   during the original auth debugging.

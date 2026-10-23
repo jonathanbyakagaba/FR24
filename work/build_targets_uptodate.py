@@ -62,7 +62,7 @@ def archived_ids() -> set[str]:
     with zipfile.ZipFile(ROOT / "FR data.zip") as z:
         for name in z.namelist():
             base = Path(name).name
-            m = re.match(r"(?:UR\d+|AF\d+)-([0-9a-f]+)\.csv$", base) or re.match(r"([0-9a-f]{8})\.csv$", base)
+            m = re.search(r"-([0-9a-f]{8})\.csv$", base) or re.match(r"([0-9a-f]{8})\.csv$", base)
             if m:
                 ids.add(m.group(1).lower())
     prev = ROOT / "work" / "targets.csv"
@@ -90,8 +90,13 @@ def main() -> None:
             if hex_id in have or hex_id in targets:
                 continue
             atod, atoa = parse_ts(r.get("ATOD", "")), parse_ts(r.get("ATOA", ""))
-            if atod is None or atoa is None:
-                continue  # not departed, or not yet arrived
+            status = (r.get("status") or "").strip()
+            # Arrived means: ATOA recorded, OR the list itself says the
+            # flight landed / diverted (FR24 sometimes leaves ATOA empty
+            # for diverted flights and some landed ones).
+            arrived = atoa is not None or status.startswith(("Landed", "Diverted"))
+            if atod is None or not arrived:
+                continue  # not departed, or still airborne: arrived only
             o_iata = ICAO2IATA.get(r["origin"], r["origin"])
             d_iata = ICAO2IATA.get(r["destination"], r["destination"])
             tz = ZoneInfo(AIRPORTS[o_iata][4]) if o_iata in AIRPORTS else timezone.utc
@@ -103,13 +108,14 @@ def main() -> None:
                 date=date_local, **{"from": o_iata, "to": d_iata},
                 registration=r.get("registration", ""),
                 atod_utc=atod.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                atoa_utc=atoa.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                atoa_utc=atoa.strftime("%Y-%m-%dT%H:%M:%SZ") if atoa else "",
+                status=status,
             )
     rows = sorted(targets.values(), key=lambda t: t["atod_utc"])
     out = ROOT / "work" / "targets_uptodate.csv"
     with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["flight_id_hex", "number", "callsign", "date",
-                                          "from", "to", "registration", "atod_utc", "atoa_utc"])
+                                          "from", "to", "registration", "atod_utc", "atoa_utc", "status"])
         w.writeheader()
         w.writerows(rows)
     print(f"scanned {seen} flight-list rows; wrote {len(rows)} targets -> {out.relative_to(ROOT)}")
