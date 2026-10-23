@@ -13,16 +13,16 @@ repository and cannot be reproduced honestly.
 
 | | runway 17 | runway 35 | undetermined |
 |---|---:|---:|---:|
-| departures (186 from EBB) | 162 | 24 | 0 |
-| arrivals (183 to EBB) | 149 | 34 | 0 |
+| departures (191 from EBB) | 167 | 24 | 0 |
+| arrivals (191 to EBB) | 156 | 35 | 0 |
 
-Same pattern as September: runway 17 works ~87% of departures and ~80% of
+Same pattern as September: runway 17 works ~87% of departures and ~82% of
 arrivals, with 35 used in overnight northerly flow.
 
 ## Confidence
 
-High (roll heading within 12° of a runway heading): 354 of 385 departures,
-338 of 385 arrivals. Blank runway = no usable ground roll in the track
+High (roll heading within 12° of a runway heading): 381 of 413 departures,
+364 of 413 arrivals. Blank runway = no usable ground roll in the track
 (takeoff/landing not observed, or no heading table for that airport).
 Treat medium/low-confidence rows as indicative only.
 

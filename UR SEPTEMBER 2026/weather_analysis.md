@@ -6,8 +6,8 @@ each flight's takeoff/landing by `work/build_conditions.py` (nearest report
 within ±75 min). Per-flight values are in `flight_conditions.csv`.
 
 METAR was retrieved for Entebbe only in this rebuild (see SUPPORTING.md for
-how to add the outstations). Every flight with an Entebbe end — 588 of 622
-flight-ends in September — has real conditions at that end; the outstation
+how to add the outstations). Every flight with an Entebbe end — 593 of 638
+September flights — has real conditions at that end; the outstation
 end is blank in `flight_conditions.csv`. The frozen build's weather file was
 based on its own, now-lost METAR archive, so figures are not comparable
 row-by-row.
@@ -24,7 +24,7 @@ row-by-row.
   strongest routine report in the month is 18 kt (several afternoons); one
   25 kt gust (11 Sep 05:00Z, TSRA) and one 30 kt gust (in October's series).
 - **Runway wind favour:** at the Entebbe end, the wind favoured the runway
-  in use (headwind component ≥ −2 kt) in 475 of 588 scored ends (81%); 113
+  in use (headwind component ≥ −2 kt) in 481 of 595 scored ends (81%); 114
   ends (19%) had a >2 kt tailwind component on the runway used — almost all
   light-wind cases where either direction is workable.
 - Visibility was ≥6.21 mi (10 km) in the great majority of reports; sub-5 mi
