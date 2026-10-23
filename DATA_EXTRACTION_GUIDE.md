@@ -74,8 +74,8 @@ See §12 for what is pending.
 
 ## 2. Phase 1 — Windows workstation setup (once)
 
-FR24's API is only reachable from the user’s Windows machine (see §11 if
-you're wondering why). Set up once:
+FR24's API is only reachable from the user’s Windows machine (see the
+troubleshooting table in §12). Set up once:
 
 1. Install Python 3.11+ from python.org (tick "Add to PATH").
 2. Open Command Prompt in `C:\Users\User` and create the environment:
