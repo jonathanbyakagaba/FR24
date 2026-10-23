@@ -66,29 +66,55 @@ async def main() -> None:
         )
         print("auth:", auth.get("message"))
         page = 1
+        timestamp: datetime | str = "now"
         while True:
             resp = await flight_list(
                 client,
-                FlightListParams(reg=args.reg, page=page, limit=100),
+                FlightListParams(
+                    reg=args.reg, page=page, limit=100, timestamp=timestamp
+                ),
                 headers=headers,
                 auth=auth,
             )
             resp.raise_for_status()
-            df = flight_list_df(resp.json())
-            print(f"page {page}: {df.height} flights")
-            if df.height == 0:
+            raw = resp.json()
+            response_obj = raw.get("result", {}).get("response", {})
+            if not response_obj.get("data"):
+                print(f"page {page}: no more data")
                 break
+            df = flight_list_df(raw)
+            print(f"page {page}: {df.height} flights")
             frames.append(df)
+
             oldest = df["ATOD"].min()
             if oldest is not None and oldest < since:
                 break
+            if not response_obj.get("page", {}).get("more"):
+                break
+            # FR24 paging quirk (per the library's own fetch-all): the
+            # next request needs page+1 AND timestamp re-anchored to the
+            # earliest scheduled departure of the batch just received.
+            stod_min = df["STOD"].min()
+            if stod_min is not None:
+                timestamp = stod_min
             page += 1
+            if page > args.max_pages:
+                print(f"stopping at --max-pages={args.max_pages}")
+                break
             await asyncio.sleep(1)  # stay gentle with FR24
 
     if not frames:
         print("no flights returned")
         return
     allf = pl.concat(frames)
+    n_raw = allf.height
+    with_id = allf.filter(pl.col("flight_id").is_not_null())
+    no_id = allf.filter(pl.col("flight_id").is_null())
+    allf = pl.concat(
+        [with_id.unique(subset=["flight_id"], keep="first"), no_id]
+    )
+    if allf.height != n_raw:
+        print(f"deduped {n_raw} -> {allf.height} flights (page overlaps)")
     out = args.out or f"flightlist_{args.reg}.csv"
     allf.write_csv(out)
     print(f"total {allf.height} flights -> {out}")
