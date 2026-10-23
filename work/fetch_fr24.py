@@ -53,6 +53,7 @@ async def main() -> None:
     ap.add_argument("--reg", required=True, help="aircraft registration, e.g. 5X-KOB")
     ap.add_argument("--since", default="2026-09-01", help="stop paging at this UTC date")
     ap.add_argument("--out", default="", help="output CSV (default flightlist_<reg>.csv)")
+    ap.add_argument("--max-pages", type=int, default=50, help="safety cap on pages")
     args = ap.parse_args()
 
     since = datetime.fromisoformat(args.since).replace(tzinfo=timezone.utc)
