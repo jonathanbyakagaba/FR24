@@ -12,10 +12,18 @@ New tracks are read from work/tracks_in/*.csv (FR24 playback downloads),
 added to the pool under the usual "FR data/FR data/<file>" entry names,
 deduplicated by exact-content MD5 (canonical rule).
 
-Safety: before writing, the computed membership of the OLD pool is
-checked against the current month zips; any difference aborts the run.
+Safety: before writing, the computed membership is checked against the
+current month zips. Without flags any difference aborts the run (the
+normal case: pool unchanged, only work/tracks_in additions). If a fresh
+FR data.zip superset was uploaded as the pool, run with --force: the run
+then proceeds when the difference is ADDITIONS ONLY for every month
+(computed set covers the current zips), and still aborts if any track
+currently in a month zip would be lost.
 
-Usage: python3 work/build_month_zips.py [--check]
+Extending coverage to new dates: edit the month window end dates in
+MONTHS below (and the day list in work/build_od_matrix_october.py).
+
+Usage: python3 work/build_month_zips.py [--check] [--force]
 """
 
 from __future__ import annotations
@@ -72,6 +80,7 @@ def track_info(name: str, text: str):
 
 def main() -> None:
     check_only = "--check" in sys.argv
+    force = "--force" in sys.argv
 
     pool: dict[str, bytes] = {}  # entry name -> bytes
     with zipfile.ZipFile(TOP_ZIP) as z:
@@ -85,19 +94,28 @@ def main() -> None:
     for n, data in pool.items():
         info[n] = track_info(n, data.decode("utf-8", "replace"))
     ok = True
+    lost_any = False
     for zip_path, lo, hi in MONTHS:
         computed = {Path(n).name for n, (ur, dl) in info.items() if ur and dl and lo <= dl <= hi}
         with zipfile.ZipFile(zip_path) as z:
             current = {Path(n).name for n in z.namelist() if n.endswith(".csv")}
         if computed != current:
-            ok = False
+            lost = sorted(current - computed)
             print(f"MISMATCH {zip_path.name}: computed {len(computed)} vs current {len(current)}")
             print("  only computed:", sorted(computed - current)[:10])
-            print("  only current :", sorted(current - computed)[:10])
+            print("  only current :", lost[:10])
+            if lost:
+                lost_any = True
+            elif force:
+                print("  additions only -> proceeding under --force")
+            else:
+                ok = False
         else:
             print(f"membership rule OK for {zip_path.name}: {len(current)} tracks")
+    if lost_any:
+        sys.exit("month zips hold tracks the membership rule cannot reproduce (would be LOST); aborting even under --force")
     if not ok:
-        sys.exit("membership rule does not reproduce current zips; aborting")
+        sys.exit("membership rule does not reproduce current zips; aborting (use --force only for additions-only supersets)")
 
     # add new tracks (content-MD5 dedupe, canonical)
     md5s = {hashlib.md5(d).hexdigest() for d in pool.values()}
