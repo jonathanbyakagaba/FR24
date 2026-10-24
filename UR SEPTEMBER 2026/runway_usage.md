@@ -13,18 +13,18 @@ repository and cannot be reproduced honestly.
 
 | | runway 17 | runway 35 | undetermined |
 |---|---:|---:|---:|
-| departures (295 from EBB) | 272 | 23 | 0 |
-| arrivals (293 to EBB) | 259 | 34 | 0 |
+| departures (298 from EBB) | 275 | 23 | 0 |
+| arrivals (298 to EBB) | 264 | 34 | 0 |
 
-Runway 17 dominates in both directions (92% of departures, 88% of arrivals),
+Runway 17 dominates in both directions (92% of departures, 89% of arrivals),
 matching the daytime southerly lake breeze: most of the day Entebbe works
 into a 160–190° wind. Runway 35 use clusters overnight and in northerly
 spells.
 
 ## Confidence
 
-High (roll heading within 12° of a runway heading): 571 of 622 departures,
-534 of 622 arrivals. Blank runway = no usable ground roll in the track
+High (roll heading within 12° of a runway heading): 588 of 640 departures,
+549 of 640 arrivals. Blank runway = no usable ground roll in the track
 (takeoff/landing not observed, or the airport has no heading table here —
 e.g. Hoima). Treat medium/low-confidence rows as indicative only.
 

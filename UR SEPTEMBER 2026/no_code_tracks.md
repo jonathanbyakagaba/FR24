@@ -9,6 +9,7 @@ Tracks whose transmitted callsign is not a plain UGD<flight number>:
 | 2026-09-04 | UG343 | MBA-EBB | UR343-41821bed.csv | no UGD callsign transmitted |
 | 2026-09-15 | UR722 | HRE-LUN | UR722-41ac3a41.csv | no UGD callsign transmitted |
 | 2026-09-17 | UGD322D | EBB-DAR | UR322-41b390ba.csv | suffixed/test callsign |
+| 2026-09-17 | UGD323D | DAR-EBB | UR323-41b3f78f.csv | suffixed/test callsign |
 | 2026-09-27 | AF523 | EBB-EBB | UR523-41db0d31.csv | AF-prefix domestic/test callsign (Hoima shuttle / EBB local flying) |
 | 2026-09-27 | AF523 | EBB-UGHO | UR523-41db7233.csv | AF-prefix domestic/test callsign (Hoima shuttle / EBB local flying) |
 | 2026-09-27 | AF523 | UGHO-EBB | UR523-41dba960.csv | AF-prefix domestic/test callsign (Hoima shuttle / EBB local flying) |
