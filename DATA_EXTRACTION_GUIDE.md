@@ -153,11 +153,15 @@ Targets CSV columns: `flight_id_hex,number,callsign,date,from,to`
 **Recipe A — bring the archive up to date (routine):**
 ```bash
 python3 work/build_targets_uptodate.py 2026-10-22   # end date = yesterday
+python3 work/build_targets_uptodate.py 2026-10-23 2026-10-23   # one day only
 ```
 Reads `work/flightlists/`, writes `work/targets_uptodate.csv`: every
 arrived UR flight with origin-local departure date in
 `2026-09-01`..end-date (edit `START` in the script for a later era) whose
-flight id is not already in the pool or in `work/targets.csv`.
+flight id is not already in the pool or in `work/targets.csv`. With a
+second date argument it writes only that day's flights to
+`work/targets_<date>.csv` instead. Refresh `work/flightlists/` first
+(§4) or late departures of the day will be missing from the list.
 
 **Recipe B — recover FTA-planned legs that have no track:**
 1. From both months' `schedule_delays.csv`, collect rows with

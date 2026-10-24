@@ -16,6 +16,8 @@ fetch_tracks.py downloads the complete playback track as FR24 serves it.
 
 Usage: python3 work/build_targets_uptodate.py [end-date YYYY-MM-DD]
        (default end date: 2026-10-22)
+       python3 work/build_targets_uptodate.py <end-date> <only-date>
+       writes work/targets_<only-date>.csv with just that day's flights.
 """
 
 from __future__ import annotations
@@ -36,6 +38,8 @@ from rebuild_month import AIRPORTS  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 START = "2026-09-01"
 END = sys.argv[1] if len(sys.argv) > 1 else "2026-10-22"
+ONLY = sys.argv[2] if len(sys.argv) > 2 else None  # single origin-local date
+LO, HI = (ONLY, ONLY) if ONLY else (START, END)
 
 ICAO2IATA = {
     "HUEN": "EBB", "HKJK": "NBO", "HTDA": "DAR", "FAOR": "JNB",
@@ -74,7 +78,7 @@ def archived_ids() -> set[str]:
 
 def main() -> None:
     have = archived_ids()
-    print(f"archived flight ids: {len(have)}; window {START} .. {END} (origin-local)")
+    print(f"archived flight ids: {len(have)}; window {LO} .. {HI} (origin-local)")
     targets: dict[str, dict] = {}
     seen = 0
     for fp in sorted(glob.glob(str(ROOT / "work" / "flightlists" / "*.csv"))):
@@ -101,7 +105,7 @@ def main() -> None:
             d_iata = ICAO2IATA.get(r["destination"], r["destination"])
             tz = ZoneInfo(AIRPORTS[o_iata][4]) if o_iata in AIRPORTS else timezone.utc
             date_local = atod.astimezone(tz).strftime("%Y-%m-%d")
-            if not (START <= date_local <= END):
+            if not (LO <= date_local <= HI):
                 continue
             targets[hex_id] = dict(
                 flight_id_hex=hex_id, number=number, callsign=callsign,
@@ -112,7 +116,7 @@ def main() -> None:
                 status=status,
             )
     rows = sorted(targets.values(), key=lambda t: t["atod_utc"])
-    out = ROOT / "work" / "targets_uptodate.csv"
+    out = ROOT / "work" / (f"targets_{ONLY}.csv" if ONLY else "targets_uptodate.csv")
     with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["flight_id_hex", "number", "callsign", "date",
                                           "from", "to", "registration", "atod_utc", "atoa_utc", "status"])
