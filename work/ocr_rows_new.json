@@ -1,0 +1,5659 @@
+[
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 0,
+  "y": 172,
+  "lines": [
+   {
+    "text": "< flightradar24",
+    "conf": 81.6,
+    "top": 309,
+    "left": 113
+   },
+   {
+    "text": "ET-APL",
+    "conf": 71.7,
+    "top": 363,
+    "left": 326
+   },
+   {
+    "text": "YEAR 2026",
+    "conf": 96.5,
+    "top": 555,
+    "left": 48
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 1,
+  "y": 375,
+  "lines": [
+   {
+    "text": "Sep 21 UR7/12 (uGD712)",
+    "conf": 69.1,
+    "top": 722,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.0,
+    "top": 829,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 65.6,
+    "top": 933,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 2,
+  "y": 578,
+  "lines": [
+   {
+    "text": "Sep 21 UR901 (uGD901)",
+    "conf": 82.7,
+    "top": 1128,
+    "left": 124
+   },
+   {
+    "text": "S Lagos (LOS) Vv",
+    "conf": 77.0,
+    "top": 1239,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.2,
+    "top": 1333,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 3,
+  "y": 781,
+  "lines": [
+   {
+    "text": "Sep 21 UR900 (UuGD900)",
+    "conf": 77.6,
+    "top": 1533,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 1641,
+    "left": 510
+   },
+   {
+    "text": "NX. Lagos (LOS)",
+    "conf": 63.4,
+    "top": 1739,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 4,
+  "y": 984,
+  "lines": [
+   {
+    "text": "Sep 21 UR7/13 (uGpD713)",
+    "conf": 70.9,
+    "top": 1940,
+    "left": 124
+   },
+   {
+    "text": "Ss Johannesburg (JNB) VY",
+    "conf": 77.7,
+    "top": 2051,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 2145,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 5,
+  "y": 1187,
+  "lines": [
+   {
+    "text": "Sep 20 UR7/12 (uGp712)",
+    "conf": 67.6,
+    "top": 2346,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 80.9,
+    "top": 2453,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 78.5,
+    "top": 2557,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 6,
+  "y": 1390,
+  "lines": [
+   {
+    "text": "Sep 20 UR901 (UuGD901)",
+    "conf": 81.1,
+    "top": 2751,
+    "left": 124
+   },
+   {
+    "text": "Ss Lagos (LOS) vy",
+    "conf": 61.0,
+    "top": 2863,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 2957,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 7,
+  "y": 1593,
+  "lines": [
+   {
+    "text": "Sep 20 UR900 (UGD900)",
+    "conf": 83.6,
+    "top": 3158,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.6,
+    "top": 3265,
+    "left": 510
+   },
+   {
+    "text": "NX. Lagos (LOS)",
+    "conf": 62.8,
+    "top": 3363,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 8,
+  "y": 1796,
+  "lines": [
+   {
+    "text": "Sep 20 UR720 (uGpD720)",
+    "conf": 68.1,
+    "top": 3564,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) 4",
+    "conf": 80.3,
+    "top": 3664,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 3769,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 9,
+  "y": 1999,
+  "lines": [
+   {
+    "text": "Sep 19 UR720 (uGp720)",
+    "conf": 66.5,
+    "top": 3970,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) 4",
+    "conf": 64.6,
+    "top": 4081,
+    "left": 510
+   },
+   {
+    "text": "NO Harare (HRE)",
+    "conf": 68.5,
+    "top": 4175,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 10,
+  "y": 2202,
+  "lines": [
+   {
+    "text": "Sep 19 UR720 (uGp720)",
+    "conf": 78.7,
+    "top": 4376,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.6,
+    "top": 4483,
+    "left": 510
+   },
+   {
+    "text": "ML Lusaka (LUN)",
+    "conf": 67.3,
+    "top": 4587,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 11,
+  "y": 2405,
+  "lines": [
+   {
+    "text": "@ Sep 19 UR7/11 (uGp711)",
+    "conf": 62.4,
+    "top": 4782,
+    "left": 47
+   },
+   {
+    "text": "= Johannesburg (JNB) VY",
+    "conf": 72.6,
+    "top": 4893,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 4987,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 12,
+  "y": 2608,
+  "lines": [
+   {
+    "text": "Sep 19 UR710 (uGp710)",
+    "conf": 74.6,
+    "top": 5188,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.5,
+    "top": 5295,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 73.8,
+    "top": 5399,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 13,
+  "y": 2811,
+  "lines": [
+   {
+    "text": "Sep 19 UR9053 (UGD903)",
+    "conf": 68.8,
+    "top": 5593,
+    "left": 124
+   },
+   {
+    "text": "Ss Lagos (LOS) Vv",
+    "conf": 57.7,
+    "top": 5705,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 5799,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 14,
+  "y": 3014,
+  "lines": [
+   {
+    "text": "Sep 18 UR902 (uGD902)",
+    "conf": 82.9,
+    "top": 5999,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 6107,
+    "left": 510
+   },
+   {
+    "text": "NX. Lagos (LOS)",
+    "conf": 71.0,
+    "top": 6205,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 15,
+  "y": 3217,
+  "lines": [
+   {
+    "text": "@ Sep 18 UR7/11 (uGp711)",
+    "conf": 60.2,
+    "top": 6406,
+    "left": 47
+   },
+   {
+    "text": "= Johannesburg (JNB) VY",
+    "conf": 74.8,
+    "top": 6517,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 6611,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 16,
+  "y": 3420,
+  "lines": [
+   {
+    "text": "@ Sep 18 UR710 (uGp710)",
+    "conf": 66.2,
+    "top": 6812,
+    "left": 47
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.1,
+    "top": 6919,
+    "left": 510
+   },
+   {
+    "text": "NX. Johannesburg (JNB)",
+    "conf": 61.5,
+    "top": 7023,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 17,
+  "y": 3623,
+  "lines": [
+   {
+    "text": "Sep 18 UR905 (UGD903)",
+    "conf": 78.6,
+    "top": 7218,
+    "left": 124
+   },
+   {
+    "text": "S Lagos (LOS) vy",
+    "conf": 78.6,
+    "top": 7329,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 7423,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 18,
+  "y": 3826,
+  "lines": [
+   {
+    "text": "Sep 17 UR902 (uGD902)",
+    "conf": 81.9,
+    "top": 7624,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 80.4,
+    "top": 7731,
+    "left": 510
+   },
+   {
+    "text": "NX. Lagos (LOS)",
+    "conf": 59.0,
+    "top": 7829,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 19,
+  "y": 4029,
+  "lines": [
+   {
+    "text": "Sep 17 UR902",
+    "conf": 93.6,
+    "top": 8029,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 8137,
+    "left": 510
+   },
+   {
+    "text": "NX. Lagos (LOS)",
+    "conf": 63.4,
+    "top": 8235,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 20,
+  "y": 4232,
+  "lines": [
+   {
+    "text": "Sep 17 UR722 (uGp722)",
+    "conf": 70.9,
+    "top": 8435,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) 4",
+    "conf": 63.5,
+    "top": 8547,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 8641,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 21,
+  "y": 4435,
+  "lines": [
+   {
+    "text": "Sep 17 UR722 (UGD722)",
+    "conf": 76.1,
+    "top": 8842,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) vv",
+    "conf": 73.9,
+    "top": 8942,
+    "left": 510
+   },
+   {
+    "text": "ML. Lusaka (LUN)",
+    "conf": 68.0,
+    "top": 9053,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 22,
+  "y": 4638,
+  "lines": [
+   {
+    "text": "Sep 17 UR7/22 (uGD722)",
+    "conf": 77.0,
+    "top": 9248,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 9355,
+    "left": 510
+   },
+   {
+    "text": "ML Harare (HRE)",
+    "conf": 70.0,
+    "top": 9453,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 23,
+  "y": 4841,
+  "lines": [
+   {
+    "text": "Sep 17 UR209 (uGp209)",
+    "conf": 76.8,
+    "top": 9654,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) VY",
+    "conf": 84.3,
+    "top": 9761,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 9859,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 24,
+  "y": 5044,
+  "lines": [
+   {
+    "text": "Sep 16 UR208 (UGD208)",
+    "conf": 83.8,
+    "top": 10060,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.1,
+    "top": 10167,
+    "left": 510
+   },
+   {
+    "text": "NX Nairobi (NBO)",
+    "conf": 73.0,
+    "top": 10265,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 25,
+  "y": 5247,
+  "lines": [
+   {
+    "text": "Sep 16 UR7/22 (uGD722)",
+    "conf": 80.7,
+    "top": 10466,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) 4",
+    "conf": 64.6,
+    "top": 10577,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 10671,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 26,
+  "y": 5450,
+  "lines": [
+   {
+    "text": "Sep 16 UR722 (uGD722)",
+    "conf": 77.1,
+    "top": 10872,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) Vv",
+    "conf": 69.0,
+    "top": 10972,
+    "left": 510
+   },
+   {
+    "text": "ML Lusaka (LUN)",
+    "conf": 67.3,
+    "top": 11083,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 27,
+  "y": 5653,
+  "lines": [
+   {
+    "text": "Sep 16 UR7/22 (UGD722)",
+    "conf": 73.7,
+    "top": 11278,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 11385,
+    "left": 510
+   },
+   {
+    "text": "ML. Harare (HRE)",
+    "conf": 66.3,
+    "top": 11483,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 28,
+  "y": 5856,
+  "lines": [
+   {
+    "text": "Sep 16 UR7/13 (uGpD713)",
+    "conf": 71.2,
+    "top": 11684,
+    "left": 124
+   },
+   {
+    "text": "Ss Johannesburg (JNB) VY",
+    "conf": 77.7,
+    "top": 11795,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 11889,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 29,
+  "y": 6059,
+  "lines": [
+   {
+    "text": "Sep 15 UR7/12 (uGp712)",
+    "conf": 67.1,
+    "top": 12090,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 81.8,
+    "top": 12197,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 78.5,
+    "top": 12301,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 30,
+  "y": 6262,
+  "lines": [
+   {
+    "text": "Sep 15 UR7/22 (uGD722)",
+    "conf": 76.4,
+    "top": 12496,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) VY",
+    "conf": 73.9,
+    "top": 12607,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 12701,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 31,
+  "y": 6465,
+  "lines": [
+   {
+    "text": "Sep 15 UR7/22 (uR722)",
+    "conf": 84.0,
+    "top": 12902,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) a",
+    "conf": 74.4,
+    "top": 13002,
+    "left": 510
+   },
+   {
+    "text": "MX Lusaka (LUN)",
+    "conf": 70.4,
+    "top": 13113,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 32,
+  "y": 6668,
+  "lines": [
+   {
+    "text": "Sep 15 UR7/22 (uGD722)",
+    "conf": 77.3,
+    "top": 13308,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.1,
+    "top": 13415,
+    "left": 510
+   },
+   {
+    "text": "N\\ Harare (HRE)",
+    "conf": 82.9,
+    "top": 13513,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 33,
+  "y": 6871,
+  "lines": [
+   {
+    "text": "Sep 15 UR7/13 (uGp713)",
+    "conf": 71.0,
+    "top": 13714,
+    "left": 124
+   },
+   {
+    "text": "Ss Johannesburg (JNB) VY",
+    "conf": 71.2,
+    "top": 13825,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 13919,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 34,
+  "y": 7074,
+  "lines": [
+   {
+    "text": "Sep 14 UR7/12 (uGD712)",
+    "conf": 61.8,
+    "top": 14120,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 80.4,
+    "top": 14227,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 72.0,
+    "top": 14331,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 35,
+  "y": 7277,
+  "lines": [
+   {
+    "text": "Sep 14 UR901 (uGD901)",
+    "conf": 85.3,
+    "top": 14525,
+    "left": 124
+   },
+   {
+    "text": "Ss Lagos (LOS) Vv",
+    "conf": 60.7,
+    "top": 14637,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 14731,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 36,
+  "y": 7480,
+  "lines": [
+   {
+    "text": "Sep 14 UR9I00 (UGD900)",
+    "conf": 71.7,
+    "top": 14932,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.5,
+    "top": 15039,
+    "left": 510
+   },
+   {
+    "text": "NX Lagos (LOS)",
+    "conf": 72.5,
+    "top": 15137,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 37,
+  "y": 7683,
+  "lines": [
+   {
+    "text": "Sep 14 UR713 (uGD713)",
+    "conf": 72.7,
+    "top": 15338,
+    "left": 124
+   },
+   {
+    "text": "= Johannesburg (JNB) VY",
+    "conf": 65.6,
+    "top": 15449,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 15543,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 38,
+  "y": 7886,
+  "lines": [
+   {
+    "text": "Sep 13 UR7/12 (uGD712)",
+    "conf": 69.9,
+    "top": 15744,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 15851,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 72.0,
+    "top": 15955,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 39,
+  "y": 8089,
+  "lines": [
+   {
+    "text": "Sep 13 UR901 (uGD901)",
+    "conf": 86.1,
+    "top": 16150,
+    "left": 124
+   },
+   {
+    "text": "S Lagos (LOS) ~",
+    "conf": 61.8,
+    "top": 16261,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 16355,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 40,
+  "y": 8292,
+  "lines": [
+   {
+    "text": "Sep 13 UR9I00 (UGD900)",
+    "conf": 74.0,
+    "top": 16556,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 79.1,
+    "top": 16663,
+    "left": 510
+   },
+   {
+    "text": "N\\ Lagos (LOS)",
+    "conf": 84.1,
+    "top": 16761,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 41,
+  "y": 8495,
+  "lines": [
+   {
+    "text": "Sep 13 UR720 (uGp720)",
+    "conf": 66.3,
+    "top": 16962,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) vv",
+    "conf": 76.3,
+    "top": 17062,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 17167,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 42,
+  "y": 8698,
+  "lines": [
+   {
+    "text": "Sep 12 UR720 (uGp720)",
+    "conf": 78.7,
+    "top": 17368,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) 4",
+    "conf": 62.1,
+    "top": 17479,
+    "left": 510
+   },
+   {
+    "text": "ML Harare (HRE)",
+    "conf": 65.8,
+    "top": 17573,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 43,
+  "y": 8901,
+  "lines": [
+   {
+    "text": "Sep 12 UR720 (UGD720)",
+    "conf": 73.3,
+    "top": 17774,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 78.9,
+    "top": 17881,
+    "left": 510
+   },
+   {
+    "text": "ML. Lusaka (LUN)",
+    "conf": 66.1,
+    "top": 17985,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_075929_Flightradar24.jpg",
+  "idx": 44,
+  "y": 9104,
+  "lines": [
+   {
+    "text": "Sep 12 UR711 (uGp711)",
+    "conf": 60.9,
+    "top": 18180,
+    "left": 124
+   },
+   {
+    "text": "Ss Johannesburg (JNB) VY",
+    "conf": 77.7,
+    "top": 18291,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 18385,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 0,
+  "y": 178,
+  "lines": [
+   {
+    "text": "< flightradar24",
+    "conf": 87.1,
+    "top": 309,
+    "left": 113
+   },
+   {
+    "text": "5Y-KDP",
+    "conf": 30.0,
+    "top": 363,
+    "left": 322
+   },
+   {
+    "text": "YEAR 2026",
+    "conf": 96.3,
+    "top": 555,
+    "left": 48
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 1,
+  "y": 381,
+  "lines": [
+   {
+    "text": "Sep 21 UR208 (uGp208)",
+    "conf": 83.1,
+    "top": 734,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.5,
+    "top": 841,
+    "left": 510
+   },
+   {
+    "text": "M. Nairobi (NBO)",
+    "conf": 62.7,
+    "top": 939,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 2,
+  "y": 584,
+  "lines": [
+   {
+    "text": "Sep 21 UR207 (uGp207)",
+    "conf": 90.2,
+    "top": 1140,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 69.4,
+    "top": 1247,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 1345,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 3,
+  "y": 787,
+  "lines": [
+   {
+    "text": "Sep 21 UR206",
+    "conf": 94.0,
+    "top": 1546,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 77.0,
+    "top": 1653,
+    "left": 510
+   },
+   {
+    "text": "MQ Nairobi (NBO)",
+    "conf": 65.0,
+    "top": 1751,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 4,
+  "y": 990,
+  "lines": [
+   {
+    "text": "Sep 21 UR206 (UGD206)",
+    "conf": 83.4,
+    "top": 1952,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.1,
+    "top": 2059,
+    "left": 510
+   },
+   {
+    "text": "MQ. Nairobi (NBO)",
+    "conf": 68.2,
+    "top": 2157,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 5,
+  "y": 1193,
+  "lines": [
+   {
+    "text": "Sep 21 UR321 (uGD321)",
+    "conf": 71.0,
+    "top": 2358,
+    "left": 124
+   },
+   {
+    "text": "S= Dar-es-Salaam (DAR) Vv",
+    "conf": 64.2,
+    "top": 2469,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 2563,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 6,
+  "y": 1396,
+  "lines": [
+   {
+    "text": "Sep 21 UR320 (UGD320)",
+    "conf": 77.8,
+    "top": 2764,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 73.5,
+    "top": 2871,
+    "left": 510
+   },
+   {
+    "text": "NX Dar-es-Salaam (DAR)",
+    "conf": 59.0,
+    "top": 2975,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 7,
+  "y": 1599,
+  "lines": [
+   {
+    "text": "Sep 21 UR123 (uGpD123)",
+    "conf": 77.1,
+    "top": 3170,
+    "left": 124
+   },
+   {
+    "text": "Ss Juba (JUB) Y",
+    "conf": 64.8,
+    "top": 3281,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 3375,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 8,
+  "y": 1802,
+  "lines": [
+   {
+    "text": "Sep 21 UR122 (uGp122)",
+    "conf": 73.2,
+    "top": 3576,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.5,
+    "top": 3683,
+    "left": 510
+   },
+   {
+    "text": "M. Juba (JUB)",
+    "conf": 61.0,
+    "top": 3787,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 9,
+  "y": 2005,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR343 (uGD343)",
+    "conf": 86.0,
+    "top": 3982,
+    "left": 47
+   },
+   {
+    "text": "Ss\u201d Mombasa (MBA) VY",
+    "conf": 70.5,
+    "top": 4089,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 4187,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 10,
+  "y": 2208,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR542 (uGp342)",
+    "conf": 73.9,
+    "top": 4388,
+    "left": 47
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.7,
+    "top": 4495,
+    "left": 510
+   },
+   {
+    "text": "SX. Mombasa (MBA)",
+    "conf": 81.5,
+    "top": 4595,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 11,
+  "y": 2411,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR4561 (uGD361)",
+    "conf": 63.5,
+    "top": 4794,
+    "left": 47
+   },
+   {
+    "text": "SS Bujumbura (BJM) VY",
+    "conf": 63.4,
+    "top": 4901,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 4999,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 12,
+  "y": 2614,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR360 (UGD360)",
+    "conf": 82.1,
+    "top": 5200,
+    "left": 47
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.1,
+    "top": 5307,
+    "left": 510
+   },
+   {
+    "text": "NX Bujumbura (BJM)",
+    "conf": 77.8,
+    "top": 5411,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 13,
+  "y": 2817,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR321 (uGD321)",
+    "conf": 71.8,
+    "top": 5606,
+    "left": 47
+   },
+   {
+    "text": "S= Dar-es-Salaam (DAR) VY",
+    "conf": 56.3,
+    "top": 5717,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 5811,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 14,
+  "y": 3020,
+  "lines": [
+   {
+    "text": "Sep 20 UR121 (uGD121)",
+    "conf": 83.0,
+    "top": 6012,
+    "left": 124
+   },
+   {
+    "text": "Ss Juba (JUB) VY",
+    "conf": 60.1,
+    "top": 6123,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 6217,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 15,
+  "y": 3223,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR320 (UGD320)",
+    "conf": 78.2,
+    "top": 6418,
+    "left": 47
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 75.3,
+    "top": 6525,
+    "left": 510
+   },
+   {
+    "text": "NX Dar-es-Salaam (DAR)",
+    "conf": 75.9,
+    "top": 6629,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 16,
+  "y": 3426,
+  "lines": [
+   {
+    "text": "Sep 20 UR120 (uGpD120)",
+    "conf": 79.7,
+    "top": 6824,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 77.4,
+    "top": 6931,
+    "left": 510
+   },
+   {
+    "text": "M. Juba (JUB)",
+    "conf": 61.0,
+    "top": 7035,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 17,
+  "y": 3629,
+  "lines": [
+   {
+    "text": "Sep 20 UR201 (UGp201)",
+    "conf": 73.0,
+    "top": 7230,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 68.4,
+    "top": 7337,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 7435,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 18,
+  "y": 3832,
+  "lines": [
+   {
+    "text": "Sep 20 UR200 (UGD200)",
+    "conf": 81.8,
+    "top": 7636,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.7,
+    "top": 7743,
+    "left": 510
+   },
+   {
+    "text": "MQ Nairobi (NBO)",
+    "conf": 73.9,
+    "top": 7841,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 19,
+  "y": 4035,
+  "lines": [
+   {
+    "text": "Sep 20 UR523 (uGD323)",
+    "conf": 76.8,
+    "top": 8042,
+    "left": 124
+   },
+   {
+    "text": "Ss Dar-es-Salaam (DAR) Vv",
+    "conf": 73.1,
+    "top": 8153,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 8247,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 20,
+  "y": 4238,
+  "lines": [
+   {
+    "text": "Sep 19 UR522 (uGD322)",
+    "conf": 75.1,
+    "top": 8448,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.1,
+    "top": 8555,
+    "left": 510
+   },
+   {
+    "text": "NX Dar-es-Salaam (DAR)",
+    "conf": 78.4,
+    "top": 8659,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 21,
+  "y": 4441,
+  "lines": [
+   {
+    "text": "Sep 19 UR121 (uGD121)",
+    "conf": 80.6,
+    "top": 8854,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Juba (JUB) Vv",
+    "conf": 76.3,
+    "top": 8965,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 9059,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 22,
+  "y": 4644,
+  "lines": [
+   {
+    "text": "Sep 19 UR120 (uGpD120)",
+    "conf": 80.1,
+    "top": 9260,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 73.5,
+    "top": 9367,
+    "left": 510
+   },
+   {
+    "text": "NO Juba (JUB)",
+    "conf": 59.4,
+    "top": 9471,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 23,
+  "y": 4847,
+  "lines": [
+   {
+    "text": "Sep 19 UR201 (uGpD201)",
+    "conf": 77.7,
+    "top": 9666,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 71.9,
+    "top": 9773,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 9871,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 24,
+  "y": 5050,
+  "lines": [
+   {
+    "text": "Sep 19 UR200 (uGD200)",
+    "conf": 80.8,
+    "top": 10072,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.5,
+    "top": 10179,
+    "left": 510
+   },
+   {
+    "text": "MQ. Nairobi (NBO)",
+    "conf": 63.2,
+    "top": 10277,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 25,
+  "y": 5253,
+  "lines": [
+   {
+    "text": "Sep 19 UR720 (uGp720)",
+    "conf": 75.6,
+    "top": 10478,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) Vv",
+    "conf": 76.9,
+    "top": 10578,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 10683,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 26,
+  "y": 5456,
+  "lines": [
+   {
+    "text": "Sep 18 UR720 (uGp720)",
+    "conf": 74.5,
+    "top": 10883,
+    "left": 124
+   },
+   {
+    "text": "= Lusaka (LUN) Vv",
+    "conf": 65.5,
+    "top": 10995,
+    "left": 510
+   },
+   {
+    "text": "ML Harare (HRE)",
+    "conf": 63.9,
+    "top": 11089,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 27,
+  "y": 5659,
+  "lines": [
+   {
+    "text": "Sep 18 UR720 (uGp720)",
+    "conf": 78.4,
+    "top": 11290,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 78.0,
+    "top": 11397,
+    "left": 510
+   },
+   {
+    "text": "ML. Lusaka (LUN)",
+    "conf": 68.0,
+    "top": 11501,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 28,
+  "y": 5862,
+  "lines": [
+   {
+    "text": "Sep 18 UR361 (UGD361)",
+    "conf": 91.1,
+    "top": 11696,
+    "left": 124
+   },
+   {
+    "text": "Ss Bujumbura (BJM) VY",
+    "conf": 67.8,
+    "top": 11803,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 11901,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 29,
+  "y": 6065,
+  "lines": [
+   {
+    "text": "Sep 18 UR360 (UGD360)",
+    "conf": 87.9,
+    "top": 12102,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.8,
+    "top": 12209,
+    "left": 510
+   },
+   {
+    "text": "NX Bujumbura (BJM)",
+    "conf": 72.8,
+    "top": 12313,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 30,
+  "y": 6268,
+  "lines": [
+   {
+    "text": "Sep 18 UR354 (UGD334)",
+    "conf": 77.4,
+    "top": 12508,
+    "left": 124
+   },
+   {
+    "text": "= Kilimanjaro (JRO) VY",
+    "conf": 80.9,
+    "top": 12619,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 12713,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 31,
+  "y": 6471,
+  "lines": [
+   {
+    "text": "Sep 18 UR354 (UGD334)",
+    "conf": 74.1,
+    "top": 12914,
+    "left": 124
+   },
+   {
+    "text": "Ss Zanzibar (ZNZ) Vv",
+    "conf": 72.5,
+    "top": 13025,
+    "left": 510
+   },
+   {
+    "text": "N. Kilimanjaro (JRO)",
+    "conf": 64.9,
+    "top": 13125,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 32,
+  "y": 6674,
+  "lines": [
+   {
+    "text": "Sep 18 UR354 (UGD334)",
+    "conf": 75.6,
+    "top": 13320,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 77.4,
+    "top": 13427,
+    "left": 510
+   },
+   {
+    "text": "WM. Zanzibar (ZNZ)",
+    "conf": 70.6,
+    "top": 13531,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 33,
+  "y": 6877,
+  "lines": [
+   {
+    "text": "Sep 18 UR713 (uGpD713)",
+    "conf": 65.0,
+    "top": 13726,
+    "left": 124
+   },
+   {
+    "text": "= Johannesburg (JNB) VY",
+    "conf": 72.6,
+    "top": 13837,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 13931,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 34,
+  "y": 7080,
+  "lines": [
+   {
+    "text": "@ Sep 16 UR/11",
+    "conf": 88.5,
+    "top": 14132,
+    "left": 47
+   },
+   {
+    "text": "Ss Johannesburg (JNB) VY",
+    "conf": 77.7,
+    "top": 14243,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 14337,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 35,
+  "y": 7283,
+  "lines": [
+   {
+    "text": "Sep 16 UR710 (uGp710)",
+    "conf": 86.4,
+    "top": 14538,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 77.0,
+    "top": 14645,
+    "left": 510
+   },
+   {
+    "text": "NX Johannesburg (JNB)",
+    "conf": 78.5,
+    "top": 14749,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 36,
+  "y": 7486,
+  "lines": [
+   {
+    "text": "Sep 15 UR361 (UGD361)",
+    "conf": 90.8,
+    "top": 14944,
+    "left": 124
+   },
+   {
+    "text": "Ss Bujumbura (BJM) VY",
+    "conf": 67.8,
+    "top": 15051,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 15149,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 37,
+  "y": 7689,
+  "lines": [
+   {
+    "text": "Sep 15 UR360 (UGD360)",
+    "conf": 87.8,
+    "top": 15350,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.9,
+    "top": 15457,
+    "left": 510
+   },
+   {
+    "text": "NX Bujumbura (BJM)",
+    "conf": 72.8,
+    "top": 15561,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 38,
+  "y": 7892,
+  "lines": [
+   {
+    "text": "Sep 15 KDP",
+    "conf": 95.3,
+    "top": 15756,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 73.5,
+    "top": 15863,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 15961,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 39,
+  "y": 8095,
+  "lines": [
+   {
+    "text": "Sep 13 UR3435 (UGD343)",
+    "conf": 75.0,
+    "top": 16162,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Mombasa (MBA) Vv",
+    "conf": 79.9,
+    "top": 16269,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 16367,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 40,
+  "y": 8298,
+  "lines": [
+   {
+    "text": "Sep 13 UR542 (uGp342)",
+    "conf": 69.6,
+    "top": 16568,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.5,
+    "top": 16675,
+    "left": 510
+   },
+   {
+    "text": "NX Mombasa (MBA)",
+    "conf": 81.5,
+    "top": 16775,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 41,
+  "y": 8501,
+  "lines": [
+   {
+    "text": "Sep 13 UR121 (uGD121)",
+    "conf": 74.2,
+    "top": 16974,
+    "left": 124
+   },
+   {
+    "text": "Ss Juba (JUB) Vv",
+    "conf": 76.6,
+    "top": 17085,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 17179,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 42,
+  "y": 8704,
+  "lines": [
+   {
+    "text": "Sep 13 UR120 (UuGD120)",
+    "conf": 81.5,
+    "top": 17379,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.7,
+    "top": 17487,
+    "left": 510
+   },
+   {
+    "text": "M. Juba (JUB)",
+    "conf": 60.6,
+    "top": 17591,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 43,
+  "y": 8907,
+  "lines": [
+   {
+    "text": "Sep 13 UR201 (uGp201)",
+    "conf": 74.2,
+    "top": 17786,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 70.5,
+    "top": 17893,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 17991,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 44,
+  "y": 9110,
+  "lines": [
+   {
+    "text": "Sep 13 UR200 (uGD200)",
+    "conf": 80.6,
+    "top": 18192,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.1,
+    "top": 18299,
+    "left": 510
+   },
+   {
+    "text": "NO. Nairobi (NBO)",
+    "conf": 74.6,
+    "top": 18403,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 45,
+  "y": 9313,
+  "lines": [
+   {
+    "text": "Sep 12 UR325 (UGD323)",
+    "conf": 86.3,
+    "top": 18598,
+    "left": 124
+   },
+   {
+    "text": "S= Dar-es-Salaam (DAR) VY",
+    "conf": 56.3,
+    "top": 18709,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 18803,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 46,
+  "y": 9516,
+  "lines": [
+   {
+    "text": "Sep 11 UR522 (uGD322)",
+    "conf": 78.9,
+    "top": 19004,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 73.5,
+    "top": 19111,
+    "left": 510
+   },
+   {
+    "text": "NX Dar-es-Salaam (DAR)",
+    "conf": 59.0,
+    "top": 19215,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 47,
+  "y": 9719,
+  "lines": [
+   {
+    "text": "Sep 11 UR207 (uGp207)",
+    "conf": 88.6,
+    "top": 19410,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 71.9,
+    "top": 19517,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 19615,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 48,
+  "y": 9922,
+  "lines": [
+   {
+    "text": "Sep 11 UR206 (UuGD206)",
+    "conf": 78.8,
+    "top": 19816,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 77.4,
+    "top": 19923,
+    "left": 510
+   },
+   {
+    "text": "MO. Nairobi (NBO)",
+    "conf": 72.9,
+    "top": 20027,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 49,
+  "y": 10125,
+  "lines": [
+   {
+    "text": "Sep 11 UR201 (UGp201)",
+    "conf": 72.5,
+    "top": 20222,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 68.4,
+    "top": 20329,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 20427,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080019_Flightradar24.jpg",
+  "idx": 50,
+  "y": 10328,
+  "lines": [
+   {
+    "text": "Sep 11 UR200 (UGD200)",
+    "conf": 81.1,
+    "top": 20628,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 74.7,
+    "top": 20735,
+    "left": 510
+   },
+   {
+    "text": "NY Alarrnhs (NIBD)",
+    "conf": 22.9,
+    "top": 20839,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 0,
+  "y": 164,
+  "lines": [
+   {
+    "text": "< flightradar24",
+    "conf": 89.7,
+    "top": 309,
+    "left": 113
+   },
+   {
+    "text": "5X-KOB",
+    "conf": 20.4,
+    "top": 362,
+    "left": 324
+   },
+   {
+    "text": "YEAR 2026",
+    "conf": 96.7,
+    "top": 555,
+    "left": 48
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 1,
+  "y": 367,
+  "lines": [
+   {
+    "text": "Sep 21 UR720 (uGD720)",
+    "conf": 74.9,
+    "top": 705,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) 4",
+    "conf": 55.3,
+    "top": 818,
+    "left": 510
+   },
+   {
+    "text": "NM Harare (HRE)",
+    "conf": 67.1,
+    "top": 913,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 2,
+  "y": 570,
+  "lines": [
+   {
+    "text": "Sep 21 UR720 (uGp720)",
+    "conf": 78.4,
+    "top": 1112,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 67.1,
+    "top": 1224,
+    "left": 510
+   },
+   {
+    "text": "NX Lusaka (LUN)",
+    "conf": 73.5,
+    "top": 1324,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 3,
+  "y": 773,
+  "lines": [
+   {
+    "text": "Sep 21 UR361 (uGD361)",
+    "conf": 84.5,
+    "top": 1518,
+    "left": 124
+   },
+   {
+    "text": "Ss Bujumbura (BJM) 4",
+    "conf": 59.0,
+    "top": 1630,
+    "left": 510
+   },
+   {
+    "text": "NA Entebbe (EBB)",
+    "conf": 66.6,
+    "top": 1725,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 4,
+  "y": 976,
+  "lines": [
+   {
+    "text": "Sep 21 UR360 (uGD360)",
+    "conf": 81.3,
+    "top": 1924,
+    "left": 124
+   },
+   {
+    "text": "S Entebbe (EBB) 4",
+    "conf": 83.3,
+    "top": 2036,
+    "left": 510
+   },
+   {
+    "text": "SQ Bujumbura (BJM)",
+    "conf": 63.2,
+    "top": 2136,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 5,
+  "y": 1179,
+  "lines": [
+   {
+    "text": "Sep 21 UR201 (uGp201)",
+    "conf": 83.2,
+    "top": 2329,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) 4",
+    "conf": 74.0,
+    "top": 2442,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 69.6,
+    "top": 2537,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 6,
+  "y": 1382,
+  "lines": [
+   {
+    "text": "Sep 21 UR200 (uGp200)",
+    "conf": 85.1,
+    "top": 2736,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 72.7,
+    "top": 2848,
+    "left": 510
+   },
+   {
+    "text": "NO Nairobi (NBO)",
+    "conf": 72.0,
+    "top": 2948,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 7,
+  "y": 1585,
+  "lines": [
+   {
+    "text": "@ Sep 21 UR720 (uGD720)",
+    "conf": 78.7,
+    "top": 3141,
+    "left": 48
+   },
+   {
+    "text": "S Harare (HRE) vv",
+    "conf": 76.3,
+    "top": 3244,
+    "left": 510
+   },
+   {
+    "text": "N. Entebbe (EBB)",
+    "conf": 64.2,
+    "top": 3354,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 8,
+  "y": 1788,
+  "lines": [
+   {
+    "text": "e Sep 20 UR720 (uGp720)",
+    "conf": 80.6,
+    "top": 3548,
+    "left": 48
+   },
+   {
+    "text": "Ss Lusaka (LUN) v",
+    "conf": 72.9,
+    "top": 3660,
+    "left": 510
+   },
+   {
+    "text": "NX. Harare (HRE)",
+    "conf": 63.2,
+    "top": 3760,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 9,
+  "y": 1991,
+  "lines": [
+   {
+    "text": "@ Sep 20 UR720 (uGD720)",
+    "conf": 80.7,
+    "top": 3953,
+    "left": 48
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) \\v",
+    "conf": 64.2,
+    "top": 4062,
+    "left": 510
+   },
+   {
+    "text": "NX Lusaka (LUN)",
+    "conf": 65.8,
+    "top": 4166,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 10,
+  "y": 2194,
+  "lines": [
+   {
+    "text": "Sep 20 UR207 (uGp207)",
+    "conf": 88.8,
+    "top": 4360,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) 4",
+    "conf": 82.3,
+    "top": 4472,
+    "left": 510
+   },
+   {
+    "text": "NM. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 4572,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 11,
+  "y": 2397,
+  "lines": [
+   {
+    "text": "Sep 20 UR206 (uGD206)",
+    "conf": 84.6,
+    "top": 4765,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 65.1,
+    "top": 4878,
+    "left": 510
+   },
+   {
+    "text": "NX Nairobi (NBO)",
+    "conf": 63.7,
+    "top": 4978,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 12,
+  "y": 2600,
+  "lines": [
+   {
+    "text": "e Sep 20 UR334 (uGp334)",
+    "conf": 84.1,
+    "top": 5172,
+    "left": 49
+   },
+   {
+    "text": "S Kilimanjaro (JRO) v",
+    "conf": 69.4,
+    "top": 5284,
+    "left": 510
+   },
+   {
+    "text": "N. Entebbe (EBB)",
+    "conf": 64.2,
+    "top": 5384,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 13,
+  "y": 2803,
+  "lines": [
+   {
+    "text": "e Sep 20 UR334 (uGD334)",
+    "conf": 79.7,
+    "top": 5578,
+    "left": 49
+   },
+   {
+    "text": "Ss Zanzibar (ZNZ) 4",
+    "conf": 57.4,
+    "top": 5690,
+    "left": 510
+   },
+   {
+    "text": "N. Kilimanjaro (JRO)",
+    "conf": 61.0,
+    "top": 5790,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 14,
+  "y": 3006,
+  "lines": [
+   {
+    "text": "e Sep 20 UR334 (uGp334)",
+    "conf": 81.7,
+    "top": 5984,
+    "left": 48
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 76.1,
+    "top": 6096,
+    "left": 510
+   },
+   {
+    "text": "MW Zanzibar (ZNZ)",
+    "conf": 64.5,
+    "top": 6190,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 15,
+  "y": 3209,
+  "lines": [
+   {
+    "text": "Sep 20 UR521 (uGD521)",
+    "conf": 82.3,
+    "top": 6389,
+    "left": 124
+   },
+   {
+    "text": "S Mogadishu (MGQ) YY",
+    "conf": 71.8,
+    "top": 6502,
+    "left": 510
+   },
+   {
+    "text": "N. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 6602,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 16,
+  "y": 3412,
+  "lines": [
+   {
+    "text": "Sep 20 UR520 (uGp520)",
+    "conf": 80.3,
+    "top": 6796,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 73.1,
+    "top": 6908,
+    "left": 510
+   },
+   {
+    "text": "NX Mogadishu (MGQ)",
+    "conf": 77.2,
+    "top": 7008,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 17,
+  "y": 3615,
+  "lines": [
+   {
+    "text": "Sep 20 UR209 (uGp209)",
+    "conf": 81.2,
+    "top": 7201,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 62.0,
+    "top": 7314,
+    "left": 510
+   },
+   {
+    "text": "N Entebbe (EBB)",
+    "conf": 64.2,
+    "top": 7414,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 18,
+  "y": 3818,
+  "lines": [
+   {
+    "text": "Sep 19 UR208 (uGp208)",
+    "conf": 88.3,
+    "top": 7608,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 73.1,
+    "top": 7720,
+    "left": 510
+   },
+   {
+    "text": "NO Nairobi (NBO)",
+    "conf": 70.3,
+    "top": 7820,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 19,
+  "y": 4021,
+  "lines": [
+   {
+    "text": "Sep 19 UR521 (uGps521)",
+    "conf": 78.5,
+    "top": 8013,
+    "left": 124
+   },
+   {
+    "text": "S Mogadishu (MGQ) A",
+    "conf": 69.3,
+    "top": 8126,
+    "left": 510
+   },
+   {
+    "text": "NA Entebbe (EBB)",
+    "conf": 66.6,
+    "top": 8221,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 20,
+  "y": 4224,
+  "lines": [
+   {
+    "text": "Sep 19 UR520 (uGp520)",
+    "conf": 82.6,
+    "top": 8420,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 79.5,
+    "top": 8532,
+    "left": 510
+   },
+   {
+    "text": "NX. Mogadishu (MGQ)",
+    "conf": 73.9,
+    "top": 8632,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 21,
+  "y": 4427,
+  "lines": [
+   {
+    "text": "e Sep 18 UR343 (uGD343)",
+    "conf": 80.0,
+    "top": 8826,
+    "left": 49
+   },
+   {
+    "text": "Ss\u201d Mombasa (MBA) \\Y",
+    "conf": 57.4,
+    "top": 8938,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 69.6,
+    "top": 9033,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 22,
+  "y": 4630,
+  "lines": [
+   {
+    "text": "Sep 18 UR207 (uGp207)",
+    "conf": 88.3,
+    "top": 9232,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) VY",
+    "conf": 66.5,
+    "top": 9344,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 9444,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 23,
+  "y": 4833,
+  "lines": [
+   {
+    "text": "e Sep 18 UR342 (uGp342)",
+    "conf": 87.9,
+    "top": 9637,
+    "left": 49
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 71.4,
+    "top": 9750,
+    "left": 510
+   },
+   {
+    "text": "NX. Mombasa (MBA)",
+    "conf": 67.7,
+    "top": 9850,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 24,
+  "y": 5036,
+  "lines": [
+   {
+    "text": "Sep 18 UR206 (uGp206)",
+    "conf": 77.2,
+    "top": 10044,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 73.4,
+    "top": 10156,
+    "left": 510
+   },
+   {
+    "text": "N. Nairobi (NBO)",
+    "conf": 64.2,
+    "top": 10256,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 25,
+  "y": 5239,
+  "lines": [
+   {
+    "text": "Sep 18 UR121 (uGp121)",
+    "conf": 76.2,
+    "top": 10449,
+    "left": 124
+   },
+   {
+    "text": "S Juba (JUB) vv",
+    "conf": 69.4,
+    "top": 10562,
+    "left": 510
+   },
+   {
+    "text": "M. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 10662,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 26,
+  "y": 5442,
+  "lines": [
+   {
+    "text": "Sep 18 UR120 (uGp120)",
+    "conf": 78.6,
+    "top": 10856,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 75.3,
+    "top": 10968,
+    "left": 510
+   },
+   {
+    "text": "No Juba (JUB)",
+    "conf": 68.4,
+    "top": 11068,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 27,
+  "y": 5645,
+  "lines": [
+   {
+    "text": "Sep 18 UR201 (uGp201)",
+    "conf": 77.4,
+    "top": 11261,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) VY",
+    "conf": 80.8,
+    "top": 11374,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 71.9,
+    "top": 11469,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 28,
+  "y": 5848,
+  "lines": [
+   {
+    "text": "Sep 18 UR200 (uGp200)",
+    "conf": 83.6,
+    "top": 11668,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 52.8,
+    "top": 11780,
+    "left": 510
+   },
+   {
+    "text": "NX Nairobi (NBO)",
+    "conf": 72.0,
+    "top": 11880,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 29,
+  "y": 6051,
+  "lines": [
+   {
+    "text": "Sep 18 UR323 (UGD323)",
+    "conf": 86.3,
+    "top": 12073,
+    "left": 124
+   },
+   {
+    "text": "S Dar-es-Salaam (DAR) 4",
+    "conf": 82.4,
+    "top": 12186,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.8,
+    "top": 12281,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 30,
+  "y": 6254,
+  "lines": [
+   {
+    "text": "Sep 17 UR322 (uGpD322)",
+    "conf": 79.4,
+    "top": 12480,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 75.8,
+    "top": 12592,
+    "left": 510
+   },
+   {
+    "text": "Dar-es-Salaam (DAR)",
+    "conf": 68.8,
+    "top": 12692,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 31,
+  "y": 6457,
+  "lines": [
+   {
+    "text": "Sep 17 UR121 (uGp121)",
+    "conf": 76.3,
+    "top": 12885,
+    "left": 124
+   },
+   {
+    "text": "S Juba (JUB) vv",
+    "conf": 77.4,
+    "top": 12998,
+    "left": 510
+   },
+   {
+    "text": "N. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 13098,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 32,
+  "y": 6660,
+  "lines": [
+   {
+    "text": "Sep 17 UR120 (uGp120)",
+    "conf": 75.8,
+    "top": 13292,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 75.3,
+    "top": 13404,
+    "left": 510
+   },
+   {
+    "text": "No Juba (JUB)",
+    "conf": 67.2,
+    "top": 13504,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 33,
+  "y": 6863,
+  "lines": [
+   {
+    "text": "Sep 17 UR201 (uGp201)",
+    "conf": 71.7,
+    "top": 13697,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) Vv",
+    "conf": 58.5,
+    "top": 13810,
+    "left": 510
+   },
+   {
+    "text": "N Entebbe (EBB)",
+    "conf": 64.2,
+    "top": 13910,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 34,
+  "y": 7066,
+  "lines": [
+   {
+    "text": "Sep 17 UR200 (uGp200)",
+    "conf": 82.2,
+    "top": 14104,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 67.1,
+    "top": 14216,
+    "left": 510
+   },
+   {
+    "text": "NO Nairobi (NBO)",
+    "conf": 70.3,
+    "top": 14316,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 35,
+  "y": 7269,
+  "lines": [
+   {
+    "text": "e Sep 16 UR343 (uGD343)",
+    "conf": 81.9,
+    "top": 14510,
+    "left": 49
+   },
+   {
+    "text": "Ss\u201d Mombasa (MBA) \\v",
+    "conf": 59.3,
+    "top": 14622,
+    "left": 510
+   },
+   {
+    "text": "NA Entebbe (EBB)",
+    "conf": 66.6,
+    "top": 14717,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 36,
+  "y": 7472,
+  "lines": [
+   {
+    "text": "e Sep 16 UR342 (uGp342)",
+    "conf": 88.6,
+    "top": 14916,
+    "left": 49
+   },
+   {
+    "text": "S Entebbe (EBB) 4",
+    "conf": 83.3,
+    "top": 15028,
+    "left": 510
+   },
+   {
+    "text": "NX Mombasa (MBA)",
+    "conf": 74.0,
+    "top": 15128,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 37,
+  "y": 7675,
+  "lines": [
+   {
+    "text": "e Sep 16 = UR361 (uGD361)",
+    "conf": 44.0,
+    "top": 15317,
+    "left": 49
+   },
+   {
+    "text": "S Bujumbura (BJM) VY",
+    "conf": 84.5,
+    "top": 15434,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 69.6,
+    "top": 15529,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 38,
+  "y": 7878,
+  "lines": [
+   {
+    "text": "Sep 16 UR334 (uGp334)",
+    "conf": 80.8,
+    "top": 15728,
+    "left": 124
+   },
+   {
+    "text": "S Kilimanjaro (JRO) Y",
+    "conf": 75.5,
+    "top": 15840,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 15940,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 39,
+  "y": 8081,
+  "lines": [
+   {
+    "text": "e Sep 16 UR360 (UuGD360)",
+    "conf": 21.7,
+    "top": 16133,
+    "left": 48
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 68.9,
+    "top": 16246,
+    "left": 510
+   },
+   {
+    "text": "N\\ Bujumbura (BJM)",
+    "conf": 81.0,
+    "top": 16346,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 40,
+  "y": 8284,
+  "lines": [
+   {
+    "text": "Sep 16 UR334 (uGD334)",
+    "conf": 79.6,
+    "top": 16540,
+    "left": 124
+   },
+   {
+    "text": "S Zanzibar (ZNZ) vv",
+    "conf": 79.4,
+    "top": 16642,
+    "left": 510
+   },
+   {
+    "text": "NO Kilimanjaro (JRO)",
+    "conf": 73.3,
+    "top": 16752,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 41,
+  "y": 8487,
+  "lines": [
+   {
+    "text": "Sep 16 UR354 (UuGD334)",
+    "conf": 82.8,
+    "top": 16946,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) \\v",
+    "conf": 64.2,
+    "top": 17054,
+    "left": 510
+   },
+   {
+    "text": "MW. Zanzibar (ZNZ)",
+    "conf": 73.5,
+    "top": 17154,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 42,
+  "y": 8690,
+  "lines": [
+   {
+    "text": "Sep 16 UR123 (uGp123)",
+    "conf": 80.6,
+    "top": 17352,
+    "left": 124
+   },
+   {
+    "text": "S Juba (JUB) vv",
+    "conf": 73.3,
+    "top": 17464,
+    "left": 510
+   },
+   {
+    "text": "NM. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 17564,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 43,
+  "y": 8893,
+  "lines": [
+   {
+    "text": "Sep 16 UR122 (uGp122)",
+    "conf": 80.6,
+    "top": 17757,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 65.1,
+    "top": 17870,
+    "left": 510
+   },
+   {
+    "text": "Ni Juba (JUB)",
+    "conf": 59.4,
+    "top": 17970,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 44,
+  "y": 9096,
+  "lines": [
+   {
+    "text": "Sep 15 UR121 (uGp121)",
+    "conf": 81.8,
+    "top": 18164,
+    "left": 124
+   },
+   {
+    "text": "S Juba (JUB) a",
+    "conf": 71.5,
+    "top": 18276,
+    "left": 510
+   },
+   {
+    "text": "N. Entebbe (EBB)",
+    "conf": 64.2,
+    "top": 18376,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 45,
+  "y": 9299,
+  "lines": [
+   {
+    "text": "Sep 15 UR120 (uGD120)",
+    "conf": 77.7,
+    "top": 18569,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) Vv",
+    "conf": 70.0,
+    "top": 18678,
+    "left": 510
+   },
+   {
+    "text": "No Juba (JUB)",
+    "conf": 65.8,
+    "top": 18782,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 46,
+  "y": 9502,
+  "lines": [
+   {
+    "text": "Sep 15 UR201 (uGp201)",
+    "conf": 89.1,
+    "top": 18976,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) 4",
+    "conf": 81.7,
+    "top": 19088,
+    "left": 510
+   },
+   {
+    "text": "N Entebbe (EBB)",
+    "conf": 64.1,
+    "top": 19188,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 47,
+  "y": 9705,
+  "lines": [
+   {
+    "text": "Sep 15 UR200 (uGp200)",
+    "conf": 84.6,
+    "top": 19381,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 64.3,
+    "top": 19494,
+    "left": 510
+   },
+   {
+    "text": "NW Nairobi (NBO)",
+    "conf": 65.8,
+    "top": 19594,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 48,
+  "y": 9908,
+  "lines": [
+   {
+    "text": "Sep 15 UR209 (uGp209)",
+    "conf": 88.0,
+    "top": 19788,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) Y",
+    "conf": 65.5,
+    "top": 19900,
+    "left": 510
+   },
+   {
+    "text": "YN. Entebbe (EBB)",
+    "conf": 70.4,
+    "top": 20000,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 49,
+  "y": 10111,
+  "lines": [
+   {
+    "text": "Sep 14 UR208 (uGD208)",
+    "conf": 84.4,
+    "top": 20193,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) \\v",
+    "conf": 62.9,
+    "top": 20302,
+    "left": 510
+   },
+   {
+    "text": "N. Nairobi (NBO)",
+    "conf": 62.2,
+    "top": 20406,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 50,
+  "y": 10314,
+  "lines": [
+   {
+    "text": "Sep 14 ~~ UR207 (uGp207)",
+    "conf": 54.1,
+    "top": 20592,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) VY",
+    "conf": 60.5,
+    "top": 20712,
+    "left": 510
+   },
+   {
+    "text": "M. Entebbe (EBB)",
+    "conf": 63.8,
+    "top": 20812,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 51,
+  "y": 10517,
+  "lines": [
+   {
+    "text": "Sep 14 UR206 (uGp206)",
+    "conf": 88.4,
+    "top": 21005,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 69.2,
+    "top": 21118,
+    "left": 510
+   },
+   {
+    "text": "NX Nairobi (NBO)",
+    "conf": 64.6,
+    "top": 21218,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 52,
+  "y": 10720,
+  "lines": [
+   {
+    "text": "Sep 14 ~==UR321 (uGp321)",
+    "conf": 47.1,
+    "top": 21412,
+    "left": 124
+   },
+   {
+    "text": "Ss Dar-es-Salaam (DAR) 4",
+    "conf": 71.3,
+    "top": 21524,
+    "left": 510
+   },
+   {
+    "text": "Y. Entebbe (EBB)",
+    "conf": 64.0,
+    "top": 21624,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 53,
+  "y": 10923,
+  "lines": [
+   {
+    "text": "Sep 14 UR320 (uGD320)",
+    "conf": 88.1,
+    "top": 21817,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) VY",
+    "conf": 72.4,
+    "top": 21926,
+    "left": 510
+   },
+   {
+    "text": "Dar-es-Salaam (DAR)",
+    "conf": 65.5,
+    "top": 22030,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 54,
+  "y": 11126,
+  "lines": [
+   {
+    "text": "Sep 14 ~\u2014-UR123 (uGp123)",
+    "conf": 45.2,
+    "top": 22224,
+    "left": 124
+   },
+   {
+    "text": "S Juba (JUB) 4",
+    "conf": 71.4,
+    "top": 22336,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 22436,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 55,
+  "y": 11329,
+  "lines": [
+   {
+    "text": "Sep 14 UR122 (uGD122)",
+    "conf": 86.7,
+    "top": 22629,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 71.4,
+    "top": 22742,
+    "left": 510
+   },
+   {
+    "text": "N Juba (JUB)",
+    "conf": 73.8,
+    "top": 22842,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 56,
+  "y": 11532,
+  "lines": [
+   {
+    "text": "Sep 14 ~\u2014UR209 (uGp209)",
+    "conf": 38.7,
+    "top": 23036,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) vy",
+    "conf": 79.5,
+    "top": 23148,
+    "left": 510
+   },
+   {
+    "text": "Ne. Entebbe (EBB)",
+    "conf": 63.2,
+    "top": 23248,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 57,
+  "y": 11735,
+  "lines": [
+   {
+    "text": "Sep 13 UR208 (uGD208)",
+    "conf": 81.3,
+    "top": 23441,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) \\v",
+    "conf": 65.5,
+    "top": 23550,
+    "left": 510
+   },
+   {
+    "text": "N. Nairobi (NBO)",
+    "conf": 61.5,
+    "top": 23654,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 58,
+  "y": 11938,
+  "lines": [
+   {
+    "text": "Sep 13 UR207 (uGp207)",
+    "conf": 88.8,
+    "top": 23848,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) 4",
+    "conf": 83.1,
+    "top": 23960,
+    "left": 510
+   },
+   {
+    "text": "NM. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 24060,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 59,
+  "y": 12141,
+  "lines": [
+   {
+    "text": "Sep 13 UR206 (uGD206)",
+    "conf": 84.6,
+    "top": 24253,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 64.8,
+    "top": 24366,
+    "left": 510
+   },
+   {
+    "text": "NX Nairobi (NBO)",
+    "conf": 63.7,
+    "top": 24466,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 60,
+  "y": 12344,
+  "lines": [
+   {
+    "text": "Sep 13 UR321 (uGD321)",
+    "conf": 79.3,
+    "top": 24660,
+    "left": 124
+   },
+   {
+    "text": "Ss Dar-es-Salaam (DAR) 4",
+    "conf": 72.8,
+    "top": 24772,
+    "left": 510
+   },
+   {
+    "text": "N. Entebbe (EBB)",
+    "conf": 64.2,
+    "top": 24872,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 61,
+  "y": 12547,
+  "lines": [
+   {
+    "text": "Sep 13 UR320 (uGD320)",
+    "conf": 87.8,
+    "top": 25065,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) Vv",
+    "conf": 69.9,
+    "top": 25174,
+    "left": 510
+   },
+   {
+    "text": "Dar-es-Salaam (DAR)",
+    "conf": 68.4,
+    "top": 25278,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 62,
+  "y": 12750,
+  "lines": [
+   {
+    "text": "Sep 13 UR521 (uGp521)",
+    "conf": 75.7,
+    "top": 25472,
+    "left": 124
+   },
+   {
+    "text": "S7 Mogadishu (MGQ) YY",
+    "conf": 55.4,
+    "top": 25584,
+    "left": 510
+   },
+   {
+    "text": "N Entebbe (EBB)",
+    "conf": 64.1,
+    "top": 25684,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 63,
+  "y": 12953,
+  "lines": [
+   {
+    "text": "Sep 13 UR520 (uGDs520)",
+    "conf": 80.1,
+    "top": 25877,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) YY",
+    "conf": 63.9,
+    "top": 25990,
+    "left": 510
+   },
+   {
+    "text": "N Mogadishu (MGQ)",
+    "conf": 79.9,
+    "top": 26090,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 64,
+  "y": 13156,
+  "lines": [
+   {
+    "text": "Sep 13 UR323 (uGD323)",
+    "conf": 78.2,
+    "top": 26284,
+    "left": 124
+   },
+   {
+    "text": "Ss Dar-es-Salaam (DAR) Vv",
+    "conf": 74.5,
+    "top": 26397,
+    "left": 510
+   },
+   {
+    "text": "YN. Entebbe (EBB)",
+    "conf": 70.4,
+    "top": 26496,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 65,
+  "y": 13359,
+  "lines": [
+   {
+    "text": "Sep 12 UR322 (UGD322)",
+    "conf": 78.1,
+    "top": 26689,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) 4",
+    "conf": 61.5,
+    "top": 26798,
+    "left": 510
+   },
+   {
+    "text": "Dar-es-Salaam (DAR)",
+    "conf": 64.1,
+    "top": 26902,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 66,
+  "y": 13562,
+  "lines": [
+   {
+    "text": "Sep 12 UR121 (uGp121)",
+    "conf": 80.7,
+    "top": 27096,
+    "left": 124
+   },
+   {
+    "text": "Ss Juba (JUB) vv",
+    "conf": 55.2,
+    "top": 27208,
+    "left": 510
+   },
+   {
+    "text": "M. Entebbe (EBB)",
+    "conf": 63.8,
+    "top": 27308,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 67,
+  "y": 13765,
+  "lines": [
+   {
+    "text": "Sep 12 UR120 (uGD120)",
+    "conf": 77.5,
+    "top": 27501,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 67.6,
+    "top": 27614,
+    "left": 510
+   },
+   {
+    "text": "N. Juba (JUB)",
+    "conf": 59.7,
+    "top": 27714,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 68,
+  "y": 13968,
+  "lines": [
+   {
+    "text": "Sep 12 UR201 (uGp201)",
+    "conf": 89.1,
+    "top": 27908,
+    "left": 124
+   },
+   {
+    "text": "Ss Nairobi (NBO) VY",
+    "conf": 58.4,
+    "top": 28020,
+    "left": 510
+   },
+   {
+    "text": "Y. Entebbe (EBB)",
+    "conf": 64.0,
+    "top": 28120,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 69,
+  "y": 14171,
+  "lines": [
+   {
+    "text": "Sep 12 UR200 (ucD200)",
+    "conf": 75.0,
+    "top": 28313,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) YY",
+    "conf": 71.1,
+    "top": 28422,
+    "left": 510
+   },
+   {
+    "text": "N Nairobi (NBO)",
+    "conf": 83.0,
+    "top": 28526,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 70,
+  "y": 14374,
+  "lines": [
+   {
+    "text": "Sep 12 UR720 (uGpD720)",
+    "conf": 76.4,
+    "top": 28720,
+    "left": 124
+   },
+   {
+    "text": "Ss Harare (HRE) v",
+    "conf": 46.2,
+    "top": 28832,
+    "left": 510
+   },
+   {
+    "text": "MN. Entebbe (EBB)",
+    "conf": 68.8,
+    "top": 28932,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 71,
+  "y": 14577,
+  "lines": [
+   {
+    "text": "Sep 11 UR720 (uGD720)",
+    "conf": 81.7,
+    "top": 29125,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) 4",
+    "conf": 60.0,
+    "top": 29238,
+    "left": 510
+   },
+   {
+    "text": "NA Harare (HRE)",
+    "conf": 69.9,
+    "top": 29333,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 72,
+  "y": 14780,
+  "lines": [
+   {
+    "text": "Sep 11 UR720 (uGp720)",
+    "conf": 80.1,
+    "top": 29532,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) 4",
+    "conf": 77.6,
+    "top": 29644,
+    "left": 510
+   },
+   {
+    "text": "NX Lusaka (LUN)",
+    "conf": 72.3,
+    "top": 29744,
+    "left": 516
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080059_Flightradar24.jpg",
+  "idx": 73,
+  "y": 14983,
+  "lines": [
+   {
+    "text": "Can 17 1IDZA1 iA Vad ot 2 a",
+    "conf": 54.6,
+    "top": 29938,
+    "left": 124
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 0,
+  "y": 180,
+  "lines": [
+   {
+    "text": "< 5YX-NIL flightradar24",
+    "conf": 61.6,
+    "top": 296,
+    "left": 113
+   },
+   {
+    "text": "YEAR 2026",
+    "conf": 95.7,
+    "top": 551,
+    "left": 48
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 1,
+  "y": 383,
+  "lines": [
+   {
+    "text": "Sep 20 UR111 (uGD111)",
+    "conf": 73.7,
+    "top": 738,
+    "left": 124
+   },
+   {
+    "text": "Ss London (LGW) Vv",
+    "conf": 71.8,
+    "top": 849,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 943,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 2,
+  "y": 586,
+  "lines": [
+   {
+    "text": "Sep 20 UR110 (UuGpD110)",
+    "conf": 71.8,
+    "top": 1144,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 78.6,
+    "top": 1251,
+    "left": 510
+   },
+   {
+    "text": "ML. London (LGW)",
+    "conf": 68.8,
+    "top": 1355,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 3,
+  "y": 789,
+  "lines": [
+   {
+    "text": "Sep 20 UR431 (UuGD431)",
+    "conf": 78.4,
+    "top": 1550,
+    "left": 124
+   },
+   {
+    "text": "Ss?\u201d Mumbai (BOM) Vv",
+    "conf": 73.2,
+    "top": 1657,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 1755,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 4,
+  "y": 992,
+  "lines": [
+   {
+    "text": "Sep 19 UR430",
+    "conf": 94.8,
+    "top": 1956,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) Vv",
+    "conf": 76.4,
+    "top": 2063,
+    "left": 510
+   },
+   {
+    "text": "MX. Mumbai (BOM)",
+    "conf": 75.2,
+    "top": 2161,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 5,
+  "y": 1195,
+  "lines": [
+   {
+    "text": "Sep 19 UR430 (uGp430)",
+    "conf": 87.8,
+    "top": 2362,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 78.2,
+    "top": 2469,
+    "left": 510
+   },
+   {
+    "text": "MX. Mumbai (BOM)",
+    "conf": 75.9,
+    "top": 2567,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 6,
+  "y": 1398,
+  "lines": [
+   {
+    "text": "Sep 18 UR111 (uGD111)",
+    "conf": 74.5,
+    "top": 2768,
+    "left": 124
+   },
+   {
+    "text": "Ss London (LGW) Vv",
+    "conf": 70.4,
+    "top": 2879,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 2973,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 7,
+  "y": 1601,
+  "lines": [
+   {
+    "text": "Sep 18 UR110 (UuGD110)",
+    "conf": 79.8,
+    "top": 3174,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 69.2,
+    "top": 3281,
+    "left": 510
+   },
+   {
+    "text": "NL. London (LGW)",
+    "conf": 66.6,
+    "top": 3385,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 8,
+  "y": 1804,
+  "lines": [
+   {
+    "text": "Sep 17 TEST",
+    "conf": 96.4,
+    "top": 3580,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 79.4,
+    "top": 3687,
+    "left": 510
+   },
+   {
+    "text": "W. N/A",
+    "conf": 58.1,
+    "top": 3791,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 9,
+  "y": 2007,
+  "lines": [
+   {
+    "text": "Sep 17 UR431 (UGD431)",
+    "conf": 84.2,
+    "top": 3986,
+    "left": 124
+   },
+   {
+    "text": "Ss? Mumbai (BOM) Vv",
+    "conf": 73.9,
+    "top": 4093,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.1,
+    "top": 4191,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 10,
+  "y": 2210,
+  "lines": [
+   {
+    "text": "Sep 16 UR430 (uGD430)",
+    "conf": 69.0,
+    "top": 4392,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 78.2,
+    "top": 4499,
+    "left": 510
+   },
+   {
+    "text": "MX. Mumbai (BOM)",
+    "conf": 78.3,
+    "top": 4597,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 11,
+  "y": 2413,
+  "lines": [
+   {
+    "text": "Sep 15 UR111 (uGD111)",
+    "conf": 69.0,
+    "top": 4798,
+    "left": 124
+   },
+   {
+    "text": "S London (LGW) A",
+    "conf": 68.2,
+    "top": 4909,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.3,
+    "top": 5003,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 12,
+  "y": 2616,
+  "lines": [
+   {
+    "text": "Sep 15 UR110 (uGpD110)",
+    "conf": 74.3,
+    "top": 5204,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Entebbe (EBB) Vv",
+    "conf": 76.4,
+    "top": 5311,
+    "left": 510
+   },
+   {
+    "text": "MO London (LGW)",
+    "conf": 69.1,
+    "top": 5415,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 13,
+  "y": 2819,
+  "lines": [
+   {
+    "text": "Sep 13 UR111 (uGp111)",
+    "conf": 57.6,
+    "top": 5610,
+    "left": 124
+   },
+   {
+    "text": "Ss London (LGW) VY",
+    "conf": 71.4,
+    "top": 5721,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 5815,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 14,
+  "y": 3022,
+  "lines": [
+   {
+    "text": "Sep 13 UR110 (uGp110)",
+    "conf": 74.7,
+    "top": 6016,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 66.4,
+    "top": 6123,
+    "left": 510
+   },
+   {
+    "text": "NM. London (LGW)",
+    "conf": 72.8,
+    "top": 6227,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 15,
+  "y": 3225,
+  "lines": [
+   {
+    "text": "Sep 13 UR431 (UGD431)",
+    "conf": 79.5,
+    "top": 6422,
+    "left": 124
+   },
+   {
+    "text": "Ss? Mumbai (BOM) Vv",
+    "conf": 76.4,
+    "top": 6529,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 6627,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 16,
+  "y": 3428,
+  "lines": [
+   {
+    "text": "Sep 12 UR430",
+    "conf": 94.3,
+    "top": 6828,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 79.4,
+    "top": 6935,
+    "left": 510
+   },
+   {
+    "text": "NX Mumbai (BOM)",
+    "conf": 68.3,
+    "top": 7033,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 17,
+  "y": 3631,
+  "lines": [
+   {
+    "text": "Sep 12 UR430 (uGp430)",
+    "conf": 69.2,
+    "top": 7234,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 79.4,
+    "top": 7341,
+    "left": 510
+   },
+   {
+    "text": "MX Mumbai (BOM)",
+    "conf": 76.3,
+    "top": 7439,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 18,
+  "y": 3834,
+  "lines": [
+   {
+    "text": "Sep 11 UR111 (uGp111)",
+    "conf": 64.3,
+    "top": 7640,
+    "left": 124
+   },
+   {
+    "text": "Ss London (LGW) Vv",
+    "conf": 70.8,
+    "top": 7751,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.2,
+    "top": 7845,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 19,
+  "y": 4037,
+  "lines": [
+   {
+    "text": "Sep 11 UR110 (uGp110)",
+    "conf": 81.5,
+    "top": 8046,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 69.1,
+    "top": 8153,
+    "left": 510
+   },
+   {
+    "text": "YM. London (LGW)",
+    "conf": 69.7,
+    "top": 8257,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 20,
+  "y": 4240,
+  "lines": [
+   {
+    "text": "Sep 10 UR431 (UGD431)",
+    "conf": 82.0,
+    "top": 8452,
+    "left": 124
+   },
+   {
+    "text": "Ss? Mumbai (BOM) Vv",
+    "conf": 71.7,
+    "top": 8559,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 8657,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 21,
+  "y": 4443,
+  "lines": [
+   {
+    "text": "Sep 09 UR430 (uGp430)",
+    "conf": 87.4,
+    "top": 8858,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 78.2,
+    "top": 8965,
+    "left": 510
+   },
+   {
+    "text": "MX. Mumbai (BOM)",
+    "conf": 75.9,
+    "top": 9063,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080302_Flightradar24.jpg",
+  "idx": 22,
+  "y": 4646,
+  "lines": [
+   {
+    "text": "Sep 09 UR430",
+    "conf": 94.8,
+    "top": 9264,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) VY",
+    "conf": 66.4,
+    "top": 9371,
+    "left": 510
+   },
+   {
+    "text": "AK AA, RRA (DKNN\\",
+    "conf": 23.0,
+    "top": 9471,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 0,
+  "y": 174,
+  "lines": [
+   {
+    "text": "< flightradar24",
+    "conf": 87.1,
+    "top": 309,
+    "left": 113
+   },
+   {
+    "text": "5X-EQU",
+    "conf": 83.2,
+    "top": 362,
+    "left": 322
+   },
+   {
+    "text": "YEAR 2026",
+    "conf": 96.2,
+    "top": 557,
+    "left": 48
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 1,
+  "y": 377,
+  "lines": [
+   {
+    "text": "@ Sep 18 UR520 (uGD520)",
+    "conf": 78.5,
+    "top": 726,
+    "left": 47
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 72.8,
+    "top": 833,
+    "left": 510
+   },
+   {
+    "text": "NX. Mogadishu (MGQ)",
+    "conf": 74.7,
+    "top": 937,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 2,
+  "y": 580,
+  "lines": [
+   {
+    "text": "Sep 18 UR209 (uGp209)",
+    "conf": 81.0,
+    "top": 1132,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) Vv",
+    "conf": 71.5,
+    "top": 1239,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 1337,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 3,
+  "y": 783,
+  "lines": [
+   {
+    "text": "Sep 17 UR208 (UGD208)",
+    "conf": 83.3,
+    "top": 1538,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 67.8,
+    "top": 1645,
+    "left": 510
+   },
+   {
+    "text": "M. Nairobi (NBO)",
+    "conf": 63.1,
+    "top": 1743,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 4,
+  "y": 986,
+  "lines": [
+   {
+    "text": "Sep 17 UR361 (UGD361)",
+    "conf": 91.3,
+    "top": 1944,
+    "left": 124
+   },
+   {
+    "text": "Ss Bujumbura (BJM) VY",
+    "conf": 67.6,
+    "top": 2051,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.2,
+    "top": 2149,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 5,
+  "y": 1189,
+  "lines": [
+   {
+    "text": "Sep 17 UR360 (uGD360)",
+    "conf": 81.3,
+    "top": 2350,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 69.6,
+    "top": 2457,
+    "left": 510
+   },
+   {
+    "text": "NX. Bujumbura (BJM)",
+    "conf": 78.4,
+    "top": 2561,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 6,
+  "y": 1392,
+  "lines": [
+   {
+    "text": "@ Sep 17 UR323 (UGD323D)",
+    "conf": 85.3,
+    "top": 2755,
+    "left": 47
+   },
+   {
+    "text": "S Dar-es-Salaam (DAR) Vv",
+    "conf": 82.8,
+    "top": 2867,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 2961,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 7,
+  "y": 1595,
+  "lines": [
+   {
+    "text": "@ Sep 16 UR322 (UGD322D)",
+    "conf": 81.7,
+    "top": 3162,
+    "left": 47
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 77.2,
+    "top": 3269,
+    "left": 510
+   },
+   {
+    "text": "NX Dar-es-Salaam (DAR)",
+    "conf": 73.8,
+    "top": 3373,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 8,
+  "y": 1798,
+  "lines": [
+   {
+    "text": "Sep 16 UR201 (uGp201)",
+    "conf": 80.2,
+    "top": 3568,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) Vv",
+    "conf": 73.2,
+    "top": 3675,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 3773,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 9,
+  "y": 2001,
+  "lines": [
+   {
+    "text": "Sep 16 UR200 (uGpD200)",
+    "conf": 79.5,
+    "top": 3974,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 72.0,
+    "top": 4081,
+    "left": 510
+   },
+   {
+    "text": "MQ. Nairobi (NBO)",
+    "conf": 65.4,
+    "top": 4179,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 10,
+  "y": 2204,
+  "lines": [
+   {
+    "text": "Sep 15 UR207 (uGp207)",
+    "conf": 88.6,
+    "top": 4380,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) Vv",
+    "conf": 71.5,
+    "top": 4487,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 4585,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 11,
+  "y": 2407,
+  "lines": [
+   {
+    "text": "Sep 15 UR206 (UuGD206)",
+    "conf": 80.8,
+    "top": 4786,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 67.8,
+    "top": 4893,
+    "left": 510
+   },
+   {
+    "text": "M. Nairobi (NBO)",
+    "conf": 63.1,
+    "top": 4991,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 12,
+  "y": 2610,
+  "lines": [
+   {
+    "text": "Sep 15 UR521 (uGD321)",
+    "conf": 73.9,
+    "top": 5192,
+    "left": 124
+   },
+   {
+    "text": "Ss Dar-es-Salaam (DAR) Vv",
+    "conf": 68.0,
+    "top": 5303,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.2,
+    "top": 5397,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 13,
+  "y": 2813,
+  "lines": [
+   {
+    "text": "Sep 15 UR320 (uGp320)",
+    "conf": 80.4,
+    "top": 5598,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 69.6,
+    "top": 5705,
+    "left": 510
+   },
+   {
+    "text": "NX Dar-es-Salaam (DAR)",
+    "conf": 73.0,
+    "top": 5809,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 14,
+  "y": 3016,
+  "lines": [
+   {
+    "text": "Sep 15 UR521 (uGD521)",
+    "conf": 75.7,
+    "top": 6003,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Mogadishu (MGQ) YY",
+    "conf": 60.6,
+    "top": 6115,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 6209,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 15,
+  "y": 3219,
+  "lines": [
+   {
+    "text": "Sep 15 UR520 (uGp520)",
+    "conf": 83.4,
+    "top": 6410,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.0,
+    "top": 6517,
+    "left": 510
+   },
+   {
+    "text": "NX. Mogadishu (MGQ)",
+    "conf": 77.3,
+    "top": 6621,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 16,
+  "y": 3422,
+  "lines": [
+   {
+    "text": "Sep 14 UR361 (UGD361)",
+    "conf": 91.4,
+    "top": 6816,
+    "left": 124
+   },
+   {
+    "text": "Ss Bujumbura (BJM) VY",
+    "conf": 67.8,
+    "top": 6923,
+    "left": 510
+   },
+   {
+    "text": "NL Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 7021,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 17,
+  "y": 3625,
+  "lines": [
+   {
+    "text": "Sep 14 UR360 (UGD360)",
+    "conf": 88.1,
+    "top": 7222,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 72.8,
+    "top": 7329,
+    "left": 510
+   },
+   {
+    "text": "NX Bujumbura (BJM)",
+    "conf": 72.8,
+    "top": 7433,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 18,
+  "y": 3828,
+  "lines": [
+   {
+    "text": "Sep 14 UR201 (uGp201)",
+    "conf": 81.8,
+    "top": 7628,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) Vv",
+    "conf": 71.5,
+    "top": 7735,
+    "left": 510
+   },
+   {
+    "text": "\u201cEntebbe (EBB)",
+    "conf": 51.0,
+    "top": 7833,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 19,
+  "y": 4031,
+  "lines": [
+   {
+    "text": "Sep 14 UR200 (uGD200)",
+    "conf": 81.2,
+    "top": 8034,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 67.8,
+    "top": 8141,
+    "left": 510
+   },
+   {
+    "text": "M. Nairobi (NBO)",
+    "conf": 63.1,
+    "top": 8239,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 20,
+  "y": 4234,
+  "lines": [
+   {
+    "text": "Sep 14 UR720 (uGp720)",
+    "conf": 78.7,
+    "top": 8440,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) Vv",
+    "conf": 78.9,
+    "top": 8540,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.2,
+    "top": 8645,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 21,
+  "y": 4437,
+  "lines": [
+   {
+    "text": "Sep 13 UR720 (UGD720)",
+    "conf": 74.0,
+    "top": 8846,
+    "left": 124
+   },
+   {
+    "text": "Ss Lusaka (LUN) VY",
+    "conf": 62.8,
+    "top": 8957,
+    "left": 510
+   },
+   {
+    "text": "ML. Harare (HRE)",
+    "conf": 66.3,
+    "top": 9051,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 22,
+  "y": 4640,
+  "lines": [
+   {
+    "text": "Sep 13 UR720 (uGp720)",
+    "conf": 74.6,
+    "top": 9251,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 75.1,
+    "top": 9359,
+    "left": 510
+   },
+   {
+    "text": "ML. Lusaka (LUN)",
+    "conf": 67.8,
+    "top": 9463,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 23,
+  "y": 4843,
+  "lines": [
+   {
+    "text": "Sep 13 UR4561 (uGD361)",
+    "conf": 67.8,
+    "top": 9658,
+    "left": 124
+   },
+   {
+    "text": "SS Bujumbura (BJM) VY",
+    "conf": 63.4,
+    "top": 9765,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 64.4,
+    "top": 9863,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 24,
+  "y": 5046,
+  "lines": [
+   {
+    "text": "Sep 13 UR360 (UGD360)",
+    "conf": 83.4,
+    "top": 10064,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.6,
+    "top": 10171,
+    "left": 510
+   },
+   {
+    "text": "NX Bujumbura (BJM)",
+    "conf": 77.8,
+    "top": 10275,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 25,
+  "y": 5249,
+  "lines": [
+   {
+    "text": "Sep 13 UR334 (uGD334)",
+    "conf": 70.5,
+    "top": 10470,
+    "left": 124
+   },
+   {
+    "text": "= Kilimanjaro (JRO) VY",
+    "conf": 83.2,
+    "top": 10581,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 10675,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 26,
+  "y": 5452,
+  "lines": [
+   {
+    "text": "Sep 13 UR334 (uGD334)",
+    "conf": 68.7,
+    "top": 10876,
+    "left": 124
+   },
+   {
+    "text": "Ss Zanzibar (ZNZ) Vv",
+    "conf": 70.1,
+    "top": 10987,
+    "left": 510
+   },
+   {
+    "text": "N Kilimanjaro (JRO)",
+    "conf": 69.4,
+    "top": 11087,
+    "left": 515
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 27,
+  "y": 5655,
+  "lines": [
+   {
+    "text": "Sep 13 UR334 (uGD334)",
+    "conf": 72.1,
+    "top": 11282,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 67.8,
+    "top": 11389,
+    "left": 510
+   },
+   {
+    "text": "ML. Zanzibar (ZNZ)",
+    "conf": 69.0,
+    "top": 11493,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 28,
+  "y": 5858,
+  "lines": [
+   {
+    "text": "Sep 13 UR209 (uGD209)",
+    "conf": 82.6,
+    "top": 11687,
+    "left": 124
+   },
+   {
+    "text": "S Nairobi (NBO) VY",
+    "conf": 74.9,
+    "top": 11795,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 72.2,
+    "top": 11893,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 29,
+  "y": 6061,
+  "lines": [
+   {
+    "text": "Sep 12 UR208 (uGp208)",
+    "conf": 80.6,
+    "top": 12094,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 69.6,
+    "top": 12201,
+    "left": 510
+   },
+   {
+    "text": "NO. Nairobi (NBO)",
+    "conf": 74.2,
+    "top": 12299,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 30,
+  "y": 6264,
+  "lines": [
+   {
+    "text": "Sep 12 UR722 (uGp722)",
+    "conf": 70.8,
+    "top": 12499,
+    "left": 124
+   },
+   {
+    "text": "S Lusaka (LUN) VY",
+    "conf": 73.5,
+    "top": 12611,
+    "left": 510
+   },
+   {
+    "text": "NL. Entebbe (EBB)",
+    "conf": 66.1,
+    "top": 12705,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 31,
+  "y": 6467,
+  "lines": [
+   {
+    "text": "Sep 12 UR722 (uGD722)",
+    "conf": 65.3,
+    "top": 12906,
+    "left": 124
+   },
+   {
+    "text": "S Harare (HRE) A",
+    "conf": 68.4,
+    "top": 13007,
+    "left": 510
+   },
+   {
+    "text": "ML. Lusaka (LUN)",
+    "conf": 68.0,
+    "top": 13117,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 32,
+  "y": 6670,
+  "lines": [
+   {
+    "text": "Sep 12 UR7/22 (uGD722)",
+    "conf": 77.0,
+    "top": 13312,
+    "left": 124
+   },
+   {
+    "text": "Ss Entebbe (EBB) Vv",
+    "conf": 76.6,
+    "top": 13419,
+    "left": 510
+   },
+   {
+    "text": "ML Harare (HRE)",
+    "conf": 70.0,
+    "top": 13517,
+    "left": 514
+   }
+  ]
+ },
+ {
+  "image": "NORM_Screenshot_20260922_080438_Flightradar24.jpg",
+  "idx": 33,
+  "y": 6873,
+  "lines": [
+   {
+    "text": "Sep 12 UR521 (uGD521)",
+    "conf": 79.4,
+    "top": 13718,
+    "left": 124
+   },
+   {
+    "text": "Ss\u201d Mogadishu (MGQ) YY",
+    "conf": 60.0,
+    "top": 13829,
+    "left": 510
+   },
+   {
+    "text": "NO Entebbe (EBB)",
+    "conf": 76.9,
+    "top": 13923,
+    "left": 514
+   }
+  ]
+ }
+]

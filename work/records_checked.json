@@ -1,0 +1,6500 @@
+[
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 1,
+  "tail": "5X-NIL",
+  "raw": "Sep 11 UR110 (uGD110) 4 LIVE  |  Ss Entebbe (EBB) Vv  |  NM. London (LGW)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR110",
+  "callsign": "UGD110",
+  "flight_digits": "110",
+  "cs_digits": "110",
+  "origin": "EBB",
+  "dest": "LGW",
+  "codes_all": [
+   "EBB",
+   "LGW"
+  ],
+  "conf": 71.1,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 2,
+  "tail": "5X-NIL",
+  "raw": "Sep 10 UR431 (UGD431)  |  Ss\u201d Mumbai (BOM) Vv  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR431",
+  "callsign": "UGD431",
+  "flight_digits": "431",
+  "cs_digits": "431",
+  "origin": "BOM",
+  "dest": "EBB",
+  "codes_all": [
+   "BOM",
+   "EBB"
+  ],
+  "conf": 77.9,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR431-4196cfb0.csv"
+  ],
+  "archive_routes": [
+   "BOM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 3,
+  "tail": "5X-NIL",
+  "raw": "Sep 09 UR430  |  Ss Entebbe (EBB) Vv  |  MX. Mumbai (BOM)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR430",
+  "callsign": null,
+  "flight_digits": "430",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "BOM",
+  "codes_all": [
+   "EBB",
+   "BOM"
+  ],
+  "conf": 81.7,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 4,
+  "tail": "5X-NIL",
+  "raw": "Sep 09 UR430 (uGD430)  |  Ss Entebbe (EBB) Vv  |  NX. Mumbai (BOM)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR430",
+  "callsign": "UGD430",
+  "flight_digits": "430",
+  "cs_digits": "430",
+  "origin": "EBB",
+  "dest": "BOM",
+  "codes_all": [
+   "EBB",
+   "BOM"
+  ],
+  "conf": 73.4,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR430-41956039.csv"
+  ],
+  "archive_routes": [
+   "EBB->BOM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 5,
+  "tail": "5X-NIL",
+  "raw": "@ Sep 08 UR111 (uGD111)  |  Ss London (LGW) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR111",
+  "callsign": "UGD111",
+  "flight_digits": "111",
+  "cs_digits": "111",
+  "origin": "LGW",
+  "dest": "EBB",
+  "codes_all": [
+   "LGW",
+   "EBB"
+  ],
+  "conf": 65.4,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR111-4191c96b.csv"
+  ],
+  "archive_routes": [
+   "LGW->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 6,
+  "tail": "5X-NIL",
+  "raw": "Sep 08 UR110 (uGp110)  |  Ss Entebbe (EBB) Vv  |  NM. London (LGW)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR110",
+  "callsign": "UGD110",
+  "flight_digits": "110",
+  "cs_digits": "110",
+  "origin": "EBB",
+  "dest": "LGW",
+  "codes_all": [
+   "EBB",
+   "LGW"
+  ],
+  "conf": 71.1,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR110-418f4fdd.csv"
+  ],
+  "archive_routes": [
+   "EBB->LGW"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 7,
+  "tail": "5X-NIL",
+  "raw": "Sep 06 UR111 (uGp111)  |  Ss London (LGW) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR111",
+  "callsign": "UGD111",
+  "flight_digits": "111",
+  "cs_digits": "111",
+  "origin": "LGW",
+  "dest": "EBB",
+  "codes_all": [
+   "LGW",
+   "EBB"
+  ],
+  "conf": 65.7,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR111-4189ad1c.csv"
+  ],
+  "archive_routes": [
+   "LGW->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 8,
+  "tail": "5X-NIL",
+  "raw": "Sep 06 UR110 (UuGD110)  |  Ss Entebbe (EBB) Vv  |  NM. London (LGW)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR110",
+  "callsign": "UGD110",
+  "flight_digits": "110",
+  "cs_digits": "110",
+  "origin": "EBB",
+  "dest": "LGW",
+  "codes_all": [
+   "EBB",
+   "LGW"
+  ],
+  "conf": 74.1,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR110-4187ba0c.csv"
+  ],
+  "archive_routes": [
+   "EBB->LGW"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 9,
+  "tail": "5X-NIL",
+  "raw": "Sep 06 UR431 (uGp431)  |  Ss?\u201d Mumbai (BOM) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR431",
+  "callsign": "UGD431",
+  "flight_digits": "431",
+  "cs_digits": "431",
+  "origin": "BOM",
+  "dest": "EBB",
+  "codes_all": [
+   "BOM",
+   "EBB"
+  ],
+  "conf": 70.9,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR431-41864480.csv"
+  ],
+  "archive_routes": [
+   "BOM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 10,
+  "tail": "5X-NIL",
+  "raw": "Sep 05 UR430 (uGp430)  |  Ss Entebbe (EBB) Vv  |  NX. Mumbai (BOM)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR430",
+  "callsign": "UGD430",
+  "flight_digits": "430",
+  "cs_digits": "430",
+  "origin": "EBB",
+  "dest": "BOM",
+  "codes_all": [
+   "EBB",
+   "BOM"
+  ],
+  "conf": 75.9,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR430-41849343.csv"
+  ],
+  "archive_routes": [
+   "EBB->BOM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 11,
+  "tail": "5X-NIL",
+  "raw": "Sep 04 UR111 (uGD111)  |  Ss London (LGW) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR111",
+  "callsign": "UGD111",
+  "flight_digits": "111",
+  "cs_digits": "111",
+  "origin": "LGW",
+  "dest": "EBB",
+  "codes_all": [
+   "LGW",
+   "EBB"
+  ],
+  "conf": 66.7,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR111-41824e5d.csv"
+  ],
+  "archive_routes": [
+   "LGW->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 12,
+  "tail": "5X-NIL",
+  "raw": "Sep 04 UR110 (uGpD110)  |  Ss Entebbe (EBB) Vv  |  ML. London (LGW)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR110",
+  "callsign": null,
+  "flight_digits": "110",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "LGW",
+  "codes_all": [
+   "EBB",
+   "LGW"
+  ],
+  "conf": 71.8,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 13,
+  "tail": "5X-NIL",
+  "raw": "Sep 03 UR431 (uGp431)  |  Ss\u201d? Mumbai (BOM) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR431",
+  "callsign": "UGD431",
+  "flight_digits": "431",
+  "cs_digits": "431",
+  "origin": "BOM",
+  "dest": "EBB",
+  "codes_all": [
+   "BOM",
+   "EBB"
+  ],
+  "conf": 72.4,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR431-417b497a.csv"
+  ],
+  "archive_routes": [
+   "BOM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 14,
+  "tail": "5X-NIL",
+  "raw": "Sep 02 UR430 (uGp430)  |  Ss Entebbe (EBB) Vv  |  NX. Mumbai (BOM)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR430",
+  "callsign": "UGD430",
+  "flight_digits": "430",
+  "cs_digits": "430",
+  "origin": "EBB",
+  "dest": "BOM",
+  "codes_all": [
+   "EBB",
+   "BOM"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR430-4179f0a0.csv"
+  ],
+  "archive_routes": [
+   "EBB->BOM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 15,
+  "tail": "5X-NIL",
+  "raw": "Sep 01 UR111 (uGD111)  |  Ss London (LGW) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR111",
+  "callsign": "UGD111",
+  "flight_digits": "111",
+  "cs_digits": "111",
+  "origin": "LGW",
+  "dest": "EBB",
+  "codes_all": [
+   "LGW",
+   "EBB"
+  ],
+  "conf": 69.2,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR111-4175ff27.csv"
+  ],
+  "archive_routes": [
+   "LGW->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124304_Flightradar24.jpg",
+  "idx": 16,
+  "tail": "5X-NIL",
+  "raw": "Sep 01 UR110 (uGpD110)  |  Ss Entebbe (EBB) Vv  |  NM. London (LGW)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR110",
+  "callsign": null,
+  "flight_digits": "110",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "LGW",
+  "codes_all": [
+   "EBB",
+   "LGW"
+  ],
+  "conf": 73.3,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 1,
+  "tail": "ET-APL",
+  "raw": "Sep 11 UR/11  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR11",
+  "callsign": null,
+  "flight_digits": "11",
+  "cs_digits": null,
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 76.6,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 2,
+  "tail": "ET-APL",
+  "raw": "Sep 11 UR7/10 (uGD710) 4 LIVE  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR7",
+  "callsign": "UGD710",
+  "flight_digits": "7",
+  "cs_digits": "710",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 72.9,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 3,
+  "tail": "ET-APL",
+  "raw": "Sep 11 UR903 (uGD903)  |  S Lagos (LOS) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR903",
+  "callsign": "UGD903",
+  "flight_digits": "903",
+  "cs_digits": "903",
+  "origin": "LOS",
+  "dest": "EBB",
+  "codes_all": [
+   "LOS",
+   "EBB"
+  ],
+  "conf": 75.9,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 4,
+  "tail": "ET-APL",
+  "raw": "Sep 10 UR902 (uGD902)  |  Ss Entebbe (EBB) VY  |  NX. Lagos (LOS)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR902",
+  "callsign": "UGD902",
+  "flight_digits": "902",
+  "cs_digits": "902",
+  "origin": "EBB",
+  "dest": "LOS",
+  "codes_all": [
+   "EBB",
+   "LOS"
+  ],
+  "conf": 77.3,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR902-4199d7a2.csv"
+  ],
+  "archive_routes": [
+   "EBB->LOS"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 5,
+  "tail": "ET-APL",
+  "raw": "Sep 10 UR7/22 (uGD722)  |  Ss Lusaka (LUN) 4  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 68.4,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR722-4197d3bc.csv",
+   "UR722-4198a034.csv",
+   "UR722-41990761.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "HRE->LUN",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 6,
+  "tail": "ET-APL",
+  "raw": "Sep 10 UR7/22 (uGD722)  |  S Harare (HRE) vv  |  ML. Lusaka (LUN)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 73.6,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR722-4197d3bc.csv",
+   "UR722-4198a034.csv",
+   "UR722-41990761.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "HRE->LUN",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 7,
+  "tail": "ET-APL",
+  "raw": "Sep 10 UR7/22 (uGD722)  |  Ss Entebbe (EBB) VY  |  NX Harare (HRE)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 76.3,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR722-4197d3bc.csv",
+   "UR722-4198a034.csv",
+   "UR722-41990761.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "HRE->LUN",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 8,
+  "tail": "ET-APL",
+  "raw": "Sep 09 UR7/11 (uGp711)  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR7",
+  "callsign": "UGD711",
+  "flight_digits": "7",
+  "cs_digits": "711",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 70.9,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR711-419405bd.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 9,
+  "tail": "ET-APL",
+  "raw": "Sep 09 UR7/10 (uGp710)  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR7",
+  "callsign": "UGD710",
+  "flight_digits": "7",
+  "cs_digits": "710",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 73.4,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR710-41932b0c.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 10,
+  "tail": "ET-APL",
+  "raw": "Sep 09 UR7/13 (uGD713)  |  Ss Johannesburg (JNB) VY  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR7",
+  "callsign": "UGD713",
+  "flight_digits": "7",
+  "cs_digits": "713",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 72.0,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR713-419282d5.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 11,
+  "tail": "ET-APL",
+  "raw": "Sep 08 UR7/12 (uGD712)  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR7",
+  "callsign": "UGD712",
+  "flight_digits": "7",
+  "cs_digits": "712",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 74.5,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR712-41919bf4.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 12,
+  "tail": "ET-APL",
+  "raw": "Sep 08 UR7/22 (uGD722)  |  Ss Lusaka (LUN) 4  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 67.5,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR722-418fa50a.csv",
+   "UR722-4190714f.csv",
+   "UR722-4190df8c.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "HRE->LUN",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 13,
+  "tail": "ET-APL",
+  "raw": "Sep 08 UR7/22 (uGD722)  |  S Harare (HRE) vv  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 74.0,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR722-418fa50a.csv",
+   "UR722-4190714f.csv",
+   "UR722-4190df8c.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "HRE->LUN",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 14,
+  "tail": "ET-APL",
+  "raw": "Sep 08 UR7/22 (uGD722)  |  Ss Entebbe (EBB) VY  |  NX Harare (HRE)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 75.5,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR722-418fa50a.csv",
+   "UR722-4190714f.csv",
+   "UR722-4190df8c.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "HRE->LUN",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 15,
+  "tail": "ET-APL",
+  "raw": "Sep 08 UR/13 (uGD713)  |  Ss Johannesburg (JNB) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR13",
+  "callsign": "UGD713",
+  "flight_digits": "13",
+  "cs_digits": "713",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 67.5,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR713-418e69f9.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 16,
+  "tail": "ET-APL",
+  "raw": "Sep 07 UR7/12 (uGD712)  |  Ss Entebbe (EBB) VY  |  N Johannesburg (JNB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR7",
+  "callsign": "UGD712",
+  "flight_digits": "7",
+  "cs_digits": "712",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 79.6,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR712-418d9079.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 17,
+  "tail": "ET-APL",
+  "raw": "Sep 07 UR901 (uGD901)  |  Ss Lagos (LOS) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR901",
+  "callsign": "UGD901",
+  "flight_digits": "901",
+  "cs_digits": "901",
+  "origin": "LOS",
+  "dest": "EBB",
+  "codes_all": [
+   "LOS",
+   "EBB"
+  ],
+  "conf": 70.5,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR901-418c2cc8.csv"
+  ],
+  "archive_routes": [
+   "LOS->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 18,
+  "tail": "ET-APL",
+  "raw": "Sep 07 UR900 (UGD900)  |  Ss Entebbe (EBB) VY  |  NX. Lagos (LOS)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR900",
+  "callsign": "UGD900",
+  "flight_digits": "900",
+  "cs_digits": "900",
+  "origin": "EBB",
+  "dest": "LOS",
+  "codes_all": [
+   "EBB",
+   "LOS"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR900-418b4fe7.csv"
+  ],
+  "archive_routes": [
+   "EBB->LOS"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 19,
+  "tail": "ET-APL",
+  "raw": "Sep 07 UR7/13 (uGp713)  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR7",
+  "callsign": "UGD713",
+  "flight_digits": "7",
+  "cs_digits": "713",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 68.4,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR713-418a91c6.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 20,
+  "tail": "ET-APL",
+  "raw": "Sep 06 UR7/12 (uGD712)  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR7",
+  "callsign": "UGD712",
+  "flight_digits": "7",
+  "cs_digits": "712",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 76.4,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR712-4189d4c5.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 21,
+  "tail": "ET-APL",
+  "raw": "@ Sep 06 UR901 (uGD901)  |  S Lagos (LOS) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR901",
+  "callsign": "UGD901",
+  "flight_digits": "901",
+  "cs_digits": "901",
+  "origin": "LOS",
+  "dest": "EBB",
+  "codes_all": [
+   "LOS",
+   "EBB"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR901-41889775.csv"
+  ],
+  "archive_routes": [
+   "LOS->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 22,
+  "tail": "ET-APL",
+  "raw": "Sep 06 UR900 (UGD900)  |  Ss Entebbe (EBB) VY  |  NX. Lagos (LOS)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR900",
+  "callsign": "UGD900",
+  "flight_digits": "900",
+  "cs_digits": "900",
+  "origin": "EBB",
+  "dest": "LOS",
+  "codes_all": [
+   "EBB",
+   "LOS"
+  ],
+  "conf": 77.0,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR900-4187ab98.csv"
+  ],
+  "archive_routes": [
+   "EBB->LOS"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 23,
+  "tail": "ET-APL",
+  "raw": "Sep 06 UR720 (uGpD720)  |  S Harare (HRE) vv  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR720",
+  "callsign": null,
+  "flight_digits": "720",
+  "cs_digits": null,
+  "origin": "HRE",
+  "dest": "EBB",
+  "codes_all": [
+   "HRE",
+   "EBB"
+  ],
+  "conf": 67.7,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 24,
+  "tail": "ET-APL",
+  "raw": "Sep 05 UR720 (uGD720)  |  Ss Lusaka (LUN) 4  |  NX Harare (HRE)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "LUN",
+  "dest": "HRE",
+  "codes_all": [
+   "LUN",
+   "HRE"
+  ],
+  "conf": 64.6,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR720-418311f2.csv",
+   "UR720-41861399.csv",
+   "UR720-41868c7a.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN",
+   "LUN->HRE"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 25,
+  "tail": "ET-APL",
+  "raw": "Sep 05 UR720 (uGp720)  |  Ss Entebbe (EBB) VY  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "EBB",
+  "dest": "LUN",
+  "codes_all": [
+   "EBB",
+   "LUN"
+  ],
+  "conf": 73.8,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR720-418311f2.csv",
+   "UR720-41861399.csv",
+   "UR720-41868c7a.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN",
+   "LUN->HRE"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 26,
+  "tail": "ET-APL",
+  "raw": "@ Sep 05 UR7/11 (uGp711)  |  Ss Johannesburg (JNB) VY  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR7",
+  "callsign": "UGD711",
+  "flight_digits": "7",
+  "cs_digits": "711",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 70.7,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR711-41850d68.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 27,
+  "tail": "ET-APL",
+  "raw": "@ Sep 05 UR7/10 (uGp710)  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR7",
+  "callsign": "UGD710",
+  "flight_digits": "7",
+  "cs_digits": "710",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 72.3,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR710-418421df.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 28,
+  "tail": "ET-APL",
+  "raw": "@ Sep 05 UR903 (UGD903)  |  S Lagos (LOS) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR903",
+  "callsign": "UGD903",
+  "flight_digits": "903",
+  "cs_digits": "903",
+  "origin": "LOS",
+  "dest": "EBB",
+  "codes_all": [
+   "LOS",
+   "EBB"
+  ],
+  "conf": 70.7,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR903-41837427.csv"
+  ],
+  "archive_routes": [
+   "LOS->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 29,
+  "tail": "ET-APL",
+  "raw": "@ Sep 04 UR902 (uGD902)  |  Ss Entebbe (EBB) VY  |  NX. Lagos (LOS)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR902",
+  "callsign": "UGD902",
+  "flight_digits": "902",
+  "cs_digits": "902",
+  "origin": "EBB",
+  "dest": "LOS",
+  "codes_all": [
+   "EBB",
+   "LOS"
+  ],
+  "conf": 73.9,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR902-417e77f4.csv",
+   "UR902-418298cd.csv"
+  ],
+  "archive_routes": [
+   "EBB->LOS",
+   "EBB->LOS"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 30,
+  "tail": "ET-APL",
+  "raw": "@ Sep 04 UR7/11 (uGp711)  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR7",
+  "callsign": "UGD711",
+  "flight_digits": "7",
+  "cs_digits": "711",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 67.1,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR711-41813ab4.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 31,
+  "tail": "ET-APL",
+  "raw": "@ Sep 04 UR7/10 (uGp710)  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR7",
+  "callsign": "UGD710",
+  "flight_digits": "7",
+  "cs_digits": "710",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 72.7,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR710-41801c3b.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 32,
+  "tail": "ET-APL",
+  "raw": "@ Sep 04 UR903 (UGD903)  |  S Lagos (LOS) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR903",
+  "callsign": "UGD903",
+  "flight_digits": "903",
+  "cs_digits": "903",
+  "origin": "LOS",
+  "dest": "EBB",
+  "codes_all": [
+   "LOS",
+   "EBB"
+  ],
+  "conf": 74.6,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR903-417f62b7.csv"
+  ],
+  "archive_routes": [
+   "LOS->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 33,
+  "tail": "ET-APL",
+  "raw": "@ Sep 03 UR902 (uGD902)  |  Ss Entebbe (EBB) VY  |  NX. Lagos (LOS)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR902",
+  "callsign": "UGD902",
+  "flight_digits": "902",
+  "cs_digits": "902",
+  "origin": "EBB",
+  "dest": "LOS",
+  "codes_all": [
+   "EBB",
+   "LOS"
+  ],
+  "conf": 76.4,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 34,
+  "tail": "ET-APL",
+  "raw": "@ Sep 03 UR7/22 (uGD722)  |  Ss Lusaka (LUN) 4  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 70.2,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR722-417c552e.csv",
+   "UR722-417db548.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 35,
+  "tail": "ET-APL",
+  "raw": "@ Sep 03 UR7/22 (uGD722)  |  S Harare (HRE) vv  |  MX. Lusaka (LUN)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 74.1,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR722-417c552e.csv",
+   "UR722-417db548.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 36,
+  "tail": "ET-APL",
+  "raw": "Sep 03 UR7/22 (uGD722)  |  Ss Entebbe (EBB) VY  |  MO Harare (HRE)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 76.5,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR722-417c552e.csv",
+   "UR722-417db548.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 37,
+  "tail": "ET-APL",
+  "raw": "Sep 02 UR7/11 (uGp711)  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR7",
+  "callsign": "UGD711",
+  "flight_digits": "7",
+  "cs_digits": "711",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 67.8,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR711-41788bdf.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 38,
+  "tail": "ET-APL",
+  "raw": "Sep 02 UR7/10 (uGp710)  |  Ss Entebbe (EBB) VY  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR7",
+  "callsign": "UGD710",
+  "flight_digits": "7",
+  "cs_digits": "710",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 74.9,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR710-4177b015.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 39,
+  "tail": "ET-APL",
+  "raw": "Sep 02 UR7/13 (uGD713)  |  Ss Johannesburg (JNB) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR7",
+  "callsign": "UGD713",
+  "flight_digits": "7",
+  "cs_digits": "713",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 70.4,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR713-4176f826.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 40,
+  "tail": "ET-APL",
+  "raw": "Sep 01 UR7/12 (uGD712)  |  Ss Entebbe (EBB) VY  |  N Johannesburg (JNB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR7",
+  "callsign": "UGD712",
+  "flight_digits": "7",
+  "cs_digits": "712",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 79.5,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR712-41762996.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 41,
+  "tail": "ET-APL",
+  "raw": "@ Sep 01 UR207 (uGp207)  |  Ss Nairobi (NBO) 4  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR207",
+  "callsign": "UGD207",
+  "flight_digits": "207",
+  "cs_digits": "207",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 66.9,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR207-4175b03e.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 42,
+  "tail": "ET-APL",
+  "raw": "Sep 01 UR206 (UuGD206)  |  Ss Entebbe (EBB) VY  |  NO. Nairobi (NBO)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR206",
+  "callsign": "UGD206",
+  "flight_digits": "206",
+  "cs_digits": "206",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 78.9,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR206-41752255.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 43,
+  "tail": "ET-APL",
+  "raw": "Sep 01 UR207 (uGD207D)  |  Ss Nairobi (NBO) 4  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR207",
+  "callsign": null,
+  "flight_digits": "207",
+  "cs_digits": null,
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 67.8,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124414_Flightradar24.jpg",
+  "idx": 44,
+  "tail": "ET-APL",
+  "raw": "\u00ae Aug 31 UR208  |  Ss Entebbe (EBB) VY  |  MO. Nairobi (NBO)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR208",
+  "callsign": null,
+  "flight_digits": "208",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 81.1,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 1,
+  "tail": "5X-KOB",
+  "raw": "Sep 11 UR354 (UGD334)  |  Ss Zanzibar (ZNZ) Vv  |  XQ Kilimanjaro (JRO)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "ZNZ",
+  "dest": "JRO",
+  "codes_all": [
+   "ZNZ",
+   "JRO"
+  ],
+  "conf": 72.5,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 2,
+  "tail": "5X-KOB",
+  "raw": "Sep 11 UR354 (UGD334)  |  Ss Entebbe (EBB) Vv  |  ML. Zanzibar (ZNZ)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "EBB",
+  "dest": "ZNZ",
+  "codes_all": [
+   "EBB",
+   "ZNZ"
+  ],
+  "conf": 70.4,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 3,
+  "tail": "5X-KOB",
+  "raw": "Sep 10 UR121 (uGD121)  |  Ss\u201d Juba (JUB) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 73.6,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR121-41985ecc.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 4,
+  "tail": "5X-KOB",
+  "raw": "Sep 10 UR120 (uGpD120)  |  Ss Entebbe (EBB) Vv  |  NM. Juba (JUB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR120",
+  "callsign": null,
+  "flight_digits": "120",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 75.7,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 5,
+  "tail": "5X-KOB",
+  "raw": "Sep 10 UR323 (UGD323)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR323",
+  "callsign": "UGD323",
+  "flight_digits": "323",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 72.1,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR323-419614ed.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 6,
+  "tail": "5X-KOB",
+  "raw": "Sep 09 UR322 (UGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR322",
+  "callsign": "UGD322",
+  "flight_digits": "322",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 79.9,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR322-419590c7.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 7,
+  "tail": "5X-KOB",
+  "raw": "Sep 09 UR7/22 (uGD722)  |  S Lusaka (LUN) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 73.0,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR722-4193829f.csv",
+   "UR722-4194953d.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 8,
+  "tail": "5X-KOB",
+  "raw": "Sep 09 UR7/22 (uGD722)  |  S Harare (HRE) vy  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 73.5,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR722-4193829f.csv",
+   "UR722-4194953d.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 9,
+  "tail": "5X-KOB",
+  "raw": "Sep 09 UR7/22 (uGD722)  |  Ss Entebbe (EBB) Vv  |  NO Harare (HRE)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 75.2,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR722-4193829f.csv",
+   "UR722-4194953d.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 10,
+  "tail": "5X-KOB",
+  "raw": "Sep 08 UR121 (uGD121)  |  Ss Juba (JUB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 68.2,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR121-41902eb3.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 11,
+  "tail": "5X-KOB",
+  "raw": "Sep 08 UR120 (uGp120)  |  Ss Entebbe (EBB) Vv  |  NM. Juba (JUB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR120",
+  "callsign": "UGD120",
+  "flight_digits": "120",
+  "cs_digits": "120",
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 73.5,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR120-418fbf90.csv"
+  ],
+  "archive_routes": [
+   "EBB->JUB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 12,
+  "tail": "5X-KOB",
+  "raw": "Sep 08 UR521 (UuGD521)  |  S\u201d Mogadishu (MGQ) YY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR521",
+  "callsign": "UGD521",
+  "flight_digits": "521",
+  "cs_digits": "521",
+  "origin": "MGQ",
+  "dest": "EBB",
+  "codes_all": [
+   "MGQ",
+   "EBB"
+  ],
+  "conf": 72.3,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR521-418f0818.csv"
+  ],
+  "archive_routes": [
+   "MGQ->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 13,
+  "tail": "5X-KOB",
+  "raw": "Sep 08 UR520 (uGD520)  |  Ss Entebbe (EBB) Vv  |  NX. Mogadishu (MGQ)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR520",
+  "callsign": "UGD520",
+  "flight_digits": "520",
+  "cs_digits": "520",
+  "origin": "EBB",
+  "dest": "MGQ",
+  "codes_all": [
+   "EBB",
+   "MGQ"
+  ],
+  "conf": 80.2,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR520-418e9139.csv"
+  ],
+  "archive_routes": [
+   "EBB->MGQ"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 14,
+  "tail": "5X-KOB",
+  "raw": "Sep 08 UR209 (uGD209)  |  Ss Nairobi (NBO) Vv  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 73.0,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR209-418de625.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 15,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  M. Nairobi (NBO)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR208-418d864b.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 16,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR207 (uGp207)  |  = Nairobi (NBO) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR207",
+  "callsign": "UGD207",
+  "flight_digits": "207",
+  "cs_digits": "207",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 73.4,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR207-418d1ff2.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 17,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR206 (UuGD206)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR206",
+  "callsign": "UGD206",
+  "flight_digits": "206",
+  "cs_digits": "206",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 76.5,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR206-418c9428.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 18,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR521 (uGD321)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR521",
+  "callsign": "UGD321",
+  "flight_digits": "521",
+  "cs_digits": "321",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 68.8,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR321-418be466.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 19,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR320 (UGD320)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR320",
+  "callsign": "UGD320",
+  "flight_digits": "320",
+  "cs_digits": "320",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 76.5,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR320-418b7e9a.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 20,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR123 (uGD123)  |  Ss Juba (JUB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR123",
+  "callsign": "UGD123",
+  "flight_digits": "123",
+  "cs_digits": "123",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 70.2,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR123-418b318e.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 21,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR122 (uGD122)  |  Ss Entebbe (EBB) Vv  |  M. Juba (JUB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR122",
+  "callsign": "UGD122",
+  "flight_digits": "122",
+  "cs_digits": "122",
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 71.6,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR122-418ae9b7.csv"
+  ],
+  "archive_routes": [
+   "EBB->JUB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 22,
+  "tail": "5X-KOB",
+  "raw": "Sep 07 UR209 (uGp209)  |  Ss Nairobi (NBO) Vv  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 73.2,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR209-418a175e.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 23,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  M. Nairobi (NBO)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.4,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR208-4189c9e6.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 24,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR207 (uGp207)  |  = Nairobi (NBO) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR207",
+  "callsign": "UGD207",
+  "flight_digits": "207",
+  "cs_digits": "207",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 73.5,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR207-41896043.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 25,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR206 (UuGD206)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR206",
+  "callsign": "UGD206",
+  "flight_digits": "206",
+  "cs_digits": "206",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 76.6,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR206-4188ec01.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 26,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR321 (UGD321)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR321",
+  "callsign": "UGD321",
+  "flight_digits": "321",
+  "cs_digits": "321",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 71.1,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR321-418856b0.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 27,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR320 (UGD320)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR320",
+  "callsign": "UGD320",
+  "flight_digits": "320",
+  "cs_digits": "320",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 76.6,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR320-4187e58c.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 28,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR521 (uGD521)  |  S\u201d Mogadishu (MGQ) YY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR521",
+  "callsign": "UGD521",
+  "flight_digits": "521",
+  "cs_digits": "521",
+  "origin": "MGQ",
+  "dest": "EBB",
+  "codes_all": [
+   "MGQ",
+   "EBB"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR521-41877c32.csv"
+  ],
+  "archive_routes": [
+   "MGQ->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 29,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR520 (uGD520)  |  Ss Entebbe (EBB) Vv  |  NX. Mogadishu (MGQ)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR520",
+  "callsign": "UGD520",
+  "flight_digits": "520",
+  "cs_digits": "520",
+  "origin": "EBB",
+  "dest": "MGQ",
+  "codes_all": [
+   "EBB",
+   "MGQ"
+  ],
+  "conf": 80.2,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR520-41871519.csv"
+  ],
+  "archive_routes": [
+   "EBB->MGQ"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 30,
+  "tail": "5X-KOB",
+  "raw": "Sep 06 UR3235 (UGD323)  |  = Dar-es-Salaam (DAR) Vv  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR3235",
+  "callsign": "UGD323",
+  "flight_digits": "3235",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 72.0,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR323-4186910e.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 31,
+  "tail": "5X-KOB",
+  "raw": "Sep 05 UR322 (UGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR322",
+  "callsign": "UGD322",
+  "flight_digits": "322",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 79.7,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR322-41863182.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 32,
+  "tail": "5X-KOB",
+  "raw": "Sep 05 UR121 (uGD121)  |  Ss Juba (JUB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 69.6,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR121-4184d091.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 33,
+  "tail": "5X-KOB",
+  "raw": "Sep 05 UR120 (UuGpD120)  |  Ss Entebbe (EBB) Vv  |  NM. Juba (JUB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR120",
+  "callsign": null,
+  "flight_digits": "120",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 72.7,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 34,
+  "tail": "5X-KOB",
+  "raw": "Sep 05 UR201 (UuGD201)  |  = Nairobi (NBO) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 67.6,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR201-41840565.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 35,
+  "tail": "5X-KOB",
+  "raw": "Sep 05 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MX Nairobi (NBO)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.4,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR200-4183c10c.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 36,
+  "tail": "5X-KOB",
+  "raw": "Sep 05 UR720 (uGp720)  |  S Harare (HRE) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "HRE",
+  "dest": "EBB",
+  "codes_all": [
+   "HRE",
+   "EBB"
+  ],
+  "conf": 69.4,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR720-418311f2.csv",
+   "UR720-41861399.csv",
+   "UR720-41868c7a.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN",
+   "LUN->HRE"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 37,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR720 (uGp720)  |  S Lusaka (LUN) Vv  |  NX Harare (HRE)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "LUN",
+  "dest": "HRE",
+  "codes_all": [
+   "LUN",
+   "HRE"
+  ],
+  "conf": 67.6,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR720-418217cc.csv"
+  ],
+  "archive_routes": [
+   "EBB->LUN"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 38,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR720 (uGpD720)  |  Ss Entebbe (EBB) Vv  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR720",
+  "callsign": null,
+  "flight_digits": "720",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "LUN",
+  "codes_all": [
+   "EBB",
+   "LUN"
+  ],
+  "conf": 69.0,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 39,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 75.9,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR361-41818775.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 40,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX Bujumbura (BJM)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 76.5,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR360-4181197a.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 41,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR354 (UGD334)  |  = Kilimanjaro (JRO) VY  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "JRO",
+  "dest": "EBB",
+  "codes_all": [
+   "JRO",
+   "EBB"
+  ],
+  "conf": 77.3,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR334-417fd52c.csv",
+   "UR334-4180775f.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 42,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR354 (UGD334)  |  Ss Zanzibar (ZNZ) Vv  |  M. Kilimanjaro (JRO)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "ZNZ",
+  "dest": "JRO",
+  "codes_all": [
+   "ZNZ",
+   "JRO"
+  ],
+  "conf": 66.9,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR334-417fd52c.csv",
+   "UR334-4180775f.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "JRO->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 43,
+  "tail": "5X-KOB",
+  "raw": "Sep 04 UR354 (UGD334)  |  Ss Entebbe (EBB) Vv  |  MO Zanzibar (ZNZ)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "EBB",
+  "dest": "ZNZ",
+  "codes_all": [
+   "EBB",
+   "ZNZ"
+  ],
+  "conf": 73.8,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR334-417fd52c.csv",
+   "UR334-4180775f.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 44,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR345 (UGD343)  |  Ss\u201d Mombasa (MBA) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR345",
+  "callsign": "UGD343",
+  "flight_digits": "345",
+  "cs_digits": "343",
+  "origin": "MBA",
+  "dest": "EBB",
+  "codes_all": [
+   "MBA",
+   "EBB"
+  ],
+  "conf": 70.1,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR343-417a332c.csv"
+  ],
+  "archive_routes": [
+   "MBA->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 45,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR542 (uGp342)  |  Ss Entebbe (EBB) Vv  |  NX. Mombasa (MBA)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR542",
+  "callsign": "UGD342",
+  "flight_digits": "542",
+  "cs_digits": "342",
+  "origin": "EBB",
+  "dest": "MBA",
+  "codes_all": [
+   "EBB",
+   "MBA"
+  ],
+  "conf": 75.3,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR342-4179a966.csv"
+  ],
+  "archive_routes": [
+   "EBB->MBA"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 46,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR354 (UGD334)  |  = Kilimanjaro (JRO) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "JRO",
+  "dest": "EBB",
+  "codes_all": [
+   "JRO",
+   "EBB"
+  ],
+  "conf": 76.2,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR334-417819cd.csv",
+   "UR334-4178f107.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 47,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR354 (UGD334)  |  Ss Zanzibar (ZNZ) Vv  |  N Kilimanjaro (JRO)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "ZNZ",
+  "dest": "JRO",
+  "codes_all": [
+   "ZNZ",
+   "JRO"
+  ],
+  "conf": 80.3,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR334-417819cd.csv",
+   "UR334-4178f107.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "JRO->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 48,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR354 (UGD334)  |  Ss Entebbe (EBB) Vv  |  ML. Zanzibar (ZNZ)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "EBB",
+  "dest": "ZNZ",
+  "codes_all": [
+   "EBB",
+   "ZNZ"
+  ],
+  "conf": 71.2,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR334-417819cd.csv",
+   "UR334-4178f107.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 49,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR123 (uGD123)  |  Ss Juba (JUB) Vv  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR123",
+  "callsign": "UGD123",
+  "flight_digits": "123",
+  "cs_digits": "123",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 73.9,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR123-4177ab0d.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 50,
+  "tail": "5X-KOB",
+  "raw": "Sep 02 UR122 (uGD122)  |  Ss Entebbe (EBB) Vv  |  M Juba (JUB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR122",
+  "callsign": "UGD122",
+  "flight_digits": "122",
+  "cs_digits": "122",
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 76.6,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR122-417764c7.csv"
+  ],
+  "archive_routes": [
+   "EBB->JUB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 51,
+  "tail": "5X-KOB",
+  "raw": "Sep 01 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 74.2,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR361-41754361.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 52,
+  "tail": "5X-KOB",
+  "raw": "Sep 01 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 77.2,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR360-4174ea44.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 53,
+  "tail": "5X-KOB",
+  "raw": "Sep 01 UR521 (uGD321)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR521",
+  "callsign": "UGD321",
+  "flight_digits": "521",
+  "cs_digits": "321",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 68.6,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR321-4174518e.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 54,
+  "tail": "5X-KOB",
+  "raw": "Sep 01 UR320 (UGD320)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR320",
+  "callsign": "UGD320",
+  "flight_digits": "320",
+  "cs_digits": "320",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 78.3,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR320-4173e8c5.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 55,
+  "tail": "5X-KOB",
+  "raw": "Sep 01 UR7/13 (uGp713)  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR7",
+  "callsign": "UGD713",
+  "flight_digits": "7",
+  "cs_digits": "713",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 71.3,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR713-4172e265.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124506_Flightradar24.jpg",
+  "idx": 56,
+  "tail": "5X-KOB",
+  "raw": "Aug 31 UR7/12 (UuGD712)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR7",
+  "callsign": "UGD712",
+  "flight_digits": "7",
+  "cs_digits": "712",
+  "origin": null,
+  "dest": null,
+  "codes_all": [],
+  "conf": 73.0,
+  "n_codes": 0,
+  "date": "2026-08-31",
+  "archive": [
+   "UR712-41720cd5.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 1,
+  "tail": "5X-KDP",
+  "raw": "Sep 11 UR201 (uGD201)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 70.3,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 2,
+  "tail": "5X-KDP",
+  "raw": "Sep 11 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.1,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 3,
+  "tail": "5X-KDP",
+  "raw": "Sep 11 UR209 (uGp209)  |  S Nairobi (NBO) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 74.9,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 4,
+  "tail": "5X-KDP",
+  "raw": "Sep 10 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  M. Nairobi (NBO)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 73.3,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR208-4199c0af.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 5,
+  "tail": "5X-KDP",
+  "raw": "Sep 10 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 73.7,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR361-4198ed71.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 6,
+  "tail": "5X-KDP",
+  "raw": "Sep 10 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 78.9,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR360-41987e04.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 7,
+  "tail": "5X-KDP",
+  "raw": "Sep 10 UR209 (uGp209)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 73.4,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR209-4196031c.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 8,
+  "tail": "5X-KDP",
+  "raw": "Sep 09 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  MX Nairobi (NBO)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.0,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR208-419596f7.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 9,
+  "tail": "5X-KDP",
+  "raw": "Sep 09 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 74.9,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR361-4194da2f.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 10,
+  "tail": "5X-KDP",
+  "raw": "Sep 09 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 76.3,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR360-419461c3.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 11,
+  "tail": "5X-KDP",
+  "raw": "Sep 09 UR201 (UuGD201)  |  S Nairobi (NBO) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 75.3,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR201-41933e05.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 12,
+  "tail": "5X-KDP",
+  "raw": "Sep 09 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  M. Nairobi (NBO)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 71.8,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR200-4192fdbd.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 13,
+  "tail": "5X-KDP",
+  "raw": "Sep 08 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 73.8,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR361-4190ae3a.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 14,
+  "tail": "5X-KDP",
+  "raw": "Sep 08 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 78.9,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR360-41903f50.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 15,
+  "tail": "5X-KDP",
+  "raw": "Sep 08 UR201 (UuGD201)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 72.8,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR201-418f35c8.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 16,
+  "tail": "5X-KDP",
+  "raw": "Sep 08 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MX Nairobi (NBO)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.6,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR200-418ef7ea.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 17,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR325 (UGD323)  |  Ss Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR325",
+  "callsign": "UGD323",
+  "flight_digits": "325",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 72.6,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR323-418dcd51.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 18,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR522 (uGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR522",
+  "callsign": "UGD322",
+  "flight_digits": "522",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 74.8,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR322-418d59e8.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 19,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 75.3,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR361-418cb5d4.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 20,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 76.0,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR360-418c539f.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 21,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR201 (uGp201)  |  Ss Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 68.7,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR201-418b4b5b.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 22,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR200 (uGpD200)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR200",
+  "callsign": null,
+  "flight_digits": "200",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.1,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 23,
+  "tail": "5X-KDP",
+  "raw": "Sep 07 UR200  |  Ss Entebbe (EBB) Vv  |  MX. Nairobi (NBO)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR200",
+  "callsign": null,
+  "flight_digits": "200",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 79.6,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 24,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR343 (UGD343)  |  Ss\u201d Mombasa (MBA) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR343",
+  "callsign": "UGD343",
+  "flight_digits": "343",
+  "cs_digits": "343",
+  "origin": "MBA",
+  "dest": "EBB",
+  "codes_all": [
+   "MBA",
+   "EBB"
+  ],
+  "conf": 73.7,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR343-4189a5fc.csv"
+  ],
+  "archive_routes": [
+   "MBA->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 25,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR342 (uGD342)  |  Ss Entebbe (EBB) Vv  |  NX. Mombasa (MBA)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR342",
+  "callsign": "UGD342",
+  "flight_digits": "342",
+  "cs_digits": "342",
+  "origin": "EBB",
+  "dest": "MBA",
+  "codes_all": [
+   "EBB",
+   "MBA"
+  ],
+  "conf": 77.0,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR342-418926f5.csv"
+  ],
+  "archive_routes": [
+   "EBB->MBA"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 26,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR121 (uGD121)  |  Ss Juba (JUB) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 72.6,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR121-4188a506.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 27,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR120 (UuGD120)  |  Ss Entebbe (EBB) Vv  |  M. Juba (JUB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR120",
+  "callsign": "UGD120",
+  "flight_digits": "120",
+  "cs_digits": "120",
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 71.7,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR120-41883fc1.csv"
+  ],
+  "archive_routes": [
+   "EBB->JUB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 28,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR201 (UuGD201)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 76.1,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR201-41879c5d.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 29,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 73.7,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR200-41876032.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 30,
+  "tail": "5X-KDP",
+  "raw": "Sep 06 UR209 (UuGD209)  |  S Nairobi (NBO) VY  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 76.1,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR209-41868450.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 31,
+  "tail": "5X-KDP",
+  "raw": "Sep 05 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  MX. Nairobi (NBO)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.4,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR208-41862a43.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 32,
+  "tail": "5X-KDP",
+  "raw": "Sep 05 UR521 (uGD521)  |  S\u201d Mogadishu (MGQ) YY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR521",
+  "callsign": "UGD521",
+  "flight_digits": "521",
+  "cs_digits": "521",
+  "origin": "MGQ",
+  "dest": "EBB",
+  "codes_all": [
+   "MGQ",
+   "EBB"
+  ],
+  "conf": 73.7,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR521-4183ce5c.csv"
+  ],
+  "archive_routes": [
+   "MGQ->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 33,
+  "tail": "5X-KDP",
+  "raw": "Sep 05 UR520 (uGD520)  |  Ss Entebbe (EBB) Vv  |  NX. Mogadishu (MGQ)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR520",
+  "callsign": "UGD520",
+  "flight_digits": "520",
+  "cs_digits": "520",
+  "origin": "EBB",
+  "dest": "MGQ",
+  "codes_all": [
+   "EBB",
+   "MGQ"
+  ],
+  "conf": 73.6,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR520-41836393.csv"
+  ],
+  "archive_routes": [
+   "EBB->MGQ"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 34,
+  "tail": "5X-KDP",
+  "raw": "Sep 05 UR323 (UGD323)  |  Ss Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR323",
+  "callsign": "UGD323",
+  "flight_digits": "323",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 71.1,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR323-4182b881.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 35,
+  "tail": "5X-KDP",
+  "raw": "Sep 04 UR522 (uGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR522",
+  "callsign": "UGD322",
+  "flight_digits": "522",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 76.6,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR322-4182471c.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 36,
+  "tail": "5X-KDP",
+  "raw": "Sep 04 UR207 (uGp207)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR207",
+  "callsign": "UGD207",
+  "flight_digits": "207",
+  "cs_digits": "207",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 78.2,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR207-4181d8cb.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 37,
+  "tail": "5X-KDP",
+  "raw": "Sep 04 UR206 (UuGD206)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR206",
+  "callsign": "UGD206",
+  "flight_digits": "206",
+  "cs_digits": "206",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 73.1,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR206-418165b0.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 38,
+  "tail": "5X-KDP",
+  "raw": "Sep 04 UR201 (uGpD201)  |  S Nairobi (NBO) VY  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR201",
+  "callsign": null,
+  "flight_digits": "201",
+  "cs_digits": null,
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 75.2,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 39,
+  "tail": "5X-KDP",
+  "raw": "Sep 04 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MX. Nairobi (NBO)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.8,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR200-417fae7e.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 40,
+  "tail": "5X-KDP",
+  "raw": "Sep 04 UR209 (uGp209)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 73.0,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR209-417e92a9.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 41,
+  "tail": "5X-KDP",
+  "raw": "Sep 03 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  MX Nairobi (NBO)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.4,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR208-417e2cfc.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 42,
+  "tail": "5X-KDP",
+  "raw": "Sep 03 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 74.0,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR361-417d6a6a.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 43,
+  "tail": "5X-KDP",
+  "raw": "Sep 03 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 76.9,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR360-417cfd0a.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 44,
+  "tail": "5X-KDP",
+  "raw": "Sep 03 UR209 (uGD209)  |  S Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR209",
+  "callsign": "UGD209",
+  "flight_digits": "209",
+  "cs_digits": "209",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 75.8,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR209-417a83ba.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 45,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR208 (UGD208)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR208",
+  "callsign": "UGD208",
+  "flight_digits": "208",
+  "cs_digits": "208",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.7,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR208-417a1e38.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 46,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR361 (UGD361)  |  Ss Bujumbura (BJM) VY  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 77.0,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR361-41794f1d.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 47,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  N\\. Bujumbura (BJM)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 77.5,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR360-4178e32f.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 48,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR121 (uGD121)  |  Ss Juba (JUB) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 74.8,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR121-41785f0d.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 49,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR120 (uGpD120)  |  Ss Entebbe (EBB) Vv  |  NM. Juba (JUB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR120",
+  "callsign": null,
+  "flight_digits": "120",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 75.2,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 50,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR201 (uGpD201)  |  Ss Nairobi (NBO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR201",
+  "callsign": null,
+  "flight_digits": "201",
+  "cs_digits": null,
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 67.5,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 51,
+  "tail": "5X-KDP",
+  "raw": "Sep 02 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 77.3,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR200-417784a4.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 52,
+  "tail": "5X-KDP",
+  "raw": "@ Sep 01 UR7/22 (uGD722)  |  S Lusaka (LUN) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 70.9,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR722-417431eb.csv",
+   "UR722-41759bd9.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 53,
+  "tail": "5X-KDP",
+  "raw": "@ Sep 01 UR7/22 (uGD722)  |  S Harare (HRE) Vv  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 70.6,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR722-417431eb.csv",
+   "UR722-41759bd9.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 54,
+  "tail": "5X-KDP",
+  "raw": "Sep 01 UR7/22 (uGD722)  |  Ss Entebbe (EBB) Vv  |  NO Harare (HRE)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR722-417431eb.csv",
+   "UR722-41759bd9.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 55,
+  "tail": "5X-KDP",
+  "raw": "Sep 01 UR521 (uGD521)  |  Ss\u201d Mogadishu (MGQ) YY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR521",
+  "callsign": "UGD521",
+  "flight_digits": "521",
+  "cs_digits": "521",
+  "origin": "MGQ",
+  "dest": "EBB",
+  "codes_all": [
+   "MGQ",
+   "EBB"
+  ],
+  "conf": 68.0,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR521-41738635.csv"
+  ],
+  "archive_routes": [
+   "MGQ->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 56,
+  "tail": "5X-KDP",
+  "raw": "Sep 01 UR520 (uGD520)  |  Ss Entebbe (EBB) Vv  |  NX. Mogadishu (MGQ)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR520",
+  "callsign": "UGD520",
+  "flight_digits": "520",
+  "cs_digits": "520",
+  "origin": "EBB",
+  "dest": "MGQ",
+  "codes_all": [
+   "EBB",
+   "MGQ"
+  ],
+  "conf": 78.9,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR520-41730ef2.csv"
+  ],
+  "archive_routes": [
+   "EBB->MGQ"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 57,
+  "tail": "5X-KDP",
+  "raw": "Aug 31 UR523 (uGD323)  |  Ss Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR523",
+  "callsign": "UGD323",
+  "flight_digits": "523",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 70.9,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [
+   "UR323-41723327.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 58,
+  "tail": "5X-KDP",
+  "raw": "Aug 31 UR322 (uGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR322",
+  "callsign": "UGD322",
+  "flight_digits": "322",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 77.2,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [
+   "UR322-4171ad14.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 59,
+  "tail": "5X-KDP",
+  "raw": "Aug 31 UR561 (uGD361)  |  Ss Bujumbura (BJM) VY  |  NL Entebbe (EBB)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR561",
+  "callsign": "UGD361",
+  "flight_digits": "561",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 66.9,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 60,
+  "tail": "5X-KDP",
+  "raw": "Aug 31 UR360 (uGD360)  |  Ss Entebbe (EBB) Vv  |  NX. Bujumbura (BJM)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 75.0,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124545_Flightradar24.jpg",
+  "idx": 61,
+  "tail": "5X-KDP",
+  "raw": "Aug 31 UR720 (UGD720)  |  S Harare (HRE) Vv  |  NL. Entebbe (EBB)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "HRE",
+  "dest": "EBB",
+  "codes_all": [
+   "HRE",
+   "EBB"
+  ],
+  "conf": 74.6,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [
+   "UR720-4171bc59.csv"
+  ],
+  "archive_routes": [
+   "EBB->LUN"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 1,
+  "tail": "5X-EQU",
+  "raw": "Sep 11 UR521 (uGD521)  |  S\u201d Mogadishu (MGQ) YY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR521",
+  "callsign": "UGD521",
+  "flight_digits": "521",
+  "cs_digits": "521",
+  "origin": "MGQ",
+  "dest": "EBB",
+  "codes_all": [
+   "MGQ",
+   "EBB"
+  ],
+  "conf": 72.8,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 2,
+  "tail": "5X-EQU",
+  "raw": "Sep 11 UR520 (uGD520)  |  Ss Entebbe (EBB) Vv  |  NX. Mogadishu (MGQ)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR520",
+  "callsign": "UGD520",
+  "flight_digits": "520",
+  "cs_digits": "520",
+  "origin": "EBB",
+  "dest": "MGQ",
+  "codes_all": [
+   "EBB",
+   "MGQ"
+  ],
+  "conf": 79.9,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 3,
+  "tail": "5X-EQU",
+  "raw": "Sep 11 UR325 (UGD323)  |  S Dar-es-Salaam (DAR) Vv  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 11,
+  "flight": "UR325",
+  "callsign": "UGD323",
+  "flight_digits": "325",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 74.3,
+  "n_codes": 2,
+  "date": "2026-09-11",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 4,
+  "tail": "5X-EQU",
+  "raw": "Sep 10 UR522 (uGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR522",
+  "callsign": "UGD322",
+  "flight_digits": "522",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 74.2,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR322-4199b9bc.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 5,
+  "tail": "5X-EQU",
+  "raw": "Sep 10 UR201 (uGp201)  |  S Nairobi (NBO) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 71.0,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR201-41975f58.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 6,
+  "tail": "5X-EQU",
+  "raw": "Sep 10 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MX Nairobi (NBO)",
+  "month": 9,
+  "day": 10,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.6,
+  "n_codes": 2,
+  "date": "2026-09-10",
+  "archive": [
+   "UR200-4197180a.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 7,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR343 (UGD343)  |  Ss\u201d Mombasa (MBA) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR343",
+  "callsign": "UGD343",
+  "flight_digits": "343",
+  "cs_digits": "343",
+  "origin": "MBA",
+  "dest": "EBB",
+  "codes_all": [
+   "MBA",
+   "EBB"
+  ],
+  "conf": 72.0,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR343-419596f1.csv"
+  ],
+  "archive_routes": [
+   "MBA->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 8,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR342 (uGD342)  |  Ss Entebbe (EBB) Vv  |  NX. Mombasa (MBA)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR342",
+  "callsign": "UGD342",
+  "flight_digits": "342",
+  "cs_digits": "342",
+  "origin": "EBB",
+  "dest": "MBA",
+  "codes_all": [
+   "EBB",
+   "MBA"
+  ],
+  "conf": 77.7,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR342-419512c9.csv"
+  ],
+  "archive_routes": [
+   "EBB->MBA"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 9,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR354 (UGD334)  |  = Kilimanjaro (JRO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "JRO",
+  "dest": "EBB",
+  "codes_all": [
+   "JRO",
+   "EBB"
+  ],
+  "conf": 78.9,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR334-419390cb.csv",
+   "UR334-4193f245.csv",
+   "UR334-419470f1.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "ZNZ->JRO",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 10,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR354 (UGD334)  |  Ss Zanzibar (ZNZ) Vv  |  W. Kilimanjaro (JRO)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "ZNZ",
+  "dest": "JRO",
+  "codes_all": [
+   "ZNZ",
+   "JRO"
+  ],
+  "conf": 69.2,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR334-419390cb.csv",
+   "UR334-4193f245.csv",
+   "UR334-419470f1.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "ZNZ->JRO",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 11,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR354 (UGD334)  |  Ss Entebbe (EBB) Vv  |  ML. Zanzibar (ZNZ)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "EBB",
+  "dest": "ZNZ",
+  "codes_all": [
+   "EBB",
+   "ZNZ"
+  ],
+  "conf": 73.2,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR334-419390cb.csv",
+   "UR334-4193f245.csv",
+   "UR334-419470f1.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "ZNZ->JRO",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 12,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR123 (uGD123)  |  Ss Juba (JUB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR123",
+  "callsign": "UGD123",
+  "flight_digits": "123",
+  "cs_digits": "123",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 67.9,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR123-41931d98.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 13,
+  "tail": "5X-EQU",
+  "raw": "Sep 09 UR122 (uGD122)  |  Ss Entebbe (EBB) Vv  |  NM. Juba (JUB)",
+  "month": 9,
+  "day": 9,
+  "flight": "UR122",
+  "callsign": "UGD122",
+  "flight_digits": "122",
+  "cs_digits": "122",
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 76.6,
+  "n_codes": 2,
+  "date": "2026-09-09",
+  "archive": [
+   "UR122-4192dcb1.csv"
+  ],
+  "archive_routes": [
+   "EBB->JUB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 14,
+  "tail": "5X-EQU",
+  "raw": "Sep 08 UR207 (uGp207)  |  Ss Nairobi (NBO) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR207",
+  "callsign": "UGD207",
+  "flight_digits": "207",
+  "cs_digits": "207",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 74.8,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR207-419103e8.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 15,
+  "tail": "5X-EQU",
+  "raw": "Sep 08 UR206 (uUGD206)  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR206",
+  "callsign": "UGD206",
+  "flight_digits": "206",
+  "cs_digits": "206",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 75.6,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR206-419089a6.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 16,
+  "tail": "5X-EQU",
+  "raw": "Sep 08 UR206  |  Ss Entebbe (EBB) Vv  |  MQ Nairobi (NBO)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR206",
+  "callsign": null,
+  "flight_digits": "206",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 82.0,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 17,
+  "tail": "5X-EQU",
+  "raw": "Sep 08 UR321 (UGD321)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR321",
+  "callsign": "UGD321",
+  "flight_digits": "321",
+  "cs_digits": "321",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 76.1,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR321-418fd0ec.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 18,
+  "tail": "5X-EQU",
+  "raw": "Sep 08 UR320 (uGD320)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR320",
+  "callsign": "UGD320",
+  "flight_digits": "320",
+  "cs_digits": "320",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 76.5,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR320-418f6b4e.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 19,
+  "tail": "5X-EQU",
+  "raw": "Sep 08 UR720 (uGD720)  |  S Harare (HRE) vy  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 8,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "HRE",
+  "dest": "EBB",
+  "codes_all": [
+   "HRE",
+   "EBB"
+  ],
+  "conf": 71.3,
+  "n_codes": 2,
+  "date": "2026-09-08",
+  "archive": [
+   "UR720-418e4460.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 20,
+  "tail": "5X-EQU",
+  "raw": "Sep 07 UR720 (uGp720)  |  S Lusaka (LUN) Vv  |  NX Harare (HRE)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "LUN",
+  "dest": "HRE",
+  "codes_all": [
+   "LUN",
+   "HRE"
+  ],
+  "conf": 68.4,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR720-418a6176.csv",
+   "UR720-418d561a.csv",
+   "UR720-418df8ef.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN",
+   "LUN->HRE"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 21,
+  "tail": "5X-EQU",
+  "raw": "Sep 07 UR720 (uGp720)  |  Ss Entebbe (EBB) Vv  |  ML. Lusaka (LUN)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "EBB",
+  "dest": "LUN",
+  "codes_all": [
+   "EBB",
+   "LUN"
+  ],
+  "conf": 70.3,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR720-418a6176.csv",
+   "UR720-418d561a.csv",
+   "UR720-418df8ef.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN",
+   "LUN->HRE"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 22,
+  "tail": "5X-EQU",
+  "raw": "Sep 07 UR7/11 (uGp711)  |  Ss Johannesburg (JNB) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR7",
+  "callsign": "UGD711",
+  "flight_digits": "7",
+  "cs_digits": "711",
+  "origin": "JNB",
+  "dest": "EBB",
+  "codes_all": [
+   "JNB",
+   "EBB"
+  ],
+  "conf": 67.7,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR711-418c0303.csv"
+  ],
+  "archive_routes": [
+   "JNB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 23,
+  "tail": "5X-EQU",
+  "raw": "Sep 07 UR7/10 (uGp710)  |  Ss Entebbe (EBB) Vv  |  NX Johannesburg (JNB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR7",
+  "callsign": "UGD710",
+  "flight_digits": "7",
+  "cs_digits": "710",
+  "origin": "EBB",
+  "dest": "JNB",
+  "codes_all": [
+   "EBB",
+   "JNB"
+  ],
+  "conf": 72.6,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [
+   "UR710-418b3b93.csv"
+  ],
+  "archive_routes": [
+   "EBB->JNB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 24,
+  "tail": "5X-EQU",
+  "raw": "Sep 07 UR720 (uGpD720)  |  S Harare (HRE) vy  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 7,
+  "flight": "UR720",
+  "callsign": null,
+  "flight_digits": "720",
+  "cs_digits": null,
+  "origin": "HRE",
+  "dest": "EBB",
+  "codes_all": [
+   "HRE",
+   "EBB"
+  ],
+  "conf": 70.6,
+  "n_codes": 2,
+  "date": "2026-09-07",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 25,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR720 (uGD720)  |  S Lusaka (LUN) Vv  |  NX Harare (HRE)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "LUN",
+  "dest": "HRE",
+  "codes_all": [
+   "LUN",
+   "HRE"
+  ],
+  "conf": 68.2,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR720-4186bf6c.csv",
+   "UR720-4189a8d4.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 26,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR720 (uGp720)  |  Ss Entebbe (EBB) Vv  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "EBB",
+  "dest": "LUN",
+  "codes_all": [
+   "EBB",
+   "LUN"
+  ],
+  "conf": 71.9,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR720-4186bf6c.csv",
+   "UR720-4189a8d4.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB",
+   "EBB->LUN"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 27,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR361 (UGD361)  |  S\u201d Bujumbura (BJM) vv  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR361",
+  "callsign": "UGD361",
+  "flight_digits": "361",
+  "cs_digits": "361",
+  "origin": "BJM",
+  "dest": "EBB",
+  "codes_all": [
+   "BJM",
+   "EBB"
+  ],
+  "conf": 75.9,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR361-41891720.csv"
+  ],
+  "archive_routes": [
+   "BJM->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 28,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR360 (UGD360)  |  Ss Entebbe (EBB) Vv  |  N\\. Bujumbura (BJM)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR360",
+  "callsign": "UGD360",
+  "flight_digits": "360",
+  "cs_digits": "360",
+  "origin": "EBB",
+  "dest": "BJM",
+  "codes_all": [
+   "EBB",
+   "BJM"
+  ],
+  "conf": 78.2,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR360-4188a946.csv"
+  ],
+  "archive_routes": [
+   "EBB->BJM"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 29,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR354 (UGD334)  |  = Kilimanjaro (JRO) VY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "JRO",
+  "dest": "EBB",
+  "codes_all": [
+   "JRO",
+   "EBB"
+  ],
+  "conf": 75.2,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR334-418787fa.csv",
+   "UR334-4187dd10.csv",
+   "UR334-418827d6.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "ZNZ->JRO",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 30,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR354 (UGD334)  |  Ss Zanzibar (ZNZ) Vv  |  W. Kilimanjaro (JRO)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "ZNZ",
+  "dest": "JRO",
+  "codes_all": [
+   "ZNZ",
+   "JRO"
+  ],
+  "conf": 68.3,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR334-418787fa.csv",
+   "UR334-4187dd10.csv",
+   "UR334-418827d6.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "ZNZ->JRO",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 31,
+  "tail": "5X-EQU",
+  "raw": "Sep 06 UR354 (UGD334)  |  Ss Entebbe (EBB) Vv  |  MO. Zanzibar (ZNZ)",
+  "month": 9,
+  "day": 6,
+  "flight": "UR354",
+  "callsign": "UGD334",
+  "flight_digits": "354",
+  "cs_digits": "334",
+  "origin": "EBB",
+  "dest": "ZNZ",
+  "codes_all": [
+   "EBB",
+   "ZNZ"
+  ],
+  "conf": 73.5,
+  "n_codes": 2,
+  "date": "2026-09-06",
+  "archive": [
+   "UR334-418787fa.csv",
+   "UR334-4187dd10.csv",
+   "UR334-418827d6.csv"
+  ],
+  "archive_routes": [
+   "EBB->ZNZ",
+   "ZNZ->JRO",
+   "JRO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 32,
+  "tail": "5X-EQU",
+  "raw": "Sep 05 UR7/22 (uGD722)  |  S Lusaka (LUN) Vv  |  NL Entebbe (EBB)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 70.6,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR722-41846f6f.csv",
+   "UR722-41858892.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 33,
+  "tail": "5X-EQU",
+  "raw": "Sep 05 UR7/22 (uGD722)  |  S Harare (HRE) vy  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 73.7,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR722-41846f6f.csv",
+   "UR722-41858892.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 34,
+  "tail": "5X-EQU",
+  "raw": "Sep 05 UR7/22 (uGD722)  |  Ss Entebbe (EBB) Vv  |  NO Harare (HRE)",
+  "month": 9,
+  "day": 5,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 73.3,
+  "n_codes": 2,
+  "date": "2026-09-05",
+  "archive": [
+   "UR722-41846f6f.csv",
+   "UR722-41858892.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 35,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR343 (UG343)  |  Ss\u201d Mombasa (MBA) Vv  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR343",
+  "callsign": "UGD343",
+  "flight_digits": "343",
+  "cs_digits": "343",
+  "origin": "MBA",
+  "dest": "EBB",
+  "codes_all": [
+   "MBA",
+   "EBB"
+  ],
+  "conf": 77.1,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR343-41821bed.csv"
+  ],
+  "archive_routes": [
+   "MBA->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 36,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR342 (uG342)  |  Ss Entebbe (EBB) Vv  |  NX. Mombasa (MBA)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR342",
+  "callsign": "UGD342",
+  "flight_digits": "342",
+  "cs_digits": "342",
+  "origin": "EBB",
+  "dest": "MBA",
+  "codes_all": [
+   "EBB",
+   "MBA"
+  ],
+  "conf": 79.4,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR342-41819339.csv"
+  ],
+  "archive_routes": [
+   "EBB->MBA"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 37,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR121 (uGD121)  |  Ss\u201d Juba (JUB) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 74.1,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR121-4180fd53.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 38,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR120 (uGpD120)  |  Ss Entebbe (EBB) Vv  |  NM. Juba (JUB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR120",
+  "callsign": null,
+  "flight_digits": "120",
+  "cs_digits": null,
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 75.5,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 39,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR521 (uGD521)  |  S\u201d Mogadishu (MGQ) YY  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR521",
+  "callsign": "UGD521",
+  "flight_digits": "521",
+  "cs_digits": "521",
+  "origin": "MGQ",
+  "dest": "EBB",
+  "codes_all": [
+   "MGQ",
+   "EBB"
+  ],
+  "conf": 70.7,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR521-417fcc42.csv"
+  ],
+  "archive_routes": [
+   "MGQ->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 40,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR520 (UuGD520)  |  Ss Entebbe (EBB) Vv  |  NX. Mogadishu (MGQ)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR520",
+  "callsign": "UGD520",
+  "flight_digits": "520",
+  "cs_digits": "520",
+  "origin": "EBB",
+  "dest": "MGQ",
+  "codes_all": [
+   "EBB",
+   "MGQ"
+  ],
+  "conf": 78.6,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR520-417f5329.csv"
+  ],
+  "archive_routes": [
+   "EBB->MGQ"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 41,
+  "tail": "5X-EQU",
+  "raw": "Sep 04 UR323 (UGD323)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 4,
+  "flight": "UR323",
+  "callsign": "UGD323",
+  "flight_digits": "323",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 74.5,
+  "n_codes": 2,
+  "date": "2026-09-04",
+  "archive": [
+   "UR323-417e9f66.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 42,
+  "tail": "5X-EQU",
+  "raw": "Sep 03 UR322 (UGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR322",
+  "callsign": "UGD322",
+  "flight_digits": "322",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 78.0,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR322-417e1d45.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 43,
+  "tail": "5X-EQU",
+  "raw": "Sep 03 UR121 (uGD121)  |  Ss Juba (JUB) Vv  |  NO. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR121",
+  "callsign": "UGD121",
+  "flight_digits": "121",
+  "cs_digits": "121",
+  "origin": "JUB",
+  "dest": "EBB",
+  "codes_all": [
+   "JUB",
+   "EBB"
+  ],
+  "conf": 75.0,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR121-417cddad.csv"
+  ],
+  "archive_routes": [
+   "JUB->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 44,
+  "tail": "5X-EQU",
+  "raw": "Sep 03 UR120 (uGD120)  |  Ss Entebbe (EBB) Vv  |  M Juba (JUB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR120",
+  "callsign": "UGD120",
+  "flight_digits": "120",
+  "cs_digits": "120",
+  "origin": "EBB",
+  "dest": "JUB",
+  "codes_all": [
+   "EBB",
+   "JUB"
+  ],
+  "conf": 77.7,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR120-417c6db7.csv"
+  ],
+  "archive_routes": [
+   "EBB->JUB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 45,
+  "tail": "5X-EQU",
+  "raw": "Sep 03 UR201 (UuGD201)  |  S Nairobi (NBO) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR201",
+  "callsign": "UGD201",
+  "flight_digits": "201",
+  "cs_digits": "201",
+  "origin": "NBO",
+  "dest": "EBB",
+  "codes_all": [
+   "NBO",
+   "EBB"
+  ],
+  "conf": 71.8,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR201-417bd90e.csv"
+  ],
+  "archive_routes": [
+   "NBO->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 46,
+  "tail": "5X-EQU",
+  "raw": "Sep 03 UR200 (uGD200)  |  Ss Entebbe (EBB) Vv  |  MX Nairobi (NBO)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR200",
+  "callsign": "UGD200",
+  "flight_digits": "200",
+  "cs_digits": "200",
+  "origin": "EBB",
+  "dest": "NBO",
+  "codes_all": [
+   "EBB",
+   "NBO"
+  ],
+  "conf": 74.4,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR200-417b918b.csv"
+  ],
+  "archive_routes": [
+   "EBB->NBO"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 47,
+  "tail": "5X-EQU",
+  "raw": "Sep 03 UR323 (UGD323)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 3,
+  "flight": "UR323",
+  "callsign": "UGD323",
+  "flight_digits": "323",
+  "cs_digits": "323",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 72.0,
+  "n_codes": 2,
+  "date": "2026-09-03",
+  "archive": [
+   "UR323-417a85db.csv"
+  ],
+  "archive_routes": [
+   "DAR->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 48,
+  "tail": "5X-EQU",
+  "raw": "Sep 02 UR522 (uGD322)  |  Ss Entebbe (EBB) Vv  |  NX Dar-es-Salaam (DAR)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR522",
+  "callsign": "UGD322",
+  "flight_digits": "522",
+  "cs_digits": "322",
+  "origin": "EBB",
+  "dest": "DAR",
+  "codes_all": [
+   "EBB",
+   "DAR"
+  ],
+  "conf": 77.4,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR322-417a1000.csv"
+  ],
+  "archive_routes": [
+   "EBB->DAR"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 49,
+  "tail": "5X-EQU",
+  "raw": "Sep 02 UR7/22 (uGD722)  |  S Lusaka (LUN) Vv  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "LUN",
+  "dest": "EBB",
+  "codes_all": [
+   "LUN",
+   "EBB"
+  ],
+  "conf": 73.1,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR722-41780e53.csv",
+   "UR722-41793b26.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 50,
+  "tail": "5X-EQU",
+  "raw": "Sep 02 UR7/22 (uGD722)  |  S Harare (HRE) vy  |  ML Lusaka (LUN)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "HRE",
+  "dest": "LUN",
+  "codes_all": [
+   "HRE",
+   "LUN"
+  ],
+  "conf": 73.6,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR722-41780e53.csv",
+   "UR722-41793b26.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 51,
+  "tail": "5X-EQU",
+  "raw": "Sep 02 UR7/22 (uGD722)  |  Ss Entebbe (EBB) Vv  |  NO Harare (HRE)",
+  "month": 9,
+  "day": 2,
+  "flight": "UR7",
+  "callsign": "UGD722",
+  "flight_digits": "7",
+  "cs_digits": "722",
+  "origin": "EBB",
+  "dest": "HRE",
+  "codes_all": [
+   "EBB",
+   "HRE"
+  ],
+  "conf": 75.2,
+  "n_codes": 2,
+  "date": "2026-09-02",
+  "archive": [
+   "UR722-41780e53.csv",
+   "UR722-41793b26.csv"
+  ],
+  "archive_routes": [
+   "EBB->HRE",
+   "LUN->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 52,
+  "tail": "5X-EQU",
+  "raw": "Sep 01 UR720 (uGp720)  |  S Harare (HRE) vy  |  NL. Entebbe (EBB)",
+  "month": 9,
+  "day": 1,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "HRE",
+  "dest": "EBB",
+  "codes_all": [
+   "HRE",
+   "EBB"
+  ],
+  "conf": 69.2,
+  "n_codes": 2,
+  "date": "2026-09-01",
+  "archive": [
+   "UR720-4172c560.csv"
+  ],
+  "archive_routes": [
+   "HRE->EBB"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 53,
+  "tail": "5X-EQU",
+  "raw": "Aug 31 UR720 (uGD720)  |  S Lusaka (LUN) Vv  |  MO Harare (HRE)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "LUN",
+  "dest": "HRE",
+  "codes_all": [
+   "LUN",
+   "HRE"
+  ],
+  "conf": 67.8,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [
+   "UR720-4171bc59.csv"
+  ],
+  "archive_routes": [
+   "EBB->LUN"
+  ],
+  "match": "callsign_only"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 54,
+  "tail": "5X-EQU",
+  "raw": "Aug 31 UR720 (UGD720)  |  Ss Entebbe (EBB) Vv  |  ML Lusaka (LUN)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR720",
+  "callsign": "UGD720",
+  "flight_digits": "720",
+  "cs_digits": "720",
+  "origin": "EBB",
+  "dest": "LUN",
+  "codes_all": [
+   "EBB",
+   "LUN"
+  ],
+  "conf": 74.7,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [
+   "UR720-4171bc59.csv"
+  ],
+  "archive_routes": [
+   "EBB->LUN"
+  ],
+  "match": "exact"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 55,
+  "tail": "5X-EQU",
+  "raw": "Aug 31 UR321 (UGD321)  |  = Dar-es-Salaam (DAR) Vv  |  NL. Entebbe (EBB)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR321",
+  "callsign": "UGD321",
+  "flight_digits": "321",
+  "cs_digits": "321",
+  "origin": "DAR",
+  "dest": "EBB",
+  "codes_all": [
+   "DAR",
+   "EBB"
+  ],
+  "conf": 75.0,
+  "n_codes": 2,
+  "date": "2026-08-31",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ },
+ {
+  "image": "Screenshot_20260911_124626_Flightradar24.jpg",
+  "idx": 56,
+  "tail": "5X-EQU",
+  "raw": "Aug 31 UR320 (uGD320)",
+  "month": 8,
+  "day": 31,
+  "flight": "UR320",
+  "callsign": "UGD320",
+  "flight_digits": "320",
+  "cs_digits": "320",
+  "origin": null,
+  "dest": null,
+  "codes_all": [],
+  "conf": 76.9,
+  "n_codes": 0,
+  "date": "2026-08-31",
+  "archive": [],
+  "archive_routes": [],
+  "match": "none"
+ }
+]

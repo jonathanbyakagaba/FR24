@@ -1,0 +1,48 @@
+ident,type,name,latitude_deg,longitude_deg,elevation_ft,iso_country,municipality,iata_code,gps_code,scheduled_service
+DABC,large_airport,Mohamed Boudiaf International Airport,36.276001,6.62039,2265,DZ,Constantine,CZL,DABC,yes
+DIAP,large_airport,Félix-Houphouët-Boigny International Airport,5.26139,-3.92629,21,CI,Abidjan,ABJ,DIAP,yes
+DNAA,large_airport,Nnamdi Azikiwe International Airport,9.00679,7.26317,1123,NG,Abuja,ABV,DNAA,yes
+DNMM,large_airport,Murtala Muhammed International Airport,6.57737,3.32116,135,NG,Lagos,LOS,DNMM,yes
+DRRN,large_airport,Diori Hamani International Airport,13.4815,2.18361,732,NE,Niamey,NIM,DRRN,yes
+EBBR,large_airport,Brussels Airport,50.901402,4.48444,175,BE,Zaventem,BRU,EBBR,yes
+EGKK,large_airport,London Gatwick Airport,51.148744,-0.185739,202,GB,London,LGW,EGKK,yes
+EHAM,large_airport,Amsterdam Airport Schiphol,52.308601,4.76389,-11,NL,Amsterdam,AMS,EHAM,yes
+FACT,large_airport,Cape Town International Airport,-33.97403,18.604333,151,ZA,Cape Town,CPT,FACT,yes
+FAOR,large_airport,O.R. Tambo International Airport,-26.140081,28.246801,5558,ZA,Johannesburg,JNB,FAOR,yes
+FIMP,large_airport,Sir Seewoosagur Ramgoolam International Airport,-20.430201,57.683601,186,MU,Plaine Magnien,MRU,FIMP,yes
+FLLS,large_airport,Kenneth Kaunda International Airport,-15.330833,28.452722,3779,ZM,Lusaka,LUN,FLKK,yes
+FMMI,large_airport,Ivato International Airport,-18.7969,47.478802,4198,MG,Antananarivo,TNR,FMMI,yes
+FSIA,large_airport,Seychelles International Airport,-4.67434,55.521801,10,SC,Victoria,SEZ,FSIA,yes
+FVHA,large_airport,Robert Gabriel Mugabe International Airport,-17.931801,31.0928,4887,ZW,Harare,HRE,FVRG,yes
+FYWH,large_airport,Hosea Kutako International Airport,-22.4799,17.4709,5640,NA,Windhoek,WDH,FYWH,yes
+FZAA,large_airport,Ndjili International Airport,-4.38575,15.4446,1027,CD,Kinshasa,FIH,FZAA,yes
+FZKA,medium_airport,Bunia Airport,1.565743,30.220685,4045,CD,Bunia,BUX,FZKA,yes
+FZNA,large_airport,Goma International Airport,-1.666758,29.238037,5089,CD,Goma,GOM,FZNA,yes
+FZQA,large_airport,Lubumbashi International Airport,-11.591494,27.530753,4295,CD,Lubumbashi,FBM,FZQA,yes
+GOBD,large_airport,Blaise Diagne International Airport,14.670878,-17.072829,290,SN,Dakar,DSS,GOBD,yes
+HAAB,large_airport,Addis Ababa Bole International Airport,8.97789,38.799301,7630,ET,Addis Ababa,ADD,HAAB,yes
+HBBA,large_airport,Bujumbura Melchior Ndadaye International Airport,-3.32402,29.318501,2582,BI,Bujumbura,BJM,HBBA,yes
+HCMM,large_airport,Aden Adde International Airport,2.01444,45.304699,29,SO,Mogadishu,MGQ,HCMM,yes
+HECA,large_airport,Cairo International Airport,30.111534,31.396694,322,EG,Cairo,CAI,HECA,yes
+HJJJ,large_airport,Juba International Airport,4.87201,31.601101,1513,SS,Juba,JUB,HJJJ,yes
+HKJK,large_airport,Jomo Kenyatta International Airport,-1.318886,36.928233,5330,KE,Nairobi,NBO,HKJK,yes
+HKMO,large_airport,Moi International Airport,-4.03483,39.5942,200,KE,Mombasa,MBA,HKMO,yes
+HRYR,large_airport,Kigali International Airport,-1.96863,30.1395,4859,RW,Kigali,KGL,HRYR,yes
+HSSK,large_airport,Khartoum International Airport,15.5895,32.5532,1265,SD,Khartoum,KRT,HSSK,yes
+HTDA,large_airport,Julius Nyerere International Airport,-6.873499,39.207288,182,TZ,Dar es Salaam,DAR,HTDA,yes
+HTKJ,large_airport,Kilimanjaro International Airport,-3.427049,37.07353,2932,TZ,Arusha,JRO,HTKJ,yes
+HTZA,large_airport,Abeid Amani Karume International Airport,-6.22202,39.224899,54,TZ,Zanzibar,ZNZ,HTZA,yes
+HUEN,large_airport,Entebbe International Airport,0.042386,32.443501,3782,UG,Entebbe,EBB,HUEN,yes
+LTFM,large_airport,İstanbul Airport,41.274874,28.732136,325,TR,Istanbul,IST,LTFM,yes
+OEJN,large_airport,King Abdulaziz International Airport,21.680241,39.157436,48,SA,Jeddah,JED,OEJN,yes
+OEMA,large_airport,Prince Mohammad Bin Abdulaziz Airport,24.5534,39.705101,2151,SA,Medina,MED,OEMA,yes
+OERK,large_airport,King Khalid International Airport,24.9576,46.698799,2049,SA,Riyadh,RUH,OERK,yes
+OESB,small_airport,Shaibah Airport,22.514781,53.964114,300,SA,Shaybah,,OESB,no
+OMDB,large_airport,Dubai International Airport,25.24979,55.370992,62,AE,Dubai,DXB,OMDB,yes
+OMSJ,large_airport,Sharjah International Airport,25.3286,55.5172,111,AE,Sharjah,SHJ,OMSJ,yes
+OTHH,large_airport,Hamad International Airport,25.273056,51.608056,13,QA,Doha,DOH,OTHH,yes
+SBGR,large_airport,São Paulo/Guarulhos–Governor André Franco Montoro International Airport,-23.431274,-46.469954,2461,BR,São Paulo,GRU,SBGR,yes
+UG-0013,closed,Kabalega International Airport (Under Construction),1.44327,31.07396,3510,UG,Hoima,,,no
+VABB,large_airport,Chhatrapati Shivaji Maharaj International Airport,19.088699,72.867897,39,IN,Mumbai,BOM,VABB,yes
+VIDP,large_airport,Indira Gandhi International Airport,28.55563,77.09519,777,IN,New Delhi,DEL,VIDP,yes
+WIII,large_airport,Soekarno-Hatta International Airport,-6.12557,106.655998,34,ID,Jakarta,CGK,WIII,yes

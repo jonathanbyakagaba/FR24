@@ -1,0 +1,6 @@
+tail,type_full,type_code,msn,mode_s,built,seats_j,seats_w,seats_y,seats_total,source_aircraft,source_seats
+5X-NIL,Airbus A330-841 (A330-800neo),A338,1977,06809B,2020-11,20,28,210,258,FR24 aircraft page 2026-09-12,published seat map
+ET-APL,Boeing 737-860 (737-800),B738,40965,04005C,2012-06,16,,138,154,FR24 aircraft page 2026-09-12,published seat map (Ethiopian 737-800)
+5X-KOB,Mitsubishi CRJ-900,CRJ9,15457,068094,2019-02,12,,64,76,FR24 aircraft page 2026-09-12,published seat map
+5X-KDP,Mitsubishi CRJ-900,CRJ9,15470,068099,2019-07,12,,64,76,FR24 aircraft page 2026-09-12,published seat map
+5X-EQU,Mitsubishi CRJ-900,CRJ9,15461,068095,2019-03,12,,64,76,FR24 aircraft page 2026-09-12,published seat map

@@ -1,0 +1,106 @@
+name: fr24-nightly
+
+# The build, off the archive's own schedule. Two runs a day, plus a run whenever the data or the
+# code changes, plus a button.
+#
+# Why twice a day and not once: Flightradar24 keeps a flight's trail for roughly four days after
+# landing (measured: 27 Oct full, 24 Oct empty on 31 Oct), so a daily job is enough to never lose a
+# flight — but Uganda Airlines' early-morning arrivals land around 04:00Z and the evening bank
+# around 16:00Z, and a run in between those two catches each of them while its fixes are still
+# arriving. The times below sit just after each bank.
+
+on:
+  schedule:
+    - cron: '10 4 * * *'      # after 01:00EAT departures land, and after the LGW/BOM night legs
+    - cron: '10 16 * * *'     # after the afternoon bank and before the evening rotations end
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'fetch window start, YYYY-MM-DD (blank = newest fix minus 3 days)'
+        required: false
+        default: ''
+      until:
+        description: 'fetch window end, YYYY-MM-DD (blank = today)'
+        required: false
+        default: ''
+      skip_fetch:
+        description: 'rebuild from the archive as it is, asking Flightradar24 for nothing'
+        type: boolean
+        default: false
+      close_month:
+        description: 'freeze a finished month, YYYY-MM (leave empty to only rebuild)'
+        required: false
+        default: ''
+  push:
+    paths:
+      - 'FR data.zip'
+      - 'work/**'
+      - 'tools/**'
+      - '.github/workflows/fr24-nightly.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fr24-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      FR24_PUBLISH: ${{ github.workspace }}     # the repo root IS the publish dir here
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # No pip install. The chain is standard library only — checked by importing every step's
+      # module and grepping its imports; numpy/pandas/matplotlib appear only in the one-shot
+      # screenshot and figure scripts, which CI does not run.
+
+      - name: link the publish dir for scripts that hard-code it
+        run: ln -sfn "$GITHUB_WORKSPACE" fr24_publish
+
+      - name: fetch what Flightradar24 still holds
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_fetch == false) }}
+        run: |
+          python3 tools/fetch_fr24.py \
+            --since "${{ inputs.since }}" --until "${{ inputs.until }}" \
+            --out work/ci_capture || echo "fetch returned non-zero; building on what the archive already holds"
+
+      - name: build
+        run: |
+          # the ingest source is decided by ci_run: the capture if the fetch step wrote one,
+          # otherwise FR data.zip as pushed. Both paths end with the same cleaned archive.
+          python3 tools/ci_run.py --changed-file "$RUNNER_TEMP/changed.txt"
+
+      - name: freeze a month, when asked
+        if: ${{ inputs.close_month != '' }}
+        run: python3 tools/ci_run.py --close-month "${{ inputs.close_month }}"
+
+      - name: show what changed
+        run: |
+          echo '### files this run published' >> "$GITHUB_STEP_SUMMARY"
+          sed 's/^/- `/; s/$/`/' "$RUNNER_TEMP/changed.txt" >> "$GITHUB_STEP_SUMMARY" || true
+          git status --short
+
+      - name: commit and push
+        run: |
+          set -euo pipefail
+          git config user.name  'fr24-ci'
+          git config user.email 'fr24-ci@users.noreply.github.com'
+          if [ -s "$RUNNER_TEMP/changed.txt" ]; then
+            tr '\n' '\0' < "$RUNNER_TEMP/changed.txt" | xargs -0 -r git add --
+          fi
+          if git diff --cached --quiet; then
+            echo "nothing to commit: the archive moved but the tables did not"
+            exit 0
+          fi
+          git commit -q -m "Build $(date -u +%Y-%m-%dT%H:%MZ) — fr24-ci"
+          git push                       # a GITHUB_TOKEN push starts no new workflow run
