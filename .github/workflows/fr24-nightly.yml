@@ -68,11 +68,19 @@ jobs:
         run: ln -sfn "$GITHUB_WORKSPACE" fr24_publish
 
       - name: fetch what Flightradar24 still holds
+        # The flight list comes from the operator's own UR board page, not from anything a person
+        # uploaded. Exit 4 means nothing answered at all: that is a failure, because the alternative
+        # is quietly rebuilding the stale archive on the branch and calling it a night\'s work.
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_fetch == false) }}
         run: |
-          python3 tools/fetch_fr24.py \
-            --since "${{ inputs.since }}" --until "${{ inputs.until }}" \
-            --out work/ci_capture || echo "fetch returned non-zero; building on what the archive already holds"
+          python3 tools/fetch_fr24.py --source board \
+            --since "${{ inputs.since }}" --until "${{ inputs.until }}" --out work/ci_capture
+          rc=$?
+          if [ "$rc" -eq 4 ]; then
+            echo "::error::Flightradar24 answered nothing from this runner (exit 4). Nothing was built from it."
+            exit 4
+          fi
+          echo "fetch exit $rc (0 captured something, 3 nothing left in time to fetch)"
 
       - name: build
         run: |

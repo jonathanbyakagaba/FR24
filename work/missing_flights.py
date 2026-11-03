@@ -63,9 +63,15 @@ def _utc(s):
 
 def parse_report(ym):
     """The categories the coverage report keeps apart, keyed by ISO date."""
-    txt = open(f'{folder(ym)}/date_coverage.md').read()
-    body = txt.split('## The unfinished dates')[1].split('## The triangle')[0]
     out = {'app': [], 'hole': [], 'pend': [], 'notlogged': [], 'chain': []}
+    txt = open(f'{folder(ym)}/date_coverage.md').read()
+    # The published copy is not always this build's: another pipeline's `date_coverage.md` once sat
+    # in the month folder with different headings, and indexing the split() result crashed the run
+    # that was about to publish over it. Read what is there, and say nothing about what is not.
+    parts = txt.split('## The unfinished dates')
+    if len(parts) < 2:
+        return out
+    body = parts[1].split('## The triangle')[0]
     day = mode = None
     for line in body.splitlines():
         m = re.match(r'^### (\d\d \w\w\w) ', line)

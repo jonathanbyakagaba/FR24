@@ -39,6 +39,8 @@ import urllib.parse
 import urllib.request
 import zipfile
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 API = 'https://api.flightradar24.com/common/v1'
 LIVE = 'https://data-live.flightradar24.com'
 UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -91,6 +93,90 @@ def known_ids(archive):
             stem = os.path.splitext(os.path.basename(n))[0]
             out.add(stem.split('-')[-1].lower())
     return out
+
+
+def flights_from_board(day, log):
+    """The flight numbers on the operator's own utilization board for `day` (YYYY-MM-DD).
+
+    `fta.ugandairlines.com` is public and needs no sign-in, and its day board is the list of what UR
+    actually intends to fly, so this is the source of truth for a night's fetch instead of anything a
+    person last uploaded. `work/fta_pull.py` already knows how to download and read a board, so it is
+    borrowed rather than reimplemented. An empty list means "the board did not answer"; the caller
+    falls back to the per-number FR24 listings and says so.
+    """
+    try:
+        sys.path.insert(0, os.path.join(ROOT, 'work'))
+        import fta_pull
+    except Exception as e:                                       # noqa: BLE001
+        log(f'  board: cannot use work/fta_pull.py ({e}), using FR24 listings instead')
+        return []
+    d = dt.date.fromisoformat(day)
+    # the index labels a board "Tuesday, 3rd Nov, 2026", so match the day with its ordinal suffix
+    pat = re.compile(r'\b%d(?:st|nd|rd|th)\s+%s\b[^\d]*\b%d\b' % (d.day, d.strftime('%b'), d.year))
+    uuid = ''
+    for page in range(1, 4):
+        html = fta_pull.fetch('/utilization-plans' + ('' if page == 1 else '?page=%d' % page))
+        if not html:
+            log('  board: the index page did not answer, using FR24 listings instead')
+            return []
+        for row in re.findall(r'<tr[^>]*>.*?</tr>', html, re.S):
+            if pat.search(re.sub('<[^>]+>', ' ', row)):
+                hit = re.findall(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}', row)
+                if hit:
+                    uuid = hit[0]
+                break
+        if uuid:
+            break
+    if not uuid:
+        log(f'  board: no day board for {day} in the first index pages, using FR24 listings instead')
+        return []
+    log(f'  board {day}: {uuid}')
+    blob = fta_pull.fetch('/%s/excel' % uuid, binary=True)
+    if not blob:
+        log(f'  board: {uuid} did not download, using FR24 listings instead')
+        return []
+    try:
+        sheet, rows = fta_pull.parse_excel(blob)
+    except Exception as e:                                       # noqa: BLE001
+        log(f'  board: could not parse {uuid} ({e}), using FR24 listings instead')
+        return []
+    nums = sorted({str(c).strip().upper() for r in (rows or []) for c in r
+                   if re.fullmatch(r'[A-Z0-9]{2}\d{2,4}', str(c).strip().upper())})
+    log(f'  board {day} ({sheet or "xlsx"}): {len(nums)} flight numbers')
+    return [n for n in nums if n.startswith('UR')] or nums
+
+
+def today_iso():
+    return dt.date.today().isoformat()
+
+
+def manifest_numbers(out_dir):
+    """Flight numbers from our own earlier captures, i.e. from what FR24 reported.
+
+    `capture_manifest.json` is what this script writes at the end of every run, so a night when the
+    operator board is unreachable still knows which numbers are worth querying.
+    """
+    p = os.path.join(out_dir, 'capture_manifest.json')
+    if not os.path.exists(p):
+        return []
+    try:
+        d = json.load(open(p))
+    except Exception:                                            # noqa: BLE001
+        return []
+    rows = d.get('flights') if isinstance(d, dict) else d
+    if not isinstance(rows, list):
+        rows = d.get('files') if isinstance(d, dict) else []
+    nums = set()
+    for r in rows or []:
+        if isinstance(r, str):                                   # names like UR110-42691ba7.csv
+            mt = re.match(r'([A-Z0-9]{2}\d{2,4})-', r)
+            if mt:
+                nums.add(mt.group(1))
+            continue
+        n = str((r or {}).get('flight') or (r or {}).get('number') or '').strip().upper()
+        if n:
+            nums.add(n)
+    return sorted(nums)
 
 
 def flight_numbers(path):
@@ -190,27 +276,56 @@ def main():
                         'arrives below about two); 429 and 5xx are retried with backoff')
     ap.add_argument('--cap', type=int, default=400, help='stop after this many captures')
     ap.add_argument('--zip-name', default='FR data.zip')
+    ap.add_argument('--seen-before', default='', help='an earlier out dir holding capture_manifest.json, '
+                        'to reuse the flight numbers FR24 already told us about')
+    ap.add_argument('--source', default='board', choices=('board', 'log'),
+                    help='where the day\'s flight numbers come from: the operator board page (default) '
+                         'or --from-log')
     ap.add_argument('--dry-run', action='store_true', help='list what would be fetched, write nothing')
     a = ap.parse_args()
+    log = lambda m: (print(m), sys.stdout.flush())
 
     now = dt.datetime.now(dt.timezone.utc)
     since = (dt.date.fromisoformat(a.since) if a.since else (now - dt.timedelta(days=4)).date())
     until = dt.date.fromisoformat(a.until) if a.until else now.date()
-    nums = ([n.strip().upper() for n in a.flights.split(',') if n.strip()] if a.flights
-            else (flight_numbers(a.from_log) if os.path.exists(a.from_log) else []))
+
+    # Which flights to look for, in order of preference. The operator's board page first, because it
+    # says what UR meant to fly that day; then the numbers FR24 itself reported on an earlier night;
+    # and only on an explicit --source log do we read the month log, which is a person's upload.
+    nums, src = [], ''
+    if a.flights.strip():
+        nums = [n.strip().upper() for n in a.flights.split(',') if n.strip()]
+        src = 'called with --flights'
+    if not nums and a.source == 'board':
+        nums = flights_from_board(until.isoformat(), log)
+        src = 'the UR board page at fta.ugandairlines.com'
+    if not nums and (a.seen_before or a.out):
+        got = manifest_numbers(a.seen_before or a.out)
+        if got:
+            nums = got
+            src = f'what FR24 reported on the last run into {a.seen_before or a.out}'
+    if not nums and a.source == 'log':
+        nums = flight_numbers(a.from_log) if os.path.exists(a.from_log) else []
+        src = f'the month log ({os.path.basename(a.from_log)})'
     if not nums:
-        raise SystemExit(f'no flight numbers: pass --flights or point --from-log at a flights.csv '
-                         f'(looked at {a.from_log})')
+        log('nothing to fetch: the board page gave no flight numbers for '
+            f'{until.isoformat()} and no earlier capture is recorded at {a.out}.')
+        log('This is not a failure of the archive — it means the only list we could have used was a '
+            "person's upload, and that is deliberately no longer the source. Pass --flights UR209,UR208 "
+            'to name the day explicitly, or re-run when the board answers.')
+        return 4
+
     have = known_ids(a.archive)
-    log = lambda s: (print(s), sys.stdout.flush())
     log(f'fetch: {len(nums)} flight numbers · departures {since} to {until} · '
         f'{len(have):,} ids already in {a.archive or "(no archive)"}')
 
     os.makedirs(a.out, exist_ok=True)
     files, rec_rows = [], []
     seen = new = empty = skipped = out_of_window = 0
+    net_ok = False        # set once any endpoint answered, so 404-from-a-block is never mistaken for a quiet day
     for num in nums:
         recs = [r for r in listings(num, a.limit, log) if r['id']]
+        net_ok = net_ok or bool(recs)
         for r in recs:
             seen += 1
             if not r['dep']:
@@ -271,7 +386,12 @@ def main():
         log('next: python3 fr24_update.py --zip "%s" --month auto' % zpath)
     else:
         log('nothing new to write — the zip was not rebuilt')
-    return 0 if new else 3 if empty == 0 else 0
+    # exit codes the workflow acts on: 0 something captured or nothing new to do,
+    # 3 the board/listings answered but every trail had expired, 4 nothing answered at all
+    # (blocked or offline), which is a run failure and not a quiet rebuild from the archive.
+    if not net_ok:
+        return 4
+    return 0 if new or not seen else 3
 
 
 if __name__ == '__main__':

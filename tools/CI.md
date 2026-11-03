@@ -99,3 +99,23 @@ python3 fr24_update.py --zip "work/ci_capture/FR data.zip" --month auto        #
 which is also why CI always starts with an empty one and why the folder is gitignored. A capture left
 lying around locally becomes the ingest source of the next `ci_run.py`, and `git log` will not tell
 you that: `capture_manifest.json` inside it does.
+
+
+## Where the night's flight list comes from
+
+`tools/fetch_fr24.py --source board` (the default, and what the schedule uses) asks the operator's own
+utilization board at `fta.ugandairlines.com` for the day: the index page names the board
+("Tuesday, 3rd Nov, 2026"), its `/<uuid>/excel` sheet gives the flight numbers actually on the day —
+21 of them on 3 November — and each number is then looked up on Flightradar24 by `flight/list.json`
+and, while its trail is still young enough, captured.
+
+If the board does not answer, the next source is the flight numbers FR24 itself reported on a previous
+run (`capture_manifest.csv` in the out dir). A person's upload is only ever read on an explicit
+`--source log`, and `work/ci_run.py` refuses to rebuild the archive at all when there is no capture
+unless `--allow-archive-fallback` is passed. A fetch where nothing answered exits 4 and the workflow
+fails the run rather than committing a no-op: a red run with a reason beats a green run that quietly
+rebuilt stale data.
+
+Steps that only write prose reports (`missing`, `gaps`, `gap_report`, `no_code`, `triangles`,
+`runway_report`) are soft: a report that cannot parse another pipeline's markdown warns in the step
+summary instead of stopping the commit of everything else.

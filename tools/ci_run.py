@@ -166,6 +166,8 @@ def main():
     ap.add_argument('--stale-days', type=int, default=5, help='how long a human layer may lag before it is flagged')
     ap.add_argument('--close-month', default='', help='run close_month.py for this YYYY-MM and stop')
     ap.add_argument('--changed-file', default='', help='write the published paths that changed here, one per line')
+    ap.add_argument('--allow-archive-fallback', action='store_true',
+                    help='with no capture, rebuild from FR data.zip as it sits on the branch')
     ap.add_argument('--skip', action='append', default=[], metavar='STEP',
                     help='skip a step by name (repeatable): weather, fta, gaps, ocr')
     a = ap.parse_args()
@@ -189,7 +191,14 @@ def main():
         steps.append(('fetch', ['python3', 'tools/fetch_fr24.py', '--since', since, '--until', until,
                                 '--out', os.path.dirname(a.capture_zip)],
                       'the trails expire in ~4 days: this is the reason the job is scheduled'))
-    ing_src = a.capture_zip if os.path.exists(a.capture_zip) else os.path.join(PUB, 'FR data.zip')
+    # The capture, if there is one: the build is supposed to run on the flights FR24 has, not on
+    # whatever archive a person last uploaded. `--allow-archive-fallback` is the old behaviour.
+    cap = os.path.exists(a.capture_zip)
+    if not cap and not a.allow_archive_fallback:
+        print(f'\nno capture at {a.capture_zip}: nothing was fetched, so there is nothing new to build '
+              f'on. The archive on the branch is left alone. (--allow-archive-fallback rebuilds it.)')
+        return 0
+    ing_src = a.capture_zip if cap else os.path.join(PUB, 'FR data.zip')
     if 'ingest' not in a.skip:
         steps.append(('ingest', ['python3', 'fr24_update.py', '--zip', ing_src, '--month', 'auto'],
                       'the archive, manifest.csv, flights.csv and the log'))
@@ -229,7 +238,8 @@ def main():
     snap = tracked()          # mtimes to compare against once the steps have run
     print(f'\nunbundled {n} tables from {os.path.basename(ym or "")} to the checkout root')
 
-    done, failed, skipped = [], [], []
+    done, failed, skipped, warned = [], [], [], []
+    SOFT = {'missing', 'gaps', 'gap_report', 'no_code', 'triangles', 'runway_report'}
     for name, cmd, why in steps:
         if why.startswith('skipped by') or why.startswith('SKIPPED'):
             print(f'--  {name}: {why}')
@@ -241,6 +251,12 @@ def main():
         except Exception as e:                                   # noqa: BLE001
             ok, tail = False, f'{type(e).__name__}: {e}'
         print(('    ok' if ok else '    FAILED') + (('\n    ' + tail.replace('\n', '\n    ')) if (tail and not ok) else ''))
+        # A prose report is allowed to break: its output is a .md nobody computes from, and one
+        # stale stub in a month folder once turned the whole nightly build red and stopped commits.
+        if not ok and name in SOFT:
+            print('    warned (soft step, the build continues):\n    ' + tail.replace('\n', '\n    '))
+            warned.append(name)
+            continue
         (done if ok else failed).append(name)
     # a re-publish after the reports, since the reports write at the root
     if 'publish' not in done + skipped:
@@ -261,13 +277,16 @@ def main():
     if a.changed_file:
         with open(a.changed_file, 'w') as fh:
             fh.write('\n'.join(changed) + ('\n' if changed else ''))
-    print(f'\nran {len(done)}, failed {len(failed)}, skipped {len(skipped)} · {len(changed)} published file(s) touched')
+    print(f'\nran {len(done)}, failed {len(failed)}, warned {len(warned)}, skipped {len(skipped)} '
+          f'· {len(changed)} published file(s) touched')
     if stale:
         print('::warning::' + stale)
     with open(os.environ.get('GITHUB_STEP_SUMMARY', '/dev/null'), 'a', encoding='utf-8') as fh:
         fh.write(f'### FR24 build {today:%Y-%m-%d %H:%M}Z\n\n')
         fh.write(f'- archive newest fix **{fix.date() if fix else "?"}**, month folder `{os.path.basename(ym or "?")}`\n')
         fh.write(f'- steps ok {len(done)}: {", ".join(done) or "-"}\n')
+        if warned:
+            fh.write(f'- reported on but soft-failed {len(warned)}: {", ".join(warned)}\n')
         if failed:
             fh.write(f'- **failed {len(failed)}**: {", ".join(failed)}\n')
         if skipped:
