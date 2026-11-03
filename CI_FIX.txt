@@ -1,0 +1,49 @@
+Getting the fix onto GitHub  (two files, one paste)
+
+1) Open  https://github.com/jonathanbyakagaba/FR24/upload/main
+   drag in  CI_FIX.txt  and  ci_fix.tar.gz   (sha256 4900048a3037cab4, 22,810 bytes)
+   Commit directly to the main branch -> Commit changes.
+
+2) In the codespace terminal paste:
+
+cd /workspaces/FR24
+git pull
+tar xzf ci_fix.tar.gz && rm -f ci_fix.tar.gz ci_instal.tar.gz
+git add -A
+git commit -m "CI: night's flights come from the UR board page, not an upload; fetch errors fail the run; soft prose report steps"
+git push
+gh workflow run fr24-nightly.yml
+gh run watch
+
+You should see: fetch ... then "captured N of M listing(s)", then the commit line.
+A red run that says "Flightradar24 answered nothing from this runner" is the new honest
+behaviour, not a regression - send me the log if you see it.
+
+WHAT WAS BROKEN
+Every one of the 7 runs died at work/missing_flights.py line 67: it indexed a heading
+('## The unfinished dates') that the date_coverage.md sitting in UR OCTOBER 2026/ on the
+branch does not have (it is a 485-byte stub another pipeline wrote). IndexError -> the build
+step exits 1 -> GitHub SKIPS "commit and push". So the schedule ran, fetched, built 15 steps
+correctly, and threw all of it away, 7 times, for 3 days. Nothing was ever committed and
+October was never frozen.
+
+WHAT CHANGED
+- work/missing_flights.py  reads the report tolerantly: no section, no claim.
+- tools/ci_run.py          prose-only reports (missing, gaps, gap_report, no_code, triangles,
+                           runway_report) now WARN instead of failing the commit. Real data steps
+                           still fail hard. With no capture it refuses to build at all rather than
+                           rebuilding FR data.zip (override: --allow-archive-fallback).
+- tools/fetch_fr24.py      the flight list for the night comes from the UR board page at
+                           fta.ugandairlines.com (index -> that day's uuid -> its .xlsx -> the UR
+                           numbers). Second choice: the numbers FR24 itself reported in our last
+                           capture_manifest.json. Your uploaded archive is only consulted as a
+                           "do not re-download what we hold" hint (--archive '' disables even that),
+                           and is never the source of what to build unless you pass --source log.
+- .github/workflows/fr24-nightly.yml   the fetch step no longer ends in "|| echo ...": exit 4
+                           (nothing answered) fails the run with a message.
+
+MEASURED, 3 Nov 2026, with nothing but the board page:
+  board 2026-11-03 (03-11-2026): 21 flight numbers
+  fetch: 21 flight numbers - departures 2026-10-30 to 2026-11-03
+  captured 58 of 93 listing(s): 9 too old or thin, 0 already held or not flown
+  zip: 461,164 B, 58 files
