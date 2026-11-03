@@ -51,6 +51,17 @@ jobs:
     timeout-minutes: 50
     env:
       FR24_PUBLISH: ${{ github.workspace }}     # the repo root IS the publish dir here
+    # The notifier runs in a different runner, so anything worth saying has to be handed over here.
+    outputs:
+      captured: ${{ steps.counts.outputs.captured }}
+      seen: ${{ steps.counts.outputs.seen }}
+      too_old: ${{ steps.counts.outputs.too_old }}
+      held: ${{ steps.counts.outputs.held }}
+      window: ${{ steps.counts.outputs.window }}
+      touched: ${{ steps.counts.outputs.touched }}
+      pushed: ${{ steps.commit.outputs.pushed }}
+      committed: ${{ steps.commit.outputs.committed }}
+      fetchrc: ${{ steps.fetchrc.outputs.rc }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -68,19 +79,29 @@ jobs:
         run: ln -sfn "$GITHUB_WORKSPACE" fr24_publish
 
       - name: fetch what Flightradar24 still holds
+        id: fetchrc
         # The flight list comes from the operator's own UR board page, not from anything a person
         # uploaded. Exit 4 means nothing answered at all: that is a failure, because the alternative
         # is quietly rebuilding the stale archive on the branch and calling it a night\'s work.
         if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_fetch == false) }}
         run: |
+          rc=0
           python3 tools/fetch_fr24.py --source board \
-            --since "${{ inputs.since }}" --until "${{ inputs.until }}" --out work/ci_capture
-          rc=$?
+            --since "${{ inputs.since }}" --until "${{ inputs.until }}" --out work/ci_capture || rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
           if [ "$rc" -eq 4 ]; then
             echo "::error::Flightradar24 answered nothing from this runner (exit 4). Nothing was built from it."
             exit 4
           fi
-          echo "fetch exit $rc (0 captured something, 3 nothing left in time to fetch)"
+          echo "fetch exit $rc (0 captured something, 3 nothing left in the time FR24 keeps trails)"
+
+      - name: what the capture reported
+        id: counts
+        run: |
+          python3 tools/capture_summary.py work/ci_capture/capture_manifest.json
+          n=0
+          [ -f "$RUNNER_TEMP/changed.txt" ] && n=$(grep -c . "$RUNNER_TEMP/changed.txt" || true)
+          echo "touched=$n" >> "$GITHUB_OUTPUT"
 
       - name: build
         run: |
@@ -88,9 +109,21 @@ jobs:
           # otherwise FR data.zip as pushed. Both paths end with the same cleaned archive.
           python3 tools/ci_run.py --changed-file "$RUNNER_TEMP/changed.txt"
 
-      - name: freeze a month, when asked
-        if: ${{ inputs.close_month != '' }}
-        run: python3 tools/ci_run.py --close-month "${{ inputs.close_month }}"
+      - name: freeze a month that has ended and is still open
+        # Nobody has to remember a month: tools/month_to_close.py names the oldest finished month that
+        # has no .closed marker, and that is what gets frozen. close_month.py rewrites that folder too,
+        # and those files are not in changed.txt, hence the `git add -A` one step below. The input still
+        # wins, so a month can be closed by hand the same evening it ends if anyone wants that.
+        run: |
+          ym="${{ inputs.close_month }}"
+          if [ -z "$ym" ]; then ym=$(python3 tools/month_to_close.py || true); fi
+          if [ -z "$ym" ]; then
+            echo "no finished month is left open"
+          else
+            python3 work/close_month.py "$ym" --force
+            echo "- closed **$ym**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
 
       - name: show what changed
         run: |
@@ -99,6 +132,7 @@ jobs:
           git status --short
 
       - name: commit and push
+        id: commit
         run: |
           set -euo pipefail
           git config user.name  'fr24-ci'
@@ -106,9 +140,78 @@ jobs:
           if [ -s "$RUNNER_TEMP/changed.txt" ]; then
             tr '\n' '\0' < "$RUNNER_TEMP/changed.txt" | xargs -0 -r git add --
           fi
+          git add -A -- . ':(exclude)fr24_publish'
           if git diff --cached --quiet; then
             echo "nothing to commit: the archive moved but the tables did not"
+            echo pushed=false >> "$GITHUB_OUTPUT"
+            echo committed=0 >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -q -m "Build $(date -u +%Y-%m-%dT%H:%MZ) — fr24-ci"
           git push                       # a GITHUB_TOKEN push starts no new workflow run
+          echo pushed=true >> "$GITHUB_OUTPUT"
+          echo "committed=$(git diff --name-only HEAD~1 | wc -l)" >> "$GITHUB_OUTPUT"
+
+  # A green run is not the same thing as data having landed, and the schedule fires hours late, so
+  # "workflow run completed" is not worth an email. This job says one sentence, in one sticky issue,
+  # only when something happened: flights captured, a month closed, or a run gone red. Subscribe to
+  # that issue once (its right-hand sidebar) and every entry after it reaches you by email.
+  notify:
+    name: tell the owner what landed
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RESULT: ${{ needs.build.result }}
+      CAPTURED: ${{ needs.build.outputs.captured }}
+      SEEN: ${{ needs.build.outputs.seen }}
+      TOO_OLD: ${{ needs.build.outputs.too_old }}
+      HELD: ${{ needs.build.outputs.held }}
+      WINDOW: ${{ needs.build.outputs.window }}
+      TOUCHED: ${{ needs.build.outputs.touched }}
+      PUSHED: ${{ needs.build.outputs.pushed }}
+      COMMITTED: ${{ needs.build.outputs.committed }}
+      FETCHRC: ${{ needs.build.outputs.fetchrc }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      REPO: ${{ github.repository }}
+      RUN_NO: ${{ github.run_number }}
+      EVENT: ${{ github.event_name }}
+    steps:
+      - name: post to the FR24 status issue
+        # If the notifier breaks, say so in the summary: a broken comment must not look like a build
+        # that failed to bring data, and the data is what this run is for.
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          if [ "$RESULT" = "success" ] && [ "${CAPTURED:-0}" -eq 0 ] && [ "${PUSHED}" != "true" ]; then
+            echo "nothing to report: no capture and no commit, which is what a push run looks like"
+            exit 0
+          fi
+          case "$RESULT" in
+            success) head="ok" ;;
+            cancelled) head="cancelled" ;;
+            *) head="FAILED (fetch exit ${FETCHRC:-?})" ;;
+          esac
+          f=$(mktemp)
+          {
+            printf '### FR24 nightly %s — run #%s, %s\n\n' "$head" "$RUN_NO" "$(date -u +%H:%M)Z"
+            printf -- '- flights captured: **%s** of %s listings (%s too old, %s already held)\n' "${CAPTURED:-0}" "${SEEN:-0}" "${TOO_OLD:-0}" "${HELD:-0}"
+            printf -- '- window: %s\n' "${WINDOW:-unknown}"
+            printf -- '- tables written: %s - committed: %s (%s file(s))\n' "${TOUCHED:-0}" "${PUSHED:-false}" "${COMMITTED:-0}"
+            printf -- '- %s run · [log](%s)\n' "$EVENT" "$RUN_URL"
+          } > "$f"
+          num=$(gh api "repos/$REPO/issues?state=open&per_page=100" \
+                  --jq '.[] | select(.title=="FR24-status") | .number' | head -1)
+          if [ -z "$num" ]; then
+            standing="Sticky issue for the fr24-nightly build: it posts one comment here whenever flights are captured, a month is closed, or a run fails. Nothing is posted on a run that had nothing to say. **Subscribe** (right-hand sidebar) once and every entry reaches you by email."
+            num=$(printf '%s' "$standing" | python3 -c 'import json,sys;print(json.dumps({"title":"FR24-status","body":sys.stdin.read()}))' \
+                    | gh api -X POST "repos/$REPO/issues" --input - --jq .number)
+            echo "created the status issue #$num: subscribe to it for email"
+          fi
+          python3 -c 'import json,sys;print(json.dumps({"body":open(sys.argv[1]).read()}))' "$f" \
+            | gh api -X POST "repos/$REPO/issues/$num/comments" --input - --jq .html_url
+          echo "- status posted to issue #$num" >> "$GITHUB_STEP_SUMMARY"

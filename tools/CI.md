@@ -119,3 +119,24 @@ rebuilt stale data.
 Steps that only write prose reports (`missing`, `gaps`, `gap_report`, `no_code`, `triangles`,
 `runway_report`) are soft: a report that cannot parse another pipeline's markdown warns in the step
 summary instead of stopping the commit of everything else.
+
+## Closing a month, and telling you about it
+
+`close_month.py` used to need a person typing `2026-10` into the Run-workflow box. Now the freeze
+step asks `tools/month_to_close.py`, which prints the oldest month folder that is (a) older than this
+month and (b) missing its `.closed` marker, and does nothing if there is no such folder. The live
+month is exempt, so a run that captured nothing does not freeze October out of impatience — the run
+that lands November data closes October by itself, in the same run. `close_month` as a manual input
+still wins when someone wants a month shut the evening it ends.
+
+The `notify` job posts one comment on the open issue titled **FR24-status** (created on first use)
+with the captured/seen/too-old counts, the window, how many tables were written and whether they were
+committed — but only when something happened. A green run that fetched nothing and committed nothing
+stays silent, which is the normal look of a push-triggered run. Its `if: always()` also means a red
+build reports itself, with the fetch exit code. Subscribe to that issue once and each comment arrives
+by email; GitHub's own Actions mail is only for failures unless you untick "Only notify for failed
+workflows" in Settings → Notifications → System → Actions.
+
+`tools/capture_summary.py` exists because a here-doc cannot sit at column zero inside a `run: |`
+block: it turns the fetcher's `capture_manifest.json` into step outputs, and prints zeros with the
+"no fetch this run" window when there is no manifest to read.
