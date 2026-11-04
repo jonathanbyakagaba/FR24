@@ -1,11 +1,7 @@
-Second instalment: the notifier, and months that close themselves
+Fourth instalment: the flight paths, published as files instead of only inside the zip
 
-1) Open  https://github.com/jonathanbyakagaba/FR24/upload/main
-   drop in  CI_FIX.txt  and  ci_fix.tar.gz
-   sha256 f32b21033fd5bfc5d6bf62ea32de5f55a1c8beaf801109854108511df42f475f   (9,152 bytes)
-   Commit directly to the main branch -> Commit changes.
-
-2) In the codespace terminal:
+Upload ci_fix.tar.gz (18087 bytes) and CI_FIX.txt at
+https://github.com/jonathanbyakagaba/FR24/upload/main  -  sha256 bcf7707b3d1817189851e86f1a4b64cadad2b98cecc2bb70006503684f876a50
 
 cd /workspaces/FR24
 git pull
@@ -13,29 +9,17 @@ tar xzf ci_fix.tar.gz || tar xzf ci_install.tar.gz
 rm -f ci_fix.tar.gz ci_install.tar.gz
 git add -A
 git status --short
-git commit -m "CI: notify job posts to FR24-status issue; months close themselves via tools/month_to_close.py"
+git commit -m "CI: publish flight_paths/ - every trail as a plain CSV with an INDEX.csv, after the ingest"
 git push
 
-3) One-time, in the browser: after the first run that posts, open the issue titled FR24-status and
-   click "Subscribe" (right sidebar). Every entry after that reaches you by email. If the issue does
-   not exist yet, that is normal: the notifier creates it the first time there is something to say.
+The first run after this adds ~1,001 CSVs (about 32 MB) to the branch and an INDEX.csv beside them.
+From then on a night's captures land in flight_paths/ in the same commit as the tables.
 
-What is in this bundle
-  .github/workflows/fr24-nightly.yml   fetch exit code captured properly (the old `rc=$?` after the
-                          command was never reached, because bash -e stops there); a "what the capture
-                          reported" step; commit/push reports pushed=true/false and the file count; the
-                          freeze step now asks the branch which month is finished-but-open; new `notify`
-                          job posting one comment per event that matters, continue-on-error so a broken
-                          notifier can never look like a failed build.
-  tools/capture_summary.py    capture_manifest.json -> step outputs (zeros + "no fetch this run" when
-                          there is no manifest). It is a file because a here-doc cannot sit at column
-                          zero inside a `run: |` block.
-  tools/month_to_close.py     oldest month folder that is past, and has no .closed marker, and is not
-                          the archive's live month. Tested: silent while October is still the live
-                          month, prints 2026-10 when the archive is treated as November.
-  tools/CI.md                 both of the above written down.
-
-Verified here: the YAML parses, all 8 run blocks pass `bash -n`, both new scripts compile and the
-month logic was exercised on the real folders. NOT verified: the `gh api` calls in the notify job,
-which need a runner token I do not have here. If they fail, the step is continue-on-error: the data
-still lands and the run stays green, you just get no comment - which is the trade I chose.
+Files in the bundle:
+  tools/publish_paths.py   mirrors FR data.zip and any capture dir into flight_paths/; writes only
+                           changed bytes; INDEX.csv rewritten each run; README.md if absent
+  tools/ci_run.py           new hard step `paths`, immediately after `ingest`; --capture-dir for the
+                           loose CSVs the fetcher wrote
+  work/repo_layout.py       flight_paths/ is expected at the top level, so the packer stops calling
+                           it a stray
+  tools/CI.md               why the zip is still there and what changed
