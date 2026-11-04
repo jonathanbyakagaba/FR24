@@ -32,7 +32,7 @@ OWNER, REPO, BRANCH = 'jonathanbyakagaba', 'FR24', 'main'
 CACHE = os.path.join(ROOT, 'work', 'repo_tree_cache.json')
 
 # at the repo root: cumulative, or shared by every month
-TOP_LEVEL = {'FR data.zip', 'README.md', 'fleet_meta.csv', 'reference/', 'metar/'}
+TOP_LEVEL = {'FR data.zip', 'flight_paths/', 'README.md', 'fleet_meta.csv', 'reference/', 'metar/'}
 # fleet_meta.csv belongs here as well as in publish_layers.CUMULATIVE: it is the hand-kept
 # hardware record, one copy for every month, so a pack must not put a second one in a month folder.
 # a repo path is <folder>/<file>; a pack path is <action>/<repo path>

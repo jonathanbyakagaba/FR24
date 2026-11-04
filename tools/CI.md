@@ -140,3 +140,63 @@ workflows" in Settings → Notifications → System → Actions.
 `tools/capture_summary.py` exists because a here-doc cannot sit at column zero inside a `run: |`
 block: it turns the fetcher's `capture_manifest.json` into step outputs, and prints zeros with the
 "no fetch this run" window when there is no manifest to read.
+
+
+## Weather, from aviationweather.gov (`tools/fetch_awx.py`)
+
+Runs on the same two scheduled/dispatch events as the FR24 fetch, and is soft: weather never blocks
+the data build. Measured facts the code depends on, all from 3 Nov 2026:
+
+* History is capped at ~400 records per station (`hours=240` and `hours=336` return the same 400),
+  about **8 days** at two observations an hour. Deeper than the FR24 trail horizon, so a leg's
+  departure and arrival METARs are always retrievable on the night they matter — and, as with the
+  trails, October 18-29 is beyond both services.
+* Asking for 14 stations in one request returned 44 rows in total; one station alone returned 48.
+  The cap is per **request**, so each station is queried separately.
+* Coverage of the network: Entebbe is **HUEN** (not EBBU, which is not in their station list),
+  Harare **FVHA**, Mogadishu **HCMM**, Juba **HJJJ**. Lusaka (FLLS), Harare (FVHA) and Juba (HJJJ)
+  returned no observations at all in a 96-hour window — an empty answer from the service, not a
+  failure; the IEM feed behind `metar/` is what covers those three. 12-13 stations did report, and
+  13 of 16 had a live TAF.
+* `airsigmet` and `gairmet` are the only products here that cannot be fetched later: they show what
+  is live at this moment, worldwide, with polygons and valid-from/valid-to. Hence the nightly
+  snapshot into `reference/weather/awx_hazards_<date>.json`, merged across the day's two runs and
+  deduplicated on `(icaoId, receiptTime, alphaChar)`. Their `icaoId` is a **FIR**, not an aerodrome,
+  so matching a hazard to a leg is a point-in-polygon or FIR-membership job for the analysis step,
+  not a station-name join; the run only reports how many happened to name one of our codes.
+* The map layers behind `aviationweather.gov/gfa/#obs` (icing, turbulence, jet streams, freezing
+  levels) are served from `api.aviationweather.gov`, which did not resolve from the sandbox this was
+  written in. They are plausible additions and deliberately not relied on here.
+
+What lands in the repo is two files a day: `awx_metars_<date>.csv` (station, obs time, temp, dew
+point, wind, gust, visibility, QNH, derived ceiling, ICAO flight category, and the raw METAR) and
+`awx_hazards_<date>.json`. Everything else the fetcher writes is scratch under `work/awx/`, which
+`.gitignore` now covers.
+
+## When it runs
+
+09:10Z and 21:10Z, which is **12:10 and 00:10 in Entebbe time** (Uganda is UTC+3, no DST). Two runs
+a day is what keeps us inside the four-day trail horizon; GitHub delivers scheduled runs hours late,
+which costs nothing as long as it is the same day.
+
+
+## The paths themselves, outside the zip (`tools/publish_paths.py`)
+
+The nightly build now publishes `flight_paths/` at the top of the branch: every trail as a plain CSV,
+named exactly as it is inside `FR data.zip`, plus an `INDEX.csv` with file, flight, FR24 track id,
+callsign, fix count, first and last observation, bytes and sha8. A folder of a thousand files is only
+navigable with a table of contents, and a CSV is only reviewable on github.com if it is not inside an
+archive. Measured on the branch as it stands: 1,001 archive tracks and 439,244 fixes, observation
+dates 2025-05-04 to 2026-11-03, about 32 MB of text where the zip holds 9.2 MB compressed.
+
+The zip stays. Ten scripts read the archive through `repo_layout.archive()` and `fr24_update.py`
+rebuilds it as the de-duplicated, byte-reproducible index, and `fetch_fr24.py` uses its id list to
+skip trails already held. What changes is which artefact is *for people*: `flight_paths/` is written
+after the ingest, so it mirrors the cleaned archive, and files are only touched when their bytes
+differ — a night that captures nothing leaves the folder and the branch alone. `--prune` exists for
+the case where a source stops naming a file; it is off by default, so nothing here ever deletes
+published history on a bad afternoon.
+
+`paths` is a hard step, deliberately: a run that published tables without their paths is the kind of
+half-state this build has spent its life avoiding. Flip it into `SOFT` in `tools/ci_run.py` if that
+trade is wrong for you.

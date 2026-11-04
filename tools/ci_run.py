@@ -166,6 +166,8 @@ def main():
     ap.add_argument('--stale-days', type=int, default=5, help='how long a human layer may lag before it is flagged')
     ap.add_argument('--close-month', default='', help='run close_month.py for this YYYY-MM and stop')
     ap.add_argument('--changed-file', default='', help='write the published paths that changed here, one per line')
+    ap.add_argument('--capture-dir', default='', help='where fetch_fr24.py wrote its loose CSVs '
+                        '(default: work/ci_capture beside the capture zip)')
     ap.add_argument('--allow-archive-fallback', action='store_true',
                     help='with no capture, rebuild from FR data.zip as it sits on the branch')
     ap.add_argument('--skip', action='append', default=[], metavar='STEP',
@@ -193,6 +195,8 @@ def main():
                       'the trails expire in ~4 days: this is the reason the job is scheduled'))
     # The capture, if there is one: the build is supposed to run on the flights FR24 has, not on
     # whatever archive a person last uploaded. `--allow-archive-fallback` is the old behaviour.
+    if not a.capture_dir:
+        a.capture_dir = os.path.dirname(a.capture_zip) or 'work/ci_capture'
     cap = os.path.exists(a.capture_zip)
     if not cap and not a.allow_archive_fallback:
         print(f'\nno capture at {a.capture_zip}: nothing was fetched, so there is nothing new to build '
@@ -202,6 +206,10 @@ def main():
     if 'ingest' not in a.skip:
         steps.append(('ingest', ['python3', 'fr24_update.py', '--zip', ing_src, '--month', 'auto'],
                       'the archive, manifest.csv, flights.csv and the log'))
+    if 'paths' not in a.skip:
+        steps.append(('paths', ['python3', 'tools/publish_paths.py'] +
+                      (['--capture', a.capture_dir] if cap else []),
+                      'flight_paths/ — every trail as a plain CSV, not inside the zip'))
     for name, cmd, why, needs in (
         ('weather', ['python3', 'work/weather.py'], 'published METAR per airport', []),
         ('metar', ['python3', 'work/metar_split.py'], 'the per-station METAR lookups', ['weather']),
