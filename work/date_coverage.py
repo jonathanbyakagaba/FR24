@@ -119,7 +119,11 @@ def rotations_for(fl, legs, ls):
 def main():
     log = MC.log_rows(P)
     man = list(csv.DictReader(open(f'{P}/manifest.csv')))
-    tails = list(csv.DictReader(open(f'{P}/tails.csv')))
+    # `{live}/tails.csv` is cumulative and published per folder, so the first night of a new month
+    # has no copy in the folder that has just been created. `tools/seed_month.py` now puts one there
+    # before this runs; reading it gently anyway means a half-seeded folder costs a section, not a run.
+    tails = (list(csv.DictReader(open(f'{P}/tails.csv')))
+             if os.path.exists(f'{P}/tails.csv') else [])
     app = list(csv.DictReader(open(f'{P}/app_status.csv')))
 
     tracks = collections.Counter(r['first_utc'][:10] for r in man)

@@ -11,8 +11,14 @@ name: fr24-nightly
 
 on:
   schedule:
-    - cron: '10 4 * * *'      # after 01:00EAT departures land, and after the LGW/BOM night legs
-    - cron: '10 16 * * *'     # after the afternoon bank and before the evening rotations end
+    # Midnight and midday, Entebbe wall clock. Actions crons are UTC and Uganda is UTC+3 with no
+    # DST, so 00:10 EAT is 21:10Z and 12:10 EAT is 09:10Z; the 10 past keeps us off the minute that
+    # every other repo on GitHub picks. Midday sits after the 07:55Z LGW departure has landed and
+    # after the morning rotations in; midnight sits after the evening bank and the Kigali/Juba
+    # turnarounds. Two runs a day is what keeps the four-day FR24 trail horizon from eating data;
+    # more than that buys nothing on the free tier and risks a 429.
+    - cron: '10 9 * * *'
+    - cron: '10 21 * * *'
   workflow_dispatch:
     inputs:
       since:
@@ -89,11 +95,16 @@ jobs:
           python3 tools/fetch_fr24.py --source board \
             --since "${{ inputs.since }}" --until "${{ inputs.until }}" --out work/ci_capture || rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
-          if [ "$rc" -eq 4 ]; then
-            echo "::error::Flightradar24 answered nothing from this runner (exit 4). Nothing was built from it."
-            exit 4
-          fi
-          echo "fetch exit $rc (0 captured something, 3 nothing left in the time FR24 keeps trails)"
+          # It used to be `exit 4` on a blocked fetch, on the grounds that a red run is honest. It was
+          # honest and useless: it stopped the commit of everything else in the run. The no-silent-
+          # rebuild guarantee lives in tools/ci_run.py, which refuses to build at all with no capture,
+          # so the fetch can afford to leave a loud annotation and let the rest of the night through.
+          case "$rc" in
+            0) echo "fetch exit 0: captured something, or there was nothing new to take" ;;
+            3) echo "::warning::fetch exit 3: FR24 answered and had nothing inside the window - older than its ~4-day trail horizon" ;;
+            5) echo "::warning::fetch exit 5: FR24 answered 200 with zero listings for every number asked - a polite block, not a quiet day" ;;
+            *) echo "::error::fetch exit $rc: Flightradar24 did not answer this runner at all (no route, TLS, or a hard 403)" ;;
+          esac
 
       - name: what the capture reported
         id: counts
@@ -102,6 +113,20 @@ jobs:
           n=0
           [ -f "$RUNNER_TEMP/changed.txt" ] && n=$(grep -c . "$RUNNER_TEMP/changed.txt" || true)
           echo "touched=$n" >> "$GITHUB_OUTPUT"
+
+      - name: what the airports reported, and what was live over them
+        # aviationweather.gov keeps ~8 days of METAR and only the current SIGMET/AIRMET, so the
+        # hazard snapshot is the part that cannot be recovered later - that is why this runs on the
+        # schedule and not on demand. Soft by design: it never blocks the data build, and a station
+        # with nothing in the feed (Lusaka, Harare, Juba today) is an empty answer, not an error.
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_fetch == false) }}
+        run: |
+          rc=0
+          python3 tools/fetch_awx.py --hours 96 --out work/awx --commit-dir reference/weather || rc=$?
+          echo "aviationweather exit $rc (0 kept something, 3 answered and had nothing, 4 nothing answered)"
+          if [ "$rc" -eq 4 ]; then
+            echo "::warning::aviationweather.gov answered nothing from this runner; no weather files this run"
+          fi
 
       - name: build
         run: |
@@ -140,7 +165,14 @@ jobs:
           if [ -s "$RUNNER_TEMP/changed.txt" ]; then
             tr '\n' '\0' < "$RUNNER_TEMP/changed.txt" | xargs -0 -r git add --
           fi
-          git add -A -- . ':(exclude)fr24_publish'
+          # The freeze step writes a month folder README and its .closed marker, and the paths step
+          # writes flight_paths/, and neither appears in changed.txt. Name the directories instead of
+          # `git add -A -- . ':(exclude)fr24_publish'`: that exclude-pathspec trips over the
+          # self-pointing symlink the link step makes, and it did - runs #9 and #11 both died right
+          # here with exit 1 on runs that had nothing else to do.
+          for d in flight_paths reference; do
+            [ -e "$d" ] && git add -A -- "$d"
+          done
           if git diff --cached --quiet; then
             echo "nothing to commit: the archive moved but the tables did not"
             echo pushed=false >> "$GITHUB_OUTPUT"
@@ -187,12 +219,15 @@ jobs:
         continue-on-error: true
         run: |
           set -uo pipefail
-          if [ "$RESULT" = "success" ] && [ "${CAPTURED:-0}" -eq 0 ] && [ "${PUSHED}" != "true" ]; then
+          # Silence is only allowed when the fetch was never attempted or went fine. A run whose fetch
+          # was blocked must say so, because that is the one failure the tables cannot show.
+          if [ "$RESULT" = "success" ] && [ "${CAPTURED:-0}" -eq 0 ] && [ "${PUSHED}" != "true" ] \
+             && { [ -z "${FETCHRC:-}" ] || [ "${FETCHRC}" = "0" ]; }; then
             echo "nothing to report: no capture and no commit, which is what a push run looks like"
             exit 0
           fi
           case "$RESULT" in
-            success) head="ok" ;;
+            success) head=$([ "${FETCHRC:-0}" = "0" ] || [ -z "${FETCHRC:-}" ] && echo ok || echo "ok, but the fetch was blocked (exit $FETCHRC)") ;;
             cancelled) head="cancelled" ;;
             *) head="FAILED (fetch exit ${FETCHRC:-?})" ;;
           esac

@@ -206,6 +206,9 @@ def main():
     if 'ingest' not in a.skip:
         steps.append(('ingest', ['python3', 'fr24_update.py', '--zip', ing_src, '--month', 'auto'],
                       'the archive, manifest.csv, flights.csv and the log'))
+    if 'seed' not in a.skip:
+        steps.append(('seed', ['python3', 'tools/seed_month.py'],
+                      'carry the cumulative tables into a month folder that has just begun'))
     if 'paths' not in a.skip:
         steps.append(('paths', ['python3', 'tools/publish_paths.py'] +
                       (['--capture', a.capture_dir] if cap else []),
@@ -247,7 +250,12 @@ def main():
     print(f'\nunbundled {n} tables from {os.path.basename(ym or "")} to the checkout root')
 
     done, failed, skipped, warned = [], [], [], []
-    SOFT = {'missing', 'gaps', 'gap_report', 'no_code', 'triangles', 'runway_report'}
+    # Reports only: prose and a derived table, no step downstream of the ingest depends on their exit
+    # code. `delays` is in here for a reason that will bite every new month - it wants the airline's
+    # timetable at `work/schedule/schedule_YYYY-MM.csv`, and until somebody puts that file in the repo
+    # it has nothing to compare against. Failing the build over a timetable that is not published yet
+    # would stop the flights themselves being committed, which is the mistake this pipeline began with.
+    SOFT = {'missing', 'gaps', 'gap_report', 'no_code', 'triangles', 'runway_report', 'delays'}
     for name, cmd, why in steps:
         if why.startswith('skipped by') or why.startswith('SKIPPED'):
             print(f'--  {name}: {why}')

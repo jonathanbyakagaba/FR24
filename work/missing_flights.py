@@ -30,12 +30,39 @@ FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
         'August', 'September', 'October', 'November', 'December']
 NUM = {m: i for i, m in enumerate(
     'JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC'.split(), 1)}
+# the repository names its folders with the whole month, so a lookup by NUM alone found none of them
+NUMF = {m.upper(): i for i, m in enumerate(FULL, 1)}
+NUMF.update(NUM)
 
 
 def folder(ym):
     """The month folder as the repository names it: `UR SEPTEMBER 2026`."""
     y, mo = ym.split('-')
     return f'fr24_publish/UR {FULL[int(mo) - 1].upper()} {y}'
+
+
+def on_branch():
+    """The months that have a folder on the branch, newest last.
+
+    This script used to be handed September and October in code, which silently froze the report at
+    October the moment the archive moved into November - and listing the next three months instead
+    was worse, because a month with no folder yet made the readers open a file that is not there.
+    """
+    out = []
+    try:
+        names = os.listdir('fr24_publish')
+    except OSError:
+        return []
+    for d in names:
+        m = re.match(r'^UR ([A-Z]+) (\d{4})$', d)
+        if m and m.group(1) in NUMF:
+            out.append(f'{m.group(2)}-{NUMF[m.group(1)]:02d}')
+    return sorted(out) or ['2026-09', '2026-10']
+
+
+def d2s(v, fmt='%Y-%m-%d %H:%M'):
+    """A timestamp or the words that say there was not one, so no f-string can crash on None."""
+    return v.strftime(fmt) if v else 'unknown'
 
 
 def dlabel(iso_s):
@@ -129,10 +156,34 @@ def report_unlogged_count(ym):
 
 
 def last_fix(ym):
-    """The archive's newest fix, as a naive UTC datetime, from the month's own manifest."""
-    rows = list(csv.DictReader(open(f'{folder(ym)}/manifest.csv')))
-    s = max((r['last_utc'] for r in rows if r['last_utc']), default='')
-    return _utc(s)
+    """The archive's newest fix, as a naive UTC datetime, from the month's own manifest.
+
+    Manifests have not always had the same columns: the one on the branch for October came from the
+    other pipeline and has no `last_utc`, which made this return None and every comparison against
+    the result die two lines later (`TypeError: '>' not supported between ... NoneType`). So try the
+    names in order of how the build writes them, and fall through to the neighbouring months rather
+    than reporting no cut-off at all.
+    """
+    cands = [ym] + [m for m in sorted({f'2026-{x:02d}' for x in (9, 10, 11, 12)}, reverse=True) if m != ym]
+    for y in cands:
+        p = f'{folder(y)}/manifest.csv'
+        if not os.path.exists(p):
+            continue
+        try:
+            rows = list(csv.DictReader(open(p)))
+        except OSError:
+            continue
+        if not rows:
+            continue
+        key = next((k for k in ('last_utc', 'last', 'last_obs', 'max_utc', 'obs_last')
+                    if k in rows[0]), None)
+        if not key:
+            continue
+        cut = max((v for v in (_utc((r[key] or '').strip()) for r in rows if r.get(key)) if v),
+                  default=None)
+        if cut:
+            return cut
+    return None
 
 
 def capture_end(ym):
@@ -288,14 +339,15 @@ def scheduled_without_track(ym, hole_keys, pend_keys, months):
 
 
 def main():
-    months = sys.argv[1:] or sorted({f'2026-{m:02d}' for m in (9, 10)})
+    months = sys.argv[1:] or on_branch()
     n_tracks = sum(1 for _ in open(f'{folder(months[-1])}/manifest.csv')) - 1
     cut = last_fix(months[-1])
+    cutlab = f'{d2s(cut)}Z' if cut else 'unknown (this month\'s folder has no manifest column to read)'
     L = ['# Exactly which flights are missing',
          '',
          f'One row = one sector, not one aircraft.  Built from the published tree on an archive of '
          f'**{n_tracks:,} track files** (`FR data.zip`) whose last fix is '
-         f'**{cut:%Y-%m-%d %H:%M}Z**: each month\'s `date_coverage.md` and `flights.csv`, the '
+         f'**{cutlab}**: each month\'s `date_coverage.md` and `flights.csv`, the '
          'per-tail app pages (`tails.csv`), and the timetable where one is published.  '
          '`python3 work/missing_flights.py` regenerates it.',
          '']
@@ -394,7 +446,7 @@ def main():
                     L.append(f'| {dlabel(d)} | {r["flight"]} | {r["from"]}–{r["to"]} | '
                              f'{r["dep_local"]} local | `{r["FR24_status_raw"]}` | {verdict} |')
                 L += ['', f'**{len(hard)}** of them were due while the app capture was still naming '
-                      f'landings (its newest is {cap:%d %b %Y %H:%M}Z) and still read `Scheduled`: '
+                      f'landings (its newest is {d2s(cap, chr(37) + "d %b %Y %H:%M")}Z) and still read `Scheduled`: '
                       'no track and no claimed landing, which is as close as this data gets to a '
                       f'service that did not operate as published. The other **{len(gap) - len(hard)}** '
                       'sit past that stamp, so nothing here classifies them either way: no track is '
@@ -402,7 +454,7 @@ def main():
                       'settles both groups.', '']
             if later:
                 L += [f'*Counted nowhere above: **{len(later)}** scheduled legs are due to land after '
-                      f'the archive\'s last fix ({mcut:%Y-%m-%d %H:%M}Z), so they are not downloaded '
+                      f'the archive\'s last fix ({d2s(mcut)}Z), so they are not downloaded '
                       'yet rather than missing.*', '']
     txt = '\n'.join(L).rstrip() + '\n'
     open('missing_flights.md', 'w').write(txt)

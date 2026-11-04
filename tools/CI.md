@@ -200,3 +200,58 @@ published history on a bad afternoon.
 `paths` is a hard step, deliberately: a run that published tables without their paths is the kind of
 half-state this build has spent its life avoiding. Flip it into `SOFT` in `tools/ci_run.py` if that
 trade is wrong for you.
+
+
+## Running the night from a codespace (`tools/nightly.sh`)
+
+One command, in a codespace terminal, doing everything the schedule does:
+
+    cd /workspaces/FR24 && ./tools/nightly.sh
+
+It probes `api.flightradar24.com` first and says what it got, because that is the whole reason this
+script exists: run #10, 3 Nov, fetched from a GitHub runner and FR24 answered nothing at all, while
+the build and the commit steps in the same run were fine. So the asking happens on a machine you pick;
+Actions keeps the freeze, the notifier and the re-check on every push.
+
+Order inside it: pull → `fetch_fr24.py --source board` → copy the raw pull into `capture/<stamp>/` so
+it survives the codespace stopping (`work/ci_capture/` is gitignored and a codespace auto-stops) →
+`ci_run.py` with that capture, which rebuilds the archive, the tables and `flight_paths/` → the
+aviationweather snapshot → `git add -A`, one commit, push. Exit codes: 0 pushed or nothing to push,
+2 this network cannot reach FR24, 3 committed but the push failed, 4 nothing new anywhere.
+
+Flags: `--no-push` to build and commit locally, `--dry-run` for the probe and the plan, `--hours N`
+for how far back to ask (96 by default, which is FR24's horizon), `--skip-fetch`, `--skip-weather`,
+`--no-pull`. A failed weather fetch never stops a run; a failed build publishes what it did write and
+says so, because a night with paths and no tables is still a night of data kept.
+
+Nothing here is unattended: a codespace has no scheduler. `gh codespace ssh` from a machine that does
+have cron turns it into exactly that, and the only thing that then has to be true is that the machine
+can reach FR24.
+
+
+## The first run of a new month, which is where the build used to die
+
+The night the archive crossed into November, four things that had never been exercised at once came
+apart, all of them fixed here and reproduced in a throwaway checkout of `main` with a real capture:
+
+* `work/date_coverage.py` opened `{live}/tails.csv` — a cumulative table that a folder created minutes
+  ago does not have. `tools/seed_month.py` now runs right after the ingest and carries the cumulative
+  tables forward from the previous folder, so the readers have a starting point; the read itself is
+  tolerant too, so a half-seeded folder costs a section and not a run.
+* `work/missing_flights.py` asked the month's manifest for `last_utc` and got nothing — October's
+  manifest came from the other pipeline and has no such column — then formatted the resulting `None`
+  and died twice. It now tries the column names the build has used, falls through to neighbouring
+  months, prints `unknown` instead of crashing, and takes its month list from the folders that exist
+  (`on_branch()`) rather than the pair hardcoded in the script, which was quietly freezing the report
+  at October.
+* `work/schedule_delays.py` needs `work/schedule/schedule_YYYY-MM.csv`, the airline's timetable for
+  the month. Until somebody puts that file in the repo, it has nothing to compare against — so it is a
+  soft step now. Redding the build over an unpublished timetable would stop the flights themselves
+  being committed, and that is the mistake this pipeline started life with.
+* the commit step's own line `git add -A -- . ':(exclude)fr24_publish'` died on the symlink the link
+  step makes, which is why runs #9 and #11 failed in "commit and push" with exit 1 and nothing else
+  wrong. It names the two directories it needs, guarded by existence.
+
+`tools/nightly.sh --dry-run` prints the reachability probe and the plan in four seconds; that probe is
+the whole reason for the script — run #10 fetched from a GitHub runner and FR24 answered nothing,
+while the same fetcher from a codespace-like machine pulled 44 trails in a few minutes.

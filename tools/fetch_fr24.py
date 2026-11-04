@@ -48,6 +48,11 @@ UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) '
 HEADER = ['Timestamp', 'UTC', 'Callsign', 'Position', 'Altitude', 'Speed', 'Direction']
 
 
+# Counted per HTTP call to FR24, not per flight number, because the difference matters: an empty
+# answer and no answer at all look the same from here, and they mean "quiet night" and "blocked".
+STATS = {'answered': 0, 'failed': 0, 'rows': 0}
+
+
 def get(url, tries=4, log=None):
     """GET with backoff. 429 and 5xx are retried; a 4xx that is not 429 is a real answer."""
     delay = 2.0
@@ -57,12 +62,14 @@ def get(url, tries=4, log=None):
                                                         'Accept': 'application/json',
                                                         'Accept-Language': 'en-GB,en;q=0.9'})
             with urllib.request.urlopen(req, timeout=40) as r:
+                STATS['answered'] += 1
                 return json.loads(r.read().decode('utf-8', 'replace'))
         except urllib.error.HTTPError as e:
             if e.code in (429, 500, 502, 503, 504) and i < tries - 1:
                 time.sleep(delay)
                 delay *= 2.5
                 continue
+            STATS['failed'] += 1
             if log:
                 log(f'    ! {e.code} {url[:110]}')
             return None
@@ -71,6 +78,7 @@ def get(url, tries=4, log=None):
                 time.sleep(delay)
                 delay *= 2
                 continue
+            STATS['failed'] += 1
             if log:
                 log(f'    ! {type(e).__name__} {e} {url[:90]}')
             return None
@@ -322,10 +330,10 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     files, rec_rows = [], []
     seen = new = empty = skipped = out_of_window = 0
-    net_ok = False        # set once any endpoint answered, so 404-from-a-block is never mistaken for a quiet day
     for num in nums:
-        recs = [r for r in listings(num, a.limit, log) if r['id']]
-        net_ok = net_ok or bool(recs)
+        raw = listings(num, a.limit, log)
+        STATS['rows'] += len(raw)          # rows the API named, before any date filter of ours
+        recs = [r for r in raw if r['id']]
         for r in recs:
             seen += 1
             if not r['dep']:
@@ -389,9 +397,11 @@ def main():
     # exit codes the workflow acts on: 0 something captured or nothing new to do,
     # 3 the board/listings answered but every trail had expired, 4 nothing answered at all
     # (blocked or offline), which is a run failure and not a quiet rebuild from the archive.
-    if not net_ok:
-        return 4
-    return 0 if new or not seen else 3
+    if not STATS['answered']:
+        return 4            # not one reply: no route, TLS, or a hard 403 at the edge
+    if not new and not STATS['rows']:
+        return 5            # it replied, and named no flight at all: a polite block, not a quiet day
+    return 0 if new else 3
 
 
 if __name__ == '__main__':

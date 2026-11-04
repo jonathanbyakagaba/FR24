@@ -33,3 +33,4 @@
 !uploads/.gitkeep
 __pycache__/
 *.pyc
+/work/awx/
