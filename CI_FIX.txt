@@ -1,25 +1,24 @@
-Fourth instalment: the flight paths, published as files instead of only inside the zip
+Sixth instalment: run the night from the codespace, and the first-of-month bugs that came with it
 
-Upload ci_fix.tar.gz (18087 bytes) and CI_FIX.txt at
-https://github.com/jonathanbyakagaba/FR24/upload/main  -  sha256 bcf7707b3d1817189851e86f1a4b64cadad2b98cecc2bb70006503684f876a50
+Upload ci_fix.tar.gz (%d bytes, sha256 %s) and CI_FIX.txt at
+https://github.com/jonathanbyakagaba/FR24/upload/main  ->  Commit directly to main
 
 cd /workspaces/FR24
 git pull
-tar xzf ci_fix.tar.gz || tar xzf ci_install.tar.gz
-rm -f ci_fix.tar.gz ci_install.tar.gz
-git add -A
-git status --short
-git commit -m "CI: publish flight_paths/ - every trail as a plain CSV with an INDEX.csv, after the ingest"
+tar xzf ci_fix.tar.gz || tar xzf ci_install.tar.gz || tar xzf ci_instal.tar.gz
+rm -f ci_fix.tar.gz ci_install.tar.gz ci_instal.tar.gz
+chmod +x tools/nightly.sh
+git add -A && git status --short
+git commit -m "CI: tools/nightly.sh (fetch from the codespace); seed the cumulative tables into a new month; first-of-month crashes fixed; commit step names directories; fetch exit codes 3/4/5 separated"
 git push
 
-The first run after this adds ~1,001 CSVs (about 32 MB) to the branch and an INDEX.csv beside them.
-From then on a night's captures land in flight_paths/ in the same commit as the tables.
+Then, in the same codespace terminal, run the night:
 
-Files in the bundle:
-  tools/publish_paths.py   mirrors FR data.zip and any capture dir into flight_paths/; writes only
-                           changed bytes; INDEX.csv rewritten each run; README.md if absent
-  tools/ci_run.py           new hard step `paths`, immediately after `ingest`; --capture-dir for the
-                           loose CSVs the fetcher wrote
-  work/repo_layout.py       flight_paths/ is expected at the top level, so the packer stops calling
-                           it a stray
-  tools/CI.md               why the zip is still there and what changed
+./tools/nightly.sh --dry-run     # four seconds: can this machine reach FR24, and what would it do
+./tools/nightly.sh               # fetch, build, publish flight_paths/, snapshot weather, commit, push
+
+Then Actions runs off your push and does nothing to the tables (no capture in the runner, on purpose).
+
+Tested end to end here, on a fresh checkout of main with a real capture of 44 trails:
+  ran 17, failed 0, warned 1, skipped 0 - 14 published file(s) touched, EXIT=0
+The one warning is the honest one: the human screenshots are 35 days behind, copied forward by design.
