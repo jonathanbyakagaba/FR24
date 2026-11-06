@@ -13,10 +13,12 @@ name: sync
 # API), or FR24_USERNAME and FR24_PASSWORD. Without them the job stops before
 # writing anything.
 #
-# It can also mail you the result: add SYNC_MAIL_USER and SYNC_MAIL_PASS (an app
-# password, for Gmail) and every run reports itself to that address — add
-# SYNC_MAIL_TO if it should go somewhere else. Set the repository variable
-# SYNC_MAIL_MODE to `work` to hear only about nights that fetched something.
+# It reports every run one of two ways. Without any mail setup, each night's
+# summary is posted as a comment on a "Nightly sync log" issue, and GitHub mails
+# you the notification — no password, no third-party account. Add SYNC_MAIL_USER
+# and SYNC_MAIL_PASS (an app password) to get real email instead, or set the
+# variable SYNC_LOG to `issue` to have both; SYNC_LOG=off silences the issue.
+# SYNC_MAIL_MODE (`always` or `work`) decides what counts as worth reporting.
 
 on:
   schedule:
@@ -145,6 +147,40 @@ jobs:
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --repo "${{ github.repository }}" \
             --always-exit-0
+
+      - name: Log the night on a tracking issue
+        # GitHub sends the notification itself, so this route needs no mailbox and
+        # no app password. On by default when no mail credentials are configured;
+        # set the repository variable SYNC_LOG to `off` to silence it.
+        if: always() && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MAIL_USER: ${{ secrets.SYNC_MAIL_USER }}
+          MAIL_MODE: ${{ vars.SYNC_MAIL_MODE || 'always' }}
+          SYNC_LOG: ${{ vars.SYNC_LOG || '' }}
+        run: |
+          if [ "$SYNC_LOG" = "off" ]; then exit 0; fi
+          if [ -n "$MAIL_USER" ] && [ "$SYNC_LOG" != "issue" ]; then
+            echo "mail is configured; the issue log is off (set SYNC_LOG=issue to have both)"
+            exit 0
+          fi
+          body=$(python3 work/notify.py --status "${{ job.status }}" --format issue \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --repo "${{ github.repository }}")
+          if [ -z "$body" ]; then
+            echo "nothing worth reporting this run (mail mode: $MAIL_MODE)"
+            exit 0
+          fi
+          gh label create sync-log --color BFD4F2 \
+            --description "one comment per nightly harvest" 2>/dev/null || true
+          number=$(gh issue list --label sync-log --state open --limit 1 --json number --jq '.[0].number')
+          if [ -z "$number" ]; then
+            gh issue create --title "Nightly sync log" --label sync-log \
+              --body "Every night's harvest is reported here as a comment, so it can be watched, muted or filtered like any other GitHub notification." >/dev/null
+            number=$(gh issue list --label sync-log --state open --limit 1 --json number --jq '.[0].number')
+          fi
+          gh issue comment "$number" --body "$body"
 
       - name: Say so when it breaks
         if: ${{ failure() }}

@@ -25,6 +25,10 @@ do, and it needs no domain to be verified.
 With no credentials in the environment it prints the message and exits 0 — the
 notification is opt-in, and a missing mailbox must never fail a night's work.
 
+`--format issue` writes the same summary as a Markdown comment instead of an
+email, for a tracking issue the workflow comments on. That needs no mailbox and
+no password: GitHub sends the notification itself.
+
 `--mode` decides what is worth an email: `always` (default), `work` (only when
 tracks were fetched), or `never`.
 
@@ -141,6 +145,50 @@ def build_message(state: dict, status: str, run_url: str = "",
                   "is up to date."]
 
     return subject, "\n".join(lines) + "\n"
+
+
+def build_issue_comment(state: dict, status: str, run_url: str = "",
+                        repo: str = "") -> str:
+    """The same summary as a Markdown comment, for GitHub to notify on.
+
+    A repository can be watched, an issue comment mailed — so this is the route
+    that needs no mailbox, no app password and no third-party account.
+    """
+    fetched = int(state.get("fetched") or 0)
+    failed = int(state.get("failed") or 0)
+    seen = int(state.get("seen") or 0)
+    new = int(state.get("new") or 0)
+    months = ", ".join(state.get("months") or []) or "none"
+    window = state.get("window") or []
+    notes = state.get("notes") or []
+    ok = status == "success"
+    headline = ("**FR24 sync — ran clean**" if ok else f"**FR24 sync — {status.upper()}**")
+    if fetched:
+        headline += f" · {fetched} track{'s' if fetched != 1 else ''} fetched · {months}"
+    elif ok:
+        headline += " · nothing new"
+
+    rows = [
+        ("window", f"{_when(window[0])} → {_when(window[1])}" if len(window) == 2 else "—"),
+        ("flights", f"{seen} seen, {new} new"),
+        ("tracks", f"{fetched} fetched, {failed} failed"),
+        ("months", months),
+    ]
+    commit = last_commit()
+    if commit:
+        rows.append(("on main", f"`{commit}`"))
+
+    lines = [headline, "", "| | |", "|---|---|"]
+    lines += [f"| {label} | {value} |" for label, value in rows]
+    if run_url:
+        lines += ["", f"[Run log]({run_url})"]
+    if notes:
+        lines += ["", "<details><summary>notes</summary>", ""]
+        lines += [f"- {note}" for note in notes[-10:]]
+        lines += ["", "</details>"]
+    if not ok:
+        lines += ["", "⚠️ The archive is not growing until this is fixed."]
+    return "\n".join(lines) + "\n"
 
 
 def worth_sending(state: dict, status: str, mode: str) -> bool:
@@ -291,14 +339,23 @@ def main(argv=None) -> int:
     parser.add_argument("--state", default=str(STATE), help="path to state/sync.json")
     parser.add_argument("--dry-run", action="store_true",
                         help="print the message instead of sending it")
+    parser.add_argument("--format", choices=("text", "issue"), default="text",
+                        help="text for an email, issue for a Markdown comment")
     parser.add_argument("--always-exit-0", action="store_true",
                         help="never fail, whatever the transport does")
     args = parser.parse_args(argv)
 
     state = read_state(Path(args.state))
     if not worth_sending(state, args.status, args.mode):
-        print(f"nothing worth sending (mode {args.mode}, status {args.status})")
+        # stderr, so that --format issue yields an empty body and the caller can
+        # tell "nothing to report" from "report this"
+        print(f"nothing worth sending (mode {args.mode}, status {args.status})",
+              file=sys.stderr)
         return 0
+    if args.format == "issue":
+        print(build_issue_comment(state, args.status, args.run_url, args.repo), end="")
+        return 0
+
     subject, body = build_message(state, args.status, args.run_url, args.repo)
 
     if args.dry_run:

@@ -7,6 +7,8 @@ No mailbox, no network: SMTP is a stand-in, and the HTTP transports are pointed 
 a server the test raises for the length of one assertion.
 """
 
+import contextlib
+import io
 import json
 import os
 import sys
@@ -74,6 +76,47 @@ class MessageTests(unittest.TestCase):
             state = notify.read_state(Path(tmp) / "absent.json")
         subject, _ = notify.build_message(state, "success")
         self.assertEqual(subject, "FR24 sync: nothing new")
+
+
+class IssueFormatTests(unittest.TestCase):
+    """The route that needs no mailbox: GitHub sends the notification itself."""
+
+    def test_a_night_with_tracks_reads_as_a_comment(self):
+        comment = notify.build_issue_comment(
+            STATE, "success", run_url="https://example.test/run/7", repo="owner/repo")
+        self.assertIn("**FR24 sync — ran clean** · 31 tracks fetched · 2026-11", comment)
+        self.assertIn("| tracks | 31 fetched, 0 failed |", comment)
+        self.assertIn("[Run log](https://example.test/run/7)", comment)
+        self.assertNotIn("not growing", comment)
+
+    def test_a_quiet_night_says_nothing_new(self):
+        comment = notify.build_issue_comment(QUIET, "success")
+        self.assertIn("nothing new", comment)
+
+    def test_a_failure_warns_in_the_comment(self):
+        comment = notify.build_issue_comment(STATE, "failure")
+        self.assertIn("**FR24 sync — FAILURE**", comment)
+        self.assertIn("not growing until this is fixed", comment)
+
+    def test_the_comment_can_be_printed_without_any_credentials(self):
+        with env(MAIL_TO="", MAIL_USER="", MAIL_PASS=""):
+            with mock.patch("builtins.print") as printed:
+                code = notify.main(["--status", "success", "--format", "issue",
+                                    "--state", "/tmp/does-not-exist.json"])
+        self.assertEqual(code, 0)
+        self.assertIn("FR24 sync", printed.call_args[0][0])
+
+    def test_work_mode_prints_nothing_on_a_quiet_night(self):
+        """An empty body is how the workflow knows not to comment."""
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp) / "sync.json"
+            state.write_text(json.dumps(QUIET), encoding="utf-8")
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                code = notify.main(["--status", "success", "--format", "issue",
+                                    "--mode", "work", "--state", str(state)])
+        self.assertEqual(code, 0)
+        self.assertEqual(out.getvalue(), "")
 
 
 class ModeTests(unittest.TestCase):
