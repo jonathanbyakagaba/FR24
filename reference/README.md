@@ -8,7 +8,8 @@ airport, one per runway, one per airframe.
 | `airports.csv` | 47 | every airport the tracks touch, plus the log's network | [OurAirports](https://ourairports.com/data/) — **public domain** (Unlicense) |
 | `runways.csv` | 86 | runway geometry and orientation for those airports | OurAirports — **public domain** |
 | `route_distances.csv` | 29 | great-circle distance per route pair, in km and nm, with the haul band | our own calculation from the airport coordinates |
-| `fleet.csv` | 5 | the five airframes: type, ownership, role | supplied by the operator |
+| `airport_timezones.csv` | 47 | IANA time zone and June UTC offset per airport, so the log can show local clock times | [IANA time zone database](https://www.iana.org/time-zones) — **public domain**, via Python's `zoneinfo` |
+| `fleet.csv` | 5 | the airframes that flew in June 2026: type, ownership, role | registration and type read out of the tracks; ownership and role from the operator |
 | `weather_2026-10.csv` | 20,945 | published surface observations (METAR) for 40 airports, matching the log's window | Iowa Environmental Mesonet ASOS archive — US government public-domain data, free to redistribute |
 
 **Why these are in the repository.** Every number in the log and in the runway
@@ -29,4 +30,6 @@ honest when it is present; delete it from this folder and the row disappears.
 `airports.csv`; the airline's own flown distances are longer (routes are not
 straight lines) and live in the track data instead.
 
-Regenerate with `PYTHONPATH=/home/user python3 work/make_reference.py`.
+Regenerate with `PYTHONPATH=/home/user python3 work/make_reference.py` (that script is not
+in this checkout; the tables above are the ones it produced). The time zone table is
+maintained by hand and checked against the airports it lists.
