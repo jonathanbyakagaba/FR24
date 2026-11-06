@@ -2,13 +2,17 @@
 
 A month-by-month archive of Uganda Airlines (UR / UGD) operations, rebuilt from
 Flightradar24 track exports and written up in the [AeroRoutes](https://www.aeroroutes.com/)
-notation used for airline route listings.
+notation used for airline route listings. It maintains itself: a nightly job
+harvests the fleet's flying from the Flightradar24 API, files each track into its
+month and rebuilds the month, so the archive stays current without anyone
+exporting a file.
 
 ```
 reference/           static lookups: airports, runways, time zones, fleet, route distances
 archive/YYYY-MM/     one folder per month — the month's tracks, its leg table, its log
 work/                the scripts that build the archive, and the one that repairs it
                      from the Flightradar24 API
+state/               the sync's memory: which flight ids it has already looked at
 tests/               tests and a synthetic export fixture (no real flight data)
 ```
 
@@ -97,13 +101,84 @@ in the archive needs it: the builder and the tests run on the standard library.
 Fetched tracks are added to `tracks/manifest.csv` with `source = fr24-api`, so a
 recovered sector never passes for one that came out of the enumeration.
 
-Where the fetch cannot run — a sandbox with no route to `flightradar24.com`, for
-instance — the rotations still show the hole honestly, and
-[`.github/workflows/fetch-fr24-gaps.yml`](.github/workflows/fetch-fr24-gaps.yml)
-runs the same four steps on demand from a runner that does have the route, given
-the credentials as repository secrets.
+### Keeping it current, all year round
+
+`work/sync_fr24.py` turns that into a loop, and
+[`.github/workflows/sync.yml`](.github/workflows/sync.yml) runs it nightly at
+01:30 UTC — half an hour after the flying day turns over at 04:00 in Kampala:
+
+```yaml
+on:  schedule: [{cron: "30 1 * * *"}]
+```
+
+A night's work, in order:
+
+1. **Ask what flew.** For each airframe in `reference/fleet.csv`, list its flights
+   since the end of the last run. Entebbe's arrival and departure boards are read
+   as well, which is how a new tail or a wet lease announces itself instead of
+   someone editing the fleet file.
+2. **Skip what is already here.** `state/ledger.csv` remembers every flight id
+   looked at, and the track files carry their flight id in their name, so a night
+   normally downloads twenty or thirty playbacks, not thousands.
+3. **File each track by month.** The playback is written in the archive's own
+   layout and dropped into `archive/YYYY-MM/tracks/` by its departure month, with
+   a manifest row carrying `source = fr24-api`.
+4. **Rebuild those months**, drafting a `README.md` if the month is new and
+   regenerating the index table in [`archive/README.md`](archive/README.md) — both
+   only ever touch what is theirs, so hand-written prose survives.
+5. **Commit, only if something changed**, with the months named in the message.
+6. **Fail loudly.** Exit `3` if flights were new and none produced a track, `4` if
+   more than a fifth of the fetches failed. The workflow then opens (or comments
+   on) a labelled issue: the failure mode that matters is not an error, it is a
+   job that quietly stops finding anything while still reporting success.
+
+Why by airframe rather than by airport: an enumeration built from Entebbe's
+movements cannot see a sector that never touches Entebbe, which is exactly what
+went missing. Asking for the aircraft instead brings the Lusaka–Harare tag and
+the Zanzibar–Kilimanjaro hop in as legs in their own right, so most nights there
+is no hop left to fill. The gap filler still runs afterwards, for the current and
+previous month, as a safety net.
+
+**Turning it on** takes two things, once:
+
+1. Repository → Settings → Secrets and variables → Actions: add
+   `FR24_SUBSCRIPTION_KEY` and `FR24_TOKEN` (the licensed API), or
+   `FR24_USERNAME` and `FR24_PASSWORD`.
+2. Merge the workflow to the default branch — GitHub only schedules workflows that
+   exist on `main`. Nothing else: after that the archive grows by itself.
+
+**Backfilling** is the same script with a start date, either from a laptop or from
+the workflow's *Run workflow* button:
+
+```bash
+python3 work/sync_fr24.py --since 2026-06-01 --ignore-state --max-pages 40 --pause 0
+```
+
+Run once over June–November that also repairs the holes the reconciliation sheet
+listed — the numbered services the enumeration dropped, `UR120 EBB–JUB` and its
+like — because a flight already on disk is skipped in milliseconds and a missing
+one is simply fetched.
+
+**What it costs.** A normal night is three to eight flight-list pages per airframe
+and twenty to forty playbacks — a few minutes. A six-month backfill is about 3,000
+playbacks and roughly an hour at the default pacing (`--pause 1.5`, `--delay 2`),
+which is deliberately polite to the API. Playbacks the API will not serve are
+retried for two nights and then left in the ledger as `no-track`, so a cancelled
+flight cannot haunt the job forever.
+
+**What it needs from you.** A Flightradar24 API subscription, and honesty about
+its terms — the client is pointed at the licensed API, and the pacing is there to
+stay inside its limits. Raw tracks run to about 16 MB a month (95 MB for the six
+months here, ~190 MB a year), so plan on moving the oldest raw exports to release
+assets or object storage once the repository passes a few hundred megabytes; the
+derived tables, the logs and `sources.json` (with checksums) are small enough to
+keep forever, and they are what the archive is actually for.
 
 ## Adding a month
+
+A month now arrives by itself, one night at a time — there is nothing to do. The
+manual route is still here for a month that predates the sync, or for tracks
+gathered by hand.
 
 1. Export the tracks. This repository takes the per-flight CSVs that the sibling
    `EBBs-FR24` project already pulls from Flightradar24; exports straight from

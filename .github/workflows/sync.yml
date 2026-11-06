@@ -1,0 +1,139 @@
+name: sync
+
+# Keeps the archive current on its own, all year round.
+#
+# Every night at 01:30 UTC — half an hour after the flying day turns over at
+# 04:00 in Kampala — this harvests the fleet's flying from the Flightradar24 API:
+# each airframe's flights since the last run, a playback for every one the
+# archive does not already hold, the track filed into its month, the month
+# rebuilt. It commits only when something changed, and it fails loudly rather
+# than quietly if the API is answering with nothing usable.
+#
+# Needs repository secrets FR24_SUBSCRIPTION_KEY and FR24_TOKEN (the licensed
+# API), or FR24_USERNAME and FR24_PASSWORD. Without them the job stops before
+# writing anything.
+
+on:
+  schedule:
+    - cron: "30 1 * * *"        # nightly, 04:30 Kampala
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Backfill from this date instead of the last run (YYYY-MM-DD)"
+        required: false
+        type: string
+      days:
+        description: "How far back a first run looks, when there is no state"
+        required: false
+        type: string
+        default: "3"
+      dry_run:
+        description: "List what is new, fetch nothing"
+        required: false
+        type: boolean
+        default: false
+      gaps:
+        description: "Also sweep the current and previous month for untracked sectors"
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: fr24-sync
+  cancel-in-progress: false
+
+env:
+  fr24_subscription_key: ${{ secrets.FR24_SUBSCRIPTION_KEY }}
+  fr24_token: ${{ secrets.FR24_TOKEN }}
+  fr24_username: ${{ secrets.FR24_USERNAME }}
+  fr24_password: ${{ secrets.FR24_PASSWORD }}
+  DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
+  SINCE: ${{ inputs.since }}
+  DAYS: ${{ inputs.days || '3' }}
+  GAPS: ${{ github.event_name == 'schedule' && '1' || inputs.gaps == true && '1' || '' }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # the bot commits back to the branch it was dispatched from, or to the
+          # default branch on the nightly schedule
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install the Flightradar24 client
+        run: python3 -m pip install --quiet -r requirements.txt
+
+      - name: Harvest the fleet's flying
+        run: |
+          args=(--days "$DAYS")
+          if [ -n "$SINCE" ]; then args+=(--since "$SINCE" --ignore-state); fi
+          if [ -n "$DRY_RUN" ]; then args+=(--dry-run); fi
+          python3 work/sync_fr24.py "${args[@]}"
+
+      - name: Sweep the open months for untracked sectors
+        if: ${{ env.DRY_RUN == '' && env.GAPS == '1' }}
+        continue-on-error: true
+        run: |
+          for offset in 0 1; do
+            month=$(date -u -d "$(date -u +%Y-%m-01) -${offset} month" +%Y-%m)
+            python3 work/fetch_fr24_tracks.py --month "$month" --limit 40 || true
+            python3 work/fr24_tracks.py --month "$month" || true
+          done
+
+      - name: Run the tests
+        run: python3 -m unittest discover -s tests
+
+      - name: Commit whatever changed
+        if: ${{ env.DRY_RUN == '' }}
+        run: |
+          git config user.name "fr24-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add archive state
+          if git diff --cached --quiet; then
+            echo "no new flying — nothing to commit"
+            exit 0
+          fi
+          months=$(git diff --cached --name-only | cut -d/ -f1-2 | grep '^archive/' | sort -u | tr '\n' ' ')
+          git commit -m "sync: ${months:-archive}" \
+                     -m "Harvested from the Flightradar24 API by .github/workflows/sync.yml."
+          git push
+
+      - name: Say so when it breaks
+        if: ${{ failure() }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Nightly sync is failing";
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "sync"
+            });
+            const body = [
+              `The nightly harvest failed on run [${context.runId}](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).`,
+              "",
+              "Until it is fixed the archive is not growing. The usual causes are",
+              "an expired Flightradar24 token, a rate limit, or a run of playbacks",
+              "the API would not serve.",
+            ].join("\n");
+            if (open.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open.data[0].number, body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ["sync"]
+              });
+            }
