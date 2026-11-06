@@ -7,6 +7,8 @@ A month lives in ``archive/YYYY-MM/`` and holds:
     tracks/manifest.csv     one row per track file: flight id, number, route,
                             registration, aircraft, actual times, SHA-256
     flights_YYYY-MM.csv     one row per flight leg, normalised (written here)
+    rotations_YYYY-MM.csv   one row per airframe rotation, its airport chain and
+                            any sector the record is missing (written here)
     aeroroutes_YYYY-MM.md   the log in AeroRoutes notation (written here)
     sources.json            what was read, and its checksums (written here)
 
@@ -48,8 +50,9 @@ import math
 import re
 import statistics
 import sys
+import textwrap
 from collections import Counter, defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -566,6 +569,251 @@ def build_legs(points: list[Point], airports, fleet: dict[str, str],
 
 
 # --------------------------------------------------------------------------- #
+# rotations
+# --------------------------------------------------------------------------- #
+#
+# The movement board lists point-to-point sectors, so a rotation with a tag stop
+# it never recorded — Entebbe–Harare, then Lusaka–Entebbe with the same airframe
+# in between — reads as two unrelated flights. Chaining an airframe's legs keeps
+# the missing sector visible as an *untracked hop*, so the rotation still runs
+# start to finish instead of falling apart into orphan sectors.
+
+# a rotation is one airframe's day of flying: its legs, grouped by the local
+# date they departed. The fleet turns in two or three hours around the clock, so
+# a ground-time cut-off alone would chain a week of flying into one rotation.
+# A hop the record is missing has to fit inside this gap to count as a tag sector.
+MAX_HOP_GAP = timedelta(hours=8)
+# an untracked hop longer than this is a repositioning, not a tag sector
+MAX_HOP_KM = 3000.0
+# used to test whether a tag sector fits inside the hole in the record
+HOP_SPEED_KMH = 600.0
+MIN_HOP_KM = 50.0
+
+# the operator's base: rotations are grouped and timed on Entebbe's clock
+BASE_TZ = ZoneInfo("Africa/Kampala")
+# the flying day turns over at 04:00 local, so a night rotation that puts down
+# after midnight still belongs to the day it left on
+SERVICE_DAY_SHIFT = timedelta(hours=4)
+
+
+def _code(airport: Airport | None) -> str:
+    return airport.code if airport else "ZZZZ"
+
+
+@dataclass(frozen=True)
+class UntrackedHop:
+    """A sector an airframe must have flown between two legs, with no track."""
+
+    origin: str
+    destination: str
+    after: datetime   # wheels down of the leg before the hop
+    before: datetime  # wheels up of the leg after it
+    # index (in the rotation's legs) of the leg that follows the hop
+    index: int = 0
+    # false when the hole is too small to hold the sector the airframe must
+    # have flown — a track that overlaps its neighbour, not a missing flight
+    plausible: bool = True
+
+    @property
+    def route(self) -> str:
+        return f"{self.origin}-{self.destination}"
+
+
+@dataclass
+class Rotation:
+    """One airframe's run of legs, with any sector missing from the record."""
+
+    key: str                        # registration, or callsign if unregistered
+    legs: list[Leg]
+    hops: list[UntrackedHop] = field(default_factory=list)
+
+    day: date = None  # local date the rotation flew (set by build_rotations)
+
+    @property
+    def id(self) -> str:
+        day = self.day or self.legs[0].takeoff.date()
+        return f"{self.key}-{day:%Y%m%d}"
+
+    @property
+    def start(self) -> datetime:
+        return self.legs[0].takeoff
+
+    @property
+    def end(self) -> datetime:
+        return self.legs[-1].landing
+
+    @property
+    def type(self) -> str:
+        return self.legs[0].type
+
+    @property
+    def complete(self) -> bool:
+        return not self.hops
+
+    @property
+    def sectors(self) -> int:
+        return len(self.legs) + len(self.hops)
+
+    def _tokens(self, mark_hops: bool) -> list[str]:
+        """Airport sequence the airframe flew, with each hop where it fell."""
+        hops = {hop.index: hop for hop in self.hops}
+        tokens = [_code(self.legs[0].origin)]
+        for i, leg in enumerate(self.legs):
+            hop = hops.get(i)
+            if hop is not None:
+                if hop.origin != tokens[-1]:
+                    tokens.append(hop.origin)
+                label = hop.destination if hop.plausible else f"{hop.destination}?"
+                tokens.append(f"[{label}]" if mark_hops else label)
+            elif _code(leg.origin) != tokens[-1]:
+                tokens.append(_code(leg.origin))
+            tokens.append(_code(leg.destination))
+        return tokens
+
+    @property
+    def chain(self) -> str:
+        """Airport sequence the airframe flew, every sector a plain code."""
+        return "–".join(self._tokens(mark_hops=False))
+
+    @property
+    def marked_chain(self) -> str:
+        """The same chain with the airports only reached through a hop bracketed."""
+        return "–".join(self._tokens(mark_hops=True))
+
+    @property
+    def flight_numbers(self) -> str:
+        return " ".join(dict.fromkeys(leg.callsign for leg in self.legs))
+
+
+def _tag_fits(after: Airport | None, before: Airport | None,
+              gap: timedelta) -> bool:
+    """Could the airframe have flown ``after`` -> ``before`` inside ``gap``?"""
+    if after is None or before is None:
+        return False
+    km = great_circle_km(after.lat, after.lon, before.lat, before.lon)
+    if not MIN_HOP_KM <= km <= MAX_HOP_KM:
+        return False
+    needed = timedelta(hours=km / HOP_SPEED_KMH) + timedelta(minutes=30)
+    return needed <= gap <= MAX_HOP_GAP
+
+
+def service_day(leg: Leg) -> date:
+    """The flying day a leg belongs to, on the base's clock."""
+    return (leg.takeoff.astimezone(BASE_TZ) - SERVICE_DAY_SHIFT).date()
+
+
+def build_rotations(legs: list[Leg]) -> list[Rotation]:
+    """Chain each airframe's legs, day by day, keeping the sectors it must have
+    flown without a track of their own."""
+    groups: dict[tuple[str, date], list[Leg]] = defaultdict(list)
+    for leg in legs:
+        key = leg.registration or leg.callsign
+        if not key:
+            continue
+        groups[(key, service_day(leg))].append(leg)
+
+    rotations: list[Rotation] = []
+    for (key, day) in sorted(groups, key=lambda k: (k[1], k[0])):
+        group = sorted(groups[(key, day)], key=lambda leg: leg.takeoff)
+        hops: list[UntrackedHop] = []
+        for i, (previous, leg) in enumerate(zip(group, group[1:]), start=1):
+            if _code(previous.destination) == _code(leg.origin):
+                continue
+            gap = leg.takeoff - previous.landing
+            hops.append(UntrackedHop(
+                _code(previous.destination), _code(leg.origin),
+                previous.landing, leg.takeoff,
+                index=i,
+                plausible=_tag_fits(previous.destination, leg.origin, gap)))
+        rotations.append(Rotation(key, group, hops, day=day))
+
+    rotations.sort(key=lambda rotation: (rotation.start, rotation.key))
+    return rotations
+
+
+ROTATION_COLUMNS = [
+    "rotation_id", "registration", "aircraft_type", "first_takeoff_utc",
+    "last_landing_utc", "chain", "sectors", "tracked_sectors",
+    "untracked_sectors", "untracked_hops", "complete", "flight_numbers",
+]
+
+
+def write_rotations(path: Path, rotations: list[Rotation]) -> None:
+    with path.open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.writer(fh)
+        writer.writerow(ROTATION_COLUMNS)
+        for rotation in rotations:
+            writer.writerow([
+                rotation.id, rotation.key, rotation.type,
+                rotation.start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                rotation.end.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                rotation.chain, rotation.sectors, len(rotation.legs),
+                len(rotation.hops),
+                " ".join(hop.route if hop.plausible else f"{hop.route}?"
+                         for hop in rotation.hops),
+                "yes" if rotation.complete else "no", rotation.flight_numbers,
+            ])
+
+
+def _hop_label(hop: UntrackedHop) -> str:
+    return hop.route if hop.plausible else f"{hop.route} (unconfirmed)"
+
+
+def render_rotations(rotations: list[Rotation]) -> list[str]:
+    """The rotations section of the month's log: only the chains with a hole."""
+    broken = [rotation for rotation in rotations if rotation.hops]
+    if not broken:
+        return []
+    hops = [hop for rotation in broken for hop in rotation.hops]
+    doubtful = [hop for hop in hops if not hop.plausible]
+    complete = len(rotations) - len(broken)
+
+    intro = (
+        "A rotation is one airframe's day of flying, its legs chained in order: "
+        f"{len(rotations)} this month, {complete} with every sector of the chain in "
+        f"the record. In the {len(broken)} below, the aircraft puts down at one "
+        "airport and is next heard from at another, so it must have flown a sector "
+        f"the movement board does not hold — {len(hops) - len(doubtful)} such hops. "
+        "They are kept in place rather than dropped, so a rotation reads from its "
+        "first departure to its last arrival instead of breaking into orphan "
+        "sectors. The airport that is only reachable through a hop is bracketed in "
+        "the chain, and work/fetch_fr24_tracks.py goes and fetches the sector "
+        "itself where Flightradar24 credentials allow, after which the brackets "
+        "come off on the next rebuild."
+    )
+    lines = ["## Rotations", ""] + textwrap.wrap(intro, width=78)
+    lines += [
+        "",
+        "```",
+        "EBB–HRE  UR720  →  HRE–[LUN]  →  LUN–EBB  UR721      one rotation",
+        "```",
+    ]
+    if doubtful:
+        lines += [""] + textwrap.wrap(
+            "A hop carrying a question mark is where the record contradicts itself — "
+            "the next leg is already under way while this aircraft should still be "
+            "on the ground — so the airport is shown and the sector is not claimed.",
+            width=78)
+    lines += [
+        "",
+        "| rotation | aircraft | chain | legs | first off – last on (EBB) |",
+        "|---|---|---|---|---|",
+    ]
+    base = BASE_TZ
+    for rotation in sorted(broken, key=lambda r: r.start):
+        first = rotation.start.astimezone(base)
+        last = rotation.end.astimezone(base)
+        window = f"{first:%d}{MONTH_NAMES[first.month - 1]}{first:%y} {first:%H:%M}"
+        window += (f" – {last:%H:%M}" if last.date() == first.date()
+                   else f" – {last:%d}{MONTH_NAMES[last.month - 1]} {last:%H:%M}")
+        lines.append(
+            f"| {rotation.id} | {rotation.key} {rotation.type or '—'} | "
+            f"{rotation.marked_chain} | {len(rotation.legs)} | {window} |")
+    lines.append("")
+    return lines
+
+
+# --------------------------------------------------------------------------- #
 # AeroRoutes notation
 # --------------------------------------------------------------------------- #
 
@@ -599,7 +847,8 @@ def type_name(code: str) -> str:
 
 
 def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
-               sources: list[dict] | None = None) -> str:
+               sources: list[dict] | None = None,
+               rotations: list[Rotation] | None = None) -> str:
     year, month_no = (int(x) for x in month.split("-"))
     month_label = f"{datetime(year, month_no, 1):%B %Y}"
     start = datetime(year, month_no, 1)
@@ -634,6 +883,8 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
     from_schedule = [leg for leg in legs if leg.time_source == "schedule"]
     flown_km = sum(leg.distance_km for leg in legs if leg.track_complete)
     sources = sources or []
+    rotations = rotations if rotations is not None else build_rotations(legs)
+    complete_rotations = [rotation for rotation in rotations if rotation.complete]
 
     lines = [
         f"# Uganda Airlines — {month_label}",
@@ -652,6 +903,11 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
         f"| track coverage | {len(legs) - len(partial)} of {len(legs)} flights end to end |",
         f"| city pairs | {len(directions)} directional / "
         f"{len({frozenset(k) for k in directions})} undirected |",
+        f"| rotations | {len(rotations)}"
+        + (f" ({len(rotations) - len(complete_rotations)} with an untracked hop)"
+           if complete_rotations is not None and len(complete_rotations) < len(rotations)
+           else "")
+        + " |",
         f"| airframes | {', '.join(airframes) if airframes else '—'} |",
         f"| types | {', '.join(types) if types else '—'} |",
         "",
@@ -735,6 +991,8 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
             f"{round(statistics.median(leg.minutes for leg in route_legs))} |"
         )
     lines.append("")
+
+    lines += render_rotations(rotations)
 
     if partial:
         lines += [
@@ -893,10 +1151,14 @@ def main(argv=None) -> int:
     legs.sort(key=lambda leg: leg.takeoff)
 
     flights_path = outdir / f"flights_{month}.csv"
+    rotations_path = outdir / f"rotations_{month}.csv"
     log_path = outdir / f"aeroroutes_{month}.md"
     sources_path = outdir / "sources.json"
+    rotations = build_rotations(legs)
     write_flights(flights_path, legs)
-    log_path.write_text(render_log(month, legs, load_gc_distances(), sources), encoding="utf-8")
+    write_rotations(rotations_path, rotations)
+    log_path.write_text(render_log(month, legs, load_gc_distances(), sources, rotations),
+                        encoding="utf-8")
     sources_path.write_text(json.dumps({
         "month": month,
         "generator": "work/fr24_tracks.py",
@@ -926,7 +1188,16 @@ def main(argv=None) -> int:
         counts = Counter(leg.time_source for leg in partial)
         detail = ", ".join(f"{value} {source}" for source, value in counts.most_common())
         print(f"{len(partial)} flights have a partial track (times from: {detail})")
-    print(f"wrote {show(flights_path)}, {show(log_path)} and {show(sources_path)}")
+    broken = [rotation for rotation in rotations if not rotation.complete]
+    if broken:
+        hops = Counter(hop.route for rotation in broken for hop in rotation.hops)
+        detail = ", ".join(f"{route} {n}" for route, n in hops.most_common(4))
+        print(f"{len(broken)} of {len(rotations)} rotations have an untracked hop "
+              f"({sum(hops.values())} hops: {detail})")
+    else:
+        print(f"all {len(rotations)} rotations are fully tracked")
+    print(f"wrote {show(flights_path)}, {show(rotations_path)}, {show(log_path)} "
+          f"and {show(sources_path)}")
     return 0
 
 

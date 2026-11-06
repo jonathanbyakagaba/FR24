@@ -12,6 +12,7 @@ month's Flightradar24 track exports (`archive/2026-11/tracks/`, 98 files).
 | distance flown | 85,173 km (complete tracks only) |
 | track coverage | 69 of 97 flights end to end |
 | city pairs | 27 directional / 14 undirected |
+| rotations | 28 (5 with an untracked hop) |
 | airframes | 5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-APL |
 | types | A338, B738, CRJ9 |
 
@@ -181,6 +182,35 @@ UR207 NBO2018 – 2105EBB CRJ9 27
 | HRE-EBB | 1 | 1 | CRJ900 | 2004 | 161 |
 | EBB-BOM | 1 | 1 | A330-800 | 4890 | 430 |
 | BOM-EBB | 1 | 1 | A330-800 | 4890 | 369 |
+
+## Rotations
+
+A rotation is one airframe's day of flying, its legs chained in order: 28 this
+month, 23 with every sector of the chain in the record. In the 5 below, the
+aircraft puts down at one airport and is next heard from at another, so it
+must have flown a sector the movement board does not hold — 5 such hops. They
+are kept in place rather than dropped, so a rotation reads from its first
+departure to its last arrival instead of breaking into orphan sectors. The
+airport that is only reachable through a hop is bracketed in the chain, and
+work/fetch_fr24_tracks.py goes and fetches the sector itself where
+Flightradar24 credentials allow, after which the brackets come off on the next
+rebuild.
+
+```
+EBB–HRE  UR720  →  HRE–[LUN]  →  LUN–EBB  UR721      one rotation
+```
+
+A hop carrying a question mark is where the record contradicts itself — the
+next leg is already under way while this aircraft should still be on the
+ground — so the airport is shown and the sector is not claimed.
+
+| rotation | aircraft | chain | legs | first off – last on (EBB) |
+|---|---|---|---|---|
+| 5X-KDP-20261101 | 5X-KDP CRJ9 | EBB–LUN–[HRE]–EBB–BJM–EBB–DAR–EBB | 6 | 01NOV26 09:18 – 02NOV 02:54 |
+| 5X-EQU-20261103 | 5X-EQU CRJ9 | EBB–MGQ–EBB–HRE–[EBB?]–JNB–[LUN?]–EBB–[JNB]–EBB | 6 | 03NOV26 05:16 – 04NOV 07:38 |
+| 5X-KOB-20261104 | 5X-KOB CRJ9 | EBB–NBO–[EBB?]–ZNZ–[NBO?]–EBB–[JRO]–EBB–MBA–EBB | 6 | 04NOV26 08:00 – 22:07 |
+| ET-APL-20261104 | ET-APL B738 | EBB–HRE–[LUN]–EBB | 2 | 04NOV26 12:00 – 20:14 |
+| 5X-EQU-20261105 | 5X-EQU CRJ9 | EBB–HRE–[LUN]–EBB | 2 | 05NOV26 14:00 – 21:34 |
 
 ## Track coverage
 

@@ -25,10 +25,11 @@ and the first past a million kilometres.
 | `tracks/` | 620 raw Flightradar24 exports, one CSV per flight, unedited |
 | `tracks/manifest.csv` | one row per track file: flight id, number, callsign, route, registration, aircraft, actual and scheduled times, point count, SHA-256 |
 | `flights_2026-08.csv` | one row per flight leg — 619 rows — with off/on times in UTC and local, airborne minutes, flown distance, max altitude, whether the track is complete, and where its times came from |
+| `rotations_2026-08.csv` | one row per airframe rotation — 152 rows — with the airport chain it flew, the sectors it has a track for, and any sector the record is missing |
 | `aeroroutes_2026-08.md` | the month's log in AeroRoutes notation, with a route summary and the track-coverage notes |
 | `sources.json` | the exact files that were read, their sizes and checksums |
 
-Regenerate the last three with:
+Regenerate the last four with:
 
 ```bash
 python3 work/fr24_tracks.py --month 2026-08
@@ -46,6 +47,29 @@ own; the route on each line is read off the track.
 Across the 612 flights timed from a complete track, those times agree with the
 movement board's own actual times to a median of **1.3 minutes** at departure and
 **2.9 minutes** at arrival (worst case 14 and 20 minutes).
+
+## Rotations
+
+The airframe-by-airframe view: **152 rotations**, 111 with every sector of the
+chain present in the record. The other **41** hold **47 hops** between them — a
+sector the movement board never listed, because the aircraft puts down at one
+airport and is next heard from at another:
+
+| hop | times |
+|---|---|
+| LUN–HRE | 17 |
+| HRE–LUN | 16 |
+| ZNZ–JRO | 13 |
+| EBB–JUB | 1 |
+
+Those hops are the tag sectors behind the fifth-freedom question: the widebody's
+Harare run is flown Entebbe–Harare–Lusaka–Harare–Lusaka–Entebbe, and only the
+transit Lusaka–Harare–Lusaka was being enumerated; the Zanzibar run carries the
+same shape at Kilimanjaro. The month's log keeps each hop in place and brackets the
+airport only reachable through it, `EBB–HRE–[LUN]–EBB`, so a rotation reads from
+first departure to last arrival rather than as two orphan legs. Every rotation,
+hop and all, is in `rotations_2026-08.csv`; `work/fetch_fr24_tracks.py` is what turns a
+hop into a tracked sector.
 
 ## What the month looks like
 

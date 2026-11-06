@@ -26,10 +26,11 @@ flight the carrier filed that month: **430 flights**, **1,021 h 58 min** airborn
 | `tracks/` | 431 raw Flightradar24 exports, one CSV per flight, unedited |
 | `tracks/manifest.csv` | one row per track file: flight id, number, callsign, route, registration, aircraft, actual and scheduled times, point count, SHA-256 |
 | `flights_2026-06.csv` | one row per flight leg — 430 rows — with off/on times in UTC and local, airborne minutes, flown distance, max altitude, whether the track is complete, where its times came from, and the track file behind each row |
+| `rotations_2026-06.csv` | one row per airframe rotation — 143 rows — with the airport chain it flew, the sectors it has a track for, and any sector the record is missing |
 | `aeroroutes_2026-06.md` | the month's log in AeroRoutes notation, plus a route summary and the track-coverage notes |
 | `sources.json` | the exact files that were read, their sizes and checksums |
 
-`flights_2026-06.csv`, `aeroroutes_2026-06.md` and `sources.json` are generated:
+`flights_2026-06.csv`, `rotations_2026-06.csv`, `aeroroutes_2026-06.md` and `sources.json` are generated:
 
 ```bash
 python3 work/fr24_tracks.py --month 2026-06
@@ -62,6 +63,31 @@ own actual times. Across the 427 flights where both exist they agree to a median
 of **1.4 minutes** at departure and **2.9 minutes** at arrival, with a worst case
 of 13 minutes. The difference is what you would expect between "airborne" and
 "off blocks", which is why the log uses the former and says so.
+
+## Rotations
+
+The airframe-by-airframe view: **143 rotations**, 119 with every sector of the
+chain present in the record. The other **24** hold **24 hops** between them — a
+sector the movement board never listed, because the aircraft puts down at one
+airport and is next heard from at another:
+
+| hop | times |
+|---|---|
+| LUN–HRE | 8 |
+| ZNZ–JRO | 6 |
+| HRE–LUN | 4 |
+| JRO–ZNZ | 4 |
+| EBB–BJM | 1 |
+| EBB–DAR | 1 |
+
+Those hops are the tag sectors behind the fifth-freedom question: the widebody's
+Harare run is flown Entebbe–Harare–Lusaka–Harare–Lusaka–Entebbe, and only the
+transit Lusaka–Harare–Lusaka was being enumerated; the Zanzibar run carries the
+same shape at Kilimanjaro. The month's log keeps each hop in place and brackets the
+airport only reachable through it, `EBB–HRE–[LUN]–EBB`, so a rotation reads from
+first departure to last arrival rather than as two orphan legs. Every rotation,
+hop and all, is in `rotations_2026-06.csv`; `work/fetch_fr24_tracks.py` is what turns a
+hop into a tracked sector.
 
 ## Coverage, and what to be careful with
 

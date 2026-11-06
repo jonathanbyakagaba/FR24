@@ -12,6 +12,7 @@ month's Flightradar24 track exports (`archive/2026-08/tracks/`, 620 files).
 | distance flown | 1,049,216 km (complete tracks only) |
 | track coverage | 613 of 619 flights end to end |
 | city pairs | 26 directional / 14 undirected |
+| rotations | 152 (41 with an untracked hop) |
 | airframes | 5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-APL |
 | types | A338, B738, CRJ9 |
 
@@ -182,6 +183,67 @@ UR209 NBO2357 – 0042(+1)EBB CRJ9 124567
 | LGW-EBB | 13 | 3 | A330-800 | 6457 | 487 |
 | EBB-BOM | 9 | 2 | A330-800 | 4890 | 377 |
 | BOM-EBB | 9 | 2 | A330-800 | 4890 | 343 |
+
+## Rotations
+
+A rotation is one airframe's day of flying, its legs chained in order: 152
+this month, 111 with every sector of the chain in the record. In the 41 below,
+the aircraft puts down at one airport and is next heard from at another, so it
+must have flown a sector the movement board does not hold — 47 such hops. They
+are kept in place rather than dropped, so a rotation reads from its first
+departure to its last arrival instead of breaking into orphan sectors. The
+airport that is only reachable through a hop is bracketed in the chain, and
+work/fetch_fr24_tracks.py goes and fetches the sector itself where
+Flightradar24 credentials allow, after which the brackets come off on the next
+rebuild.
+
+```
+EBB–HRE  UR720  →  HRE–[LUN]  →  LUN–EBB  UR721      one rotation
+```
+
+| rotation | aircraft | chain | legs | first off – last on (EBB) |
+|---|---|---|---|---|
+| ET-APL-20260801 | ET-APL B738 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 01AUG26 09:46 – 02AUG 05:23 |
+| 5X-KOB-20260801 | 5X-KOB CRJ9 | EBB–HRE–[LUN]–EBB–DAR | 3 | 01AUG26 13:42 – 02AUG 03:04 |
+| 5X-EQU-20260802 | 5X-EQU CRJ9 | EBB–MGQ–EBB–DAR–EBB–NBO–EBB–LUN–[HRE]–EBB | 8 | 02AUG26 05:10 – 03AUG 04:54 |
+| 5X-KDP-20260802 | 5X-KDP CRJ9 | EBB–ZNZ–[JRO]–EBB–BJM–EBB–NBO–EBB | 6 | 02AUG26 09:25 – 03AUG 02:12 |
+| 5X-KOB-20260803 | 5X-KOB CRJ9 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 03AUG26 09:32 – 04AUG 05:21 |
+| ET-APL-20260804 | ET-APL B738 | EBB–HRE–[LUN]–EBB–JNB | 3 | 04AUG26 13:08 – 05AUG 03:52 |
+| 5X-KOB-20260805 | 5X-KOB CRJ9 | EBB–JUB–EBB–ZNZ–[JRO]–EBB–MBA–EBB | 6 | 05AUG26 07:14 – 23:44 |
+| 5X-KDP-20260805 | 5X-KDP CRJ9 | EBB–HRE–[LUN]–EBB | 2 | 05AUG26 12:31 – 20:11 |
+| ET-APL-20260806 | ET-APL B738 | EBB–HRE–[LUN]–EBB–LOS | 3 | 06AUG26 14:13 – 07AUG 03:43 |
+| 5X-KOB-20260807 | 5X-KOB CRJ9 | JNB–EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN–[HRE]–EBB | 7 | 07AUG26 04:09 – 08AUG 05:11 |
+| ET-APL-20260808 | ET-APL B738 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 08AUG26 09:43 – 09AUG 05:23 |
+| 5X-KOB-20260808 | 5X-KOB CRJ9 | EBB–HRE–[LUN]–EBB | 2 | 08AUG26 13:13 – 21:17 |
+| 5X-KOB-20260809 | 5X-KOB CRJ9 | EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN–[HRE]–EBB | 6 | 09AUG26 09:15 – 10AUG 04:57 |
+| 5X-KOB-20260810 | 5X-KOB CRJ9 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 10AUG26 09:43 – 11AUG 05:42 |
+| ET-APL-20260811 | ET-APL B738 | EBB–HRE–[LUN]–EBB–JNB | 3 | 11AUG26 13:12 – 12AUG 02:39 |
+| 5X-KOB-20260812 | 5X-KOB CRJ9 | EBB–JUB–EBB–ZNZ–[JRO]–EBB–MBA–EBB | 6 | 12AUG26 07:01 – 23:50 |
+| 5X-KDP-20260812 | 5X-KDP CRJ9 | EBB–HRE–[LUN]–EBB | 2 | 12AUG26 12:31 – 20:27 |
+| ET-APL-20260813 | ET-APL B738 | EBB–HRE–[LUN]–EBB–LOS | 3 | 13AUG26 13:39 – 14AUG 04:09 |
+| 5X-KDP-20260814 | 5X-KDP CRJ9 | JNB–EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN–[HRE]–EBB | 7 | 14AUG26 05:50 – 15AUG 05:05 |
+| 5X-KDP-20260815 | 5X-KDP CRJ9 | EBB–LUN–[HRE]–EBB | 2 | 15AUG26 21:42 – 16AUG 05:23 |
+| 5X-KDP-20260816 | 5X-KDP CRJ9 | EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN | 5 | 16AUG26 09:31 – 23:38 |
+| 5X-KOB-20260817 | 5X-KOB CRJ9 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 17AUG26 10:00 – 18AUG 05:30 |
+| ET-APL-20260818 | ET-APL B738 | JNB–EBB–HRE–[LUN]–EBB–JNB | 4 | 18AUG26 05:34 – 19AUG 04:42 |
+| 5X-KDP-20260819 | 5X-KDP CRJ9 | EBB–NBO–EBB–ZNZ–[JRO]–EBB–MBA–EBB | 6 | 19AUG26 09:50 – 23:30 |
+| 5X-KOB-20260819 | 5X-KOB CRJ9 | EBB–HRE–[LUN]–EBB–DAR–EBB | 4 | 19AUG26 12:20 – 20AUG 02:19 |
+| ET-APL-20260820 | ET-APL B738 | EBB–HRE–[LUN]–EBB–LOS | 3 | 20AUG26 13:50 – 21AUG 03:42 |
+| 5X-KDP-20260821 | 5X-KDP CRJ9 | JNB–EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN–[HRE]–EBB | 7 | 21AUG26 05:36 – 22AUG 04:58 |
+| ET-APL-20260822 | ET-APL B738 | LOS–EBB–JNB–EBB–LUN–[HRE]–EBB | 5 | 22AUG26 05:10 – 23AUG 05:30 |
+| 5X-KDP-20260822 | 5X-KDP CRJ9 | EBB–HRE–[LUN]–EBB–DAR–EBB | 4 | 22AUG26 13:22 – 23AUG 03:50 |
+| 5X-KDP-20260823 | 5X-KDP CRJ9 | EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN–[HRE]–EBB | 6 | 23AUG26 09:54 – 24AUG 05:16 |
+| 5X-KOB-20260824 | 5X-KOB CRJ9 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 24AUG26 09:49 – 25AUG 05:32 |
+| ET-APL-20260825 | ET-APL B738 | JNB–EBB–HRE–[LUN]–EBB–JNB | 4 | 25AUG26 05:43 – 26AUG 02:32 |
+| 5X-EQU-20260825 | 5X-EQU CRJ9 | EBB–NBO–EBB–[JUB]–EBB | 3 | 25AUG26 08:25 – 16:50 |
+| 5X-EQU-20260826 | 5X-EQU CRJ9 | EBB–NBO–EBB–HRE–[LUN]–EBB–DAR–EBB | 6 | 26AUG26 07:55 – 27AUG 02:20 |
+| 5X-KDP-20260826 | 5X-KDP CRJ9 | EBB–ZNZ–[JRO]–EBB–BJM–EBB | 4 | 26AUG26 09:16 – 18:44 |
+| ET-APL-20260827 | ET-APL B738 | EBB–HRE–[LUN]–EBB–LOS | 3 | 27AUG26 14:01 – 28AUG 03:06 |
+| 5X-EQU-20260828 | 5X-EQU CRJ9 | EBB–NBO–EBB–BJM–EBB–LUN–[HRE]–EBB | 6 | 28AUG26 08:06 – 29AUG 05:06 |
+| 5X-KDP-20260828 | 5X-KDP CRJ9 | EBB–ZNZ–[JRO]–EBB–NBO–EBB–DAR–EBB | 6 | 28AUG26 09:51 – 29AUG 02:10 |
+| ET-APL-20260829 | ET-APL B738 | EBB–JNB–EBB–LUN–[HRE]–EBB | 4 | 29AUG26 09:38 – 30AUG 05:22 |
+| 5X-EQU-20260829 | 5X-EQU CRJ9 | EBB–HRE–[LUN]–EBB | 2 | 29AUG26 13:00 – 21:08 |
+| 5X-KDP-20260830 | 5X-KDP CRJ9 | EBB–ZNZ–[JRO]–EBB–BJM–EBB–LUN–[HRE]–EBB | 6 | 30AUG26 09:21 – 31AUG 05:21 |
 
 ## Track coverage
 
