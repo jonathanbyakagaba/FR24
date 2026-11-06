@@ -191,6 +191,23 @@ def build_issue_comment(state: dict, status: str, run_url: str = "",
     return "\n".join(lines) + "\n"
 
 
+def build_test_message() -> tuple[str, str]:
+    """What a one-click delivery test sends."""
+    subject = "FR24 sync: test message"
+    body = "\n".join([
+        "Uganda Airlines archive — mailbox test",
+        "",
+        "If you are reading this, the nightly sync will reach you: the same",
+        "credentials, the same transport, the same address. Nothing was fetched",
+        "and nothing was committed to make it happen.",
+        "",
+        "The next real run reports itself here, whether it fills the archive or",
+        "finds that nothing moved.",
+        "",
+    ])
+    return subject, body
+
+
 def worth_sending(state: dict, status: str, mode: str) -> bool:
     if mode == "never":
         return False
@@ -217,11 +234,24 @@ class Config:
     api_base: str = ""
 
 
+def _clean_secret(value: str | None) -> str:
+    """Undo what a clipboard does to an app password.
+
+    Google shows them as four groups of four; the spaces are not part of the
+    password. People also paste the quotes their shell or editor put around it,
+    and a trailing newline comes along for free. Any of those turns a correct
+    password into an authentication failure at 04:30 in the morning.
+    """
+    text = (value or "").strip().strip("'\"")
+    return text.replace(" ", "").replace("\u00a0", "") if text else ""
+
+
 def config_from_env() -> Config | None:
-    user = (os.environ.get("MAIL_USER") or "").strip()
-    password = (os.environ.get("MAIL_PASS") or "").strip()
+    user = (os.environ.get("MAIL_USER") or "").strip().strip("'\"")
+    password = _clean_secret(os.environ.get("MAIL_PASS"))
     # mail yourself unless told otherwise: a login is a recipient
-    mail_to = (os.environ.get("MAIL_TO") or "").strip() or (user if password else "")
+    mail_to = ((os.environ.get("MAIL_TO") or "").strip().strip("'\"")
+               or (user if password else ""))
     mail_from = (os.environ.get("MAIL_FROM") or "").strip() or user or "fr24-archive@localhost"
     if not mail_to:
         return None
@@ -341,9 +371,15 @@ def main(argv=None) -> int:
                         help="print the message instead of sending it")
     parser.add_argument("--format", choices=("text", "issue"), default="text",
                         help="text for an email, issue for a Markdown comment")
+    parser.add_argument("--test", action="store_true",
+                        help="send a delivery test instead of a run summary")
     parser.add_argument("--always-exit-0", action="store_true",
                         help="never fail, whatever the transport does")
     args = parser.parse_args(argv)
+
+    if args.test:
+        return _deliver(*build_test_message(), dry_run=args.dry_run,
+                        always_exit_0=args.always_exit_0)
 
     state = read_state(Path(args.state))
     if not worth_sending(state, args.status, args.mode):
@@ -357,8 +393,14 @@ def main(argv=None) -> int:
         return 0
 
     subject, body = build_message(state, args.status, args.run_url, args.repo)
+    return _deliver(subject, body, dry_run=args.dry_run,
+                    always_exit_0=args.always_exit_0)
 
-    if args.dry_run:
+
+def _deliver(subject: str, body: str, dry_run: bool = False,
+             always_exit_0: bool = False) -> int:
+    """Print, or send, and decide what a failure here is worth."""
+    if dry_run:
         print(f"To: (dry run)\nSubject: {subject}\n\n{body}")
         return 0
 
@@ -373,7 +415,7 @@ def main(argv=None) -> int:
     except Exception as error:  # noqa: BLE001 - a mail problem is not the night's problem
         print(f"could not send the mail via {config.transport}: "
               f"{type(error).__name__}: {error}", file=sys.stderr)
-        return 0 if args.always_exit_0 else 1
+        return 0 if always_exit_0 else 1
     print(f"sent to {describe(config)}: {subject}")
     return 0
 

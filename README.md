@@ -164,7 +164,8 @@ A job that runs unseen is a job you stop trusting, so every run reports itself.
 There are two routes, and the first needs no password at all.
 
 **The issue log — nothing to set up.** Each night's summary is posted as a comment
-on a *Nightly sync log* issue, which the first run creates. GitHub sends the
+on an issue — the existing *FR24-status* thread if there is one, otherwise a new
+*Nightly sync log* issue the first run creates. GitHub sends the
 notification, so it reaches you however your notification settings say — email,
 phone, or the bell — and the issue itself becomes a running history of the archive.
 It is on by default whenever no mailbox is configured. To stop it, set the
@@ -180,6 +181,12 @@ Secrets and variables → Actions*):
 
 The mail goes to that address unless `SYNC_MAIL_TO` says otherwise. Adding these
 turns the issue log off; set the variable `SYNC_LOG=issue` to have both.
+
+**Checking the mailbox takes ten seconds.** Actions → *sync* → **Run workflow** →
+tick **mail_test** → Run. That job does nothing but send a test message with the
+same credentials and transport as the real thing, so a delivery problem surfaces
+now rather than at 04:30. Two things it forgives: the spaces Gmail puts between
+the four groups of an app password, and quotes pasted around it.
 
 **If Gmail will not give you an app password**, the usual reasons are:
 
