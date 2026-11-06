@@ -1,3 +1,0 @@
-airport,ident,thr_lat,thr_lon,far_lat,far_lon,heading_degT,length_m,source,evidence
-HUEN,17,0.055647088,32.436212092,0.022859619,32.440764014,172.1,3681,fleet roll fit,3006 ground-roll fixes fit a straight line (SD 2.1 m) sitting -35 m / +38 m off the published line and 1.14° rotated; OpenStreetMap way 5089872 agrees to 1.8 m
-HUEN,35,0.02286105,32.440772884,0.05564995,32.436229832,352.11,3681,fleet roll fit,307 ground-roll fixes fit a straight line (SD 1.4 m) sitting -37 m / +37 m off the published line and 1.15° rotated
