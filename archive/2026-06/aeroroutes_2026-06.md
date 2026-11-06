@@ -8,7 +8,9 @@ month's Flightradar24 track exports (`archive/2026-06/tracks/`, 431 files).
 | operator | Uganda Airlines (UR / UGD) |
 | period | 01JUN26 – 30JUN26 |
 | flights | 430 |
-| airborne | 1,021 h 53 min |
+| airborne | 1,021 h 58 min |
+| distance flown | 826,292 km (complete tracks only) |
+| track coverage | 429 of 430 flights end to end |
 | city pairs | 28 directional / 14 undirected |
 | airframes | 5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-APL |
 | types | A338, B738, CRJ9 |
@@ -184,14 +186,23 @@ UR334 ZNZ1718 – 1843EBB CRJ9 7
 | EBB-JRO | 6 | 2 | CRJ900 | 643 | 55 |
 | ZNZ-EBB | 4 | 1 | CRJ900 | 1025 | 82 |
 
-## Track anomalies
+## Track coverage
 
-The log follows the track, not the flight record. Where the two disagree —
-a track that stops short of its destination, or a sector flown under a
-through flight number — the line above shows what the aircraft did, and the
-note here says how that differs from the record the track was filed under.
+1 of the 430 flights have a track that covers only part of
+the flight: the export starts after take-off, stops in the cruise, or both.
+They are still logged — the flight happened and its days are not in doubt.
+The route comes from the flight record; the times come from the movement board's actual times (1 flights).
 
-| flight | date | logged as | note |
+| flight | date | logged as | times from | what the track covers |
+|---|---|---|---|---|
+| UR520 | 2026-06-16 | EBB-MGQ | board, actual | track incomplete |
+
+## Route discrepancies
+
+Sectors the aircraft flew under a through flight number, where the track
+shows a landing the flight record does not name. The log follows the track.
+
+| flight | date | logged as | flight record |
 |---|---|---|---|
-| UR334 | 2026-06-12 | EBB-JRO | filed as EBB-ZNZ, track EBB-JRO |
-| UR334 | 2026-06-19 | EBB-JRO | filed as EBB-ZNZ, track EBB-JRO |
+| UR334 | 2026-06-12 | EBB-JRO | EBB-ZNZ |
+| UR334 | 2026-06-19 | EBB-JRO | EBB-ZNZ |

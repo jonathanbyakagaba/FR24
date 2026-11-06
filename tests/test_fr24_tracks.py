@@ -60,23 +60,46 @@ class BuildLegsTests(unittest.TestCase):
         gc = fr24.load_gc_distances()["EBB-JNB"]
         self.assertAlmostEqual(self.legs[0].distance_km, gc, delta=1)
 
-    def test_gap_splits_a_track(self):
-        """One callsign flying EBB-NBO twice in a day becomes two legs, not one."""
-        base = datetime(2026, 6, 1, 0, 0, tzinfo=timezone.utc)
-        start, end = (0.042386, 32.443501), (-1.318886, 36.928233)
+    @staticmethod
+    def _trip(base, start, end, *, ground_altitude=None):
+        """A straight 10-point run from start to end, optionally on the ground."""
         points = []
-        for trip in range(2):
-            offset = timedelta(hours=4 * trip)
-            for i in range(11):
-                fraction = i / 10
-                points.append(fr24.Point(
-                    ts=base + offset + timedelta(minutes=6 * i),
-                    lat=start[0] + (end[0] - start[0]) * fraction,
-                    lon=start[1] + (end[1] - start[1]) * fraction,
-                    altitude=30000, onground=False, callsign="UR900"))
+        for i in range(11):
+            fraction = i / 10
+            grounded = ground_altitude is not None and i in (0, 10)
+            points.append(fr24.Point(
+                ts=base + timedelta(minutes=6 * i),
+                lat=start[0] + (end[0] - start[0]) * fraction,
+                lon=start[1] + (end[1] - start[1]) * fraction,
+                altitude=ground_altitude if grounded else 30000,
+                speed=5 if grounded else 450,
+                onground=grounded,
+                callsign="UR900"))
+        return points
+
+    def test_a_ground_stop_splits_a_track(self):
+        """EBB-NBO, sit on the ground, NBO-EBB: two legs."""
+        base = datetime(2026, 6, 1, 0, 0, tzinfo=timezone.utc)
+        ebb, nbo = (0.042386, 32.443501), (-1.318886, 36.928233)
+        points = self._trip(base, ebb, nbo, ground_altitude=0) + \
+            self._trip(base + timedelta(minutes=130), nbo, ebb, ground_altitude=0)
         legs = fr24.build_legs(points, self.airports, self.fleet)
         self.assertEqual(len(legs), 2)
-        self.assertTrue(all(leg.route == "EBB-NBO" for leg in legs))
+        self.assertEqual([leg.route for leg in legs], ["EBB-NBO", "NBO-EBB"])
+        self.assertTrue(all(leg.track_complete for leg in legs))
+
+    def test_a_coverage_hole_does_not_split_a_track(self):
+        """A gap in the middle of one flight is a hole, not a landing."""
+        base = datetime(2026, 6, 1, 0, 0, tzinfo=timezone.utc)
+        ebb, nbo = (0.042386, 32.443501), (-1.318886, 36.928233)
+        # wheels up out of EBB, nothing recorded for two and a half hours, then
+        # back on the air and down at NBO
+        first = self._trip(base, ebb, nbo, ground_altitude=0)[:6]
+        second = self._trip(base + timedelta(hours=3), ebb, nbo, ground_altitude=0)[5:]
+        legs = fr24.build_legs(first + second, self.airports, self.fleet)
+        self.assertEqual(len(legs), 1)
+        self.assertFalse(legs[0].track_complete)
+        self.assertIn("hole en route", legs[0].note)
 
 
 class ManifestTests(unittest.TestCase):
@@ -139,7 +162,12 @@ class RenderTests(unittest.TestCase):
         self.assertIn("*eff 01JUN26* 1 weekly A330-800", self.log)
 
     def test_period(self):
-        self.assertIn("| period | 01JUN26 – 30JUN26 |", self.log)
+        """The fixture covers two days, so the period says so rather than
+        claiming the whole calendar month."""
+        self.assertIn("| period | 01JUN26 – 02JUN26 (part month, 2 days) |", self.log)
+
+    def test_track_coverage_line(self):
+        self.assertIn("| track coverage | 4 of 4 flights end to end |", self.log)
 
     def test_distance_falls_back_to_coordinates(self):
         """Routes missing from reference/route_distances.csv still get a distance."""

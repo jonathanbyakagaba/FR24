@@ -1,17 +1,18 @@
 # June 2026
 
 Uganda Airlines' June 2026 operation, rebuilt from the position tracks of every
-flight the carrier filed that month: **430 flights**, **1,021 h 53 min** airborne,
-**827,771 km** flown, across **14 city pairs**.
+flight the carrier filed that month: **430 flights**, **1,021 h 58 min** airborne,
+**826,292 km** flown, across **14 city pairs**.
 
 | | |
 |---|---|
 | operator | Uganda Airlines (UR / UGD) |
 | window | 01JUN26 – 30JUN26, by local departure date |
 | flights logged | 430 |
-| airborne | 1,021 h 53 min |
-| distance flown | 827,771 km (summed from the track positions, not great circles) |
+| airborne | 1,021 h 58 min |
+| distance flown | 826,292 km (summed from the track positions, complete tracks only) |
 | city pairs | 28 directional / 14 undirected |
+| track coverage | 429 of 430 flights end to end |
 | airframes | 5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-APL |
 | types | A330-800 (38 flights), 737-800 (71), CRJ900 (321) |
 | median flight | 1 h 27 min |
@@ -23,9 +24,9 @@ flight the carrier filed that month: **430 flights**, **1,021 h 53 min** airborn
 | file | what it is |
 |---|---|
 | `tracks/` | 431 raw Flightradar24 exports, one CSV per flight, unedited |
-| `tracks/manifest.csv` | one row per track file: flight id, number, callsign, route, registration, aircraft, actual times, point count, SHA-256 |
-| `flights_2026-06.csv` | one row per flight leg — 430 rows — with off/on times in UTC and local, airborne minutes, flown distance, max altitude and the track file it came from |
-| `aeroroutes_2026-06.md` | the month's log in AeroRoutes notation, plus a route summary and a note on every anomalous track |
+| `tracks/manifest.csv` | one row per track file: flight id, number, callsign, route, registration, aircraft, actual and scheduled times, point count, SHA-256 |
+| `flights_2026-06.csv` | one row per flight leg — 430 rows — with off/on times in UTC and local, airborne minutes, flown distance, max altitude, whether the track is complete, where its times came from, and the track file behind each row |
+| `aeroroutes_2026-06.md` | the month's log in AeroRoutes notation, plus a route summary and the track-coverage notes |
 | `sources.json` | the exact files that were read, their sizes and checksums |
 
 `flights_2026-06.csv`, `aeroroutes_2026-06.md` and `sources.json` are generated:
@@ -57,17 +58,21 @@ Two things follow from that route into the archive:
 
 The off and on times in `flights_2026-06.csv` are read out of the tracks. They
 can be checked against something the tracks did not produce: the movement board's
-own actual times. Across the 428 flights where both exist they agree to a median
+own actual times. Across the 427 flights where both exist they agree to a median
 of **1.4 minutes** at departure and **2.9 minutes** at arrival, with a worst case
 of 13 minutes. The difference is what you would expect between "airborne" and
 "off blocks", which is why the log uses the former and says so.
 
 ## Coverage, and what to be careful with
 
-- **429 of the 431 exports run end to end**, from one airport to the other. Two
-  do not: UR334 on 12 and 19 June was filed Entebbe–Zanzibar but the track stops
-  at Kilimanjaro, 392 km short. The log records what the aircraft flew
-  (Entebbe–Kilimanjaro) and flags the difference under *Track anomalies*.
+- **429 of the 430 flights have a track that runs end to end**; the one that does
+  not is timed from the movement board's actual times and listed under *Track
+  coverage* in the log.
+- **Two UR334 sectors are logged somewhere other than the flight record says.**
+  On 12 and 19 June the flight was filed Entebbe–Zanzibar, but the track shows
+  the aircraft landing at Kilimanjaro and stopping there. The log records what it
+  flew (Entebbe–Kilimanjaro) and flags the difference under *Route
+  discrepancies*.
 - **One export belongs to May.** UR111 departed Gatwick on 31 May and landed at
   Entebbe on 1 June; logged by departure date it is a May flight, so it is not
   in this month's 430. 21 of the 430 flights land on the day after they depart.

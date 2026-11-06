@@ -3,6 +3,7 @@
   "generator": "work/fr24_tracks.py",
   "flights_logged": 430,
   "legs_dropped_outside_month": 1,
+  "exports_without_a_leg": [],
   "sources": [
     {
       "file": "UR110-3ffb5041.csv",

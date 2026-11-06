@@ -28,7 +28,8 @@ ROOT = Path(__file__).resolve().parent.parent
 
 MANIFEST_COLUMNS = [
     "file", "flight_id_hex", "number", "callsign", "date", "from", "to",
-    "registration", "aircraft", "atd_utc", "ata_utc", "track_points", "sha256",
+    "registration", "aircraft", "atd_utc", "ata_utc", "std_utc", "sta_utc",
+    "track_points", "sha256",
 ]
 
 
@@ -107,6 +108,8 @@ def main(argv=None) -> int:
             "aircraft": target.get("aircraft", ""),
             "atd_utc": board_row.get("atod_utc", ""),
             "ata_utc": board_row.get("atoa_utc", ""),
+            "std_utc": board_row.get("stod_utc", ""),
+            "sta_utc": board_row.get("stoa_utc", ""),
             "track_points": count_points(source_file),
             "sha256": hashlib.sha256(source_file.read_bytes()).hexdigest(),
         })

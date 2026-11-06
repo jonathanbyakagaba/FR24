@@ -9,7 +9,7 @@ airport, one per runway, one per airframe.
 | `runways.csv` | 86 | runway geometry and orientation for those airports | OurAirports — **public domain** |
 | `route_distances.csv` | 29 | great-circle distance per route pair, in km and nm, with the haul band | our own calculation from the airport coordinates |
 | `airport_timezones.csv` | 47 | IANA time zone and June UTC offset per airport, so the log can show local clock times | [IANA time zone database](https://www.iana.org/time-zones) — **public domain**, via Python's `zoneinfo` |
-| `fleet.csv` | 5 | the airframes that flew in June 2026: type, ownership, role | registration and type read out of the tracks; ownership and role from the operator |
+| `fleet.csv` | 6 | every airframe that has appeared in the archive: type, ownership, role | registration and type read out of the tracks; ownership and role from the operator |
 | `weather_2026-10.csv` | 20,945 | published surface observations (METAR) for 40 airports, matching the log's window | Iowa Environmental Mesonet ASOS archive — US government public-domain data, free to redistribute |
 
 **Why these are in the repository.** Every number in the log and in the runway

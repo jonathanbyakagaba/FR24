@@ -207,6 +207,7 @@ class Point:
     lat: float
     lon: float
     altitude: float | None = None
+    speed: float | None = None
     onground: bool | None = None
     callsign: str = ""
     registration: str = ""
@@ -288,6 +289,12 @@ def read_export(path: Path) -> list[Point]:
                     lat, lon = float(m.group(1)), float(m.group(2))
             if lat is None or lon is None:
                 continue
+            speed = None
+            if "speed" in cols:
+                try:
+                    speed = float(str(row[cols["speed"]]).replace(",", ""))
+                except (TypeError, ValueError):
+                    speed = None
             altitude = None
             if "altitude" in cols:
                 try:
@@ -295,7 +302,7 @@ def read_export(path: Path) -> list[Point]:
                 except (TypeError, ValueError):
                     altitude = None
             points.append(Point(
-                ts=ts, lat=lat, lon=lon, altitude=altitude,
+                ts=ts, lat=lat, lon=lon, altitude=altitude, speed=speed,
                 onground=_parse_bool(row.get(cols["onground"])) if "onground" in cols else None,
                 callsign=(row.get(cols["callsign"], "") if "callsign" in cols else "").strip().upper(),
                 registration=(row.get(cols["registration"], "") if "registration" in cols else "").strip().upper(),
@@ -334,6 +341,11 @@ class Leg:
     flight_id: str = ""
     # how far the track stops short of an airport it never reached, in km
     gap_km: float = 0.0
+    # "track" when the off/on times are read out of the track, "record" when the
+    # track was too short and the movement board's actual times were used instead
+    time_source: str = "track"
+    # true when the track starts and ends on the ground at an airport
+    track_complete: bool = True
     # anything worth saying about this leg: a truncated track, or a track that
     # contradicts the flight record it was filed under
     note: str = ""
@@ -380,6 +392,34 @@ def _airborne_window(points: list[Point], origin: Airport | None, destination: A
     return start, end
 
 
+def _on_the_ground(airports, point: Point) -> Airport | None:
+    """The airport an endpoint sits on, if the aircraft is actually down there.
+
+    A nearest-airport lookup on its own is not enough: a track cut off in the
+    cruise will still find some airport a few kilometres below it. Requiring the
+    endpoint to be low and slow keeps overflights out of the log.
+    """
+    airport = nearest_airport(airports, point.lat, point.lon)
+    if airport is None:
+        return None
+    if point.onground:
+        return airport
+    # low over the field is enough: a track that ends on the landing roll is
+    # still on 130 knots and a few hundred feet up when the export stops
+    low = point.altitude is not None and point.altitude <= airport.elevation_ft + 2000
+    return airport if low else None
+
+
+def _parse_iso(value: str) -> datetime | None:
+    value = (value or "").strip()
+    if not value:
+        return None
+    try:
+        return datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return None
+
+
 def _airport_by_code(airports, code: str) -> Airport | None:
     code = (code or "").strip().upper()
     if not code:
@@ -410,6 +450,19 @@ def build_legs(points: list[Point], airports, fleet: dict[str, str],
                 current.append(point)
         segments.append(current)
 
+        # A gap in coverage is not a stop. Only re-open the flight where the
+        # aircraft is on the ground at an airport on both sides of the gap;
+        # otherwise the pieces are one flight with a hole in the middle.
+        joined = [segments[0]]
+        for segment in segments[1:]:
+            before = _on_the_ground(airports, joined[-1][-1])
+            after = _on_the_ground(airports, segment[0])
+            if before and after and before.ident == after.ident:
+                joined.append(segment)
+            else:
+                joined[-1] = joined[-1] + segment
+        segments = joined
+
         for segment in segments:
             if len(segment) < MIN_POINTS:
                 continue
@@ -418,20 +471,51 @@ def build_legs(points: list[Point], airports, fleet: dict[str, str],
             if distance < MIN_KM:
                 continue
 
-            # The track decides the route: where the aircraft actually started
-            # and stopped. The flight record is the fallback and the cross-check,
-            # because a track can stop early (a receiver gap on approach, or a
-            # sector flown on a through flight number).
-            tracked_origin = nearest_airport(airports, segment[0].lat, segment[0].lon)
-            tracked_destination = nearest_airport(airports, segment[-1].lat, segment[-1].lon)
+            # Where did the aircraft actually start and stop?
+            #
+            # An endpoint that is on the ground at an airport wins over the
+            # flight record, because that is how a sector flown under a through
+            # flight number (Entebbe-Zanzibar-JRO) shows up. Where the track
+            # never reaches the ground, the record is the better evidence and
+            # the track is only a partial record of the flight.
+            grounded_origin = _on_the_ground(airports, segment[0])
+            grounded_destination = _on_the_ground(airports, segment[-1])
             recorded_origin = _airport_by_code(airports, meta.get("from", ""))
             recorded_destination = _airport_by_code(airports, meta.get("to", ""))
-            origin = tracked_origin or recorded_origin
-            destination = tracked_destination or recorded_destination
-            if origin is None or destination is None or origin.ident == destination.ident:
+            origin = grounded_origin or recorded_origin \
+                or nearest_airport(airports, segment[0].lat, segment[0].lon)
+            destination = grounded_destination or recorded_destination \
+                or nearest_airport(airports, segment[-1].lat, segment[-1].lon)
+            if origin is None or destination is None:
                 continue
+            if origin.ident == destination.ident:
+                # both ends over the same field: a track cut off after departure
+                # or before landing, so fall back on the record for the far end
+                origin = recorded_origin or origin
+                destination = recorded_destination or destination
+                if origin.ident == destination.ident:
+                    continue
 
+            endpoints_grounded = bool(grounded_origin and grounded_destination)
+            # a flight whose track jumps en route is not measured end to end
+            hole = any((b.ts - a.ts) > LEG_GAP for a, b in zip(segment, segment[1:]))
+            track_complete = endpoints_grounded and not hole
+            recorded_takeoff = _parse_iso(meta.get("atd_utc", ""))
+            recorded_landing = _parse_iso(meta.get("ata_utc", ""))
             takeoff, landing = _airborne_window(segment, origin, destination)
+            time_source = "track"
+            if not endpoints_grounded:
+                # the board's actual times are block times, a few minutes either
+                # side of airborne, but far closer than a truncated track
+                if recorded_takeoff and recorded_landing:
+                    takeoff, landing = recorded_takeoff, recorded_landing
+                    time_source = "record"
+                else:
+                    scheduled_takeoff = _parse_iso(meta.get("std_utc", ""))
+                    scheduled_landing = _parse_iso(meta.get("sta_utc", ""))
+                    if scheduled_takeoff and scheduled_landing:
+                        takeoff, landing = scheduled_takeoff, scheduled_landing
+                        time_source = "schedule"
             registration = (meta.get("registration") or "").strip().upper()
             if not registration:
                 found = Counter(p.registration for p in segment if p.registration).most_common(1)
@@ -446,13 +530,19 @@ def build_legs(points: list[Point], airports, fleet: dict[str, str],
 
             # where the track stops short of an airport, or contradicts the record
             notes, gap = [], 0.0
-            if tracked_origin is None:
-                gap = great_circle_km(segment[0].lat, segment[0].lon, origin.lat, origin.lon)
-                notes.append(f"track starts {gap:.0f} km from {origin.code}")
-            if tracked_destination is None:
-                gap = great_circle_km(segment[-1].lat, segment[-1].lon,
-                                      destination.lat, destination.lon)
-                notes.append(f"track stops {gap:.0f} km short of {destination.code}")
+            if not endpoints_grounded:
+                start_gap = great_circle_km(segment[0].lat, segment[0].lon,
+                                            origin.lat, origin.lon)
+                end_gap = great_circle_km(segment[-1].lat, segment[-1].lon,
+                                          destination.lat, destination.lon)
+                gap = max(start_gap, end_gap)
+                if start_gap > AIRPORT_RADIUS_KM:
+                    notes.append(f"track picks the flight up {start_gap:.0f} km out")
+                if end_gap > AIRPORT_RADIUS_KM:
+                    notes.append(f"track stops {end_gap:.0f} km short")
+            elif hole:
+                missing = max((b.ts - a.ts) for a, b in zip(segment, segment[1:]))
+                notes.append(f"track has a {round(missing.total_seconds() / 60)} minute hole en route")
             recorded = ""
             if recorded_origin and recorded_destination:
                 recorded = f"{recorded_origin.code}-{recorded_destination.code}"
@@ -468,6 +558,8 @@ def build_legs(points: list[Point], airports, fleet: dict[str, str],
                 source=source or Path(meta.get("file", "")).name,
                 flight_id=(meta.get("flight_id_hex") or "").strip(),
                 gap_km=round(gap, 1) if gap > AIRPORT_RADIUS_KM else 0.0,
+                time_source=time_source,
+                track_complete=track_complete,
                 note="; ".join(notes),
             ))
     return legs
@@ -512,8 +604,17 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
     month_label = f"{datetime(year, month_no, 1):%B %Y}"
     start = datetime(year, month_no, 1)
     end = datetime(year + month_no // 12, month_no % 12 + 1, 1) - timedelta(days=1)
-    period = (f"{start:%d}{MONTH_NAMES[start.month - 1]}{start:%y} – "
-              f"{end:%d}{MONTH_NAMES[end.month - 1]}{end:%y}")
+    # a month still in progress is dated by what it covers, not by the calendar
+    first_flight = min(leg.local_departure for leg in legs).date()
+    last_flight = max(leg.local_departure for leg in legs).date()
+    covered = first_flight == start.date() and last_flight == end.date()
+    if covered:
+        period = (f"{start:%d}{MONTH_NAMES[start.month - 1]}{start:%y} – "
+                  f"{end:%d}{MONTH_NAMES[end.month - 1]}{end:%y}")
+    else:
+        period = (f"{first_flight:%d}{MONTH_NAMES[first_flight.month - 1]}{first_flight:%y} – "
+                  f"{last_flight:%d}{MONTH_NAMES[last_flight.month - 1]}{last_flight:%y}"
+                  f" (part month, {len({leg.local_departure.date() for leg in legs})} days)")
 
     directions: dict[tuple[str, str], list[Leg]] = defaultdict(list)
     for leg in legs:
@@ -527,7 +628,11 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
     total_minutes = sum(leg.minutes for leg in legs)
     airframes = sorted({leg.registration for leg in legs if leg.registration})
     types = sorted({leg.type for leg in legs if leg.type})
-    anomalous = [leg for leg in legs if leg.note]
+    partial = [leg for leg in legs if not leg.track_complete]
+    discrepancies = [leg for leg in legs if "filed as" in leg.note]
+    from_record = [leg for leg in legs if leg.time_source == "record"]
+    from_schedule = [leg for leg in legs if leg.time_source == "schedule"]
+    flown_km = sum(leg.distance_km for leg in legs if leg.track_complete)
     sources = sources or []
 
     lines = [
@@ -543,6 +648,8 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
         f"| period | {period} |",
         f"| flights | {len(legs):,} |",
         f"| airborne | {total_minutes // 60:,} h {total_minutes % 60:02d} min |",
+        f"| distance flown | {flown_km:,.0f} km (complete tracks only) |",
+        f"| track coverage | {len(legs) - len(partial)} of {len(legs)} flights end to end |",
         f"| city pairs | {len(directions)} directional / "
         f"{len({frozenset(k) for k in directions})} undirected |",
         f"| airframes | {', '.join(airframes) if airframes else '—'} |",
@@ -599,7 +706,12 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
             code = (Counter(leg.type for leg in flight_legs if leg.type).most_common(1)
                     or [("", 0)])[0][0]
             name = flight_no if flight_no != "UNKNOWN" else "—"
-            lines.append(f"{name} {dep}{dep_time} – {arr_time}{carry}{arr} "
+            # a 3-letter code runs straight on from the time, as AeroRoutes writes
+            # it; anything longer (an airport with no IATA code) gets a space so
+            # the code and the clock cannot be read as one number
+            dep_field = f"{dep}{dep_time}" if len(dep) == 3 else f"{dep} {dep_time}"
+            arr_field = f"{arr_time}{carry}{arr}" if len(arr) == 3 else f"{arr_time}{carry} {arr}"
+            lines.append(f"{name} {dep_field} – {arr_field} "
                          f"{code or '—'} {flight_days}")
         lines.append("")
 
@@ -624,21 +736,47 @@ def render_log(month: str, legs: list[Leg], gc_km: dict[str, int],
         )
     lines.append("")
 
-    if anomalous:
+    if partial:
         lines += [
-            "## Track anomalies",
+            "## Track coverage",
             "",
-            "The log follows the track, not the flight record. Where the two disagree —",
-            "a track that stops short of its destination, or a sector flown under a",
-            "through flight number — the line above shows what the aircraft did, and the",
-            "note here says how that differs from the record the track was filed under.",
+            f"{len(partial)} of the {len(legs)} flights have a track that covers only part of",
+            "the flight: the export starts after take-off, stops in the cruise, or both.",
+            "They are still logged — the flight happened and its days are not in doubt.",
+            "The route comes from the flight record; the times come from "
+            + " and ".join(filter(None, [
+                f"the movement board's actual times ({len(from_record)} flights)" if from_record else "",
+                f"the board's scheduled times ({len(from_schedule)} flights)" if from_schedule else "",
+                f"the partial track itself ({len(partial) - len(from_record) - len(from_schedule)} flights)"
+                if len(partial) - len(from_record) - len(from_schedule) else "",
+            ])) + ".",
             "",
-            "| flight | date | logged as | note |",
+            "| flight | date | logged as | times from | what the track covers |",
+            "|---|---|---|---|---|",
+        ]
+        for leg in sorted(partial, key=lambda l: l.local_departure):
+            note = leg.note or "track incomplete"
+            note = note.replace("; filed as ", "; flight record says ")
+            source = {"record": "board, actual", "schedule": "board, scheduled",
+                      "track": "the track"}.get(leg.time_source, leg.time_source)
+            lines.append(f"| {leg.callsign} | {leg.local_departure:%Y-%m-%d} | "
+                         f"{leg.route} | {source} | {note} |")
+        lines.append("")
+
+    if discrepancies:
+        lines += [
+            "## Route discrepancies",
+            "",
+            "Sectors the aircraft flew under a through flight number, where the track",
+            "shows a landing the flight record does not name. The log follows the track.",
+            "",
+            "| flight | date | logged as | flight record |",
             "|---|---|---|---|",
         ]
-        for leg in sorted(anomalous, key=lambda l: l.local_departure):
+        for leg in sorted(discrepancies, key=lambda l: l.local_departure):
+            filed = leg.note.split("filed as ")[-1].split(",")[0]
             lines.append(f"| {leg.callsign} | {leg.local_departure:%Y-%m-%d} | "
-                         f"{leg.route} | {leg.note} |")
+                         f"{leg.route} | {filed} |")
         lines.append("")
 
     return "\n".join(lines)
@@ -652,7 +790,8 @@ FLIGHT_COLUMNS = [
     "flight_date", "flight_no", "callsign", "registration", "aircraft_type",
     "origin", "destination", "takeoff_utc", "landing_utc",
     "takeoff_local", "landing_local", "airborne_min", "distance_km",
-    "max_altitude_ft", "track_points", "track_gap_km", "flight_id_hex", "track_file",
+    "max_altitude_ft", "track_points", "track_gap_km", "track_complete",
+    "time_source", "flight_id_hex", "track_file",
 ]
 
 
@@ -672,6 +811,7 @@ def write_flights(path: Path, legs: list[Leg]) -> None:
                 leg.minutes, f"{leg.distance_km:.1f}",
                 leg.max_altitude_ft if leg.max_altitude_ft is not None else "",
                 leg.points, leg.gap_km or "",
+                "yes" if leg.track_complete else "no", leg.time_source,
                 leg.flight_id, leg.source,
             ])
 
@@ -723,6 +863,7 @@ def main(argv=None) -> int:
 
     legs: list[Leg] = []
     sources: list[dict] = []
+    empty: list[str] = []
     other_month = 0
     for path in files:
         meta = manifest.get(path.name, {})
@@ -734,6 +875,8 @@ def main(argv=None) -> int:
         kept = [leg for leg in file_legs
                 if leg.local_departure and f"{leg.local_departure:%Y-%m}" == month]
         other_month += len(file_legs) - len(kept)
+        if not file_legs:
+            empty.append(path.name)
         legs.extend(kept)
         sources.append({
             "file": path.name,
@@ -759,6 +902,8 @@ def main(argv=None) -> int:
         "generator": "work/fr24_tracks.py",
         "flights_logged": len(legs),
         "legs_dropped_outside_month": other_month,
+        # exports that held no leg: ground-only, or too little to place
+        "exports_without_a_leg": empty,
         "sources": sources,
     }, indent=2) + "\n", encoding="utf-8")
 
@@ -773,9 +918,14 @@ def main(argv=None) -> int:
           f"{sum(l.minutes for l in legs) / 60:,.1f} airborne hours")
     if other_month:
         print(f"{other_month} legs fell outside {month} and were left out")
-    anomalies = [leg for leg in legs if leg.note]
-    if anomalies:
-        print(f"{len(anomalies)} legs have a track anomaly (listed in the log)")
+    if empty:
+        print(f"{len(empty)} exports held no usable leg: {', '.join(empty[:6])}"
+              f"{' ...' if len(empty) > 6 else ''}")
+    partial = [leg for leg in legs if not leg.track_complete]
+    if partial:
+        counts = Counter(leg.time_source for leg in partial)
+        detail = ", ".join(f"{value} {source}" for source, value in counts.most_common())
+        print(f"{len(partial)} flights have a partial track (times from: {detail})")
     print(f"wrote {show(flights_path)}, {show(log_path)} and {show(sources_path)}")
     return 0
 

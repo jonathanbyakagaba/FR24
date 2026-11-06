@@ -11,6 +11,12 @@ work/                the scripts that build the archive
 tests/               tests and a synthetic export fixture (no real flight data)
 ```
 
+## What is in the archive
+
+Six months so far — June to November 2026, 2,948 flights and 6,340 airborne
+hours. The month-by-month table, with each month's caveats in one line, is in
+[`archive/README.md`](archive/README.md).
+
 ## The monthly folder
 
 Every month lives in its own folder, `archive/YYYY-MM/`, and always holds:
