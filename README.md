@@ -158,6 +158,59 @@ the GitHub Actions bot to bypass it (Settings → Branches → *Allow specified 
 to bypass*), otherwise the nightly commit is rejected — the job says so in its log
 and opens an issue rather than failing silently.
 
+### Hearing from it
+
+A job that runs unseen is a job you stop trusting, so the sync can mail you what
+it did — every night, or only the nights that mattered.
+
+To turn it on, add two repository secrets — **Settings → Secrets and variables →
+Actions**:
+
+| secret | what it is |
+|---|---|
+| `SYNC_MAIL_USER` | the mailbox it sends from, e.g. `you@gmail.com` |
+| `SYNC_MAIL_PASS` | an app password for it — Gmail: My Account → Security → 2-Step Verification → App passwords |
+
+The mail goes to that same address; add `SYNC_MAIL_TO` if you would rather it
+landed elsewhere. Then decide how chatty it is with a repository **variable**
+(*Variables* tab, not secrets):
+
+| `SYNC_MAIL_MODE` | when it writes |
+|---|---|
+| `always` (default) | every run, including a quiet night with nothing new |
+| `work` | only nights that fetched tracks, and any failure |
+| `never` | not at all |
+
+Either way, a failure also arrives as a GitHub issue, so nothing depends on one
+channel. The message is built from `state/sync.json` — what ran, how much flew,
+which months changed, the commit it landed, and a link to the run:
+
+```
+Subject: FR24 sync: 31 tracks (2026-11)
+
+Result      ran clean
+Window      2026-11-05 11:00Z → 2026-11-06 13:00Z
+Airframes   6
+Flights     74 seen, 31 new
+Tracks      31 fetched, 0 failed
+Months      2026-11
+On main     a1b2c3d sync: archive/2026-11
+
+Run  https://github.com/…/actions/runs/123
+
+The tracks are committed, the months are rebuilt, and the index is up to date.
+```
+
+`work/notify.py` is standard library only and speaks SMTP, or an HTTP API if you
+prefer one (`RESEND_API_KEY`, `SENDGRID_API_KEY`, or `MAILGUN_API_KEY` +
+`MAILGUN_DOMAIN`) — the transport is picked from whichever credentials are
+present. With none set it prints the message instead of sending it, and a mailbox
+that refuses delivery never fails the night's work. To see what it would send:
+
+```bash
+python3 work/notify.py --status success --dry-run
+```
+
 **Backfilling** is the same script with a start date, either from a laptop or from
 the workflow's *Run workflow* button:
 

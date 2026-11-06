@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+"""Tests for work/notify.py — the email the sync sends when it is done.
+
+    python3 -m unittest discover -s tests -v
+
+No mailbox, no network: SMTP is a stand-in, and the HTTP transports are pointed at
+a server the test raises for the length of one assertion.
+"""
+
+import json
+import os
+import sys
+import tempfile
+import threading
+import unittest
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from pathlib import Path
+from unittest import mock
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "work"))
+
+import notify  # noqa: E402
+
+STATE = {
+    "window": ["2026-11-05T11:00:00Z", "2026-11-06T13:00:00Z"],
+    "airframes": ["5X-EQU", "5X-KOB", "ET-APL"],
+    "seen": 74, "new": 31, "fetched": 31, "failed": 0,
+    "months": ["2026-11"], "notes": [],
+}
+QUIET = {**STATE, "seen": 74, "new": 0, "fetched": 0, "months": []}
+
+
+def env(**values):
+    """A clean environment for one assertion."""
+    keys = ["MAIL_TO", "MAIL_USER", "MAIL_PASS", "MAIL_FROM", "SMTP_HOST",
+            "SMTP_PORT", "RESEND_API_KEY", "SENDGRID_API_KEY", "MAILGUN_API_KEY",
+            "MAILGUN_DOMAIN", "MAIL_API_BASE", "MAIL_MODE", "GITHUB_REPOSITORY"]
+    stripped = {key: "" for key in keys}
+    stripped.update(values)
+    return mock.patch.dict(os.environ, stripped, clear=False)
+
+
+class MessageTests(unittest.TestCase):
+    def test_a_night_with_tracks_says_so_in_the_subject(self):
+        subject, body = notify.build_message(STATE, "success")
+        self.assertEqual(subject, "FR24 sync: 31 tracks (2026-11)")
+        self.assertIn("2026-11-05 11:00Z → 2026-11-06 13:00Z", body)
+        self.assertIn("31 fetched, 0 failed", body)
+        self.assertIn("74 seen, 31 new", body)
+        self.assertIn("the months are rebuilt", body)
+
+    def test_a_quiet_night_says_nothing_new(self):
+        subject, body = notify.build_message(QUIET, "success")
+        self.assertEqual(subject, "FR24 sync: nothing new")
+        self.assertIn("Nothing new", body)
+
+    def test_a_failed_run_says_so(self):
+        subject, body = notify.build_message(STATE, "failure")
+        self.assertEqual(subject, "FR24 sync: FAILED (failure)")
+        self.assertIn("not growing until this is fixed", body)
+
+    def test_the_run_link_and_notes_are_included(self):
+        state = {**STATE, "notes": ["5X-KOB UR720: HTTPStatusError: 429"]}
+        _, body = notify.build_message(state, "success",
+                                       run_url="https://example.test/run/7",
+                                       repo="owner/repo")
+        self.assertIn("https://example.test/run/7", body)
+        self.assertIn("HTTPStatusError: 429", body)
+        self.assertIn("owner/repo", body)
+
+    def test_a_missing_state_file_still_produces_a_message(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = notify.read_state(Path(tmp) / "absent.json")
+        subject, _ = notify.build_message(state, "success")
+        self.assertEqual(subject, "FR24 sync: nothing new")
+
+
+class ModeTests(unittest.TestCase):
+    def test_always_sends_even_on_a_quiet_night(self):
+        self.assertTrue(notify.worth_sending(QUIET, "success", "always"))
+
+    def test_work_mode_stays_quiet_unless_something_was_fetched(self):
+        self.assertFalse(notify.worth_sending(QUIET, "success", "work"))
+        self.assertTrue(notify.worth_sending(STATE, "success", "work"))
+
+    def test_work_mode_still_reports_a_failure(self):
+        self.assertTrue(notify.worth_sending(QUIET, "failure", "work"))
+
+    def test_never_sends_nothing(self):
+        self.assertFalse(notify.worth_sending(STATE, "failure", "never"))
+
+
+class TransportTests(unittest.TestCase):
+    def test_smtp_is_chosen_when_a_login_is_present(self):
+        with env(MAIL_TO="me@example.com", MAIL_USER="me@example.com",
+                 MAIL_PASS="app-password", SMTP_HOST="smtp.gmail.com"):
+            config = notify.config_from_env()
+        self.assertEqual(config.transport, "smtp")
+        self.assertEqual(config.host, "smtp.gmail.com")
+        self.assertEqual(config.port, 587)
+
+    def test_no_credentials_means_no_config(self):
+        with env(MAIL_TO="me@example.com"):
+            self.assertIsNone(notify.config_from_env())
+
+    def test_a_login_without_a_recipient_mails_itself(self):
+        with env(MAIL_USER="me@example.com", MAIL_PASS="x"):
+            config = notify.config_from_env()
+        self.assertEqual(config.mail_to, "me@example.com")
+
+    def test_an_api_key_is_enough(self):
+        with env(MAIL_TO="me@example.com", RESEND_API_KEY="re_123"):
+            config = notify.config_from_env()
+        self.assertEqual(config.transport, "resend")
+
+    def test_the_recipient_is_masked_in_the_log(self):
+        with env(MAIL_TO="jonathan@example.com", MAIL_USER="u", MAIL_PASS="p"):
+            config = notify.config_from_env()
+        described = notify.describe(config)
+        self.assertNotIn("jonathan", described)
+        self.assertIn("example.com", described)
+
+    def test_smtp_sends_a_message_with_the_subject(self):
+        fake = mock.MagicMock()
+        fake.__enter__.return_value = fake
+        with env(MAIL_TO="me@example.com", MAIL_USER="me@example.com",
+                 MAIL_PASS="app-password"):
+            config = notify.config_from_env()
+        with mock.patch.object(notify.smtplib, "SMTP", return_value=fake):
+            notify.send(config, "FR24 sync: 31 tracks (2026-11)", "body\n")
+        fake.starttls.assert_called_once()
+        fake.login.assert_called_once_with("me@example.com", "app-password")
+        message = fake.send_message.call_args[0][0]
+        self.assertEqual(message["Subject"], "FR24 sync: 31 tracks (2026-11)")
+        self.assertEqual(message["To"], "me@example.com")
+
+    def test_the_http_transport_posts_the_message_it_was_given(self):
+        captured = {}
+
+        class Handler(BaseHTTPRequestHandler):
+            def do_POST(self):  # noqa: N802 - the name is the framework's
+                length = int(self.headers.get("Content-Length") or 0)
+                captured["path"] = self.path
+                captured["auth"] = self.headers.get("Authorization")
+                captured["body"] = json.loads(self.rfile.read(length) or b"{}")
+                self.send_response(200)
+                self.end_headers()
+                self.wfile.write(b'{"id":"1"}')
+
+            def log_message(self, *args):
+                pass
+
+        server = HTTPServer(("127.0.0.1", 0), Handler)
+        thread = threading.Thread(target=server.handle_request, daemon=True)
+        thread.start()
+        with env(MAIL_TO="me@example.com", RESEND_API_KEY="re_123",
+                 MAIL_API_BASE=f"http://127.0.0.1:{server.server_port}"):
+            config = notify.config_from_env()
+            notify.send(config, "FR24 sync: 1 track (2026-11)", "body text")
+        thread.join(timeout=5)
+        server.server_close()
+
+        self.assertEqual(captured["path"], "/emails")
+        self.assertEqual(captured["auth"], "Bearer re_123")
+        self.assertEqual(captured["body"]["to"], ["me@example.com"])
+        self.assertEqual(captured["body"]["subject"], "FR24 sync: 1 track (2026-11)")
+        self.assertEqual(captured["body"]["text"], "body text")
+
+
+class MainTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.state = Path(self.tmp.name) / "sync.json"
+        self.state.write_text(json.dumps(STATE), encoding="utf-8")
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_dry_run_prints_and_sends_nothing(self):
+        with env(MAIL_TO="me@example.com", MAIL_USER="u", MAIL_PASS="p"):
+            with mock.patch.object(notify, "send") as sender:
+                code = notify.main(["--status", "success", "--state", str(self.state),
+                                    "--dry-run"])
+        self.assertEqual(code, 0)
+        sender.assert_not_called()
+
+    def test_without_credentials_it_says_so_and_does_not_fail(self):
+        with env():
+            with mock.patch.object(notify, "send") as sender:
+                code = notify.main(["--status", "success", "--state", str(self.state)])
+        self.assertEqual(code, 0)
+        sender.assert_not_called()
+
+    def test_a_broken_mailbox_does_not_fail_the_night(self):
+        with env(MAIL_TO="me@example.com", MAIL_USER="u", MAIL_PASS="p"):
+            with mock.patch.object(notify, "send", side_effect=OSError("no route")):
+                code = notify.main(["--status", "success", "--state", str(self.state)])
+                soft = notify.main(["--status", "success", "--state", str(self.state),
+                                    "--always-exit-0"])
+        self.assertEqual(code, 1)
+        self.assertEqual(soft, 0)
+
+    def test_mode_work_skips_a_quiet_night(self):
+        self.state.write_text(json.dumps(QUIET), encoding="utf-8")
+        with env(MAIL_TO="me@example.com", MAIL_USER="u", MAIL_PASS="p"):
+            with mock.patch.object(notify, "send") as sender:
+                code = notify.main(["--status", "success", "--mode", "work",
+                                    "--state", str(self.state)])
+        self.assertEqual(code, 0)
+        sender.assert_not_called()
+
+
+if __name__ == "__main__":
+    unittest.main()

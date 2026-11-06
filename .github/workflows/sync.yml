@@ -12,6 +12,11 @@ name: sync
 # Needs repository secrets FR24_SUBSCRIPTION_KEY and FR24_TOKEN (the licensed
 # API), or FR24_USERNAME and FR24_PASSWORD. Without them the job stops before
 # writing anything.
+#
+# It can also mail you the result: add SYNC_MAIL_USER and SYNC_MAIL_PASS (an app
+# password, for Gmail) and every run reports itself to that address — add
+# SYNC_MAIL_TO if it should go somewhere else. Set the repository variable
+# SYNC_MAIL_MODE to `work` to hear only about nights that fetched something.
 
 on:
   schedule:
@@ -124,6 +129,22 @@ jobs:
           echo "could not push to ${branch}: check that branch protection lets the" \
                "GitHub Actions bot write, or give the job a token that may" >&2
           exit 1
+
+      - name: Email the result
+        # a dry run reports itself in the log rather than the mailbox
+        if: always() && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          MAIL_TO: ${{ secrets.SYNC_MAIL_TO }}
+          MAIL_USER: ${{ secrets.SYNC_MAIL_USER }}
+          MAIL_PASS: ${{ secrets.SYNC_MAIL_PASS }}
+          MAIL_MODE: ${{ vars.SYNC_MAIL_MODE || 'always' }}
+        run: |
+          python3 work/notify.py \
+            --status "${{ job.status }}" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --repo "${{ github.repository }}" \
+            --always-exit-0
 
       - name: Say so when it breaks
         if: ${{ failure() }}

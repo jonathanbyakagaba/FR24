@@ -546,6 +546,7 @@ def finish(args, root: Path, stats: Stats) -> int:
         "window": [stamp.strftime("%Y-%m-%dT%H:%M:%SZ") for stamp in stats.window],
         "airframes": stats.airframes,
         "seen": stats.seen,
+        "new": stats.new,
         "fetched": stats.fetched,
         "failed": stats.failed,
         "months": sorted(stats.months),
