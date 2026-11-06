@@ -1,0 +1,6 @@
+# The archive builds and its tests run on the Python standard library alone.
+#
+# This extra is needed only to fetch the sectors missing from the movement
+# enumeration straight from Flightradar24 (work/fetch_fr24_tracks.py). The JSON
+# endpoints need an HTTP backend, which the `curl` extra provides.
+fr24[curl]>=0.4,<0.5

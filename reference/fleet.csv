@@ -1,0 +1,7 @@
+registration,icao_type,iata_type,model,manufacturer,ownership,role,first_seen
+5X-NIL,A338,338,Airbus A330-841,Airbus,owned,long-haul widebody,2026-06
+5X-EQU,CRJ9,CR9,Bombardier CRJ900,Bombardier,leased,regional jet,2026-06
+5X-KOB,CRJ9,CR9,Bombardier CRJ900,Bombardier,leased,regional jet,2026-06
+5X-KDP,CRJ9,CR9,Bombardier CRJ900,Bombardier,leased,regional jet,2026-06
+ET-APL,B738,73H,Boeing 737-800,Boeing,wet-lease (Ethiopian Airlines),regional narrowbody,2026-06
+ET-AOU,B788,788,Boeing 787-8,Boeing,wet-lease (Ethiopian Airlines),long-haul widebody,2026-07

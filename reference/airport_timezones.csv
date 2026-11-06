@@ -1,0 +1,48 @@
+ident,iata_code,city,timezone,utc_offset_jun
+DABC,CZL,Constantine,Africa/Algiers,+01:00
+DIAP,ABJ,Abidjan,Africa/Abidjan,+00:00
+DNAA,ABV,Abuja,Africa/Lagos,+01:00
+DNMM,LOS,Lagos,Africa/Lagos,+01:00
+DRRN,NIM,Niamey,Africa/Niamey,+01:00
+EBBR,BRU,Brussels,Europe/Brussels,+02:00
+EGKK,LGW,London Gatwick,Europe/London,+01:00
+EHAM,AMS,Amsterdam,Europe/Amsterdam,+02:00
+FACT,CPT,Cape Town,Africa/Johannesburg,+02:00
+FAOR,JNB,Johannesburg,Africa/Johannesburg,+02:00
+FIMP,MRU,Mauritius,Indian/Mauritius,+04:00
+FLLS,LUN,Lusaka,Africa/Lusaka,+02:00
+FMMI,TNR,Antananarivo,Indian/Antananarivo,+03:00
+FSIA,SEZ,Mahe,Indian/Mahe,+04:00
+FVHA,HRE,Harare,Africa/Harare,+02:00
+FYWH,WDH,Windhoek,Africa/Windhoek,+02:00
+FZAA,FIH,Kinshasa,Africa/Kinshasa,+01:00
+FZKA,BUX,Bunia,Africa/Lubumbashi,+02:00
+FZNA,GOM,Goma,Africa/Lubumbashi,+02:00
+FZQA,FBM,Lubumbashi,Africa/Lubumbashi,+02:00
+GOBD,DSS,Dakar,Africa/Dakar,+00:00
+HAAB,ADD,Addis Ababa,Africa/Addis_Ababa,+03:00
+HBBA,BJM,Bujumbura,Africa/Bujumbura,+02:00
+HCMM,MGQ,Mogadishu,Africa/Mogadishu,+03:00
+HECA,CAI,Cairo,Africa/Cairo,+03:00
+HJJJ,JUB,Juba,Africa/Juba,+02:00
+HKJK,NBO,Nairobi,Africa/Nairobi,+03:00
+HKMO,MBA,Mombasa,Africa/Nairobi,+03:00
+HRYR,KGL,Kigali,Africa/Kigali,+02:00
+HSSK,KRT,Khartoum,Africa/Khartoum,+02:00
+HTDA,DAR,Dar es Salaam,Africa/Dar_es_Salaam,+03:00
+HTKJ,JRO,Kilimanjaro,Africa/Dar_es_Salaam,+03:00
+HTZA,ZNZ,Zanzibar,Africa/Dar_es_Salaam,+03:00
+HUEN,EBB,Entebbe,Africa/Kampala,+03:00
+LTFM,IST,Istanbul,Europe/Istanbul,+03:00
+OEJN,JED,Jeddah,Asia/Riyadh,+03:00
+OEMA,MED,Medina,Asia/Riyadh,+03:00
+OERK,RUH,Riyadh,Asia/Riyadh,+03:00
+OESB,,Shaybah,Asia/Riyadh,+03:00
+OMDB,DXB,Dubai,Asia/Dubai,+04:00
+OMSJ,SHJ,Sharjah,Asia/Dubai,+04:00
+OTHH,DOH,Doha,Asia/Qatar,+03:00
+SBGR,GRU,Sao Paulo,America/Sao_Paulo,-03:00
+UG-0013,,Hoima,Africa/Kampala,+03:00
+VABB,BOM,Mumbai,Asia/Kolkata,+05:30
+VIDP,DEL,New Delhi,Asia/Kolkata,+05:30
+WIII,CGK,Jakarta,Asia/Jakarta,+07:00
