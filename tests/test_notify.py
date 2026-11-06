@@ -178,6 +178,13 @@ class TransportTests(unittest.TestCase):
         self.assertEqual(message["Subject"], "FR24 sync: 31 tracks (2026-11)")
         self.assertEqual(message["To"], "me@example.com")
 
+    def test_a_pasted_app_password_is_cleaned(self):
+        """Google shows four groups of four; the spaces and quotes are not secret."""
+        with env(MAIL_USER=" me@example.com ", MAIL_PASS=' "abcd efgh ijkl mnop" \n'):
+            config = notify.config_from_env()
+        self.assertEqual(config.password, "abcdefghijklmnop")
+        self.assertEqual(config.mail_to, "me@example.com")
+
     def test_the_http_transport_posts_the_message_it_was_given(self):
         captured = {}
 
@@ -209,6 +216,32 @@ class TransportTests(unittest.TestCase):
         self.assertEqual(captured["body"]["to"], ["me@example.com"])
         self.assertEqual(captured["body"]["subject"], "FR24 sync: 1 track (2026-11)")
         self.assertEqual(captured["body"]["text"], "body text")
+
+
+class DeliveryTestTests(unittest.TestCase):
+    """The one-click check: prove the mailbox without waiting for a night."""
+
+    def test_the_test_message_says_it_is_a_test(self):
+        subject, body = notify.build_test_message()
+        self.assertEqual(subject, "FR24 sync: test message")
+        self.assertIn("mailbox test", body)
+        self.assertIn("nothing was committed", body)
+
+    def test_a_test_is_sent_even_when_a_real_night_would_be_silent(self):
+        with env(MAIL_TO="me@example.com", MAIL_USER="me@example.com",
+                 MAIL_PASS="app-password", MAIL_MODE="work"):
+            with mock.patch.object(notify, "send") as sender:
+                code = notify.main(["--test", "--state", "/tmp/does-not-exist.json"])
+        self.assertEqual(code, 0)
+        sender.assert_called_once()
+
+    def test_a_test_can_be_dry_run(self):
+        with env(MAIL_TO="me@example.com", MAIL_USER="me@example.com",
+                 MAIL_PASS="app-password"):
+            with mock.patch.object(notify, "send") as sender:
+                code = notify.main(["--test", "--dry-run"])
+        self.assertEqual(code, 0)
+        sender.assert_not_called()
 
 
 class MainTests(unittest.TestCase):
