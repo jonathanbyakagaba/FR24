@@ -158,6 +158,88 @@ the GitHub Actions bot to bypass it (Settings → Branches → *Allow specified 
 to bypass*), otherwise the nightly commit is rejected — the job says so in its log
 and opens an issue rather than failing silently.
 
+### Hearing from it
+
+A job that runs unseen is a job you stop trusting, so every run reports itself.
+There are two routes, and the first needs no password at all.
+
+**The issue log — nothing to set up.** Each night's summary is posted as a comment
+on a *Nightly sync log* issue, which the first run creates. GitHub sends the
+notification, so it reaches you however your notification settings say — email,
+phone, or the bell — and the issue itself becomes a running history of the archive.
+It is on by default whenever no mailbox is configured. To stop it, set the
+repository variable `SYNC_LOG` to `off`.
+
+**Real email — a mailbox of its own.** Add two repository secrets (*Settings →
+Secrets and variables → Actions*):
+
+| secret | what it is |
+|---|---|
+| `SYNC_MAIL_USER` | the mailbox it sends from, e.g. `you@gmail.com` |
+| `SYNC_MAIL_PASS` | an app password for it |
+
+The mail goes to that address unless `SYNC_MAIL_TO` says otherwise. Adding these
+turns the issue log off; set the variable `SYNC_LOG=issue` to have both.
+
+**If Gmail will not give you an app password**, the usual reasons are:
+
+- **2-Step Verification is off** — app passwords do not exist until it is on.
+  They live at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords),
+  or Security → How you sign in to Google → 2-Step Verification → App passwords.
+- **A Workspace (work or school) account**, where the administrator has disabled
+  app passwords, or **Advanced Protection** is enrolled — both remove the option
+  entirely, and no setting on your side will bring it back.
+
+Either way you are not stuck: use the issue log, or give the workflow credentials
+from a mail service instead of Gmail. The script speaks SMTP, or an HTTP API:
+
+| route | what to add | catches |
+|---|---|---|
+| issue log | nothing | always |
+| Gmail / any SMTP | `SYNC_MAIL_USER` + `SYNC_MAIL_PASS` | needs an app password |
+| Brevo, Mailjet (SMTP relay) | same two secrets, plus `SMTP_HOST` / `SMTP_PORT` / `SMTP_USER` | free tier, sender verified by email, no domain |
+| Resend | `RESEND_API_KEY` | sends from `onboarding@resend.dev` to your own address without a domain |
+| SendGrid | `SENDGRID_API_KEY` | single-sender verification, no domain |
+| Mailgun | `MAILGUN_API_KEY` + `MAILGUN_DOMAIN` | needs a domain |
+
+The transport is chosen from whichever credentials are present, so there is
+nothing to select. How chatty it is comes from the repository **variable**
+`SYNC_MAIL_MODE` (*Variables* tab, not secrets):
+
+| `SYNC_MAIL_MODE` | when it writes |
+|---|---|
+| `always` (default) | every run, including a quiet night with nothing new |
+| `work` | only nights that fetched tracks, and any failure |
+| `never` | not at all |
+
+Failures also arrive as an issue of their own, so nothing depends on one channel.
+The summary is built from `state/sync.json` — what ran, how much flew, which
+months changed, the commit it landed, and a link to the run:
+
+```
+FR24 sync — ran clean · 31 tracks fetched · 2026-11
+
+| | |
+|---|---|
+| window | 2026-11-05 11:00Z → 2026-11-06 13:00Z |
+| flights | 74 seen, 31 new |
+| tracks | 31 fetched, 0 failed |
+| months | 2026-11 |
+| on main | `a1b2c3d sync: archive/2026-11` |
+
+[Run log](https://github.com/…/actions/runs/123)
+```
+
+`work/notify.py` is standard library only. With no credentials it prints the
+message rather than sending it, a mailbox that refuses delivery never fails the
+night's work, and a dry run reports in the log instead of either channel. To see
+what it would say:
+
+```bash
+python3 work/notify.py --status success --format issue
+python3 work/notify.py --status success --dry-run
+```
+
 **Backfilling** is the same script with a start date, either from a laptop or from
 the workflow's *Run workflow* button:
 
