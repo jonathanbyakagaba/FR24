@@ -59,12 +59,15 @@ env:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
-          # the bot commits back to the branch it was dispatched from, or to the
-          # default branch on the nightly schedule
-          ref: ${{ github.ref }}
+          # always the default branch (`main`): the job runs the code that is live
+          # and commits straight back to it. A dispatch from a feature branch
+          # therefore runs main's code, never the branch's.
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -94,9 +97,10 @@ jobs:
       - name: Run the tests
         run: python3 -m unittest discover -s tests
 
-      - name: Commit whatever changed
+      - name: Commit straight to the default branch
         if: ${{ env.DRY_RUN == '' }}
         run: |
+          branch="${{ github.event.repository.default_branch }}"
           git config user.name "fr24-sync"
           git config user.email "actions@users.noreply.github.com"
           git add archive state
@@ -107,7 +111,19 @@ jobs:
           months=$(git diff --cached --name-only | cut -d/ -f1-2 | grep '^archive/' | sort -u | tr '\n' ' ')
           git commit -m "sync: ${months:-archive}" \
                      -m "Harvested from the Flightradar24 API by .github/workflows/sync.yml."
-          git push
+          # straight to the branch, no pull request. If a manual push landed while
+          # this ran, rebase onto it and try again rather than lose the night.
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${branch}"; then
+              echo "pushed to ${branch}"
+              exit 0
+            fi
+            echo "push rejected (attempt ${attempt}); rebasing onto ${branch}"
+            git pull --rebase --autostash origin "${branch}"
+          done
+          echo "could not push to ${branch}: check that branch protection lets the" \
+               "GitHub Actions bot write, or give the job a token that may" >&2
+          exit 1
 
       - name: Say so when it breaks
         if: ${{ failure() }}

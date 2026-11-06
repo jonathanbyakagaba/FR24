@@ -126,7 +126,9 @@ A night's work, in order:
 4. **Rebuild those months**, drafting a `README.md` if the month is new and
    regenerating the index table in [`archive/README.md`](archive/README.md) — both
    only ever touch what is theirs, so hand-written prose survives.
-5. **Commit, only if something changed**, with the months named in the message.
+5. **Commit straight to `main`** — no pull request, no review gate — only if
+   something changed, with the months named in the message. If a hand-made push
+   lands mid-run the job rebases onto it and retries rather than fail the night.
 6. **Fail loudly.** Exit `3` if flights were new and none produced a track, `4` if
    more than a fifth of the fetches failed. The workflow then opens (or comments
    on) a labelled issue: the failure mode that matters is not an error, it is a
@@ -139,13 +141,22 @@ the Zanzibar–Kilimanjaro hop in as legs in their own right, so most nights the
 is no hop left to fill. The gap filler still runs afterwards, for the current and
 previous month, as a safety net.
 
+The job checks out `main`, runs the code that is on `main`, and pushes back to
+`main` — a manual dispatch from a feature branch runs main's code too, so nothing
+unreviewed can sneak into a nightly commit.
+
 **Turning it on** takes two things, once:
 
 1. Repository → Settings → Secrets and variables → Actions: add
    `FR24_SUBSCRIPTION_KEY` and `FR24_TOKEN` (the licensed API), or
    `FR24_USERNAME` and `FR24_PASSWORD`.
-2. Merge the workflow to the default branch — GitHub only schedules workflows that
-   exist on `main`. Nothing else: after that the archive grows by itself.
+2. Merge the workflow to `main` — GitHub only schedules workflows that exist on
+   the default branch. Nothing else: after that the archive grows by itself.
+
+One thing to check on the way: if `main` is protected against direct pushes, allow
+the GitHub Actions bot to bypass it (Settings → Branches → *Allow specified actors
+to bypass*), otherwise the nightly commit is rejected — the job says so in its log
+and opens an issue rather than failing silently.
 
 **Backfilling** is the same script with a start date, either from a laptop or from
 the workflow's *Run workflow* button:
