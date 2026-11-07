@@ -235,6 +235,20 @@ class DeliveryTestTests(unittest.TestCase):
         self.assertEqual(code, 0)
         sender.assert_called_once()
 
+    def test_a_required_test_fails_when_nothing_is_configured(self):
+        """Green must mean an email left, not that the script had nothing to do."""
+        with env():
+            code = notify.main(["--test", "--require-config"])
+        self.assertEqual(code, 1)
+
+    def test_a_required_test_passes_when_it_really_sends(self):
+        with env(MAIL_TO="me@example.com", MAIL_USER="me@example.com",
+                 MAIL_PASS="app-password"):
+            with mock.patch.object(notify, "send") as sender:
+                code = notify.main(["--test", "--require-config"])
+        self.assertEqual(code, 0)
+        sender.assert_called_once()
+
     def test_a_test_can_be_dry_run(self):
         with env(MAIL_TO="me@example.com", MAIL_USER="me@example.com",
                  MAIL_PASS="app-password"):

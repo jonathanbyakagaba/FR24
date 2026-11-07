@@ -13,12 +13,19 @@ name: sync
 # API), or FR24_USERNAME and FR24_PASSWORD. Without them the job stops before
 # writing anything.
 #
-# It reports every run one of two ways. Without any mail setup, each night's
-# summary is posted as a comment on a "Nightly sync log" issue, and GitHub mails
-# you the notification — no password, no third-party account. Add SYNC_MAIL_USER
-# and SYNC_MAIL_PASS (an app password) to get real email instead, or set the
-# variable SYNC_LOG to `issue` to have both; SYNC_LOG=off silences the issue.
-# SYNC_MAIL_MODE (`always` or `work`) decides what counts as worth reporting.
+# To run it by hand: Actions → sync → Run workflow, and click the green button.
+# Leave every field alone — the defaults are the nightly run. The only two boxes
+# worth ticking are dry_run (look, fetch nothing) and mail_test (send one test
+# email and stop). A backfill from a date is the single text field.
+#
+# Nothing is lost to a missed night: a run looks three days back, so whatever a
+# dropped schedule skipped is picked up by the next one.
+#
+# It reports every run two ways. Each night's summary is posted as a comment on an
+# issue — the existing FR24-status thread, or a new one — so there is always a
+# record in the repository; and if SYNC_MAIL_USER / SYNC_MAIL_PASS are set that
+# same summary is emailed. SYNC_LOG=off silences the issue, and SYNC_MAIL_MODE
+# (`always` or `work`) decides what counts as worth reporting.
 
 on:
   schedule:
@@ -26,26 +33,16 @@ on:
   workflow_dispatch:
     inputs:
       since:
-        description: "Backfill from this date instead of the last run (YYYY-MM-DD)"
+        description: "Backfill from a date (YYYY-MM-DD). Leave empty for a normal run."
         required: false
         type: string
-      days:
-        description: "How far back a first run looks, when there is no state"
-        required: false
-        type: string
-        default: "3"
       dry_run:
-        description: "List what is new, fetch nothing"
+        description: "Tick to look without fetching. Leave unticked for a real run."
         required: false
         type: boolean
         default: false
-      gaps:
-        description: "Also sweep the current and previous month for untracked sectors"
-        required: false
-        type: boolean
-        default: true
       mail_test:
-        description: "Only send a test email, to prove the mailbox works"
+        description: "Tick to send one test email and nothing else."
         required: false
         type: boolean
         default: false
@@ -65,8 +62,8 @@ env:
   fr24_password: ${{ secrets.FR24_PASSWORD }}
   DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
   SINCE: ${{ inputs.since }}
-  DAYS: ${{ inputs.days || '3' }}
-  GAPS: ${{ github.event_name == 'schedule' && '1' || inputs.gaps == true && '1' || '' }}
+  DAYS: "3"
+  GAPS: "1"
 
 jobs:
   sync:
@@ -167,10 +164,6 @@ jobs:
           SYNC_LOG: ${{ vars.SYNC_LOG || '' }}
         run: |
           if [ "$SYNC_LOG" = "off" ]; then exit 0; fi
-          if [ -n "$MAIL_USER" ] && [ "$SYNC_LOG" != "issue" ]; then
-            echo "mail is configured; the issue log is off (set SYNC_LOG=issue to have both)"
-            exit 0
-          fi
           body=$(python3 work/notify.py --status "${{ job.status }}" --format issue \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --repo "${{ github.repository }}")
@@ -239,4 +232,4 @@ jobs:
           MAIL_TO: ${{ secrets.SYNC_MAIL_TO }}
           MAIL_USER: ${{ secrets.SYNC_MAIL_USER }}
           MAIL_PASS: ${{ secrets.SYNC_MAIL_PASS }}
-        run: python3 work/notify.py --test
+        run: python3 work/notify.py --test --require-config
