@@ -179,14 +179,25 @@ Secrets and variables → Actions*):
 | `SYNC_MAIL_USER` | the mailbox it sends from, e.g. `you@gmail.com` |
 | `SYNC_MAIL_PASS` | an app password for it |
 
-The mail goes to that address unless `SYNC_MAIL_TO` says otherwise. Adding these
-turns the issue log off; set the variable `SYNC_LOG=issue` to have both.
+The mail goes to that address unless `SYNC_MAIL_TO` says otherwise. The issue log
+keeps running alongside it, so there is always a record in the repository; set the
+variable `SYNC_LOG=off` if you would rather have only the mail.
 
-**Checking the mailbox takes ten seconds.** Actions → *sync* → **Run workflow** →
-tick **mail_test** → Run. That job does nothing but send a test message with the
-same credentials and transport as the real thing, so a delivery problem surfaces
-now rather than at 04:30. Two things it forgives: the spaces Gmail puts between
-the four groups of an app password, and quotes pasted around it.
+**Running it by hand is one click, with nothing to fill in.** Actions → *sync* →
+**Run workflow** → the green **Run workflow** button, leaving every field alone:
+the defaults *are* the nightly run. The form has three fields and only two of them
+are ever useful — **dry_run** looks without fetching, **mail_test** sends one test
+email and stops, and the single text field is a backfill start date.
+
+A missed night costs nothing either way: a run looks three days back, so whatever
+a dropped schedule skipped is picked up by the next one.
+
+**Checking the mailbox takes ten seconds.** Same button, tick **mail_test**. That
+job does nothing but send a test message with the same credentials and transport as
+the real thing, and it fails rather than passing quietly if no credentials are
+configured — so a green tick means an email really left. Two things it forgives:
+the spaces Gmail puts between the four groups of an app password, and quotes
+pasted around it.
 
 **If Gmail will not give you an app password**, the usual reasons are:
 

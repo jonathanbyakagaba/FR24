@@ -373,13 +373,17 @@ def main(argv=None) -> int:
                         help="text for an email, issue for a Markdown comment")
     parser.add_argument("--test", action="store_true",
                         help="send a delivery test instead of a run summary")
+    parser.add_argument("--require-config", action="store_true",
+                        help="fail when nothing is configured, so a green check "
+                             "means an email really left")
     parser.add_argument("--always-exit-0", action="store_true",
                         help="never fail, whatever the transport does")
     args = parser.parse_args(argv)
 
     if args.test:
         return _deliver(*build_test_message(), dry_run=args.dry_run,
-                        always_exit_0=args.always_exit_0)
+                        always_exit_0=args.always_exit_0,
+                        require_config=args.require_config)
 
     state = read_state(Path(args.state))
     if not worth_sending(state, args.status, args.mode):
@@ -398,7 +402,7 @@ def main(argv=None) -> int:
 
 
 def _deliver(subject: str, body: str, dry_run: bool = False,
-             always_exit_0: bool = False) -> int:
+             always_exit_0: bool = False, require_config: bool = False) -> int:
     """Print, or send, and decide what a failure here is worth."""
     if dry_run:
         print(f"To: (dry run)\nSubject: {subject}\n\n{body}")
@@ -406,6 +410,10 @@ def _deliver(subject: str, body: str, dry_run: bool = False,
 
     config = config_from_env()
     if config is None:
+        if require_config and not always_exit_0:
+            print("no mail credentials: set SYNC_MAIL_USER and SYNC_MAIL_PASS "
+                  "(or an API key) before expecting a delivery", file=sys.stderr)
+            return 1
         print("no mail credentials in the environment — message not sent:\n")
         print(f"Subject: {subject}\n\n{body}")
         return 0
