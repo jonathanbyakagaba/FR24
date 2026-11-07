@@ -242,8 +242,11 @@ the defaults *are* the nightly run. The form has three fields and only two of th
 are ever useful — **dry_run** looks without fetching, **mail_test** sends one test
 email and stops, and the single text field is a backfill start date.
 
-A missed night costs nothing either way: a run looks three days back, so whatever
-a dropped schedule skipped is picked up by the next one.
+A missed night costs nothing either way: every run looks **seven days back**
+rather than resuming where the last one stopped, so whatever a dropped schedule
+skipped is picked up by the next one. Re-listing a week costs the same one page
+per airframe as re-listing a night — the flight list is paged backwards from now —
+and the ledger skips the days already on disk in milliseconds.
 
 **Checking the mailbox takes ten seconds.** Same button, tick **mail_test**. That
 job does nothing but send a test message with the same credentials and transport as
@@ -292,7 +295,7 @@ FR24 sync — ran clean · 31 tracks fetched · 2026-11
 
 | | |
 |---|---|
-| window | 2026-11-05 11:00Z → 2026-11-06 13:00Z |
+| window | 2026-10-30 13:00Z → 2026-11-06 13:00Z |
 | flights | 74 seen, 31 new |
 | tracks | 31 fetched, 0 failed |
 | months | 2026-11 |
@@ -389,6 +392,12 @@ That difference is deliberate: this is an archive of what flew.
 python3 -m unittest discover -s tests -v   # pipeline tests, no real data needed
 python3 work/fr24_tracks.py --month 2026-06
 ```
+
+The suite is standard library only, so the interpreter barely matters — which is
+the point: `.python-version` records **3.12** as the intended version, and the
+nightly job runs the tests on **both 3.11 and 3.12** so a machine that cannot get
+3.12 is still testing the same code CI does. Nothing here needs anything newer
+than 3.10.
 
 The tests cover the rotation chain as well as the leg building, and stand a fake
 Flightradar24 client in for the fetch script, so the repair path is exercised

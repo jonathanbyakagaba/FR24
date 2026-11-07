@@ -2,13 +2,13 @@
 """Harvest Uganda Airlines' flying from Flightradar24, day in and day out.
 
 Run once a night, this keeps the archive current without anybody exporting a
-file: it asks Flightradar24 what each airframe of the fleet has been doing since
-the last run, downloads the playback of every flight it does not already hold,
-files each track into the month it belongs to, rebuilds those months, and reports
-whether anything looks wrong.
+file: it asks Flightradar24 what each airframe of the fleet has been doing over
+the last seven days, downloads the playback of every flight it does not already
+hold, files each track into the month it belongs to, rebuilds those months, and
+reports whether anything looks wrong.
 
-    python3 work/sync_fr24.py --days 3          # the nightly run
-    python3 work/sync_fr24.py --days 3 --dry-run
+    python3 work/sync_fr24.py --days 7          # the nightly run
+    python3 work/sync_fr24.py --days 7 --dry-run
     python3 work/sync_fr24.py --since 2026-06-01 --rebuild   # a backfill
 
 Why by airframe rather than by airport: an enumeration built from Entebbe's
@@ -53,6 +53,9 @@ LEDGER_COLUMNS = ["flight_id_hex", "registration", "date", "month", "file", "sta
 RETRY_DAYS = 2
 # playbacks are only worth asking for once the aircraft has had time to land
 SETTLE = timedelta(minutes=20)
+# every run looks back this far, not from where the last one stopped: the ledger
+# makes the extra days nearly free, and a missed night heals itself
+LOOKBACK_DAYS = 7
 # a night's worth of fetching, to stay polite and inside a rate limit
 MAX_FETCHES = 400
 
@@ -570,34 +573,33 @@ def finish(args, root: Path, stats: Stats) -> int:
 
 
 def window(args, root: Path) -> tuple[datetime, datetime]:
+    """A rolling look-back, never a resume from where the last run stopped.
+
+    Re-listing a week costs the same one page per airframe as re-listing a night,
+    because the flight list is paged backwards from now. What it buys is that a
+    night which failed — or that the scheduler dropped, as it did on 2026-11-07 —
+    is picked up by the next run without anybody noticing or intervening. The
+    ledger means the days already on disk are skipped in milliseconds.
+    """
     now = datetime.now(tz=UTC) - SETTLE
     if args.since:
         start = fetch._parse(args.since)
-    else:
-        start = None
-        if not args.ignore_state:
-            previous = read_state(root).get("window")
-            if previous:
-                try:
-                    start = datetime.strptime(previous[1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=UTC)
-                except (ValueError, IndexError):
-                    start = None
         if start is None:
-            start = now - timedelta(days=args.days)
-    if start is None:
-        raise SystemExit(f"could not read --since {args.since!r}; use YYYY-MM-DD")
-    return start, now
+            raise SystemExit(f"could not read --since {args.since!r}; use YYYY-MM-DD")
+        return start, now
+    return now - timedelta(days=args.days), now
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         description="Harvest the fleet's flying from Flightradar24 into the archive.")
-    parser.add_argument("--days", type=int, default=3,
-                        help="how far back to look on a first run (default 3)")
+    parser.add_argument("--days", type=int, default=LOOKBACK_DAYS,
+                        help=f"how far back every run looks (default {LOOKBACK_DAYS})")
     parser.add_argument("--since", default=None,
                         help="start of the window, YYYY-MM-DD or YYYY-MM-DD HH:MM")
     parser.add_argument("--ignore-state", action="store_true",
-                        help="ignore the last run's end and use --days/--since")
+                        help="accepted for older commands; every run looks back "
+                             "--days now, so this changes nothing")
     parser.add_argument("--dry-run", action="store_true", help="fetch nothing, list what is new")
     parser.add_argument("--no-rebuild", action="store_true",
                         help="write the tracks but do not rebuild the months")

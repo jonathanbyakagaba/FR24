@@ -8,7 +8,7 @@ name: sync
 #
 # Every night at 01:30 UTC — half an hour after the flying day turns over at
 # 04:00 in Kampala — this harvests the fleet's flying from the Flightradar24 API:
-# each airframe's flights since the last run, a playback for every one the
+# the last seven days of each airframe's flights, a playback for every one the
 # archive does not already hold, the track filed into its month, the month
 # rebuilt. It commits only when something changed, and it fails loudly rather
 # than quietly if the API is answering with nothing usable.
@@ -22,8 +22,9 @@ name: sync
 # worth ticking are dry_run (look, fetch nothing) and mail_test (send one test
 # email and stop). A backfill from a date is the single text field.
 #
-# Nothing is lost to a missed night: a run looks three days back, so whatever a
-# dropped schedule skipped is picked up by the next one.
+# Nothing is lost to a missed night: every run looks seven days back rather than
+# resuming where the last one stopped, so whatever a dropped schedule skipped is
+# picked up by the next one. The ledger keeps the extra days nearly free.
 #
 # It reports every run two ways. Each night's summary is posted as a comment on an
 # issue — the existing FR24-status thread, or a new one — so there is always a
@@ -66,7 +67,7 @@ env:
   fr24_password: ${{ secrets.FR24_PASSWORD }}
   DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
   SINCE: ${{ inputs.since }}
-  DAYS: "3"
+  DAYS: "7"
   GAPS: "1"
 
 jobs:
@@ -229,6 +230,26 @@ jobs:
                 title, body, labels: ["sync"]
               });
             }
+
+  tests:
+    # The suite is standard library only, so it runs on whatever interpreter is
+    # pointed at it. The matrix says so out loud: 3.12 is what the sync job uses,
+    # 3.11 is the floor some sandboxes and distro packages are stuck on. If a
+    # change needs 3.13 syntax, this is the job that will say so.
+    if: github.event_name != 'workflow_dispatch' || inputs.mail_test != true
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run the tests on Python ${{ matrix.python-version }}
+        run: python -m unittest discover -s tests
 
   mail:
     # Actions → sync → Run workflow → tick "mail_test" to prove the mailbox in

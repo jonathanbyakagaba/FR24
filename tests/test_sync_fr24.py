@@ -32,6 +32,55 @@ LUN = next(ap for ap in fr24.load_airports() if ap.code == "LUN")
 HRE = next(ap for ap in fr24.load_airports() if ap.code == "HRE")
 
 
+class WindowTests(unittest.TestCase):
+    """Every run looks back a week, whether or not the last one finished."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        (self.root / "state").mkdir()
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def args(self, **kwargs):
+        base = dict(days=sync.LOOKBACK_DAYS, since=None, ignore_state=False)
+        base.update(kwargs)
+        return argparse.Namespace(**base)
+
+    def state(self, window_end):
+        (self.root / "state" / "sync.json").write_text(
+            '{"window": ["2026-06-01T00:00:00Z", "%s"]}' % window_end, encoding="utf-8")
+
+    def test_the_default_lookback_is_a_week(self):
+        self.assertEqual(sync.LOOKBACK_DAYS, 7)
+
+    def test_the_window_is_a_week_wide(self):
+        start, end = sync.window(self.args(), self.root)
+        self.assertAlmostEqual((end - start).total_seconds(), 7 * 86400, delta=5)
+
+    def test_a_recent_state_does_not_narrow_the_window(self):
+        """Resuming from the last run is exactly what a missed night would skip."""
+        self.state("2026-11-07T05:17:05Z")
+        start, end = sync.window(self.args(), self.root)
+        self.assertAlmostEqual((end - start).total_seconds(), 7 * 86400, delta=5)
+
+    def test_the_settle_holds_back_the_last_twenty_minutes(self):
+        _, end = sync.window(self.args(), self.root)
+        behind = (datetime.now(tz=UTC) - end).total_seconds()
+        self.assertAlmostEqual(behind, sync.SETTLE.total_seconds(), delta=65)
+
+    def test_a_since_date_overrides_the_lookback(self):
+        start, _ = sync.window(self.args(since="2026-06-01"), self.root)
+        self.assertEqual(start.date(), datetime(2026, 6, 1).date())
+
+    def test_ignore_state_is_now_harmless(self):
+        self.state("2026-11-07T05:17:05Z")
+        plain = sync.window(self.args(), self.root)
+        ignored = sync.window(self.args(ignore_state=True), self.root)
+        self.assertAlmostEqual((plain[0] - ignored[0]).total_seconds(), 0, delta=2)
+
+
 class _AirportList:
     def __init__(self, registrations):
         self.registrations = registrations
