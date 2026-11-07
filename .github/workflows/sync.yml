@@ -104,19 +104,26 @@ jobs:
 
       - name: Close the sectors still missing
         # Every month from June, not just this one: a hole in a rotation that
-        # landed in July stays a hole until something goes back for it. A budget
-        # keeps the job finite and the API polite; state/sweep.json remembers
-        # what has been tried, so a sector Flightradar24 will not serve is parked
-        # rather than asked for every night forever.
+        # landed in July stays a hole until something goes back for it. Nothing
+        # is written off for being old — the sweep asks, and state/sweep.json
+        # remembers the answers, so a sector is parked only after the record has
+        # actually refused it. A clock, not a head-count, keeps the job finite:
+        # 25 minutes here, inside a 60-minute job, with what is left reported and
+        # picked up tomorrow. Raise SWEEP_MINUTES to go faster, or SWEEP_BUDGET to
+        # put a hard cap on the number of sectors asked for.
         if: ${{ env.DRY_RUN == '' && env.GAPS == '1' }}
         continue-on-error: true
         env:
-          SWEEP_BUDGET: ${{ vars.SWEEP_BUDGET || '100' }}
-          # how far back the subscription's record reaches: Basic 7 days,
-          # Silver 90, Gold 365, Business 1095. Raise the variable if you upgrade
-          # and the sweep will start reaching further into the archive.
-          FR24_HISTORY_DAYS: ${{ vars.FR24_HISTORY_DAYS || '7' }}
-        run: python3 work/sweep_gaps.py --budget "$SWEEP_BUDGET" --delay 1 --pause 1
+          SWEEP_MINUTES: ${{ vars.SWEEP_MINUTES || '25' }}
+          SWEEP_BUDGET: ${{ vars.SWEEP_BUDGET }}
+          # 0 means "assume nothing": sweep back to the first month in the archive.
+          # Set it (7, 90, 365) only to stop the sweep asking about sectors a
+          # shallow plan certainly cannot serve.
+          FR24_HISTORY_DAYS: ${{ vars.FR24_HISTORY_DAYS || '0' }}
+        run: |
+          args=(--minutes "$SWEEP_MINUTES" --delay 1 --pause 1)
+          if [ -n "$SWEEP_BUDGET" ]; then args+=(--budget "$SWEEP_BUDGET"); fi
+          python3 work/sweep_gaps.py "${args[@]}"
 
       - name: Run the tests
         run: python3 -m unittest discover -s tests

@@ -9,10 +9,13 @@ build gaps by hand, hand them a made-up memory, and check what comes back. No
 network, no Flightradar24 client, no archive.
 """
 
+import argparse
+import asyncio
 import json
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -75,14 +78,16 @@ class ClassificationTests(unittest.TestCase):
     def test_a_sector_that_keeps_failing_is_parked(self):
         rows = [entry()]
         attempts = {rows[0].key: {"tries": 3}}
-        entries = sweep.classify(rows, attempts, max_tries=3)
+        entries = sweep.classify(rows, attempts, max_tries=3,
+                                 now=WHEN + timedelta(days=1))
         self.assertEqual(entries[0].status, sweep.PARKED)
         self.assertIn("not in the Flightradar24 record after 3 tries", entries[0].gap.reason)
         self.assertFalse(entries[0].gap.plausible)
 
     def test_two_failures_are_not_yet_a_parking(self):
         rows = [entry()]
-        entries = sweep.classify(rows, {rows[0].key: {"tries": 2}}, max_tries=3)
+        entries = sweep.classify(rows, {rows[0].key: {"tries": 2}}, max_tries=3,
+                                 now=WHEN + timedelta(days=1))
         self.assertEqual(entries[0].status, sweep.OPEN)
 
     def test_a_sector_whose_airport_has_no_icao_code_is_unqueryable(self):
@@ -104,7 +109,7 @@ class HistoryTests(unittest.TestCase):
         entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
                                  history_days=7, now=now)
         self.assertEqual(entries[0].status, sweep.OUT_OF_RANGE)
-        self.assertIn("7-day history", entries[0].gap.reason)
+        self.assertIn("no longer reaches back this far", entries[0].gap.reason)
         self.assertFalse(entries[0].gap.plausible)
 
     def test_a_sector_inside_the_window_stays_open(self):
@@ -146,6 +151,178 @@ class HistoryTests(unittest.TestCase):
         row = entry()
         sweep.record(state, row, "UnwrapError: HTTPStatusError('... status 400')")
         self.assertNotIn(row.key, state["attempts"])
+
+
+class BacklogTests(unittest.TestCase):
+    """Nothing is written off for being old: the sweep asks, then parks."""
+
+    def test_the_default_assumes_no_horizon(self):
+        self.assertEqual(sweep.DEFAULT_HISTORY_DAYS, 0)
+
+    def test_a_june_sector_is_asked_for_months_later(self):
+        """It may only be answerable inside seven days — but that is the record's
+        answer to give, not ours to presume."""
+        now = WHEN + timedelta(days=150)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3, now=now)
+        self.assertEqual(entries[0].status, sweep.OPEN)
+        self.assertEqual(len(sweep.plan(entries, 0)), 1)
+
+    def test_a_sector_older_than_the_record_is_still_asked_once(self):
+        now = WHEN + timedelta(days=150)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3, now=now,
+                                 old_tries=1)
+        self.assertEqual(entries[0].status, sweep.OPEN)
+        self.assertEqual(entries[0].tries, 0)
+
+    def test_an_old_sector_is_parked_after_that_one_ask(self):
+        row = entry(when=WHEN)
+        now = WHEN + timedelta(days=150)
+        entries = sweep.classify([row], {row.key: {"tries": 1}}, max_tries=3, now=now)
+        self.assertEqual(entries[0].status, sweep.PARKED)
+        self.assertIn("older than the 7-day record", entries[0].gap.reason)
+        self.assertFalse(entries[0].gap.plausible)
+
+    def test_a_recent_sector_still_gets_three_tries(self):
+        row = entry(when=WHEN)
+        now = WHEN + timedelta(days=1)
+        entries = sweep.classify([row], {row.key: {"tries": 1}}, max_tries=3, now=now)
+        self.assertEqual(entries[0].status, sweep.OPEN)
+
+    def test_a_cutoff_still_works_when_somebody_asks_for_one(self):
+        now = WHEN + timedelta(days=150)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                 history_days=7, now=now)
+        self.assertEqual(entries[0].status, sweep.OUT_OF_RANGE)
+        self.assertEqual(sweep.plan(entries, 0), [])
+
+
+class HorizonTests(unittest.TestCase):
+    """A refusal is worth remembering — but only for as long as it is true."""
+
+    def test_a_measured_horizon_takes_the_older_backlog_out_of_the_queue(self):
+        horizon = WHEN + timedelta(days=30)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                 horizon=horizon, now=WHEN + timedelta(days=60))
+        self.assertEqual(entries[0].status, sweep.OUT_OF_RANGE)
+        self.assertIn("measured, not assumed", entries[0].gap.reason)
+        self.assertEqual(sweep.plan(entries, 0), [])
+
+    def test_a_sector_after_the_horizon_is_still_asked_for(self):
+        horizon = WHEN - timedelta(days=30)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3, horizon=horizon)
+        self.assertEqual(entries[0].status, sweep.OPEN)
+
+    def test_a_fresh_horizon_is_trusted(self):
+        state = {"reach": {"stop_before": "2026-06-15T00:00:00Z",
+                           "checked": "2026-11-07T00:00:00Z"}}
+        now = datetime(2026, 11, 10, tzinfo=timezone.utc)
+        self.assertEqual(sweep.measured_reach(state, now=now),
+                         datetime(2026, 6, 15, tzinfo=timezone.utc))
+
+    def test_a_month_old_horizon_is_tested_again(self):
+        """A plan can be bought. Nothing should have to be edited for that."""
+        state = {"reach": {"stop_before": "2026-06-15T00:00:00Z",
+                           "checked": "2026-09-01T00:00:00Z"}}
+        now = datetime(2026, 11, 7, tzinfo=timezone.utc)
+        self.assertIsNone(sweep.measured_reach(state, now=now))
+
+    def test_no_horizon_measured_yet_means_ask(self):
+        self.assertIsNone(sweep.measured_reach({"reach": {}}))
+        self.assertIsNone(sweep.measured_reach({}))
+
+    def test_the_summary_reports_what_was_measured(self):
+        entries = sweep.classify([entry()], {}, max_tries=3)
+        state = {"attempts": {}, "months": {}, "totals": {},
+                 "reach": {"stop_before": "2026-06-15T00:00:00Z",
+                           "oldest_served": "2026-07-02T09:00:00Z"}}
+        text = sweep.summarise(entries, state)
+        self.assertIn("served a sector as old as 2026-07-02", text)
+        self.assertIn("stops before 2026-06-15", text)
+
+
+class ClockTests(unittest.TestCase):
+    """The night ends when the minutes are up, and says what it left behind."""
+
+    def args(self, **kwargs):
+        base = dict(minutes=1, beyond_stop=3, max_pages=1, delay=0, pause=0)
+        base.update(kwargs)
+        return argparse.Namespace(**base)
+
+    def fake_client(self):
+        class Client:
+            async def __aenter__(self):
+                return self
+
+            async def __aexit__(self, *_):
+                return False
+
+            async def login(self, *_args, **_kwargs):
+                return True
+        return lambda: Client()
+
+    def test_it_stops_at_the_deadline_and_counts_what_is_left(self):
+        rows = sweep.classify([entry(when=WHEN + timedelta(hours=n)) for n in range(10)],
+                              {}, max_tries=3, now=WHEN + timedelta(days=1))
+        ticks = iter(range(0, 10_000, 30))       # 30 s a look: two fit in a minute
+
+        async def never(*_args, **_kwargs):
+            return None
+
+        with mock.patch.object(sweep.fetch, "fetch_gap", never):
+            swept = asyncio.run(sweep.fetch_plan(rows, self.args(), {"attempts": {}},
+                                                 client_factory=self.fake_client(),
+                                                 clock=lambda: next(ticks)))
+        self.assertLess(swept.asked, len(rows))
+        self.assertEqual(swept.asked + swept.left, len(rows))
+
+    def test_three_too_old_answers_write_the_horizon_down(self):
+        # newest first, as the sweep runs it: the refusal is what everything
+        # older than it inherits
+        rows = sweep.plan(sweep.classify(
+            [entry(when=WHEN + timedelta(days=n)) for n in range(5)],
+            {}, max_tries=3, now=WHEN + timedelta(days=1)), 0)
+
+        async def too_old(*_args, **_kwargs):
+            raise RuntimeError("HTTPStatusError('too old', status 400)")
+
+        with mock.patch.object(sweep.fetch, "fetch_gap", too_old):
+            swept = asyncio.run(sweep.fetch_plan(rows, self.args(minutes=0),
+                                                 {"attempts": {}},
+                                                 client_factory=self.fake_client(),
+                                                 clock=lambda: 0))
+        self.assertEqual(swept.asked, 3)
+        self.assertEqual(swept.stop_before, rows[3].when)
+        self.assertTrue(all(row.status == sweep.OUT_OF_RANGE for row in rows))
+
+    def test_a_beyond_stop_of_zero_never_stops(self):
+        rows = sweep.plan(sweep.classify(
+            [entry(when=WHEN + timedelta(days=n)) for n in range(3)], {},
+            max_tries=3, now=WHEN + timedelta(days=1)), 0)
+
+        async def too_old(*_args, **_kwargs):
+            raise RuntimeError("HTTPStatusError('too old', status 400)")
+
+        with mock.patch.object(sweep.fetch, "fetch_gap", too_old):
+            swept = asyncio.run(sweep.fetch_plan(rows, self.args(minutes=0, beyond_stop=0),
+                                                 {"attempts": {}},
+                                                 client_factory=self.fake_client(),
+                                                 clock=lambda: 0))
+        self.assertIsNone(swept.stop_before)
+        self.assertEqual(swept.asked, 3)
+
+    def test_no_minutes_means_no_deadline(self):
+        rows = sweep.classify([entry(when=WHEN + timedelta(hours=n)) for n in range(4)],
+                              {}, max_tries=3, now=WHEN + timedelta(days=1))
+
+        async def never(*_args, **_kwargs):
+            return None
+
+        with mock.patch.object(sweep.fetch, "fetch_gap", never):
+            swept = asyncio.run(sweep.fetch_plan(rows, self.args(minutes=0),
+                                                 {"attempts": {}},
+                                                 client_factory=self.fake_client(),
+                                                 clock=lambda: 0))
+        self.assertEqual(swept.asked, len(rows))
 
 
 class PlanTests(unittest.TestCase):

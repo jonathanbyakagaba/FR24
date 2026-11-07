@@ -101,36 +101,41 @@ in the archive needs it: the builder and the tests run on the standard library.
 Fetched tracks are added to `tracks/manifest.csv` with `source = fr24-api`, so a
 recovered sector never passes for one that came out of the enumeration.
 
-### Closing the backlog, a hundred a night
+### Closing the backlog, night after night, until it is empty
 
 Harvesting keeps the *new* flying coming in; it does nothing for history. A
 rotation that landed in July with a hole in the middle stays holed forever, and
 no amount of tonight's flying makes it whole. So the same nightly job also runs
 `work/sweep_gaps.py`, which walks **every month in the archive** — June onward,
 not just this one and last — and fetches the sectors the rotation chains prove but
-the record does not hold:
+the record does not hold. Nothing is written off for being old: it asks, and the
+backlog shrinks until there is nothing left to ask about.
 
 ```bash
 python3 work/sweep_gaps.py --plan              # the backlog, month by month
 python3 work/sweep_gaps.py --dry-run           # what it would ask for tonight
-python3 work/sweep_gaps.py --budget 100        # what the nightly job runs
+python3 work/sweep_gaps.py --minutes 25        # what the nightly job runs
 ```
 
 Three things make it safe to leave running:
 
-- **A budget.** It asks for a bounded number of sectors — 100 by default, the
-  `SWEEP_BUDGET` variable to change it — so the job always finishes and the API
-  is never hammered. Whatever is left waits for tomorrow.
-- **A horizon.** Flightradar24 keeps a record whose depth depends on the
-  subscription — 7 days on Basic, 90 on Silver, 365 on Gold, three years on
-  Business. A sector older than that cannot be fetched at any price, so it is
-  recorded as *out of reach* instead of being asked for: `--history-days`, or the
-  `FR24_HISTORY_DAYS` variable, tells the sweep where the horizon is. Raise it
-  when the plan changes and the sweep starts reaching further back on its own.
-- **A memory.** `state/sweep.json` counts the tries against each sector. One that
-  Flightradar24 will not serve is parked after three attempts instead of being
-  asked for forever, and the gap sheet says so rather than listing it as
-  fetchable.
+- **A clock, not a head-count.** It keeps asking until its minutes are up — 25 by
+  default, `SWEEP_MINUTES` to change it — so the job always finishes inside its
+  timeout and the API is never hammered. Whatever is left is reported as *left for
+  tomorrow* rather than quietly dropped. `--budget` remains as a hard cap on the
+  count, and `SWEEP_BUDGET` sets it; left unset, the clock is the only limit.
+- **A reach that is measured, not assumed.** Flightradar24 keeps a record whose
+  depth depends on the subscription — 7 days on Basic, 90 on Silver, 365 on Gold,
+  three years on Business — and the archive no longer guesses at it. The sweep
+  asks about every sector the chains prove missing, and `state/sweep.json` records
+  the oldest sector the record actually served. Buy a deeper plan and the backlog
+  begins filling overnight with nothing to configure. `--history-days` /
+  `FR24_HISTORY_DAYS` still exist for anyone who wants a cut-off; the default, 0,
+  means none.
+- **A memory.** `state/sweep.json` counts the tries against each sector. Inside
+  the record's seven-day window a sector gets three attempts; older than that it
+  gets one honest ask — one answer is all the record will ever give — and is then
+  parked, with the gap sheet saying why instead of listing it as fetchable.
 - **Recomputation, not bookkeeping.** The backlog is derived from the tracks on
   disk every night, so filled sectors leave the list by themselves and a sector
   that only became visible once a neighbouring track arrived appears without
@@ -138,21 +143,22 @@ Three things make it safe to leave running:
 
 Each month keeps a `gaps_YYYY-MM.csv` listing what is still missing, with a status
 column: `fetchable`, `skipped (hole too short …)`, `skipped (no ICAO code …)`,
-`skipped (not in the Flightradar24 record after N tries)`, or `skipped (older than
-the 7-day history this plan keeps)`. The night's email and the issue comment carry
-the running total — *"5 sectors still missing, 199 beyond the plan's history"* —
-so the number in your inbox is the archive as it actually stands.
+`skipped (asked once — older than the 7-day record the plan keeps)`, or
+`skipped (not in the Flightradar24 record after N tries)`. The night's email and
+the issue comment carry the running total — *"1 sector still missing, 4 given up
+on"* — so the number in your inbox is the archive as it actually stands.
 
-**What that means for June–October.** The nightly job has, in practice, a
-seven-day memory: a hole that appears has to be closed inside that window or it is
-gone for good. The 199 sectors behind it — the LUN–HRE and ZNZ–JRO tag legs of
-the summer — are older than the plan's record, and no amount of retrying will
-bring them back. They stay in the rotation chains as hops, which is how the
-archive already shows a sector it knows about but cannot show: the flight is
-accounted for, its track is what is missing. Two ways out, and only one of them
-is code: a deeper Flightradar24 plan (Gold reaches all of them, and setting
-`FR24_HISTORY_DAYS=365` lets the sweep fill them in), or an export of those
-specific flights from another source, dropped into `archive/YYYY-MM/tracks/`.
+**What that means for June–October.** The 199 sectors behind the seven-day
+window — the LUN–HRE and ZNZ–JRO tag legs of the summer — had been written off as
+*out of reach* without a single request being made for them, on the strength of an
+assumption about the subscription. That assumption is gone. The next sweep asks
+about all of them, in one night if the clock allows and over several if it does
+not: whatever the record still holds returns as a real track and closes the hole,
+and whatever it does not is parked after one attempt, with the reason in the gap
+sheet and the count in the email. Either way the answer is the archive's own
+measurement rather than a guess — and if a deeper Flightradar24 plan is bought
+(Gold reaches all of them), the same sweep starts filling them in with nothing to
+change.
 
 ### Keeping it current, all year round
 
@@ -319,7 +325,7 @@ the workflow's *Run workflow* button:
 
 ```bash
 python3 work/sync_fr24.py --since 2026-06-01 --ignore-state --max-pages 40 --pause 0
-python3 work/sweep_gaps.py --budget 0          # and every sector the chain proves missing
+python3 work/sweep_gaps.py --minutes 0         # and every sector the chain proves missing
 ```
 
 Run once over June–November that also repairs the holes the reconciliation sheet
