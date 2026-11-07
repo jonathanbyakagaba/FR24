@@ -1,24 +1,24 @@
 {
   "attempts": {
     "2026-11|EBB-JRO|2026-11-04T07:55|5X-KOB": {
-      "at": "2026-11-07T05:37:54Z",
+      "at": "2026-11-07T05:45:33Z",
       "last": "left open \u2014 the record has no such flight",
-      "tries": 1
+      "tries": 2
     },
     "2026-11|HRE-LUN|2026-11-04T12:00|ET-APL": {
-      "at": "2026-11-07T05:37:53Z",
+      "at": "2026-11-07T05:45:31Z",
       "last": "left open \u2014 the record has no such flight",
-      "tries": 1
+      "tries": 2
     },
     "2026-11|HRE-LUN|2026-11-05T14:00|5X-EQU": {
-      "at": "2026-11-07T05:37:51Z",
+      "at": "2026-11-07T05:45:30Z",
       "last": "left open \u2014 the record has no such flight",
-      "tries": 1
+      "tries": 2
     },
     "2026-11|LUN-HRE|2026-11-01T08:38|5X-KDP": {
-      "at": "2026-11-07T05:37:58Z",
+      "at": "2026-11-07T05:45:34Z",
       "last": "left open \u2014 the record has no such flight",
-      "tries": 1
+      "tries": 2
     }
   },
   "months": {
@@ -27,35 +27,35 @@
       "open": 0,
       "open_keys": [],
       "parked": 0,
-      "swept": "2026-11-07T05:38:01Z"
+      "swept": "2026-11-07T05:45:38Z"
     },
     "2026-07": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 0,
-      "swept": "2026-11-07T05:38:01Z"
+      "swept": "2026-11-07T05:45:38Z"
     },
     "2026-08": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 0,
-      "swept": "2026-11-07T05:38:01Z"
+      "swept": "2026-11-07T05:45:38Z"
     },
     "2026-09": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 0,
-      "swept": "2026-11-07T05:38:01Z"
+      "swept": "2026-11-07T05:45:38Z"
     },
     "2026-10": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 0,
-      "swept": "2026-11-07T05:38:01Z"
+      "swept": "2026-11-07T05:45:38Z"
     },
     "2026-11": {
       "closed_since": 0,
@@ -68,7 +68,7 @@
         "2026-11|LUN-HRE|2026-11-01T08:38|5X-KDP"
       ],
       "parked": 0,
-      "swept": "2026-11-07T05:38:01Z"
+      "swept": "2026-11-07T05:45:38Z"
     }
   },
   "totals": {
@@ -78,6 +78,6 @@
     "out_of_range": 199,
     "parked": 0,
     "too_small": 6,
-    "updated": "2026-11-07T05:38:01Z"
+    "updated": "2026-11-07T05:45:38Z"
   }
 }
