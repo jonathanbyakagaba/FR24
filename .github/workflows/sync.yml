@@ -94,15 +94,17 @@ jobs:
           if [ -n "$DRY_RUN" ]; then args+=(--dry-run); fi
           python3 work/sync_fr24.py "${args[@]}"
 
-      - name: Sweep the open months for untracked sectors
+      - name: Close the sectors still missing
+        # Every month from June, not just this one: a hole in a rotation that
+        # landed in July stays a hole until something goes back for it. A budget
+        # keeps the job finite and the API polite; state/sweep.json remembers
+        # what has been tried, so a sector Flightradar24 will not serve is parked
+        # rather than asked for every night forever.
         if: ${{ env.DRY_RUN == '' && env.GAPS == '1' }}
         continue-on-error: true
-        run: |
-          for offset in 0 1; do
-            month=$(date -u -d "$(date -u +%Y-%m-01) -${offset} month" +%Y-%m)
-            python3 work/fetch_fr24_tracks.py --month "$month" --limit 40 || true
-            python3 work/fr24_tracks.py --month "$month" || true
-          done
+        env:
+          SWEEP_BUDGET: ${{ vars.SWEEP_BUDGET || '100' }}
+        run: python3 work/sweep_gaps.py --budget "$SWEEP_BUDGET" --delay 1 --pause 1
 
       - name: Run the tests
         run: python3 -m unittest discover -s tests

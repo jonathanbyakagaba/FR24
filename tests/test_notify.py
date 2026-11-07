@@ -78,6 +78,37 @@ class MessageTests(unittest.TestCase):
         self.assertEqual(subject, "FR24 sync: nothing new")
 
 
+class BacklogTests(unittest.TestCase):
+    """The sweep's numbers, carried into what the night reports."""
+
+    def test_nothing_missing_says_nothing(self):
+        self.assertEqual(notify.backlog_line({}), "")
+
+    def test_the_line_counts_what_is_open_parked_and_closed(self):
+        text = notify.backlog_line({"open": 189, "parked": 6, "closed": 22})
+        self.assertEqual(text, "189 sectors still missing, 6 given up on, "
+                               "22 closed so far")
+
+    def test_one_sector_is_not_sectors(self):
+        self.assertIn("1 sector still missing", notify.backlog_line({"open": 1}))
+
+    def test_the_email_carries_the_backlog(self):
+        with mock.patch.object(notify, "read_sweep",
+                               return_value={"open": 12, "closed": 3}):
+            _, body = notify.build_message(STATE, "success")
+        self.assertIn("12 sectors still missing, 3 closed so far", body)
+
+    def test_the_issue_comment_carries_it_too(self):
+        with mock.patch.object(notify, "read_sweep",
+                               return_value={"open": 12, "closed": 3}):
+            comment = notify.build_issue_comment(STATE, "success")
+        self.assertIn("| missing | 12 sectors still missing, 3 closed so far |", comment)
+
+    def test_a_missing_sweep_file_is_not_an_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(notify.read_sweep(Path(tmp) / "absent.json"), {})
+
+
 class IssueFormatTests(unittest.TestCase):
     """The route that needs no mailbox: GitHub sends the notification itself."""
 
