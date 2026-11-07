@@ -8,17 +8,25 @@ that walks every month in the archive, finds the sectors the rotation chains
 prove but the record does not hold, and fetches them a few at a time.
 
     python3 work/sweep_gaps.py --plan              # the backlog, no network
-    python3 work/sweep_gaps.py --budget 150        # fetch up to 150 sectors
-    python3 work/sweep_gaps.py --month 2026-06 --budget 20
+    python3 work/sweep_gaps.py --minutes 25        # ask for 25 minutes' worth
+    python3 work/sweep_gaps.py --month 2026-06 --minutes 5
     python3 work/sweep_gaps.py --dry-run           # say what it would fetch
 
-Three things make it safe to run every night:
+It sweeps the whole archive, back to the first month, and stops only when the
+backlog is empty. Four things make that safe to run every night:
 
-* **A budget.** A sweep asks for a bounded number of sectors, so the job always
-  finishes and the API is never hammered. Whatever is left waits for tomorrow.
-* **A memory.** ``state/sweep.json`` counts the tries against each sector. One
-  that Flightradar24 will not serve is parked after three attempts instead of
-  being asked for forever, and the gap sheet says so rather than lying about it.
+* **A clock, not a head-count.** A sweep keeps asking until its minutes are up,
+  so the job always finishes inside its timeout and the API is never hammered.
+  Whatever is left waits for tomorrow, and the summary says how much that is.
+* **A memory.** ``state/sweep.json`` counts the tries against each sector. Sectors
+  inside the record's seven-day window get three attempts; anything older gets
+  one honest ask and is then parked, with the reason written into the gap sheet
+  rather than a lie about the sector still being "open".
+* **A reach, measured rather than assumed.** Nothing is written off in advance
+  because a plan *might* only keep seven days. The sweep asks, records the oldest
+  sector the record did serve, and only writes a horizon down after the API has
+  refused several sectors in a row for being too old — then stops asking about
+  anything older until that measurement is a month old and worth testing again.
 * **Recomputation, not bookkeeping.** The backlog is derived from the tracks on
   disk every night, so a filled sector disappears from the list on its own, and a
   sector that only became visible once a neighbouring track arrived appears
@@ -35,6 +43,7 @@ import asyncio
 import json
 import os
 import sys
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -45,8 +54,12 @@ import fr24_tracks as ft  # noqa: E402
 import fetch_fr24_tracks as fetch  # noqa: E402
 
 STATE = ft.ROOT / "state" / "sweep.json"
-DEFAULT_BUDGET = 100
-DEFAULT_TRIES = 3
+# no count cap by default: the clock is the budget, so a sweep never stops with
+# something askable still sitting in the backlog
+DEFAULT_BUDGET = 0
+DEFAULT_MINUTES = 25        # what the nightly job can spare before it commits
+DEFAULT_TRIES = 3           # inside the record's window
+DEFAULT_OLD_TRIES = 1       # older than the window: one honest ask, then park
 
 OPEN = "open"
 PARKED = "parked"          # asked for, never served — stop asking
@@ -57,13 +70,25 @@ TOO_SMALL = "too-small"    # the hole is shorter than any flight
 # every state in which a sector is still *missing* — out of reach is not closed
 MISSING = (OPEN, PARKED, NO_ICAO, TOO_SMALL, OUT_OF_RANGE)
 
+PARKED_OLD = "parked-old"   # a reason, not a status: asked once, too old to serve
+
 _REASONS = {
     PARKED: "not in the Flightradar24 record after {tries} tries",
+    PARKED_OLD: "older than the {days}-day record (asked {tries}x, no answer)",
+    "measured": "the record stops before {date} (measured, not assumed)",
     NO_ICAO: "no ICAO code for this airport pair",
-    OUT_OF_RANGE: "older than the {days}-day history this plan keeps",
+    OUT_OF_RANGE: "the record no longer reaches back this far",
 }
 
-DEFAULT_HISTORY_DAYS = 7
+# Swept by default: 0 means "assume no horizon and ask", because assuming one is
+# how 199 June-to-October sectors came to be written off without ever asking.
+DEFAULT_HISTORY_DAYS = 0
+# What the record reliably keeps. This no longer gates anything — it only decides
+# how many tries a sector is worth.
+API_WINDOW_DAYS = 7
+# How long a measured horizon is trusted before it is tested again, in case the
+# subscription was upgraded underneath it.
+REACH_RECHECK = timedelta(days=30)
 
 
 @dataclass
@@ -128,12 +153,41 @@ def survey(months: list[str], root: Path | None = None) -> list[Entry]:
     return entries
 
 
+def measured_reach(state: dict, now: datetime | None = None) -> datetime | None:
+    """The oldest the record has been *shown* to reach, if measured recently.
+
+    Nothing about a subscription is taken on trust in either direction: this is
+    written only after the API has refused several sectors in a row for being too
+    old, and it is thrown away after a month so an upgraded plan is noticed.
+    """
+    reach = state.get("reach") or {}
+    stop, checked = reach.get("stop_before"), reach.get("checked")
+    if not stop or not checked:
+        return None
+    try:
+        stamp = datetime.strptime(stop, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        tested = datetime.strptime(checked, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return None
+    if (now or datetime.now(timezone.utc)) - tested > REACH_RECHECK:
+        return None
+    return stamp
+
+
 def classify(entries: list[Entry], attempts: dict, max_tries: int,
-             history_days: int = 0, now: datetime | None = None) -> list[Entry]:
-    """Mark each sector open, parked, or impossible — and say how many tries."""
-    cutoff = None
-    if history_days:
-        cutoff = (now or datetime.now(timezone.utc)) - timedelta(days=history_days)
+             history_days: int = 0, now: datetime | None = None,
+             old_tries: int = DEFAULT_OLD_TRIES,
+             horizon: datetime | None = None) -> list[Entry]:
+    """Mark each sector open, parked, or impossible — and say how many tries.
+
+    ``history_days`` is an opt-in cut-off for a plan that really does stop short
+    of the archive's own start; left at 0 the sweep asks about every sector the
+    archive can see, which is the point. Either way a sector older than the
+    record's window is worth fewer tries: one ask answers it for good.
+    """
+    stamp = now or datetime.now(timezone.utc)
+    cutoff = stamp - timedelta(days=history_days) if history_days else None
+    stale = stamp - timedelta(days=API_WINDOW_DAYS)
     for entry in entries:
         entry.tries = int((attempts.get(entry.key) or {}).get("tries") or 0)
         gap = entry.gap
@@ -145,10 +199,17 @@ def classify(entries: list[Entry], attempts: dict, max_tries: int,
             gap.reason = _REASONS[NO_ICAO]
         elif cutoff and entry.when < cutoff:
             entry.status = OUT_OF_RANGE
-            gap.reason = _REASONS[OUT_OF_RANGE].format(days=history_days)
-        elif entry.tries >= max_tries:
+            gap.reason = _REASONS[OUT_OF_RANGE]
+        elif horizon and entry.when < horizon:
+            entry.status = OUT_OF_RANGE
+            gap.reason = _REASONS["measured"].format(
+                date=horizon.strftime("%Y-%m-%d"))
+        elif entry.tries >= (max_tries if entry.when >= stale else old_tries):
             entry.status = PARKED
-            gap.reason = _REASONS[PARKED].format(tries=entry.tries)
+            gap.reason = (_REASONS[PARKED].format(tries=entry.tries)
+                          if entry.when >= stale
+                          else _REASONS[PARKED_OLD].format(tries=entry.tries,
+                                                           days=API_WINDOW_DAYS))
         else:
             entry.status = OPEN
         if entry.status != OPEN:
@@ -248,6 +309,28 @@ def save_state(entries: list[Entry], state: dict, path: Path | None = None,
     return state
 
 
+def note_stop(state: dict, when: datetime) -> None:
+    """Write down where the record stopped, and when that was tested."""
+    reach = state.setdefault("reach", {})
+    reach["stop_before"] = when.strftime("%Y-%m-%dT%H:%M:%SZ")
+    reach["checked"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def note_reach(state: dict, when: datetime) -> None:
+    """Remember the oldest sector the record did serve: a horizon, measured.
+
+    Presumed in advance it was seven days, and 199 sectors were written off
+    unasked on the strength of that presumption. Measured, it is whatever the
+    subscription actually answers, and the archive can say which it is.
+    """
+    reach = state.setdefault("reach", {})
+    stamp = when.strftime("%Y-%m-%dT%H:%M:%SZ")
+    oldest = reach.get("oldest_served")
+    if not oldest or stamp < oldest:
+        reach["oldest_served"] = stamp
+    reach["at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 def record(state: dict, entry: Entry, outcome: str) -> None:
     """Note what one attempt at one sector came to."""
     if outcome == "filled" or "400" in outcome:
@@ -264,7 +347,7 @@ def record(state: dict, entry: Entry, outcome: str) -> None:
 
 
 def summarise(entries: list[Entry], state: dict, fetched: int = 0,
-              attempted: int = 0) -> str:
+              attempted: int = 0, left: int = 0) -> str:
     months: dict[str, list[Entry]] = {}
     for entry in entries:
         months.setdefault(entry.month, []).append(entry)
@@ -285,9 +368,17 @@ def summarise(entries: list[Entry], state: dict, fetched: int = 0,
     stamp = (state.get("totals") or {}).get("updated") or ""
     head = (f"gap sweep{' — ' + stamp if stamp else ''}\n"
             f"  {count(OPEN)} open, {count(PARKED)} parked, "
-            f"{count(OUT_OF_RANGE)} beyond the plan's history, {closed} closed so far")
+            f"{count(OUT_OF_RANGE)} beyond the record's reach, {closed} closed so far")
     if attempted:
         head += f"\n  fetched {fetched} of {attempted} asked for tonight"
+    if left:
+        head += f", {left} left for tomorrow"
+    reach = (state.get("reach") or {}).get("oldest_served")
+    if reach:
+        head += f"\n  the record has served a sector as old as {reach}"
+    stop = (state.get("reach") or {}).get("stop_before")
+    if stop:
+        head += f"\n  the record stops before {stop[:10]} — measured, not assumed"
     return head + "\n" + "\n".join(lines)
 
 
@@ -314,21 +405,51 @@ def _args(budget_args):
                               pause=budget_args.pause)
 
 
-async def fetch_plan(entries: list[Entry], args, state: dict) -> list[str]:
-    """Ask Flightradar24 for each planned sector, and note what came back."""
-    from fr24 import FR24
+@dataclass
+class Swept:
+    """What one night's asking came to."""
 
-    touched: list[str] = []
+    touched: list[str] = field(default_factory=list)
+    asked: int = 0
+    left: int = 0
+    oldest_served: datetime | None = None
+    stop_before: datetime | None = None
+    filled: int = 0
+
+
+async def fetch_plan(entries: list[Entry], args, state: dict, *,
+                     client_factory=None, clock=None) -> Swept:
+    """Ask Flightradar24 for each planned sector, and note what came back.
+
+    The clock, not a head-count, decides when to stop: whatever is left stays
+    open for tomorrow instead of being quietly dropped.
+    """
+    clock = clock or time.monotonic
+    if client_factory is None:
+        from fr24 import FR24 as client_factory
+
+    swept = Swept()
+    deadline = (clock() + args.minutes * 60) if args.minutes else None
     beyond: int = 0
-    async with FR24() as client:
+    async with client_factory() as client:
         await client.login("from_env")
-        for entry in entries:
-            if beyond >= 3:
-                # the API has said "too old" three times running; everything
-                # after this is older still, so stop asking and say so instead
+        for index, entry in enumerate(entries):
+            if deadline is not None and clock() >= deadline:
+                swept.left = len(entries) - index
+                print(f"out of time after {swept.asked} sectors — "
+                      f"{swept.left} left for tomorrow", file=sys.stderr)
+                break
+            if args.beyond_stop and beyond >= args.beyond_stop:
+                # the API has said "too old" this many times running; everything
+                # after this is older still, so stop asking and write the horizon
+                # down — measured, so tomorrow does not repeat the experiment
+                if swept.stop_before is None:
+                    swept.stop_before = entry.when
+                    print(f"the record stops before {entry.when:%Y-%m-%d} — "
+                          f"not asking about anything older", file=sys.stderr)
                 entry.status = OUT_OF_RANGE
                 entry.gap.plausible = False
-                entry.gap.reason = _REASONS[OUT_OF_RANGE].format(days="plan's")
+                entry.gap.reason = _REASONS[OUT_OF_RANGE]
                 continue
             try:
                 row = await fetch.fetch_gap(client, entry.gap, entry.outdir / "tracks",
@@ -339,6 +460,7 @@ async def fetch_plan(entries: list[Entry], args, state: dict) -> list[str]:
             else:
                 outcome = "filled" if row else "left open — the record has no such flight"
             entry.outcome = outcome
+            swept.asked += 1
             if "400" in outcome:
                 beyond += 1
                 entry.status = OUT_OF_RANGE
@@ -346,26 +468,44 @@ async def fetch_plan(entries: list[Entry], args, state: dict) -> list[str]:
                 beyond = 0
             record(state, entry, outcome)
             if row:
-                touched.append(entry.month)
+                swept.filled += 1
+                swept.touched.append(entry.month)
+                when = entry.when
+                if when != datetime.max.replace(tzinfo=timezone.utc):
+                    if swept.oldest_served is None or when < swept.oldest_served:
+                        swept.oldest_served = when
             await asyncio.sleep(args.pause)
-    return touched
+    return swept
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         description="Close the sectors missing from every month of the archive.")
     parser.add_argument("--budget", type=int, default=DEFAULT_BUDGET,
-                        help=f"how many sectors to ask for tonight (default {DEFAULT_BUDGET})")
+                        help="hard cap on sectors asked for tonight "
+                             f"(default {DEFAULT_BUDGET} = no cap)")
+    parser.add_argument("--minutes", type=float, default=DEFAULT_MINUTES,
+                        help="wall-clock limit for the asking, in minutes "
+                             f"(default {DEFAULT_MINUTES}; 0 = no limit)")
     parser.add_argument("--month", action="append", default=[],
                         help="restrict to a month (repeatable); default is all of them")
     parser.add_argument("--history-days", type=int,
                         default=int(os.environ.get("FR24_HISTORY_DAYS")
                                     or DEFAULT_HISTORY_DAYS),
-                        help="how far back the subscription's record reaches "
-                             "(Basic 7, Silver 90, Gold 365, Business 1095); "
-                             "older sectors are marked, not asked for")
+                        help="opt-in cut-off: treat sectors older than this as "
+                             "beyond the plan's history instead of asking for "
+                             f"them (default {DEFAULT_HISTORY_DAYS} = ask about "
+                             "everything back to the first month)")
     parser.add_argument("--tries", type=int, default=DEFAULT_TRIES,
-                        help=f"attempts before a sector is parked (default {DEFAULT_TRIES})")
+                        help="attempts before a recent sector is parked "
+                             f"(default {DEFAULT_TRIES})")
+    parser.add_argument("--old-tries", type=int, default=DEFAULT_OLD_TRIES,
+                        help="attempts before a sector older than the "
+                             f"{API_WINDOW_DAYS}-day record is parked "
+                             f"(default {DEFAULT_OLD_TRIES})")
+    parser.add_argument("--beyond-stop", type=int, default=3,
+                        help="stop asking after this many consecutive "
+                             "'too old' answers (default 3; 0 = never stop)")
     parser.add_argument("--plan", action="store_true",
                         help="print the backlog and stop (no network, no credentials)")
     parser.add_argument("--dry-run", action="store_true",
@@ -389,8 +529,10 @@ def main(argv=None) -> int:
     state_path = Path(args.state)
     state = load_state(state_path)
 
+    horizon = measured_reach(state)
     entries = classify(survey(months), state["attempts"], args.tries,
-                   history_days=args.history_days)
+                       history_days=args.history_days, old_tries=args.old_tries,
+                       horizon=horizon)
     chosen = plan(entries, args.budget)
 
     if args.plan:
@@ -429,7 +571,12 @@ def main(argv=None) -> int:
         print("no Flightradar24 credentials in the environment", file=sys.stderr)
         return 1
 
-    fetched = asyncio.run(fetch_plan(chosen, args, state))
+    swept = asyncio.run(fetch_plan(chosen, args, state))
+    fetched = swept.touched
+    if swept.oldest_served is not None:
+        note_reach(state, swept.oldest_served)
+    if swept.stop_before is not None:
+        note_stop(state, swept.stop_before)
 
     for month in sorted(set(fetched)):
         if args.no_rebuild:
@@ -441,13 +588,18 @@ def main(argv=None) -> int:
     if fetched:
         touched = set(fetched)
         entries = [entry for entry in entries if entry.month not in touched]
-        entries += classify(survey(sorted(touched)), state["attempts"], args.tries,
-                             history_days=args.history_days)
-        entries.sort(key=lambda entry: (entry.when, entry.month, entry.gap.sector))
-        write_sheets(entries)
+        entries += survey(sorted(touched))
+    # and everything is re-classified against what tonight's answers were, so a
+    # sector asked for and refused is parked now rather than a night late
+    entries.sort(key=lambda entry: (entry.when, entry.month, entry.gap.sector))
+    entries = classify(entries, state["attempts"], args.tries,
+                       history_days=args.history_days, old_tries=args.old_tries,
+                       horizon=measured_reach(state))
+    write_sheets(entries)
 
     save_state(entries, state, state_path, months)
-    print(summarise(entries, state, fetched=len(fetched), attempted=len(chosen)))
+    print(summarise(entries, state, fetched=len(fetched), attempted=swept.asked,
+                    left=swept.left))
     return 0
 
 
