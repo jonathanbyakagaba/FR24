@@ -1,7 +1,7 @@
 # Uganda Airlines — November 2026
 
 Flight log in [AeroRoutes](https://www.aeroroutes.com/) notation, rebuilt from the
-month's Flightradar24 track exports (`archive/2026-11/tracks/`, 98 files).
+month's Flightradar24 track exports (`archive/2026-11/tracks/`, 135 files).
 
 | field | value |
 |---|---|
