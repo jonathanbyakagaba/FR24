@@ -2,6 +2,10 @@ name: sync
 
 # Keeps the archive current on its own, all year round.
 #
+# Pinned to ubuntu-24.04 rather than ubuntu-latest: GitHub is migrating the
+# "latest" label to Ubuntu 26, and a nightly job that quietly changes operating
+# system underneath itself is a bad way to find out what that breaks.
+#
 # Every night at 01:30 UTC — half an hour after the flying day turns over at
 # 04:00 in Kampala — this harvests the fleet's flying from the Flightradar24 API:
 # each airframe's flights since the last run, a playback for every one the
@@ -68,10 +72,13 @@ env:
 jobs:
   sync:
     if: github.event_name != 'workflow_dispatch' || inputs.mail_test != true
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      # These majors declare Node 24. The previous ones declared Node 20, which
+      # GitHub has retired — it was forcing them onto 24 and warning about it on
+      # every run. The inputs are unchanged.
+      - uses: actions/checkout@v5
         with:
           # always the default branch (`main`): the job runs the code that is live
           # and commits straight back to it. A dispatch from a feature branch
@@ -79,7 +86,7 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -196,7 +203,7 @@ jobs:
 
       - name: Say so when it breaks
         if: ${{ failure() }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const title = "Nightly sync is failing";
@@ -227,11 +234,11 @@ jobs:
     # Actions → sync → Run workflow → tick "mail_test" to prove the mailbox in
     # ten seconds, without waiting for 01:30 or touching the archive.
     if: github.event_name == 'workflow_dispatch' && inputs.mail_test == true
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Send a test email
