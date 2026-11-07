@@ -120,8 +120,13 @@ Three things make it safe to leave running:
 
 - **A budget.** It asks for a bounded number of sectors — 100 by default, the
   `SWEEP_BUDGET` variable to change it — so the job always finishes and the API
-  is never hammered. Whatever is left waits for tomorrow; the whole June–November
-  backlog of 204 sectors is two nights' work.
+  is never hammered. Whatever is left waits for tomorrow.
+- **A horizon.** Flightradar24 keeps a record whose depth depends on the
+  subscription — 7 days on Basic, 90 on Silver, 365 on Gold, three years on
+  Business. A sector older than that cannot be fetched at any price, so it is
+  recorded as *out of reach* instead of being asked for: `--history-days`, or the
+  `FR24_HISTORY_DAYS` variable, tells the sweep where the horizon is. Raise it
+  when the plan changes and the sweep starts reaching further back on its own.
 - **A memory.** `state/sweep.json` counts the tries against each sector. One that
   Flightradar24 will not serve is parked after three attempts instead of being
   asked for forever, and the gap sheet says so rather than listing it as
@@ -132,10 +137,22 @@ Three things make it safe to leave running:
   anybody adding it.
 
 Each month keeps a `gaps_YYYY-MM.csv` listing what is still missing, with a status
-column: `fetchable`, `skipped (hole too short …)`, `skipped (no ICAO code …)`, or
-`skipped (not in the Flightradar24 record after N tries)`. The night's email and
-the issue comment carry the running total — *"189 sectors still missing, 22 closed
-so far"* — so the number in your inbox is the archive getting whole.
+column: `fetchable`, `skipped (hole too short …)`, `skipped (no ICAO code …)`,
+`skipped (not in the Flightradar24 record after N tries)`, or `skipped (older than
+the 7-day history this plan keeps)`. The night's email and the issue comment carry
+the running total — *"5 sectors still missing, 199 beyond the plan's history"* —
+so the number in your inbox is the archive as it actually stands.
+
+**What that means for June–October.** The nightly job has, in practice, a
+seven-day memory: a hole that appears has to be closed inside that window or it is
+gone for good. The 199 sectors behind it — the LUN–HRE and ZNZ–JRO tag legs of
+the summer — are older than the plan's record, and no amount of retrying will
+bring them back. They stay in the rotation chains as hops, which is how the
+archive already shows a sector it knows about but cannot show: the flight is
+accounted for, its track is what is missing. Two ways out, and only one of them
+is code: a deeper Flightradar24 plan (Gold reaches all of them, and setting
+`FR24_HISTORY_DAYS=365` lets the sweep fill them in), or an export of those
+specific flights from another source, dropped into `archive/YYYY-MM/tracks/`.
 
 ### Keeping it current, all year round
 

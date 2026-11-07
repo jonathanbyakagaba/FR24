@@ -104,6 +104,10 @@ jobs:
         continue-on-error: true
         env:
           SWEEP_BUDGET: ${{ vars.SWEEP_BUDGET || '100' }}
+          # how far back the subscription's record reaches: Basic 7 days,
+          # Silver 90, Gold 365, Business 1095. Raise the variable if you upgrade
+          # and the sweep will start reaching further into the archive.
+          FR24_HISTORY_DAYS: ${{ vars.FR24_HISTORY_DAYS || '7' }}
         run: python3 work/sweep_gaps.py --budget "$SWEEP_BUDGET" --delay 1 --pause 1
 
       - name: Run the tests
@@ -140,6 +144,7 @@ jobs:
       - name: Email the result
         # a dry run reports itself in the log rather than the mailbox
         if: always() && inputs.dry_run != true
+        # a red step here means the mail did not leave — but never a failed night
         continue-on-error: true
         env:
           MAIL_TO: ${{ secrets.SYNC_MAIL_TO }}
@@ -151,7 +156,7 @@ jobs:
             --status "${{ job.status }}" \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --repo "${{ github.repository }}" \
-            --always-exit-0
+            --require-config
 
       - name: Log the night on a tracking issue
         # GitHub sends the notification itself, so this route needs no mailbox and

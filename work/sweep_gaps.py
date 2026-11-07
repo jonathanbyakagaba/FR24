@@ -33,9 +33,10 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 import sys
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -50,12 +51,19 @@ DEFAULT_TRIES = 3
 OPEN = "open"
 PARKED = "parked"          # asked for, never served — stop asking
 NO_ICAO = "no-icao"        # the sector cannot be queried without an ICAO code
+OUT_OF_RANGE = "out-of-range"  # older than the history the subscription keeps
 TOO_SMALL = "too-small"    # the hole is shorter than any flight
+
+# every state in which a sector is still *missing* — out of reach is not closed
+MISSING = (OPEN, PARKED, NO_ICAO, TOO_SMALL, OUT_OF_RANGE)
 
 _REASONS = {
     PARKED: "not in the Flightradar24 record after {tries} tries",
     NO_ICAO: "no ICAO code for this airport pair",
+    OUT_OF_RANGE: "older than the {days}-day history this plan keeps",
 }
+
+DEFAULT_HISTORY_DAYS = 7
 
 
 @dataclass
@@ -120,8 +128,12 @@ def survey(months: list[str], root: Path | None = None) -> list[Entry]:
     return entries
 
 
-def classify(entries: list[Entry], attempts: dict, max_tries: int) -> list[Entry]:
+def classify(entries: list[Entry], attempts: dict, max_tries: int,
+             history_days: int = 0, now: datetime | None = None) -> list[Entry]:
     """Mark each sector open, parked, or impossible — and say how many tries."""
+    cutoff = None
+    if history_days:
+        cutoff = (now or datetime.now(timezone.utc)) - timedelta(days=history_days)
     for entry in entries:
         entry.tries = int((attempts.get(entry.key) or {}).get("tries") or 0)
         gap = entry.gap
@@ -130,22 +142,38 @@ def classify(entries: list[Entry], attempts: dict, max_tries: int) -> list[Entry
             gap.reason = gap.reason or "the hole is shorter than the sector"
         elif not (fetch.icao_for(gap.origin) and fetch.icao_for(gap.destination)):
             entry.status = NO_ICAO
+            gap.reason = _REASONS[NO_ICAO]
+        elif cutoff and entry.when < cutoff:
+            entry.status = OUT_OF_RANGE
+            gap.reason = _REASONS[OUT_OF_RANGE].format(days=history_days)
         elif entry.tries >= max_tries:
             entry.status = PARKED
+            gap.reason = _REASONS[PARKED].format(tries=entry.tries)
         else:
             entry.status = OPEN
-        if entry.status in _REASONS:
+        if entry.status != OPEN:
             gap.plausible = False
-            gap.reason = _REASONS[entry.status].format(tries=entry.tries)
     return entries
 
 
 def plan(entries: list[Entry], budget: int) -> list[Entry]:
-    """The sectors to ask for tonight: never tried first, then oldest."""
+    """The sectors to ask for tonight: never tried first, then *newest* first.
+
+    Newest, because the record only reaches back so far — the older a hole is,
+    the likelier it is already beyond the plan's history and the less a request
+    can possibly return. Working from the oldest end burns the budget on the
+    sectors that cannot be answered.
+    """
     open_entries = [entry for entry in entries if entry.status == OPEN]
-    open_entries.sort(key=lambda entry: (entry.tries, entry.when, entry.month,
+    open_entries.sort(key=lambda entry: (entry.tries, -_stamp(entry), entry.month,
                                          entry.gap.sector))
     return open_entries[:budget] if budget else open_entries
+
+
+def _stamp(entry: Entry) -> float:
+    """A sortable clock that does not overflow on a sector with no timestamp."""
+    when = entry.when
+    return when.timestamp() if when.year < 9000 else 0.0
 
 
 # --------------------------------------------------------------------------- #
@@ -175,7 +203,7 @@ def closed_since(entries: list[Entry], state: dict) -> dict[str, int]:
     previous = (state.get("months") or {})
     now: dict[str, set[str]] = {}
     for entry in entries:
-        if entry.status in (OPEN, PARKED, NO_ICAO, TOO_SMALL):
+        if entry.status in MISSING:
             now.setdefault(entry.month, set()).add(entry.key)
     closed: dict[str, int] = {}
     for month, record in previous.items():
@@ -209,6 +237,7 @@ def save_state(entries: list[Entry], state: dict, path: Path | None = None,
         "parked": sum(1 for entry in entries if entry.status == PARKED),
         "closed": sum(record["closed_since"] for record in records.values()),
         "no_icao": sum(1 for entry in entries if entry.status == NO_ICAO),
+        "out_of_range": sum(1 for entry in entries if entry.status == OUT_OF_RANGE),
         "too_small": sum(1 for entry in entries if entry.status == TOO_SMALL),
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
@@ -221,7 +250,7 @@ def save_state(entries: list[Entry], state: dict, path: Path | None = None,
 
 def record(state: dict, entry: Entry, outcome: str) -> None:
     """Note what one attempt at one sector came to."""
-    if outcome == "filled":
+    if outcome == "filled" or "400" in outcome:
         state["attempts"].pop(entry.key, None)
         return
     record_ = state["attempts"].setdefault(entry.key, {"tries": 0})
@@ -244,9 +273,10 @@ def summarise(entries: list[Entry], state: dict, fetched: int = 0,
         rows = months[month]
         open_ = sum(1 for row in rows if row.status == OPEN)
         parked = sum(1 for row in rows if row.status == PARKED)
+        beyond = sum(1 for row in rows if row.status == OUT_OF_RANGE)
         closed = (state.get("months", {}).get(month, {}).get("closed_since") or 0)
         lines.append(f"  {month}   {open_:>3} open   {parked:>3} parked   "
-                     f"{closed:>3} closed so far")
+                     f"{beyond:>3} out of reach   {closed:>3} closed so far")
     def count(status: str) -> int:
         return sum(1 for entry in entries if entry.status == status)
 
@@ -255,7 +285,7 @@ def summarise(entries: list[Entry], state: dict, fetched: int = 0,
     stamp = (state.get("totals") or {}).get("updated") or ""
     head = (f"gap sweep{' — ' + stamp if stamp else ''}\n"
             f"  {count(OPEN)} open, {count(PARKED)} parked, "
-            f"{closed} closed so far, {count(NO_ICAO)} unqueryable")
+            f"{count(OUT_OF_RANGE)} beyond the plan's history, {closed} closed so far")
     if attempted:
         head += f"\n  fetched {fetched} of {attempted} asked for tonight"
     return head + "\n" + "\n".join(lines)
@@ -289,9 +319,17 @@ async def fetch_plan(entries: list[Entry], args, state: dict) -> list[str]:
     from fr24 import FR24
 
     touched: list[str] = []
+    beyond: int = 0
     async with FR24() as client:
         await client.login("from_env")
         for entry in entries:
+            if beyond >= 3:
+                # the API has said "too old" three times running; everything
+                # after this is older still, so stop asking and say so instead
+                entry.status = OUT_OF_RANGE
+                entry.gap.plausible = False
+                entry.gap.reason = _REASONS[OUT_OF_RANGE].format(days="plan's")
+                continue
             try:
                 row = await fetch.fetch_gap(client, entry.gap, entry.outdir / "tracks",
                                             _args(args))
@@ -301,6 +339,11 @@ async def fetch_plan(entries: list[Entry], args, state: dict) -> list[str]:
             else:
                 outcome = "filled" if row else "left open — the record has no such flight"
             entry.outcome = outcome
+            if "400" in outcome:
+                beyond += 1
+                entry.status = OUT_OF_RANGE
+            else:
+                beyond = 0
             record(state, entry, outcome)
             if row:
                 touched.append(entry.month)
@@ -315,6 +358,12 @@ def main(argv=None) -> int:
                         help=f"how many sectors to ask for tonight (default {DEFAULT_BUDGET})")
     parser.add_argument("--month", action="append", default=[],
                         help="restrict to a month (repeatable); default is all of them")
+    parser.add_argument("--history-days", type=int,
+                        default=int(os.environ.get("FR24_HISTORY_DAYS")
+                                    or DEFAULT_HISTORY_DAYS),
+                        help="how far back the subscription's record reaches "
+                             "(Basic 7, Silver 90, Gold 365, Business 1095); "
+                             "older sectors are marked, not asked for")
     parser.add_argument("--tries", type=int, default=DEFAULT_TRIES,
                         help=f"attempts before a sector is parked (default {DEFAULT_TRIES})")
     parser.add_argument("--plan", action="store_true",
@@ -340,7 +389,8 @@ def main(argv=None) -> int:
     state_path = Path(args.state)
     state = load_state(state_path)
 
-    entries = classify(survey(months), state["attempts"], args.tries)
+    entries = classify(survey(months), state["attempts"], args.tries,
+                   history_days=args.history_days)
     chosen = plan(entries, args.budget)
 
     if args.plan:
@@ -391,7 +441,8 @@ def main(argv=None) -> int:
     if fetched:
         touched = set(fetched)
         entries = [entry for entry in entries if entry.month not in touched]
-        entries += classify(survey(sorted(touched)), state["attempts"], args.tries)
+        entries += classify(survey(sorted(touched)), state["attempts"], args.tries,
+                             history_days=args.history_days)
         entries.sort(key=lambda entry: (entry.when, entry.month, entry.gap.sector))
         write_sheets(entries)
 

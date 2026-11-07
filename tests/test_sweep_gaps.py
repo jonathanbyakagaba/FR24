@@ -96,6 +96,58 @@ class ClassificationTests(unittest.TestCase):
         self.assertEqual(entries[0].status, sweep.TOO_SMALL)
 
 
+class HistoryTests(unittest.TestCase):
+    """A sector older than the plan's record is marked, never asked for."""
+
+    def test_a_sector_beyond_the_history_window_is_out_of_range(self):
+        now = WHEN + timedelta(days=30)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                 history_days=7, now=now)
+        self.assertEqual(entries[0].status, sweep.OUT_OF_RANGE)
+        self.assertIn("7-day history", entries[0].gap.reason)
+        self.assertFalse(entries[0].gap.plausible)
+
+    def test_a_sector_inside_the_window_stays_open(self):
+        now = WHEN + timedelta(days=3)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                 history_days=7, now=now)
+        self.assertEqual(entries[0].status, sweep.OPEN)
+
+    def test_no_window_configured_means_no_cutoff(self):
+        now = WHEN + timedelta(days=365)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                 history_days=0, now=now)
+        self.assertEqual(entries[0].status, sweep.OPEN)
+
+    def test_an_unreachable_sector_is_never_planned(self):
+        now = WHEN + timedelta(days=30)
+        entries = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                 history_days=7, now=now)
+        self.assertEqual(sweep.plan(entries, 10), [])
+
+    def test_out_of_reach_is_not_counted_as_closed(self):
+        """It is still missing; the archive has not been made whole."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "sweep.json"
+            first = sweep.classify([entry(when=WHEN)], {}, max_tries=3)
+            sweep.save_state(first, {"attempts": {}, "months": {}, "totals": {}},
+                             path, months=["2026-06"])
+            state = sweep.load_state(path)
+            later = sweep.classify([entry(when=WHEN)], {}, max_tries=3,
+                                   history_days=7, now=WHEN + timedelta(days=30))
+            sweep.save_state(later, state, path, months=["2026-06"])
+            state = sweep.load_state(path)
+        self.assertEqual(state["totals"]["out_of_range"], 1)
+        self.assertEqual(state["totals"]["closed"], 0)
+
+    def test_a_refusal_does_not_count_against_the_sector(self):
+        """A 400 means 'too old for this plan', not 'this sector is bad'."""
+        state = {"attempts": {}, "months": {}, "totals": {}}
+        row = entry()
+        sweep.record(state, row, "UnwrapError: HTTPStatusError('... status 400')")
+        self.assertNotIn(row.key, state["attempts"])
+
+
 class PlanTests(unittest.TestCase):
     def test_the_budget_is_respected(self):
         entries = sweep.classify([entry(when=WHEN + timedelta(days=n)) for n in range(10)],
@@ -107,10 +159,11 @@ class PlanTests(unittest.TestCase):
                                  {}, max_tries=3)
         self.assertEqual(len(sweep.plan(entries, 0)), 5)
 
-    def test_the_oldest_untried_sector_goes_first(self):
+    def test_the_newest_untried_sector_goes_first(self):
+        """The record only reaches back so far: ask where an answer is possible."""
         early, late = entry(when=WHEN), entry(when=WHEN + timedelta(days=30))
         entries = sweep.classify([late, early], {}, max_tries=3)
-        self.assertIs(sweep.plan(entries, 10)[0], early)
+        self.assertIs(sweep.plan(entries, 10)[0], late)
 
     def test_a_retried_sector_waits_behind_one_never_asked(self):
         tried, fresh = entry(when=WHEN), entry(when=WHEN + timedelta(days=5))
