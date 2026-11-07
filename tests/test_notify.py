@@ -89,6 +89,11 @@ class BacklogTests(unittest.TestCase):
         self.assertEqual(text, "189 sectors still missing, 6 given up on, "
                                "22 closed so far")
 
+    def test_the_line_admits_what_the_plan_cannot_reach(self):
+        text = notify.backlog_line({"open": 5, "out_of_range": 199, "closed": 3})
+        self.assertEqual(text, "5 sectors still missing, "
+                               "199 beyond the plan's history, 3 closed so far")
+
     def test_one_sector_is_not_sectors(self):
         self.assertIn("1 sector still missing", notify.backlog_line({"open": 1}))
 

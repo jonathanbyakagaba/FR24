@@ -76,12 +76,15 @@ def backlog_line(sweep: dict) -> str:
     """One line about the sectors still missing, or nothing to say."""
     open_ = int(sweep.get("open") or 0)
     parked = int(sweep.get("parked") or 0)
+    beyond = int(sweep.get("out_of_range") or 0)
     closed = int(sweep.get("closed") or 0)
-    if not (open_ or parked or closed):
+    if not (open_ or parked or beyond or closed):
         return ""
     text = f"{open_} sector{'s' if open_ != 1 else ''} still missing"
     if parked:
         text += f", {parked} given up on"
+    if beyond:
+        text += f", {beyond} beyond the plan's history"
     if closed:
         text += f", {closed} closed so far"
     return text
