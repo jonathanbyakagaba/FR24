@@ -54,6 +54,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "state" / "sync.json"
+SWEEP = ROOT / "state" / "sweep.json"
 
 MODES = ("always", "work", "never")
 DEFAULT_SMTP_PORT = 587
@@ -62,6 +63,29 @@ DEFAULT_SMTP_PORT = 587
 # --------------------------------------------------------------------------- #
 # the message
 # --------------------------------------------------------------------------- #
+
+def read_sweep(path: Path = SWEEP) -> dict:
+    """What the gap sweep knows: how much of the archive is still missing."""
+    try:
+        return (json.loads(path.read_text(encoding="utf-8")).get("totals") or {})
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return {}
+
+
+def backlog_line(sweep: dict) -> str:
+    """One line about the sectors still missing, or nothing to say."""
+    open_ = int(sweep.get("open") or 0)
+    parked = int(sweep.get("parked") or 0)
+    closed = int(sweep.get("closed") or 0)
+    if not (open_ or parked or closed):
+        return ""
+    text = f"{open_} sector{'s' if open_ != 1 else ''} still missing"
+    if parked:
+        text += f", {parked} given up on"
+    if closed:
+        text += f", {closed} closed so far"
+    return text
+
 
 def read_state(path: Path = STATE) -> dict:
     try:
@@ -115,6 +139,7 @@ def build_message(state: dict, status: str, run_url: str = "",
         ("Flights", f"{seen} seen, {int(state.get('new') if state.get('new') is not None else fetched)} new"),
         ("Tracks", f"{fetched} fetched, {failed} failed"),
         ("Months", months),
+        ("Missing", backlog_line(read_sweep()) or "nothing"),
     ]
     if repo:
         rows.append(("Repository", repo))
@@ -174,6 +199,9 @@ def build_issue_comment(state: dict, status: str, run_url: str = "",
         ("tracks", f"{fetched} fetched, {failed} failed"),
         ("months", months),
     ]
+    backlog = backlog_line(read_sweep())
+    if backlog:
+        rows.append(("missing", backlog))
     commit = last_commit()
     if commit:
         rows.append(("on main", f"`{commit}`"))

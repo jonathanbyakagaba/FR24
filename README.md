@@ -101,6 +101,42 @@ in the archive needs it: the builder and the tests run on the standard library.
 Fetched tracks are added to `tracks/manifest.csv` with `source = fr24-api`, so a
 recovered sector never passes for one that came out of the enumeration.
 
+### Closing the backlog, a hundred a night
+
+Harvesting keeps the *new* flying coming in; it does nothing for history. A
+rotation that landed in July with a hole in the middle stays holed forever, and
+no amount of tonight's flying makes it whole. So the same nightly job also runs
+`work/sweep_gaps.py`, which walks **every month in the archive** — June onward,
+not just this one and last — and fetches the sectors the rotation chains prove but
+the record does not hold:
+
+```bash
+python3 work/sweep_gaps.py --plan              # the backlog, month by month
+python3 work/sweep_gaps.py --dry-run           # what it would ask for tonight
+python3 work/sweep_gaps.py --budget 100        # what the nightly job runs
+```
+
+Three things make it safe to leave running:
+
+- **A budget.** It asks for a bounded number of sectors — 100 by default, the
+  `SWEEP_BUDGET` variable to change it — so the job always finishes and the API
+  is never hammered. Whatever is left waits for tomorrow; the whole June–November
+  backlog of 204 sectors is two nights' work.
+- **A memory.** `state/sweep.json` counts the tries against each sector. One that
+  Flightradar24 will not serve is parked after three attempts instead of being
+  asked for forever, and the gap sheet says so rather than listing it as
+  fetchable.
+- **Recomputation, not bookkeeping.** The backlog is derived from the tracks on
+  disk every night, so filled sectors leave the list by themselves and a sector
+  that only became visible once a neighbouring track arrived appears without
+  anybody adding it.
+
+Each month keeps a `gaps_YYYY-MM.csv` listing what is still missing, with a status
+column: `fetchable`, `skipped (hole too short …)`, `skipped (no ICAO code …)`, or
+`skipped (not in the Flightradar24 record after N tries)`. The night's email and
+the issue comment carry the running total — *"189 sectors still missing, 22 closed
+so far"* — so the number in your inbox is the archive getting whole.
+
 ### Keeping it current, all year round
 
 `work/sync_fr24.py` turns that into a loop, and
@@ -263,6 +299,7 @@ the workflow's *Run workflow* button:
 
 ```bash
 python3 work/sync_fr24.py --since 2026-06-01 --ignore-state --max-pages 40 --pause 0
+python3 work/sweep_gaps.py --budget 0          # and every sector the chain proves missing
 ```
 
 Run once over June–November that also repairs the holes the reconciliation sheet
