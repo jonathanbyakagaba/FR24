@@ -1,7 +1,7 @@
 # Uganda Airlines — July 2026
 
 Flight log in [AeroRoutes](https://www.aeroroutes.com/) notation, rebuilt from the
-month's Flightradar24 track exports (`archive/2026-07/tracks/`, 598 files).
+month's Flightradar24 track exports (`archive/2026-07/tracks/`, 612 files).
 
 | field | value |
 |---|---|

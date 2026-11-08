@@ -3,7 +3,22 @@
   "generator": "work/fr24_tracks.py",
   "flights_logged": 597,
   "legs_dropped_outside_month": 1,
-  "exports_without_a_leg": [],
+  "exports_without_a_leg": [
+    "UR334-81325756.csv",
+    "UR334-81853980.csv",
+    "UR334-82339487.csv",
+    "UR334-83165078.csv",
+    "UR334-83711597.csv",
+    "UR334-84254750.csv",
+    "UR334-85116407.csv",
+    "UR334-85684977.csv",
+    "UR334-86188633.csv",
+    "UR334-87037999.csv",
+    "UR334-87591486.csv",
+    "UR334-88126171.csv",
+    "UR334-88972426.csv",
+    "UR334-89513191.csv"
+  ],
   "sources": [
     {
       "file": "UR110-407bbe89.csv",
@@ -2548,6 +2563,118 @@
       "track_points": 258,
       "flight_id_hex": "40f0f445",
       "legs_in_month": 1
+    },
+    {
+      "file": "UR334-81325756.csv",
+      "bytes": 20127,
+      "sha256": "f29988b2755f218307b54e02f82c3439f4d31a27b271ba878f902310a96014ce",
+      "track_points": 252,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-81853980.csv",
+      "bytes": 16112,
+      "sha256": "dea822de0f96786f08f3ea1a3a558bd08e5fe16d96259f7c416ac12741d1eef6",
+      "track_points": 202,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-82339487.csv",
+      "bytes": 18283,
+      "sha256": "79546193a6c4d7874a14bd2140f7ab67c21c7d1dd467b2179235b68cd7aa5e41",
+      "track_points": 229,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-83165078.csv",
+      "bytes": 19253,
+      "sha256": "2329dfe75534fb27a55536c0b31daae2f66ecdd9fe4a29d59cf06c6c2cac707e",
+      "track_points": 241,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-83711597.csv",
+      "bytes": 21432,
+      "sha256": "384781452d3dfb51b09719535fa5f82cb355fb84cadc8e532942ea459590d120",
+      "track_points": 268,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-84254750.csv",
+      "bytes": 19190,
+      "sha256": "1736a0169066e290b18157b5a396d2b5b9f29d0cab42a044a4c82d89bf621ab5",
+      "track_points": 240,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-85116407.csv",
+      "bytes": 18182,
+      "sha256": "646c24e9ad6a01691df9bb27a0ba0a024744ebc615d49fcf9f420a9c901933a9",
+      "track_points": 228,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-85684977.csv",
+      "bytes": 18787,
+      "sha256": "9da2011f560db80d828dec8d43dee07826d24d44d2ca83bedcf8d6dca32b8206",
+      "track_points": 236,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-86188633.csv",
+      "bytes": 21449,
+      "sha256": "ab6d472ae28f2bcad185bef883393fb6dd31466639a130beba7cb8be41eac8db",
+      "track_points": 269,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-87037999.csv",
+      "bytes": 17808,
+      "sha256": "8d03feebfe56ca2452527a2af977634e4ff3a7de14c394e913f0300595eab299",
+      "track_points": 223,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-87591486.csv",
+      "bytes": 19200,
+      "sha256": "af8b4c7f5e95e1aec598636c3235b70f4c542a78a5c02377fa5b022fc49448cd",
+      "track_points": 240,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-88126171.csv",
+      "bytes": 20935,
+      "sha256": "4faceaaad18ce0341c1f4d209e89052d8266e9e4649b42d1b6b622d860b67888",
+      "track_points": 262,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-88972426.csv",
+      "bytes": 16717,
+      "sha256": "5c85b71db2bacd3fbfc2671450f95ee6e023eaba6f09dcb24c920687749e2202",
+      "track_points": 209,
+      "flight_id_hex": "",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR334-89513191.csv",
+      "bytes": 17684,
+      "sha256": "4894d10732e41ab53e64747e2a453c94aa0cd779fe3fee28299a541c24411f3e",
+      "track_points": 222,
+      "flight_id_hex": "",
+      "legs_in_month": 0
     },
     {
       "file": "UR342-4074c8b6.csv",

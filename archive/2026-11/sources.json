@@ -4,56 +4,167 @@
   "flights_logged": 97,
   "legs_dropped_outside_month": 1,
   "exports_without_a_leg": [
+    "ET552-13873150.csv",
+    "ET552-13927938.csv",
+    "ET553-14032083.csv",
+    "ET602-13753005.csv",
+    "ET603-13793057.csv",
+    "ET680-14341768.csv",
     "ET681-14430103.csv",
+    "ET714-15313404.csv",
+    "ET714-15377310.csv",
     "ET738-14590683.csv",
     "ET738-14658863.csv",
     "ET739-14796283.csv",
     "ET739-14814636.csv",
     "ET844-14964564.csv",
     "ET845-14908835.csv",
+    "ET846-14242122.csv",
+    "ET847-14179227.csv",
     "ET907-15086113.csv",
     "ET907-15148851.csv",
+    "ET908-15171250.csv",
+    "ET908-15190842.csv",
+    "UR110-15381998.csv",
     "UR111-15053906.csv",
+    "UR120-15181882.csv",
     "UR121-14959338.csv",
+    "UR121-15196728.csv",
     "UR200-15151525.csv",
+    "UR200-15370395.csv",
     "UR201-15165362.csv",
+    "UR201-15384528.csv",
+    "UR204-14062428.csv",
+    "UR204-14311088.csv",
     "UR204-14543820.csv",
     "UR204-14811702.csv",
     "UR204-15044700.csv",
+    "UR204-15274172.csv",
+    "UR205-14086186.csv",
+    "UR205-14335242.csv",
     "UR205-14573804.csv",
     "UR205-14836553.csv",
     "UR205-15074998.csv",
+    "UR205-15297832.csv",
+    "UR206-15222122.csv",
+    "UR207-15247432.csv",
     "UR322-14787204.csv",
     "UR322-15038620.csv",
+    "UR322-15271677.csv",
     "UR323-15072625.csv",
+    "UR323-15300234.csv",
+    "UR334-13780070.csv",
     "UR334-14456229.csv",
     "UR334-14960404.csv",
     "UR334-14975691.csv",
     "UR360-14982333.csv",
     "UR361-15013470.csv",
+    "UR430-15184204.csv",
+    "UR431-15291285.csv",
     "UR520-15134130.csv",
+    "UR520-15350905.csv",
     "UR521-15156002.csv",
+    "UR521-15372959.csv",
     "UR710-15161935.csv",
     "UR711-14961967.csv",
+    "UR711-15201375.csv",
     "UR712-14309686.csv",
     "UR720-15041828.csv",
     "UR720-15087606.csv",
     "UR720-15107410.csv",
+    "UR720-15378196.csv",
+    "UR722-14241258.csv",
     "UR722-14469228.csv",
     "UR722-14740858.csv",
+    "UR724-13950857.csv",
+    "UR724-13978806.csv",
+    "UR724-15167038.csv",
+    "UR724-15193466.csv",
+    "UR725-14111910.csv",
+    "UR725-14129223.csv",
+    "UR725-15324503.csv",
+    "UR725-15341506.csv",
+    "UR900-13813193.csv",
+    "UR900-14256178.csv",
     "UR900-14742275.csv",
     "UR900-14995432.csv",
+    "UR901-13846870.csv",
+    "UR901-14302454.csv",
     "UR901-14799816.csv",
     "UR901-15051658.csv",
     "UR901-15077316.csv"
   ],
   "sources": [
     {
+      "file": "ET552-13873150.csv",
+      "bytes": 54840,
+      "sha256": "f3f0dacbf2c1bf9057a182c94f753555d5332012ac930d0294ea45f7e6e120dd",
+      "track_points": 691,
+      "flight_id_hex": "1113873150",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET552-13927938.csv",
+      "bytes": 82083,
+      "sha256": "d5e97f7375f0c2e9ef88d58cd103e7e243848783dc18b10b7f947cab5cadf381",
+      "track_points": 1026,
+      "flight_id_hex": "1113927938",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET553-14032083.csv",
+      "bytes": 91140,
+      "sha256": "67ce9fab43e887e1466f68c6c8d37200e9509fa64424dc690271c0108195b364",
+      "track_points": 1138,
+      "flight_id_hex": "1114032083",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET602-13753005.csv",
+      "bytes": 58784,
+      "sha256": "86a29ebb9e20712c03b67a0802580b8e98c49e957a725211e58447f77f2c2bed",
+      "track_points": 736,
+      "flight_id_hex": "1113753005",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET603-13793057.csv",
+      "bytes": 68776,
+      "sha256": "f0576c5deb4401a65ed1e2a14365e637259c1e2a53f1e0eb3ad8f2a6f61547e2",
+      "track_points": 854,
+      "flight_id_hex": "1113793057",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET680-14341768.csv",
+      "bytes": 60304,
+      "sha256": "748e2629b17db58263ab6ec01ee1931d3d2246a9a340fecc31ab2b1766a7b45a",
+      "track_points": 759,
+      "flight_id_hex": "1114341768",
+      "legs_in_month": 0
+    },
+    {
       "file": "ET681-14430103.csv",
       "bytes": 47874,
       "sha256": "b5335e3b9aea721040d5bdafbad1931020d932a05009cf873750ed89b72c6c7c",
       "track_points": 595,
       "flight_id_hex": "1114430103",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET714-15313404.csv",
+      "bytes": 81626,
+      "sha256": "f18152571dc9b43fbe5da93570dea6919464c4e9cca935fe87d672d7d4f09a26",
+      "track_points": 1027,
+      "flight_id_hex": "1115313404",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET714-15377310.csv",
+      "bytes": 38645,
+      "sha256": "6aba38bf4a32b1ad94d0cb327b250c71b268898efe512186ac32c98e3228a427",
+      "track_points": 497,
+      "flight_id_hex": "1115377310",
       "legs_in_month": 0
     },
     {
@@ -105,6 +216,22 @@
       "legs_in_month": 0
     },
     {
+      "file": "ET846-14242122.csv",
+      "bytes": 56480,
+      "sha256": "c78bde27ea8f4cfa5d70ae88d1b9f37d37274f4186210f6cf6eb91b99de8871b",
+      "track_points": 709,
+      "flight_id_hex": "1114242122",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET847-14179227.csv",
+      "bytes": 63411,
+      "sha256": "5bbc57eda38fb2659e2d71411ddd6a91f8894ed7f67cc74b29198e7f0d036129",
+      "track_points": 791,
+      "flight_id_hex": "1114179227",
+      "legs_in_month": 0
+    },
+    {
       "file": "ET907-15086113.csv",
       "bytes": 44733,
       "sha256": "5ddaca46774cccd9724b12c7dd6efef639832a1adb0d1f80edcd486e11e5bc1f",
@@ -118,6 +245,30 @@
       "sha256": "406c21757a42298ba5e7b06fb444c678c2f256cdf767c2f321d253fbfa51a633",
       "track_points": 161,
       "flight_id_hex": "1115148851",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET908-15171250.csv",
+      "bytes": 29777,
+      "sha256": "0f296f6747fb9df8311035cce20f629b68f8cddbbe9080079c3d7c9d063d5ab7",
+      "track_points": 378,
+      "flight_id_hex": "1115171250",
+      "legs_in_month": 0
+    },
+    {
+      "file": "ET908-15190842.csv",
+      "bytes": 43190,
+      "sha256": "d8de8bc840383cddd8ff4408c01acf16cb1c8baf49d2f81b9ad81b188f69921c",
+      "track_points": 542,
+      "flight_id_hex": "1115190842",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR110-15381998.csv",
+      "bytes": 15089,
+      "sha256": "a9c0d02d5f3c6af4316c529ae823438105b6d6fec0d2b640206bae05e5f64101",
+      "track_points": 191,
+      "flight_id_hex": "1115381998",
       "legs_in_month": 0
     },
     {
@@ -169,6 +320,14 @@
       "legs_in_month": 1
     },
     {
+      "file": "UR120-15181882.csv",
+      "bytes": 23575,
+      "sha256": "4a152c13a435bf78a9363be2ab0af76f852ba75f9ae58df457f5f53a8c072a98",
+      "track_points": 295,
+      "flight_id_hex": "1115181882",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR120-4262958f.csv",
       "bytes": 13140,
       "sha256": "af2d11b6c58c71d45d782692bd9c1c04b4f58a3ac9ba677a8e274f1c122acd94",
@@ -206,6 +365,14 @@
       "sha256": "d564fb50bcb8b96c93963e0e63a7bae9893496f14fd5675392ed1c63abb07dff",
       "track_points": 261,
       "flight_id_hex": "1114959338",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR121-15196728.csv",
+      "bytes": 20191,
+      "sha256": "0c3a41b04e671b07ee6165b446517c19a137eeff8c52a6842fcd5d3d9b8dbd32",
+      "track_points": 253,
+      "flight_id_hex": "1115196728",
       "legs_in_month": 0
     },
     {
@@ -273,6 +440,14 @@
       "legs_in_month": 0
     },
     {
+      "file": "UR200-15370395.csv",
+      "bytes": 22555,
+      "sha256": "bf5ff1b8c666834b35a8242e05d72926367e8d51a1c30205c36e3cb62bd0d1fc",
+      "track_points": 283,
+      "flight_id_hex": "1115370395",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR200-42621e46.csv",
       "bytes": 15835,
       "sha256": "218a097550a082caac737c7602bd85eefdaf8cb64587ece2f9c5a48387be6620",
@@ -329,6 +504,14 @@
       "legs_in_month": 0
     },
     {
+      "file": "UR201-15384528.csv",
+      "bytes": 14607,
+      "sha256": "d79bcc2f4bfc0b29f633faee4441b29b66eb793105655a7cd2858d19b4c8dfc1",
+      "track_points": 182,
+      "flight_id_hex": "1115384528",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR201-426256dc.csv",
       "bytes": 20116,
       "sha256": "daa64b6e51422de85c5db8ef6d0e795375bc177a048b86def886142ac2073df7",
@@ -377,6 +560,22 @@
       "legs_in_month": 1
     },
     {
+      "file": "UR204-14062428.csv",
+      "bytes": 16664,
+      "sha256": "a8b5f206e75b1eafd9cef65032bca132430b691ced685d5edd31f7ccf6fd4c8b",
+      "track_points": 209,
+      "flight_id_hex": "1114062428",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR204-14311088.csv",
+      "bytes": 15674,
+      "sha256": "c8234a8c78c722f424a6feaeefaa0f514ee1b3f3931e5aba837e1d1881ac63c5",
+      "track_points": 196,
+      "flight_id_hex": "1114311088",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR204-14543820.csv",
       "bytes": 21320,
       "sha256": "841c6ee466175028721beef44fd8d8f83a685af3bf668b73a71d0b3ed7c98b65",
@@ -398,6 +597,30 @@
       "sha256": "ac7f8aacf853d94356f2bf4f2e9f504c90f4bb086729b8527ab4fac31b9d7a54",
       "track_points": 215,
       "flight_id_hex": "1115044700",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR204-15274172.csv",
+      "bytes": 28359,
+      "sha256": "daea464e0cc7b9a37ad7b04a181e4e00fbd099bf45a5dc8ee4ef207aaef5bf70",
+      "track_points": 356,
+      "flight_id_hex": "1115274172",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR205-14086186.csv",
+      "bytes": 19768,
+      "sha256": "744e1a29c87e044f7dc663e44cd1876171ac4e6ba2f8acfc6c6449e85d4a2a8e",
+      "track_points": 247,
+      "flight_id_hex": "1114086186",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR205-14335242.csv",
+      "bytes": 19632,
+      "sha256": "160270b04305cd0461dbe93b7085559b7a5ce3c8639fa7576a3ce6cb5571716c",
+      "track_points": 245,
+      "flight_id_hex": "1114335242",
       "legs_in_month": 0
     },
     {
@@ -425,6 +648,22 @@
       "legs_in_month": 0
     },
     {
+      "file": "UR205-15297832.csv",
+      "bytes": 20683,
+      "sha256": "78ffe75aa8b644a5e9320bd1a09769d52137d0204b6f56b0d2817ee9b75f065a",
+      "track_points": 258,
+      "flight_id_hex": "1115297832",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR206-15222122.csv",
+      "bytes": 17586,
+      "sha256": "af2bc5a3d1a513a0cdaffaa26f91414d4ce6984aab4bb52504a8d397195416f2",
+      "track_points": 221,
+      "flight_id_hex": "1115222122",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR206-42634084.csv",
       "bytes": 21949,
       "sha256": "7174f972e3b9aeb8a6a87ec25253a42b965b40985ef29cac9d2dea3cea0e2f6f",
@@ -439,6 +678,14 @@
       "track_points": 236,
       "flight_id_hex": "426a2e04",
       "legs_in_month": 1
+    },
+    {
+      "file": "UR207-15247432.csv",
+      "bytes": 29627,
+      "sha256": "41dd751184738b2309c49f75b17f979ba8fadbb618c5510b8ad2c97d16317182",
+      "track_points": 369,
+      "flight_id_hex": "1115247432",
+      "legs_in_month": 0
     },
     {
       "file": "UR207-4263ba9e.csv",
@@ -513,6 +760,14 @@
       "legs_in_month": 0
     },
     {
+      "file": "UR322-15271677.csv",
+      "bytes": 25733,
+      "sha256": "1028f2d536f61d1422b65ecd12bf360c8d5c52b610a21da02127b6d1d1dc7740",
+      "track_points": 322,
+      "flight_id_hex": "1115271677",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR322-42641844.csv",
       "bytes": 16593,
       "sha256": "8ce496c48e37c73093f1498802aa72de39a043e808289360b1f75b4ab1f321c8",
@@ -545,6 +800,14 @@
       "legs_in_month": 0
     },
     {
+      "file": "UR323-15300234.csv",
+      "bytes": 38548,
+      "sha256": "65c7887bbb0cdfc9d4e55054e4aaf6c0a65beaf011bc44a071b98803dd159438",
+      "track_points": 480,
+      "flight_id_hex": "1115300234",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR323-42647f7a.csv",
       "bytes": 31182,
       "sha256": "9338ee81fdd2a72cd351c27132d2b5417d48d1562d3a9309038763a8946f8769",
@@ -567,6 +830,14 @@
       "track_points": 325,
       "flight_id_hex": "4272d6a3",
       "legs_in_month": 1
+    },
+    {
+      "file": "UR334-13780070.csv",
+      "bytes": 23258,
+      "sha256": "0f872348d99a2399fa3276fb5cab870e5ac363f037c9016b348fb7a97a41dca6",
+      "track_points": 292,
+      "flight_id_hex": "1113780070",
+      "legs_in_month": 0
     },
     {
       "file": "UR334-14456229.csv",
@@ -777,12 +1048,28 @@
       "legs_in_month": 1
     },
     {
+      "file": "UR430-15184204.csv",
+      "bytes": 60448,
+      "sha256": "44cc38ae38aa22c3619fef2e11dd68732e5944af5b4fbe5341dd8f653585e8ca",
+      "track_points": 756,
+      "flight_id_hex": "1115184204",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR430-426e915c.csv",
       "bytes": 27204,
       "sha256": "749ad85e1c55cbd5dd7723b0083c96c6c079bb0075639c7be5ffe6b8fb3c9ce8",
       "track_points": 368,
       "flight_id_hex": "426e915c",
       "legs_in_month": 1
+    },
+    {
+      "file": "UR431-15291285.csv",
+      "bytes": 35120,
+      "sha256": "cfc90d4d500a927efc04e3e2e181018df2b88b1313a9d0a9a73863ccc845e171",
+      "track_points": 439,
+      "flight_id_hex": "1115291285",
+      "legs_in_month": 0
     },
     {
       "file": "UR431-426fdcc9.csv",
@@ -798,6 +1085,14 @@
       "sha256": "cfa496acca78ffe589e69bd456717ea6ea345e344386ea1554d56f1a12f06f4f",
       "track_points": 411,
       "flight_id_hex": "1115134130",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR520-15350905.csv",
+      "bytes": 18966,
+      "sha256": "1ed6dbdd044f5085af86840db8f95418f5eb61fa52f26b64e4982e810947ec2d",
+      "track_points": 236,
+      "flight_id_hex": "1115350905",
       "legs_in_month": 0
     },
     {
@@ -830,6 +1125,14 @@
       "sha256": "53e9bbf97bb956cd31ca89943916a4aec1a4fe9949469b70de9dfa5d7f0ccf52",
       "track_points": 333,
       "flight_id_hex": "1115156002",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR521-15372959.csv",
+      "bytes": 17528,
+      "sha256": "379b04cf9947dd90f0fda9765ffc5d7172d1a90e00880b418079cad7d17a3692",
+      "track_points": 218,
+      "flight_id_hex": "1115372959",
       "legs_in_month": 0
     },
     {
@@ -894,6 +1197,14 @@
       "sha256": "55293d67e5d4d9324cfd13f6615064e42ba89f0943bd18ec7ce8200d8843ec1a",
       "track_points": 680,
       "flight_id_hex": "1114961967",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR711-15201375.csv",
+      "bytes": 63688,
+      "sha256": "af61be9605133b7f7a54c077b4089bdda6bb46b04f5942144a974f6b662f09c7",
+      "track_points": 800,
+      "flight_id_hex": "1115201375",
       "legs_in_month": 0
     },
     {
@@ -993,6 +1304,14 @@
       "legs_in_month": 0
     },
     {
+      "file": "UR720-15378196.csv",
+      "bytes": 16460,
+      "sha256": "8a03148ca53b1229b75d936b47f4fa16aaecf48d5a101e398e12af3c970f209a",
+      "track_points": 204,
+      "flight_id_hex": "1115378196",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR720-426242f9.csv",
       "bytes": 26757,
       "sha256": "0e8ecffe9d6c6103c6f46362a71c60fd12ee78154cc33cd3891e3badb15c8532",
@@ -1007,6 +1326,14 @@
       "track_points": 376,
       "flight_id_hex": "4262da53",
       "legs_in_month": 1
+    },
+    {
+      "file": "UR722-14241258.csv",
+      "bytes": 19249,
+      "sha256": "896e30d88771d07cd224301ee6830ab9fbe42776c9d6974b8f734ada482b6d8f",
+      "track_points": 241,
+      "flight_id_hex": "1114241258",
+      "legs_in_month": 0
     },
     {
       "file": "UR722-14469228.csv",
@@ -1073,6 +1400,86 @@
       "legs_in_month": 1
     },
     {
+      "file": "UR724-13950857.csv",
+      "bytes": 26734,
+      "sha256": "e7a15aa24a68f02ea6042d8c1da07aaec81dc5ab1dd69e000a4eb2dc8e36b125",
+      "track_points": 331,
+      "flight_id_hex": "1113950857",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR724-13978806.csv",
+      "bytes": 17297,
+      "sha256": "13c4bb38d2f1942e46d53258c05ed64527d814c95a773be5d63fd8be6129faee",
+      "track_points": 216,
+      "flight_id_hex": "1113978806",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR724-15167038.csv",
+      "bytes": 43751,
+      "sha256": "21b2808f0e5f0105319257314dad573d3830b1f5b8af4f9609340300bee24549",
+      "track_points": 544,
+      "flight_id_hex": "1115167038",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR724-15193466.csv",
+      "bytes": 29659,
+      "sha256": "78a99ea5a596d5b83802c8544b36cbd9af94f5b1ad8a50351a799c77692d848c",
+      "track_points": 369,
+      "flight_id_hex": "1115193466",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR725-14111910.csv",
+      "bytes": 13904,
+      "sha256": "3d68c3459540fe40090456a835062c9e2d61722326eeb004d21aec71505456d3",
+      "track_points": 173,
+      "flight_id_hex": "1114111910",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR725-14129223.csv",
+      "bytes": 31776,
+      "sha256": "5d23c456eca2cf92f5e44b88620dc0f7843cc9c31307c518cbd3e2a7436ce44e",
+      "track_points": 398,
+      "flight_id_hex": "1114129223",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR725-15324503.csv",
+      "bytes": 18034,
+      "sha256": "2e9ff7de2b4070f00b61ba13ab8077448d66db5dec2a1652d9889200384ec7ae",
+      "track_points": 226,
+      "flight_id_hex": "1115324503",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR725-15341506.csv",
+      "bytes": 29558,
+      "sha256": "e91f44af661185d71ec4b0b5000dec611a0ee74fa877c70ab30da9d48753e2db",
+      "track_points": 370,
+      "flight_id_hex": "1115341506",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR900-13813193.csv",
+      "bytes": 24481,
+      "sha256": "f0f96d6a0805aaf1871f7c20c9e961c1fc42de53708f301d41899b0c7a3777bb",
+      "track_points": 309,
+      "flight_id_hex": "1113813193",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR900-14256178.csv",
+      "bytes": 25458,
+      "sha256": "3cc9d76aa1e5aac780d8e55a34547417757e92609e5c0f2f1790a3a3c92c9df5",
+      "track_points": 322,
+      "flight_id_hex": "1114256178",
+      "legs_in_month": 0
+    },
+    {
       "file": "UR900-14742275.csv",
       "bytes": 26495,
       "sha256": "eae97a3e4eb29781ec6a8499db125fa05ed0622fd3d5f15cb65cd90b6e4c5b2e",
@@ -1119,6 +1526,22 @@
       "track_points": 204,
       "flight_id_hex": "427498cc",
       "legs_in_month": 1
+    },
+    {
+      "file": "UR901-13846870.csv",
+      "bytes": 33612,
+      "sha256": "0646aeececf53293e002eaf2be8be83467851b1008261aa686480555e9a23617",
+      "track_points": 430,
+      "flight_id_hex": "1113846870",
+      "legs_in_month": 0
+    },
+    {
+      "file": "UR901-14302454.csv",
+      "bytes": 34352,
+      "sha256": "2d3bfe13d22b8e315dd06584b27b0507e1d8a9aba714b2372e4243782be4be06",
+      "track_points": 439,
+      "flight_id_hex": "1114302454",
+      "legs_in_month": 0
     },
     {
       "file": "UR901-14799816.csv",

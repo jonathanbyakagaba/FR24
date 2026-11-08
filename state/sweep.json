@@ -1,5 +1,670 @@
 {
   "attempts": {
+    "2026-06|HRE-LUN|2026-06-04T14:20|5X-KDP": {
+      "at": "2026-11-08T07:54:57Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|HRE-LUN|2026-06-11T14:08|5X-KDP": {
+      "at": "2026-11-08T07:54:48Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|HRE-LUN|2026-06-18T14:26|5X-KDP": {
+      "at": "2026-11-08T07:54:32Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|HRE-LUN|2026-06-25T14:29|5X-KDP": {
+      "at": "2026-11-08T07:54:05Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-01T10:13|5X-EQU": {
+      "at": "2026-11-08T07:55:02Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-02T21:03|5X-KDP": {
+      "at": "2026-11-08T07:55:01Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-08T13:51|5X-KDP": {
+      "at": "2026-11-08T07:54:52Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-15T09:25|5X-EQU": {
+      "at": "2026-11-08T07:54:44Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-16T21:01|5X-KOB": {
+      "at": "2026-11-08T07:54:36Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-22T09:18|5X-EQU": {
+      "at": "2026-11-08T07:54:20Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-23T21:00|5X-KOB": {
+      "at": "2026-11-08T07:54:08Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-06|LUN-HRE|2026-06-29T09:24|5X-KOB": {
+      "at": "2026-11-08T07:53:59Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-08T12:29|5X-KOB": {
+      "at": "2026-11-08T07:53:31Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-09T13:20|5X-KOB": {
+      "at": "2026-11-08T07:53:29Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-15T12:37|5X-KDP": {
+      "at": "2026-11-08T07:53:17Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-16T16:11|5X-KOB": {
+      "at": "2026-11-08T07:53:15Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-21T12:54|ET-APL": {
+      "at": "2026-11-08T07:52:56Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-22T13:34|5X-KDP": {
+      "at": "2026-11-08T07:52:52Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-23T14:56|5X-KDP": {
+      "at": "2026-11-08T07:52:50Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-25T12:36|5X-KDP": {
+      "at": "2026-11-08T07:52:45Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-28T13:38|ET-APL": {
+      "at": "2026-11-08T07:52:36Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-29T11:41|5X-KDP": {
+      "at": "2026-11-08T07:52:24Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|HRE-LUN|2026-07-30T13:24|ET-APL": {
+      "at": "2026-11-08T07:52:22Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-EBB|2026-07-01T10:28|5X-EQU": {
+      "at": "2026-11-08T07:53:56Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-03T20:41|5X-KDP": {
+      "at": "2026-11-08T07:53:50Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-04T20:20|5X-KOB": {
+      "at": "2026-11-08T07:53:48Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-05T20:17|5X-KOB": {
+      "at": "2026-11-08T07:53:45Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-10T20:22|5X-KDP": {
+      "at": "2026-11-08T07:53:26Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-11T20:10|5X-KOB": {
+      "at": "2026-11-08T07:53:24Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-13T20:42|5X-EQU": {
+      "at": "2026-11-08T07:53:20Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-17T20:55|5X-KDP": {
+      "at": "2026-11-08T07:53:03Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-18T20:48|ET-APL": {
+      "at": "2026-11-08T07:53:01Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-20T21:07|ET-APL": {
+      "at": "2026-11-08T07:52:57Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-24T20:28|5X-KOB": {
+      "at": "2026-11-08T07:52:46Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-25T20:19|ET-APL": {
+      "at": "2026-11-08T07:52:43Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-26T20:53|5X-EQU": {
+      "at": "2026-11-08T07:52:39Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-07|LUN-HRE|2026-07-27T20:29|5X-EQU": {
+      "at": "2026-11-08T07:52:38Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-01T13:25|5X-KOB": {
+      "at": "2026-11-08T07:52:19Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-04T12:46|ET-APL": {
+      "at": "2026-11-08T07:52:00Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-05T12:12|5X-KDP": {
+      "at": "2026-11-08T07:51:56Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-06T13:55|ET-APL": {
+      "at": "2026-11-08T07:51:54Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-08T12:58|5X-KOB": {
+      "at": "2026-11-08T07:51:49Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-11T12:47|ET-APL": {
+      "at": "2026-11-08T07:51:40Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-12T12:12|5X-KDP": {
+      "at": "2026-11-08T07:51:36Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-13T13:15|ET-APL": {
+      "at": "2026-11-08T07:51:34Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-18T14:19|ET-APL": {
+      "at": "2026-11-08T07:51:23Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-19T11:57|5X-KOB": {
+      "at": "2026-11-08T07:51:22Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-20T13:27|ET-APL": {
+      "at": "2026-11-08T07:51:10Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-22T13:08|5X-KDP": {
+      "at": "2026-11-08T07:51:04Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-25T12:58|ET-APL": {
+      "at": "2026-11-08T07:50:46Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-26T12:18|5X-EQU": {
+      "at": "2026-11-08T07:50:43Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-27T13:32|ET-APL": {
+      "at": "2026-11-08T07:50:41Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|HRE-LUN|2026-08-29T12:42|5X-EQU": {
+      "at": "2026-11-08T07:50:35Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-01T20:25|ET-APL": {
+      "at": "2026-11-08T07:52:17Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-02T20:53|5X-EQU": {
+      "at": "2026-11-08T07:52:14Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-03T20:33|5X-KOB": {
+      "at": "2026-11-08T07:52:12Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-07T20:30|5X-KOB": {
+      "at": "2026-11-08T07:51:51Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-08T20:28|ET-APL": {
+      "at": "2026-11-08T07:51:47Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-09T20:57|5X-KOB": {
+      "at": "2026-11-08T07:51:43Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-10T20:24|5X-KOB": {
+      "at": "2026-11-08T07:51:41Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-14T20:36|5X-KDP": {
+      "at": "2026-11-08T07:51:31Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-15T21:02|5X-KDP": {
+      "at": "2026-11-08T07:51:29Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-17T20:27|5X-KOB": {
+      "at": "2026-11-08T07:51:25Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-21T20:26|5X-KDP": {
+      "at": "2026-11-08T07:51:06Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-22T21:02|ET-APL": {
+      "at": "2026-11-08T07:50:55Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-23T21:18|5X-KDP": {
+      "at": "2026-11-08T07:50:52Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-24T20:37|5X-KOB": {
+      "at": "2026-11-08T07:50:50Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-28T20:39|5X-EQU": {
+      "at": "2026-11-08T07:50:37Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-29T20:35|ET-APL": {
+      "at": "2026-11-08T07:50:34Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-08|LUN-HRE|2026-08-30T20:36|5X-KDP": {
+      "at": "2026-11-08T07:50:30Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-01T13:24|5X-KDP": {
+      "at": "2026-11-08T07:50:28Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-02T11:53|5X-EQU": {
+      "at": "2026-11-08T07:50:25Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-03T13:10|ET-APL": {
+      "at": "2026-11-08T07:50:23Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-05T12:50|5X-EQU": {
+      "at": "2026-11-08T07:50:03Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-08T13:11|ET-APL": {
+      "at": "2026-11-08T07:49:54Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-09T11:41|5X-KOB": {
+      "at": "2026-11-08T07:49:50Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-10T12:57|ET-APL": {
+      "at": "2026-11-08T07:49:48Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-12T12:48|5X-EQU": {
+      "at": "2026-11-08T07:49:43Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-15T12:48|ET-APL": {
+      "at": "2026-11-08T07:49:36Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-16T11:50|ET-APL": {
+      "at": "2026-11-08T07:49:32Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-17T13:06|ET-APL": {
+      "at": "2026-11-08T07:49:30Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-22T12:48|ET-APL": {
+      "at": "2026-11-08T07:49:20Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-23T12:01|5X-KOB": {
+      "at": "2026-11-08T07:49:16Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-24T12:57|ET-APL": {
+      "at": "2026-11-08T07:49:14Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-26T12:18|5X-KDP": {
+      "at": "2026-11-08T07:49:07Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-29T12:56|ET-APL": {
+      "at": "2026-11-08T07:48:58Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|HRE-LUN|2026-09-30T11:40|5X-KOB": {
+      "at": "2026-11-08T07:48:54Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-04T20:36|5X-KOB": {
+      "at": "2026-11-08T07:50:19Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-05T20:58|ET-APL": {
+      "at": "2026-11-08T07:50:01Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-06T20:49|5X-EQU": {
+      "at": "2026-11-08T07:49:58Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-07T20:38|5X-EQU": {
+      "at": "2026-11-08T07:49:56Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-11T20:27|5X-KOB": {
+      "at": "2026-11-08T07:49:45Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-12T20:32|ET-APL": {
+      "at": "2026-11-08T07:49:41Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-13T20:34|5X-EQU": {
+      "at": "2026-11-08T07:49:37Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-18T20:34|5X-KDP": {
+      "at": "2026-11-08T07:49:27Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-19T20:57|ET-APL": {
+      "at": "2026-11-08T07:49:25Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-21T20:39|5X-KOB": {
+      "at": "2026-11-08T07:49:21Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-25T20:29|5X-KOB": {
+      "at": "2026-11-08T07:49:11Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-26T21:00|ET-APL": {
+      "at": "2026-11-08T07:49:05Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-27T20:32|5X-KDP": {
+      "at": "2026-11-08T07:49:02Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-09|LUN-HRE|2026-09-28T21:34|5X-KOB": {
+      "at": "2026-11-08T07:49:00Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-EBB|2026-10-21T11:42|5X-KOB": {
+      "at": "2026-11-08T07:47:52Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-01T13:16|ET-APL": {
+      "at": "2026-11-08T07:48:53Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-03T12:41|5X-KDP": {
+      "at": "2026-11-08T07:48:47Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-06T14:08|ET-APL": {
+      "at": "2026-11-08T07:48:40Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-07T12:14|5X-EQU": {
+      "at": "2026-11-08T07:48:36Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-08T13:39|ET-APL": {
+      "at": "2026-11-08T07:48:35Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-10T12:45|5X-KDP": {
+      "at": "2026-11-08T07:48:29Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-13T12:53|ET-APL": {
+      "at": "2026-11-08T07:48:21Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-14T11:52|5X-KDP": {
+      "at": "2026-11-08T07:48:17Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-15T13:16|ET-APL": {
+      "at": "2026-11-08T07:48:16Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-17T12:44|5X-KDP": {
+      "at": "2026-11-08T07:48:10Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-20T12:51|ET-APL": {
+      "at": "2026-11-08T07:48:02Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-21T17:10|5X-KDP": {
+      "at": "2026-11-08T07:47:50Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-22T14:28|5X-KDP": {
+      "at": "2026-11-08T07:47:48Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-24T12:55|5X-KOB": {
+      "at": "2026-11-08T07:47:43Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-27T12:18|5X-EQU": {
+      "at": "2026-11-08T07:47:37Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|HRE-LUN|2026-10-28T12:00|5X-KDP": {
+      "at": "2026-11-08T07:47:33Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-02T20:26|5X-KOB": {
+      "at": "2026-11-08T07:48:49Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-03T20:23|ET-APL": {
+      "at": "2026-11-08T07:48:45Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-05T20:30|5X-KDP": {
+      "at": "2026-11-08T07:48:42Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-09T20:14|5X-KDP": {
+      "at": "2026-11-08T07:48:31Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-10T20:14|ET-APL": {
+      "at": "2026-11-08T07:48:28Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-11T20:45|5X-KOB": {
+      "at": "2026-11-08T07:48:24Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-12T20:36|5X-EQU": {
+      "at": "2026-11-08T07:48:23Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-16T20:57|5X-KDP": {
+      "at": "2026-11-08T07:48:12Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-17T21:13|ET-APL": {
+      "at": "2026-11-08T07:48:09Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-18T20:34|5X-KOB": {
+      "at": "2026-11-08T07:48:05Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-19T20:46|5X-KOB": {
+      "at": "2026-11-08T07:48:04Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-23T20:18|5X-EQU": {
+      "at": "2026-11-08T07:47:45Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-24T20:45|ET-APL": {
+      "at": "2026-11-08T07:47:42Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-25T15:22|5X-KOB": {
+      "at": "2026-11-08T07:47:38Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
+    "2026-10|LUN-HRE|2026-10-30T20:35|5X-KDP": {
+      "at": "2026-11-08T07:47:30Z",
+      "last": "left open \u2014 the record has no such flight",
+      "tries": 1
+    },
     "2026-11|EBB-JRO|2026-11-04T07:55|5X-KOB": {
       "at": "2026-11-07T07:34:56Z",
       "last": "left open \u2014 the record has no such flight",
@@ -24,38 +689,109 @@
   "months": {
     "2026-06": {
       "closed_since": 0,
-      "open": 0,
-      "open_keys": [],
-      "parked": 0,
-      "swept": "2026-11-07T07:35:01Z"
+      "open": 12,
+      "open_keys": [
+        "2026-06|EBB-BJM|2026-06-21T09:54|5X-EQU",
+        "2026-06|EBB-DAR|2026-06-30T08:15|5X-KDP",
+        "2026-06|JRO-ZNZ|2026-06-07T11:29|5X-KOB",
+        "2026-06|JRO-ZNZ|2026-06-14T11:31|5X-KDP",
+        "2026-06|JRO-ZNZ|2026-06-21T11:29|5X-KDP",
+        "2026-06|JRO-ZNZ|2026-06-28T11:25|5X-EQU",
+        "2026-06|ZNZ-JRO|2026-06-03T18:40|5X-EQU",
+        "2026-06|ZNZ-JRO|2026-06-05T18:44|5X-KDP",
+        "2026-06|ZNZ-JRO|2026-06-10T17:01|5X-EQU",
+        "2026-06|ZNZ-JRO|2026-06-17T17:07|5X-KOB",
+        "2026-06|ZNZ-JRO|2026-06-24T17:10|5X-KOB",
+        "2026-06|ZNZ-JRO|2026-06-26T19:03|5X-KDP"
+      ],
+      "parked": 12,
+      "swept": "2026-11-08T07:55:35Z"
     },
     "2026-07": {
       "closed_since": 0,
-      "open": 0,
-      "open_keys": [],
-      "parked": 0,
-      "swept": "2026-11-07T07:35:01Z"
+      "open": 14,
+      "open_keys": [
+        "2026-07|ZNZ-JRO|2026-07-01T11:29|5X-KDP",
+        "2026-07|ZNZ-JRO|2026-07-03T08:10|5X-KDP",
+        "2026-07|ZNZ-JRO|2026-07-05T07:42|5X-KOB",
+        "2026-07|ZNZ-JRO|2026-07-08T10:59|5X-EQU",
+        "2026-07|ZNZ-JRO|2026-07-10T07:35|5X-KDP",
+        "2026-07|ZNZ-JRO|2026-07-12T07:53|5X-KOB",
+        "2026-07|ZNZ-JRO|2026-07-15T10:55|5X-EQU",
+        "2026-07|ZNZ-JRO|2026-07-17T10:12|5X-KOB",
+        "2026-07|ZNZ-JRO|2026-07-19T08:04|5X-KOB",
+        "2026-07|ZNZ-JRO|2026-07-22T11:01|5X-EQU",
+        "2026-07|ZNZ-JRO|2026-07-24T08:43|5X-KDP",
+        "2026-07|ZNZ-JRO|2026-07-26T07:35|5X-EQU",
+        "2026-07|ZNZ-JRO|2026-07-29T11:02|5X-KOB",
+        "2026-07|ZNZ-JRO|2026-07-31T07:42|5X-KOB"
+      ],
+      "parked": 25,
+      "swept": "2026-11-08T07:55:35Z"
     },
     "2026-08": {
       "closed_since": 0,
-      "open": 0,
-      "open_keys": [],
-      "parked": 0,
-      "swept": "2026-11-07T07:35:01Z"
+      "open": 14,
+      "open_keys": [
+        "2026-08|EBB-JUB|2026-08-25T08:27|5X-EQU",
+        "2026-08|ZNZ-JRO|2026-08-02T07:45|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-05T11:13|5X-KOB",
+        "2026-08|ZNZ-JRO|2026-08-07T07:28|5X-KOB",
+        "2026-08|ZNZ-JRO|2026-08-09T07:30|5X-KOB",
+        "2026-08|ZNZ-JRO|2026-08-12T11:12|5X-KOB",
+        "2026-08|ZNZ-JRO|2026-08-14T09:19|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-16T07:51|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-19T12:00|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-21T09:06|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-23T08:16|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-26T07:32|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-28T08:11|5X-KDP",
+        "2026-08|ZNZ-JRO|2026-08-30T07:37|5X-KDP"
+      ],
+      "parked": 33,
+      "swept": "2026-11-08T07:55:35Z"
     },
     "2026-09": {
       "closed_since": 0,
-      "open": 0,
-      "open_keys": [],
-      "parked": 0,
-      "swept": "2026-11-07T07:35:01Z"
+      "open": 13,
+      "open_keys": [
+        "2026-09|ZNZ-JRO|2026-09-02T10:58|5X-KOB",
+        "2026-09|ZNZ-JRO|2026-09-04T07:30|5X-KOB",
+        "2026-09|ZNZ-JRO|2026-09-06T07:41|5X-EQU",
+        "2026-09|ZNZ-JRO|2026-09-09T10:40|5X-EQU",
+        "2026-09|ZNZ-JRO|2026-09-11T07:37|5X-KOB",
+        "2026-09|ZNZ-JRO|2026-09-13T07:53|5X-EQU",
+        "2026-09|ZNZ-JRO|2026-09-16T11:05|5X-KOB",
+        "2026-09|ZNZ-JRO|2026-09-18T07:37|5X-KDP",
+        "2026-09|ZNZ-JRO|2026-09-20T10:44|5X-KOB",
+        "2026-09|ZNZ-JRO|2026-09-23T08:41|5X-KDP",
+        "2026-09|ZNZ-JRO|2026-09-25T07:38|5X-KOB",
+        "2026-09|ZNZ-JRO|2026-09-27T07:51|5X-KDP",
+        "2026-09|ZNZ-JRO|2026-09-30T11:11|5X-EQU"
+      ],
+      "parked": 31,
+      "swept": "2026-11-08T07:55:35Z"
     },
     "2026-10": {
       "closed_since": 0,
-      "open": 0,
-      "open_keys": [],
-      "parked": 0,
-      "swept": "2026-11-07T07:35:01Z"
+      "open": 13,
+      "open_keys": [
+        "2026-10|ZNZ-JRO|2026-10-02T07:45|5X-KOB",
+        "2026-10|ZNZ-JRO|2026-10-04T10:33|5X-KDP",
+        "2026-10|ZNZ-JRO|2026-10-07T10:48|5X-KOB",
+        "2026-10|ZNZ-JRO|2026-10-09T07:43|5X-KDP",
+        "2026-10|ZNZ-JRO|2026-10-11T08:11|5X-KOB",
+        "2026-10|ZNZ-JRO|2026-10-14T11:37|5X-EQU",
+        "2026-10|ZNZ-JRO|2026-10-16T07:51|5X-EQU",
+        "2026-10|ZNZ-JRO|2026-10-18T07:52|5X-KOB",
+        "2026-10|ZNZ-JRO|2026-10-21T11:29|5X-EQU",
+        "2026-10|ZNZ-JRO|2026-10-23T07:30|5X-KDP",
+        "2026-10|ZNZ-JRO|2026-10-25T10:44|5X-EQU",
+        "2026-10|ZNZ-JRO|2026-10-28T10:33|5X-EQU",
+        "2026-10|ZNZ-JRO|2026-10-30T10:50|5X-KDP"
+      ],
+      "parked": 32,
+      "swept": "2026-11-08T07:55:35Z"
     },
     "2026-11": {
       "closed_since": 0,
@@ -64,16 +800,20 @@
         "2026-11|EBB-JNB|2026-11-03T17:55|5X-EQU"
       ],
       "parked": 4,
-      "swept": "2026-11-07T07:35:01Z"
+      "swept": "2026-11-08T07:55:35Z"
     }
+  },
+  "reach": {
+    "at": "2026-11-08T07:55:03Z",
+    "oldest_served": "2026-06-03T18:40:53Z"
   },
   "totals": {
     "closed": 0,
     "no_icao": 1,
-    "open": 1,
-    "out_of_range": 199,
-    "parked": 4,
+    "open": 67,
+    "out_of_range": 0,
+    "parked": 137,
     "too_small": 6,
-    "updated": "2026-11-07T07:35:01Z"
+    "updated": "2026-11-08T07:55:35Z"
   }
 }
