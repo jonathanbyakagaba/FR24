@@ -7,4 +7,4 @@ date,sector,registration,aircraft_type,flight_number,after_utc,before_utc,hole_m
 2026-11-04,EBB-JRO,5X-KOB,CRJ9,,2026-11-04T07:55:23Z,2026-11-04T13:00:15Z,304,5X-KOB-20261104,UR200 UR334 UR201 UR342 UR343,"skipped (older than the 7-day record (asked 3x, no answer))"
 2026-11-04,ZNZ-NBO,5X-KOB,CRJ9,,2026-11-04T08:50:00Z,2026-11-04T07:02:18Z,-108,5X-KOB-20261104,UR200 UR334 UR201 UR342 UR343,skipped (hole too small to hold the sector)
 2026-11-04,HRE-LUN,ET-APL,B738,,2026-11-04T12:00:00Z,2026-11-04T14:46:27Z,166,ET-APL-20261104,UR722,"skipped (older than the 7-day record (asked 3x, no answer))"
-2026-11-05,HRE-LUN,5X-EQU,CRJ9,,2026-11-05T14:00:00Z,2026-11-05T16:13:16Z,133,5X-EQU-20261105,UR722,skipped (not in the Flightradar24 record after 3 tries)
+2026-11-05,HRE-LUN,5X-EQU,CRJ9,,2026-11-05T14:00:00Z,2026-11-05T16:13:16Z,133,5X-EQU-20261105,UR722,"skipped (older than the 7-day record (asked 3x, no answer))"
