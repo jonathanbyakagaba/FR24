@@ -160,6 +160,45 @@ measurement rather than a guess — and if a deeper Flightradar24 plan is bought
 (Gold reaches all of them), the same sweep starts filling them in with nothing to
 change.
 
+### Putting the positions back
+
+One fault is worth its own tool, because it was silent and it wrote to the archive
+for eighteen nights. The JSON playback returns a position **on the point**:
+
+```json
+{"timestamp": 1780514742, "latitude": -0.0423, "longitude": 32.4435,
+ "altitude": {"feet": 30000}, "speed": {"kts": 420}}
+```
+
+`write_track` read it from a nested `position` object that has never existed, so
+every track the nightly job fetched from 6 November on came out
+`0.000000,0.000000` — altitude, speed and heading all present, the aircraft
+nowhere. 513 tracks in November. Nothing failed; the job reported success every
+night.
+
+`work/repair_tracks.py` walks the archive for tracks with no positions and asks
+for each flight's playback again. It can, because the manifest row carries the
+flight id and the departure time: a playback is fetched by id, so there is no
+flight list to page through, no seven-day window to fall outside of, and no
+route to match. The file is rewritten in place when the answer has coordinates
+in it; the manifest row keeps its flight, route and times.
+
+```bash
+python3 work/repair_tracks.py --plan          # what is empty, no network
+python3 work/repair_tracks.py --dry-run       # what it would ask for
+python3 work/repair_tracks.py --minutes 30    # the repair pass
+```
+
+It is bounded by a clock like the sweep, and remembers what it has asked:
+`state/repair.json` counts the tries, so a flight whose playback still comes back
+empty is left alone after two attempts rather than asked about forever. From the
+workflow, tick **repair** on the dispatch form — that run gives the hour to the
+repair and skips the sweep. `REPAIR_MINUTES` sets how long it may take.
+
+`has_positions()` now guards both the harvest and the sweep, so a playback with
+no coordinates is refused rather than filed: an empty file under a real flight's
+name is worse than the gap it was meant to fill.
+
 ### Keeping it current, all year round
 
 `work/sync_fr24.py` turns that into a loop, and
@@ -244,9 +283,10 @@ variable `SYNC_LOG=off` if you would rather have only the mail.
 
 **Running it by hand is one click, with nothing to fill in.** Actions → *sync* →
 **Run workflow** → the green **Run workflow** button, leaving every field alone:
-the defaults *are* the nightly run. The form has three fields and only two of them
+the defaults *are* the nightly run. The form has four fields and only two of them
 are ever useful — **dry_run** looks without fetching, **mail_test** sends one test
-email and stops, and the single text field is a backfill start date.
+email and stops, the single text field is a backfill start date, and **repair**
+puts the coordinates back into tracks that have none (see below).
 
 A missed night costs nothing either way: every run looks **seven days back**
 rather than resuming where the last one stopped, so whatever a dropped schedule
