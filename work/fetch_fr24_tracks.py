@@ -312,24 +312,37 @@ def _time(item: dict, kind: str, side: str) -> datetime | None:
     return _epoch(node.get(side))
 
 
+def point_coords(point: dict) -> tuple[float, float]:
+    """One playback point's coordinates, whichever way the answer names them.
+
+    The JSON playback puts `latitude` and `longitude` on the point itself; an
+    export of the same flight puts them in a ``position`` field. Reading only the
+    nested spelling is why every track fetched from 6 November on came out at
+    0,0 — altitude, speed and heading all present, the aircraft nowhere.
+    """
+    for holder in (point, point.get("position") or {}):
+        if not isinstance(holder, dict):
+            continue
+        latitude = holder.get("latitude", holder.get("lat"))
+        longitude = holder.get("longitude", holder.get("lon"))
+        if latitude is None or longitude is None:
+            continue
+        try:
+            return float(latitude), float(longitude)
+        except (TypeError, ValueError):
+            continue
+    return 0.0, 0.0
+
+
 def has_positions(track: list[dict]) -> bool:
     """Whether a playback carries actual coordinates.
 
     Flightradar24 answers some requests with altitude, speed and heading for
-    every point and a position of 0,0 for all of them — a track-shaped hole.
-    Written into the archive it becomes an empty file under a real flight's name,
-    which is worse than the gap it was fetched for.
+    every point and no position at all. Written into the archive that becomes an
+    empty file under a real flight's name, which is worse than the gap it was
+    fetched for.
     """
-    for point in track:
-        position = point.get("position") or {}
-        try:
-            latitude = float(position.get("latitude") or 0)
-            longitude = float(position.get("longitude") or 0)
-        except (TypeError, ValueError):
-            continue
-        if (latitude, longitude) != (0.0, 0.0):
-            return True
-    return False
+    return any(point_coords(point) != (0.0, 0.0) for point in track)
 
 
 def departure_of(item: dict) -> datetime | None:
@@ -532,13 +545,13 @@ def write_track(outdir: Path, gap: Gap, item: dict, result, track: list[dict]) -
         writer.writerow(TRACK_COLUMNS)
         for point in track:
             stamp = int(point.get("timestamp") or 0)
-            position = point.get("position") or {}
+            latitude, longitude = point_coords(point)
             writer.writerow([
                 stamp,
                 datetime.fromtimestamp(stamp, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 callsign,
                 registration,
-                f"{float(position.get('latitude', 0)):.6f},{float(position.get('longitude', 0)):.6f}",
+                f"{latitude:.6f},{longitude:.6f}",
                 int((point.get("altitude") or {}).get("feet") or 0),
                 int((point.get("speed") or {}).get("kts") or 0),
                 int(point.get("heading") or 0),
