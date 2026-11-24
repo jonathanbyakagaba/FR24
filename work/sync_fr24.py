@@ -455,7 +455,8 @@ async def fetch_one(client, registration: str, item: dict, root: Path,
     result = await client.playback.fetch(flight_id, timestamp=int(departure.timestamp()))
     payload = (result.to_dict().get("result") or {}).get("response") or {}
     track = ((payload.get("data") or {}).get("flight") or {}).get("track") or []
-    if not track:
+    if not track or not fetch.has_positions(track):
+        # no track, or a track of 0,0 positions: nothing worth filing
         return None
 
     month = leg_month(item, departure)

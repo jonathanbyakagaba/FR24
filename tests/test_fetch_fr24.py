@@ -344,6 +344,76 @@ class FetchTests(unittest.TestCase):
             self.assertIsNone(row)
             self.assertEqual(list(Path(tmp).iterdir()), [])
 
+    def test_a_flight_with_no_airports_is_taken_when_the_playback_confirms_it(self):
+        """The 3 June case, fixed: old flights answer without airports.
+
+        The flight list cannot vouch for these, but the playback's metadata can —
+        and when it does, that is the missing sector and the hole closes.
+        """
+        del self.flights[0]["airport"]
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNotNone(row)
+            self.assertTrue((Path(tmp) / row["file"]).exists())
+
+    def test_a_flight_with_no_airports_is_refused_when_the_playback_disagrees(self):
+        """The bug that left 67 holes: the neighbour, written under the hole's name."""
+        del self.flights[0]["airport"]
+        self.tracks["4194953e"][1].update({"origin": "HKJK", "destination": "HTDA"})
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_the_playback_outranks_the_flight_list(self):
+        """If the list says the route and the playback says another, believe the flight."""
+        self.tracks["4194953e"][1].update({"origin": "HKJK", "destination": "HTDA"})
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_a_flight_with_no_route_anywhere_is_not_guessed(self):
+        del self.flights[0]["airport"]
+        self.tracks["4194953e"][1].pop("origin")
+        self.tracks["4194953e"][1].pop("destination")
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_a_playback_of_nothing_but_zeros_is_not_written(self):
+        """Altitude and speed but a position of 0,0 is a track-shaped hole."""
+        track, metadata = self.tracks["4194953e"]
+        self.tracks["4194953e"] = (
+            [{**point, "position": {"latitude": 0, "longitude": 0}} for point in track],
+            metadata)
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_one_real_position_is_enough(self):
+        self.assertTrue(fetch.has_positions(_track(at(4, 17, 45))))
+        self.assertFalse(fetch.has_positions(
+            [{"position": {"latitude": 0, "longitude": 0}} for _ in range(5)]))
+        self.assertFalse(fetch.has_positions([{"position": None}, {}]))
+
     def test_manifest_gains_a_source_column(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "manifest.csv"

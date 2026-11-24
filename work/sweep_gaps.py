@@ -346,6 +346,27 @@ def record(state: dict, entry: Entry, outcome: str) -> None:
 # reporting
 
 
+def note_unclosed(entries: list[Entry], asked: list[Entry], state: dict) -> int:
+    """A "fill" that left the hole standing is not a fill.
+
+    ``fetch_gap`` can only report that a track was written; whether the sector is
+    actually closed is known once the months are rebuilt, and it is this list that
+    compares the two. It matters: on the first night of the whole-archive sweep,
+    67 sectors were asked for, a track was written for each, and every one of them
+    was still a hole afterwards — so the next night wrote the same files again,
+    with no diff and no memory, and reported success. Counting the try is what
+    ends that: the sector parks with its reason instead of looping for ever.
+    """
+    present = {entry.key for entry in entries}
+    unclosed = 0
+    for entry in asked:
+        if entry.outcome != "filled" or entry.key not in present:
+            continue
+        record(state, entry, "wrote a track, and the hole is still there")
+        unclosed += 1
+    return unclosed
+
+
 def summarise(entries: list[Entry], state: dict, fetched: int = 0,
               attempted: int = 0, left: int = 0) -> str:
     months: dict[str, list[Entry]] = {}
@@ -592,6 +613,10 @@ def main(argv=None) -> int:
     # and everything is re-classified against what tonight's answers were, so a
     # sector asked for and refused is parked now rather than a night late
     entries.sort(key=lambda entry: (entry.when, entry.month, entry.gap.sector))
+    unclosed = note_unclosed(entries, chosen, state)
+    if unclosed:
+        print(f"{unclosed} track(s) written for a hole that is still a hole — "
+              f"counted against the sector", file=sys.stderr)
     entries = classify(entries, state["attempts"], args.tries,
                        history_days=args.history_days, old_tries=args.old_tries,
                        horizon=measured_reach(state))

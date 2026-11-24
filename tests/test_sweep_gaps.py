@@ -410,6 +410,42 @@ class MemoryTests(unittest.TestCase):
         self.assertEqual(state["totals"]["closed"], 1)
 
 
+class UnclosedTests(unittest.TestCase):
+    """A fill that leaves the hole open must count, or the sweep loops for ever."""
+
+    def test_a_fill_that_leaves_the_hole_open_counts_against_the_sector(self):
+        row = entry(when=WHEN)
+        row.outcome = "filled"
+        state = {"attempts": {}, "months": {}, "totals": {}}
+        self.assertEqual(sweep.note_unclosed([row], [row], state), 1)
+        self.assertEqual(state["attempts"][row.key]["tries"], 1)
+        self.assertIn("hole is still there", state["attempts"][row.key]["last"])
+
+    def test_a_fill_that_closed_the_hole_is_not_remembered(self):
+        row = entry(when=WHEN)
+        row.outcome = "filled"
+        state = {"attempts": {}, "months": {}, "totals": {}}
+        self.assertEqual(sweep.note_unclosed([], [row], state), 0)
+        self.assertEqual(state["attempts"], {})
+
+    def test_a_sector_that_was_not_filled_is_left_to_record_itself(self):
+        row = entry(when=WHEN)
+        row.outcome = "left open — the record has no such flight"
+        state = {"attempts": {}, "months": {}, "totals": {}}
+        self.assertEqual(sweep.note_unclosed([row], [row], state), 0)
+        self.assertEqual(state["attempts"], {})
+
+    def test_one_unclosed_fill_is_enough_to_park_an_old_sector(self):
+        """Which is the point: 67 sectors stop being rewritten every night."""
+        row = entry(when=WHEN)
+        row.outcome = "filled"
+        state = {"attempts": {}, "months": {}, "totals": {}}
+        sweep.note_unclosed([row], [row], state)
+        later = sweep.classify([entry(when=WHEN)], state["attempts"], max_tries=3,
+                               now=WHEN + timedelta(days=150))
+        self.assertEqual(later[0].status, sweep.PARKED)
+
+
 class ReportingTests(unittest.TestCase):
     def test_the_summary_counts_every_month(self):
         entries = sweep.classify(
