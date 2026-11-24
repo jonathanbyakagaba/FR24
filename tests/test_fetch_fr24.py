@@ -344,6 +344,157 @@ class FetchTests(unittest.TestCase):
             self.assertIsNone(row)
             self.assertEqual(list(Path(tmp).iterdir()), [])
 
+    def test_a_flight_with_no_airports_is_taken_when_the_playback_confirms_it(self):
+        """The 3 June case, fixed: old flights answer without airports.
+
+        The flight list cannot vouch for these, but the playback's metadata can —
+        and when it does, that is the missing sector and the hole closes.
+        """
+        del self.flights[0]["airport"]
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNotNone(row)
+            self.assertTrue((Path(tmp) / row["file"]).exists())
+
+    def test_a_flight_with_no_airports_is_refused_when_the_playback_disagrees(self):
+        """The bug that left 67 holes: the neighbour, written under the hole's name."""
+        del self.flights[0]["airport"]
+        self.tracks["4194953e"][1].update({"origin": "HKJK", "destination": "HTDA"})
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_the_playback_outranks_the_flight_list(self):
+        """If the list says the route and the playback says another, believe the flight."""
+        self.tracks["4194953e"][1].update({"origin": "HKJK", "destination": "HTDA"})
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_a_flight_with_no_route_anywhere_is_not_guessed(self):
+        del self.flights[0]["airport"]
+        self.tracks["4194953e"][1].pop("origin")
+        self.tracks["4194953e"][1].pop("destination")
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_a_playback_of_nothing_but_zeros_is_not_written(self):
+        """Altitude and speed but a position of 0,0 is a track-shaped hole."""
+        track, metadata = self.tracks["4194953e"]
+        self.tracks["4194953e"] = (
+            [{**point, "position": {"latitude": 0, "longitude": 0}} for point in track],
+            metadata)
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNone(row)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_a_flat_point_is_read_as_a_position(self):
+        """The JSON playback puts latitude on the point; nothing nests it.
+
+        Reading only the nested spelling wrote 0,0 for every track the nightly
+        job fetched from 6 November on.
+        """
+        flat = [{"timestamp": 1780514742, "latitude": -0.0423, "longitude": 32.4435,
+                 "altitude": {"feet": 30000}, "speed": {"kts": 420}, "heading": 180}]
+        self.assertEqual(fetch.point_coords(flat[0]), (-0.0423, 32.4435))
+        self.assertTrue(fetch.has_positions(flat))
+        nested = [{"timestamp": 1, "position": {"latitude": -0.0423, "longitude": 32.4435}}]
+        self.assertEqual(fetch.point_coords(nested[0]), (-0.0423, 32.4435))
+
+    def test_a_flat_track_is_written_with_its_coordinates(self):
+        track, metadata = self.tracks["4194953e"]
+        self.tracks["4194953e"] = (
+            [{**{k: v for k, v in point.items() if k != "position"},
+              "latitude": point["position"]["latitude"],
+              "longitude": point["position"]["longitude"]} for point in track],
+            metadata)
+        gap = fetch.Gap(origin="LUN", destination="HRE", registration="5X-KOB",
+                        after=at(4, 16, 30), before=at(4, 19, 30))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(self.client, gap, Path(tmp), self._args()))
+            self.assertIsNotNone(row)
+            written = Path(tmp) / row["file"]
+            positions = [line.split(",")[4].strip('"')
+                         for line in written.read_text().splitlines()[1:]]
+            legs = fr24.build_legs(fr24.read_export(written),
+                                   fr24.load_airports(), fr24.load_fleet())
+        self.assertTrue(any(value != "0.000000,0.000000" for value in positions))
+        self.assertEqual((legs[0].origin.code, legs[0].destination.code), ("LUN", "HRE"))
+
+    def test_one_real_position_is_enough(self):
+        self.assertTrue(fetch.has_positions(_track(at(4, 17, 45))))
+        self.assertFalse(fetch.has_positions(
+            [{"position": {"latitude": 0, "longitude": 0}} for _ in range(5)]))
+        self.assertFalse(fetch.has_positions([{"position": None}, {}]))
+
+    def test_the_right_leg_is_picked_out_of_an_aircraft_s_day(self):
+        """The 3 June shape: a neighbour nearer in time, and the real tag leg.
+
+        5X-EQU flew EBB–ZNZ, then the missing ZNZ–JRO, then JRO–EBB. The record
+        answers with no airports on any of them, so only the playbacks can say
+        which is which — and the nearest in time is not the answer.
+        """
+        neighbour = at(4, 17, 21)
+        missing = at(4, 18, 40)
+        after = at(4, 21, 0)
+        flights = [
+            {**_flight("aaaa1111", "UR334", "", "", neighbour,
+                       neighbour + timedelta(hours=1, minutes=27)),
+             "_registration": "5X-KOB", "airport": {}},
+            {**_flight("bbbb2222", "UR334", "", "", missing,
+                       missing + timedelta(hours=1, minutes=20)),
+             "_registration": "5X-KOB", "airport": {}},
+            {**_flight("cccc3333", "UR334", "", "", after,
+                       after + timedelta(hours=1, minutes=5)),
+             "_registration": "5X-KOB", "airport": {}},
+        ]
+        znz = next(ap for ap in fr24.load_airports() if ap.code == "ZNZ")
+        jro = next(ap for ap in fr24.load_airports() if ap.code == "JRO")
+        tracks = {
+            "aaaa1111": (_track(neighbour, minutes=87, origin=LUN, destination=znz),
+                         {"origin": "EBB", "destination": "ZNZ",
+                          "flight_number": "UR334", "registration": "5X-KOB"}),
+            "bbbb2222": (_track(missing, minutes=80, origin=znz, destination=jro),
+                         {"origin": "ZNZ", "destination": "JRO",
+                          "flight_number": "UR334", "registration": "5X-KOB"}),
+            "cccc3333": (_track(after, minutes=65, origin=jro, destination=LUN),
+                         {"origin": "JRO", "destination": "EBB",
+                          "flight_number": "UR334", "registration": "5X-KOB"}),
+        }
+        gap = fetch.Gap(origin="ZNZ", destination="JRO", registration="5X-KOB",
+                        after=at(4, 18, 40), before=at(4, 21, 1))
+        import asyncio
+        with tempfile.TemporaryDirectory() as tmp:
+            row = asyncio.run(fetch.fetch_gap(FakeClient(flights, tracks), gap,
+                                              Path(tmp), self._args()))
+            self.assertIsNotNone(row)
+            self.assertEqual((row["from"], row["to"]), ("ZNZ", "JRO"))
+            written = Path(tmp) / row["file"]
+            legs = fr24.build_legs(fr24.read_export(written), fr24.load_airports(),
+                                   fr24.load_fleet())
+            self.assertEqual((legs[0].origin.code, legs[0].destination.code), ("ZNZ", "JRO"))
+
     def test_manifest_gains_a_source_column(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "manifest.csv"

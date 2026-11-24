@@ -51,6 +51,11 @@ on:
         required: false
         type: boolean
         default: false
+      repair:
+        description: "Tick to put the coordinates back into tracks that have none."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -69,6 +74,7 @@ env:
   SINCE: ${{ inputs.since }}
   DAYS: "7"
   GAPS: "1"
+  REPAIR: ${{ inputs.repair == true && '1' || '' }}
 
 jobs:
   sync:
@@ -95,6 +101,18 @@ jobs:
       - name: Install the Flightradar24 client
         run: python3 -m pip install --quiet -r requirements.txt
 
+      - name: Put the coordinates back
+        # A one-off repair, ticked from the dispatch form. Between 6 and 24
+        # November every track the job fetched was written at 0,0 — the playback
+        # parser was reading a field the API does not use. Each manifest row has
+        # the flight id, so a playback can be asked for by id: no flight list, no
+        # seven-day window, no matching of routes. Skip it on an ordinary night.
+        if: ${{ env.REPAIR == '1' }}
+        continue-on-error: true
+        env:
+          REPAIR_MINUTES: ${{ vars.REPAIR_MINUTES || '30' }}
+        run: python3 work/repair_tracks.py --minutes "$REPAIR_MINUTES"
+
       - name: Harvest the fleet's flying
         run: |
           args=(--days "$DAYS")
@@ -111,7 +129,9 @@ jobs:
         # 25 minutes here, inside a 60-minute job, with what is left reported and
         # picked up tomorrow. Raise SWEEP_MINUTES to go faster, or SWEEP_BUDGET to
         # put a hard cap on the number of sectors asked for.
-        if: ${{ env.DRY_RUN == '' && env.GAPS == '1' }}
+        # not on a repair run: the repair has the hour, and the sweep will have
+        # the next night, with fewer holes to find
+        if: ${{ env.DRY_RUN == '' && env.GAPS == '1' && env.REPAIR != '1' }}
         continue-on-error: true
         env:
           SWEEP_MINUTES: ${{ vars.SWEEP_MINUTES || '25' }}

@@ -312,6 +312,39 @@ def _time(item: dict, kind: str, side: str) -> datetime | None:
     return _epoch(node.get(side))
 
 
+def point_coords(point: dict) -> tuple[float, float]:
+    """One playback point's coordinates, whichever way the answer names them.
+
+    The JSON playback puts `latitude` and `longitude` on the point itself; an
+    export of the same flight puts them in a ``position`` field. Reading only the
+    nested spelling is why every track fetched from 6 November on came out at
+    0,0 — altitude, speed and heading all present, the aircraft nowhere.
+    """
+    for holder in (point, point.get("position") or {}):
+        if not isinstance(holder, dict):
+            continue
+        latitude = holder.get("latitude", holder.get("lat"))
+        longitude = holder.get("longitude", holder.get("lon"))
+        if latitude is None or longitude is None:
+            continue
+        try:
+            return float(latitude), float(longitude)
+        except (TypeError, ValueError):
+            continue
+    return 0.0, 0.0
+
+
+def has_positions(track: list[dict]) -> bool:
+    """Whether a playback carries actual coordinates.
+
+    Flightradar24 answers some requests with altitude, speed and heading for
+    every point and no position at all. Written into the archive that becomes an
+    empty file under a real flight's name, which is worse than the gap it was
+    fetched for.
+    """
+    return any(point_coords(point) != (0.0, 0.0) for point in track)
+
+
 def departure_of(item: dict) -> datetime | None:
     return _time(item, "real", "departure") or _time(item, "scheduled", "departure")
 
@@ -365,30 +398,112 @@ async def flights_in(client, gap: Gap, window: tuple[datetime, datetime],
     return found
 
 
-def pick(items: list[dict], gap: Gap, from_icao: str | None,
-         to_icao: str | None) -> dict | None:
-    """The one flight in the list that is this sector, or nothing.
+def same_airport(value: str, code: str) -> bool:
+    """Whether an airport the API names is the one the archive's gap names.
+
+    The archive speaks IATA (LUN, ZNZ); a playback's metadata may answer in
+    either alphabet (FLLS, LUN), so both readings of the gap's code are accepted.
+    """
+    value = (value or "").strip().upper()
+    if not value:
+        return False
+    if value == (code or "").strip().upper():
+        return True
+    return value == (icao_for(code) or "")
+
+
+def route_says(metadata: dict, gap: Gap) -> bool | None:
+    """What a playback's own metadata says: is this the sector, or can it not say?
+
+    True — the metadata names this origin and destination.
+    False — it names a different one, so this is not the missing sector.
+    None — it names neither, so the metadata has no opinion and the flight list
+           has to be the one that vouches for it.
+    """
+    origin = str(metadata.get("origin") or "").strip().upper()
+    destination = str(metadata.get("destination") or "").strip().upper()
+    if not origin and not destination:
+        return None
+    if origin and not same_airport(origin, gap.origin):
+        return False
+    if destination and not same_airport(destination, gap.destination):
+        return False
+    return True
+
+
+def candidates(items: list[dict], gap: Gap, from_icao: str | None,
+               to_icao: str | None) -> list[dict]:
+    """Every flight that could be this sector, the likeliest first.
 
     The airframe can pass the same pair four times a day (Entebbe–Nairobi), so
     the time decides when there is more than one; the route and the flight
     number decide which of the day's flights it is when the sheet names them.
+
+    A flight whose airports are missing is not ruled out here — Flightradar24
+    leaves them off for old flights, and its playback metadata usually knows them
+    — but it is ranked behind every flight whose route is certain, and
+    ``resolve`` will not accept it unless the metadata confirms the sector. That
+    combination is what the first whole-archive sweep got wrong: an airport-less
+    neighbour slipped through as a match, was written under the missing sector's
+    name, and left the hole exactly where it was.
     """
     target = gap.planned or gap.after
-    best, best_skew = None, None
+    scored: list[tuple[int, float, dict]] = []
     for item in items:
-        if from_icao and _icao(item, "origin") not in ("", from_icao):
+        origin, destination = _icao(item, "origin"), _icao(item, "destination")
+        if from_icao and origin and origin != from_icao:
             continue
-        if to_icao and _icao(item, "destination") not in ("", to_icao):
+        if to_icao and destination and destination != to_icao:
             continue
         if gap.flight_number and number_of(item) not in ("", gap.flight_number):
             continue
         departure = departure_of(item)
         if departure is None:
             continue
+        certain = 0 if (origin and destination) else 1
         skew = abs((departure - target).total_seconds()) if target else 0.0
-        if best_skew is None or skew < best_skew:
-            best, best_skew = item, skew
-    return best
+        scored.append((certain, skew, item))
+    scored.sort(key=lambda row: (row[0], row[1]))
+    return [item for _certain, _skew, item in scored]
+
+
+async def _resolve(client, gap: Gap, outdir: Path, items: list[dict],
+                   from_icao: str, to_icao: str) -> dict | None:
+    """Try the flights in a list until one of them is provably this sector."""
+    for item in candidates(items, gap, from_icao, to_icao):
+        departure = departure_of(item)
+        flight_id = flight_id_of(item)
+        result = await client.playback.fetch(flight_id,
+                                             timestamp=int(departure.timestamp()))
+        payload = (result.to_dict().get("result") or {}).get("response") or {}
+        track = ((payload.get("data") or {}).get("flight") or {}).get("track") or []
+        if not track:
+            print(f"  {gap.describe()}: flight {flight_id} has no playback track — "
+                  f"trying the next", file=sys.stderr)
+            continue
+        if not has_positions(track):
+            print(f"  {gap.describe()}: flight {flight_id} came back with no positions "
+                  f"— trying the next", file=sys.stderr)
+            continue
+        try:
+            metadata = result.metadata()
+        except Exception:  # noqa: BLE001 - metadata is a nicety, the track is the point
+            metadata = {}
+        says = route_says(metadata, gap)
+        if says is False:
+            print(f"  {gap.describe()}: flight {flight_id} is another sector "
+                  f"({metadata.get('origin')}–{metadata.get('destination')}) — "
+                  f"trying the next", file=sys.stderr)
+            continue
+        if says is None and not (_icao(item, "origin") and _icao(item, "destination")):
+            print(f"  {gap.describe()}: flight {flight_id} cannot be confirmed as "
+                  f"{from_icao}–{to_icao} — trying the next", file=sys.stderr)
+            continue
+        row = write_track(outdir, gap, item, result, track)
+        print(f"  {gap.describe()}: fetched {row['file']} "
+              f"({row['track_points']} points, {row['atd_utc']} – {row['ata_utc']})")
+        return row
+    return None
 
 
 async def fetch_gap(client, gap: Gap, outdir: Path, args) -> dict | None:
@@ -399,34 +514,17 @@ async def fetch_gap(client, gap: Gap, outdir: Path, args) -> dict | None:
               f"in reference/airports.csv — skipped", file=sys.stderr)
         return None
 
-    item = None
     seen = 0
     for window in gap.windows():
         items = await flights_in(client, gap, window, args.max_pages, args.delay)
         seen += len(items)
-        item = pick(items, gap, from_icao, to_icao)
-        if item is not None:
-            break
-    if item is None:
-        print(f"  {gap.describe()}: no {from_icao}-{to_icao} flight for "
-              f"{gap.registration or gap.flight_number} in the record "
-              f"({seen} flights read) — left open", file=sys.stderr)
-        return None
-
-    departure = departure_of(item)
-    flight_id = flight_id_of(item)
-    result = await client.playback.fetch(flight_id, timestamp=int(departure.timestamp()))
-    payload = (result.to_dict().get("result") or {}).get("response") or {}
-    track = ((payload.get("data") or {}).get("flight") or {}).get("track") or []
-    if not track:
-        print(f"  {gap.describe()}: flight {flight_id} has no playback track — left open",
-              file=sys.stderr)
-        return None
-
-    row = write_track(outdir, gap, item, result, track)
-    print(f"  {gap.describe()}: fetched {row['file']} "
-          f"({row['track_points']} points, {row['atd_utc']} – {row['ata_utc']})")
-    return row
+        row = await _resolve(client, gap, outdir, items, from_icao, to_icao)
+        if row is not None:
+            return row
+    print(f"  {gap.describe()}: no {from_icao}-{to_icao} flight for "
+          f"{gap.registration or gap.flight_number} in the record "
+          f"({seen} flights read) — left open", file=sys.stderr)
+    return None
 
 
 def write_track(outdir: Path, gap: Gap, item: dict, result, track: list[dict]) -> dict:
@@ -447,13 +545,13 @@ def write_track(outdir: Path, gap: Gap, item: dict, result, track: list[dict]) -
         writer.writerow(TRACK_COLUMNS)
         for point in track:
             stamp = int(point.get("timestamp") or 0)
-            position = point.get("position") or {}
+            latitude, longitude = point_coords(point)
             writer.writerow([
                 stamp,
                 datetime.fromtimestamp(stamp, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 callsign,
                 registration,
-                f"{float(position.get('latitude', 0)):.6f},{float(position.get('longitude', 0)):.6f}",
+                f"{latitude:.6f},{longitude:.6f}",
                 int((point.get("altitude") or {}).get("feet") or 0),
                 int((point.get("speed") or {}).get("kts") or 0),
                 int(point.get("heading") or 0),
