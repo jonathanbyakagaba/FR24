@@ -1,18 +1,18 @@
 # Uganda Airlines — June 2026
 
 Flight log in [AeroRoutes](https://www.aeroroutes.com/) notation, rebuilt from the
-month's Flightradar24 track exports (`archive/2026-06/tracks/`, 431 files).
+month's Flightradar24 track exports (`archive/2026-06/tracks/`, 443 files).
 
 | field | value |
 |---|---|
 | operator | Uganda Airlines (UR / UGD) |
 | period | 01JUN26 – 30JUN26 |
-| flights | 430 |
-| airborne | 1,021 h 58 min |
-| distance flown | 826,292 km (complete tracks only) |
-| track coverage | 429 of 430 flights end to end |
-| city pairs | 28 directional / 14 undirected |
-| rotations | 143 (24 with an untracked hop) |
+| flights | 442 |
+| airborne | 1,030 h 06 min |
+| distance flown | 832,247 km (complete tracks only) |
+| track coverage | 441 of 442 flights end to end |
+| city pairs | 30 directional / 15 undirected |
+| rotations | 143 (12 with an untracked hop) |
 | airframes | 5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-APL |
 | types | A338, B738, CRJ9 |
 
@@ -46,10 +46,12 @@ UR323 DAR1013 – 1157EBB CRJ9 1
 
 **Entebbe – Bujumbura**  
 *eff 01JUN26* 6 weekly CRJ900  
+UGD EBB1608 – 1552BJM CRJ9 7
 UR360 EBB1623 – 1608BJM CRJ9 123457
 
 **Entebbe – Dar es Salaam**  
 *eff 01JUN26* 6 weekly CRJ900 / 737-800  
+UGD EBB1504 – 1627DAR CRJ9 2
 UR320 EBB1452 – 1613DAR CRJ9 23567
 UR322 EBB0726 – 0852DAR CRJ9 1
 
@@ -121,6 +123,10 @@ UR123 JUB0731 – 0918EBB CRJ9 1234
 *eff 04JUN26* 4 weekly CRJ900  
 UR334 JRO0001 – 0102EBB CRJ9 3456
 
+**Kilimanjaro – Zanzibar**  
+*eff 07JUN26* 1 weekly CRJ900  
+UGD334 JRO1523 – 1553ZNZ CRJ9 7
+
 **Lagos – Entebbe**  
 *eff 01JUN26* 3 weekly 737-800  
 UR901 LOS1218 – 1829EBB B738 147
@@ -154,6 +160,10 @@ UR209 NBO1305 – 1354EBB CRJ9 1457
 *eff 07JUN26* 1 weekly CRJ900  
 UR334 ZNZ1718 – 1843EBB CRJ9 7
 
+**Zanzibar – Kilimanjaro**  
+*eff 03JUN26* 2 weekly CRJ900  
+UGD334 ZNZ2230 – 2308JRO CRJ9 35
+
 ## Route summary
 
 | route | flights | weekly | equipment | great-circle km | median air min |
@@ -162,10 +172,10 @@ UR334 ZNZ1718 – 1843EBB CRJ9 7
 | EBB-JNB | 30 | 7 | 737-800 / CRJ900 | 2946 | 225 |
 | EBB-JUB | 29 | 7 | CRJ900 | 545 | 50 |
 | JUB-EBB | 29 | 7 | CRJ900 | 545 | 46 |
-| EBB-DAR | 25 | 6 | CRJ900 / 737-800 | 1074 | 84 |
+| EBB-DAR | 26 | 6 | CRJ900 / 737-800 | 1074 | 84 |
 | DAR-EBB | 25 | 6 | CRJ900 / 737-800 | 1074 | 88 |
+| EBB-BJM | 25 | 6 | CRJ900 | 511 | 44 |
 | BJM-EBB | 25 | 6 | CRJ900 | 511 | 48 |
-| EBB-BJM | 24 | 6 | CRJ900 | 511 | 44 |
 | EBB-MGQ | 17 | 4 | CRJ900 | 1447 | 116 |
 | MGQ-EBB | 17 | 4 | CRJ900 | 1447 | 117 |
 | EBB-NBO | 16 | 4 | CRJ900 | 521 | 46 |
@@ -184,15 +194,17 @@ UR334 ZNZ1718 – 1843EBB CRJ9 7
 | EBB-HRE | 8 | 2 | CRJ900 / 737-800 | 2004 | 158 |
 | LUN-EBB | 8 | 2 | CRJ900 / 737-800 | 1765 | 144 |
 | EBB-ZNZ | 6 | 2 | CRJ900 | 1025 | 78 |
+| ZNZ-JRO | 6 | 2 | CRJ900 | 391 | 38 |
 | EBB-JRO | 6 | 2 | CRJ900 | 643 | 55 |
+| JRO-ZNZ | 4 | 1 | CRJ900 | 392 | 34 |
 | ZNZ-EBB | 4 | 1 | CRJ900 | 1025 | 82 |
 
 ## Rotations
 
 A rotation is one airframe's day of flying, its legs chained in order: 143
-this month, 119 with every sector of the chain in the record. In the 24 below,
+this month, 131 with every sector of the chain in the record. In the 12 below,
 the aircraft puts down at one airport and is next heard from at another, so it
-must have flown a sector the movement board does not hold — 24 such hops. They
+must have flown a sector the movement board does not hold — 12 such hops. They
 are kept in place rather than dropped, so a rotation reads from its first
 departure to its last arrival instead of breaking into orphan sectors. The
 airport that is only reachable through a hop is bracketed in the chain, and
@@ -208,32 +220,20 @@ EBB–HRE  UR720  →  HRE–[LUN]  →  LUN–EBB  UR721      one rotation
 |---|---|---|---|---|
 | 5X-EQU-20260601 | 5X-EQU CRJ9 | EBB–LUN–[HRE]–EBB | 2 | 01JUN26 10:53 – 18:19 |
 | 5X-KDP-20260602 | 5X-KDP CRJ9 | EBB–MGQ–EBB–LUN–[HRE]–EBB | 4 | 02JUN26 05:26 – 03JUN 05:32 |
-| 5X-EQU-20260603 | 5X-EQU CRJ9 | EBB–JUB–EBB–ZNZ–[JRO]–EBB | 4 | 03JUN26 10:01 – 04JUN 01:02 |
 | 5X-KDP-20260604 | 5X-KDP CRJ9 | EBB–NBO–EBB–HRE–[LUN]–EBB | 4 | 04JUN26 10:09 – 22:44 |
-| 5X-KDP-20260605 | 5X-KDP CRJ9 | EBB–NBO–EBB–BJM–EBB–ZNZ–[JRO]–EBB | 6 | 05JUN26 12:49 – 06JUN 01:30 |
-| 5X-KOB-20260607 | 5X-KOB CRJ9 | EBB–MGQ–EBB–JRO–[ZNZ]–EBB | 4 | 07JUN26 05:37 – 18:43 |
 | 5X-KDP-20260608 | 5X-KDP CRJ9 | EBB–JUB–EBB–LUN–[HRE]–EBB | 4 | 08JUN26 10:05 – 22:09 |
-| 5X-EQU-20260610 | 5X-EQU CRJ9 | JUB–EBB–ZNZ–[JRO]–EBB | 3 | 10JUN26 12:11 – 23:45 |
 | 5X-KDP-20260611 | 5X-KDP CRJ9 | EBB–MGQ–EBB–HRE–[LUN]–EBB | 4 | 11JUN26 05:21 – 22:16 |
-| 5X-KDP-20260614 | 5X-KDP CRJ9 | EBB–MGQ–EBB–JRO–[ZNZ]–EBB | 4 | 14JUN26 05:39 – 18:47 |
 | 5X-EQU-20260615 | 5X-EQU CRJ9 | EBB–LUN–[HRE]–EBB | 2 | 15JUN26 10:06 – 17:48 |
 | 5X-KOB-20260616 | 5X-KOB CRJ9 | EBB–BJM–EBB–LUN–[HRE]–EBB | 4 | 16JUN26 08:58 – 17JUN 05:31 |
-| 5X-KOB-20260617 | 5X-KOB CRJ9 | EBB–MBA–EBB–ZNZ–[JRO]–EBB | 4 | 17JUN26 07:14 – 23:33 |
 | 5X-KDP-20260618 | 5X-KDP CRJ9 | EBB–MGQ–EBB–HRE–[LUN]–EBB | 4 | 18JUN26 05:29 – 22:41 |
-| 5X-KDP-20260621 | 5X-KDP CRJ9 | EBB–MGQ–EBB–JRO–[ZNZ]–EBB | 4 | 21JUN26 05:29 – 18:26 |
-| 5X-EQU-20260621 | 5X-EQU CRJ9 | EBB–NBO–EBB–[BJM]–EBB | 3 | 21JUN26 10:03 – 18:46 |
 | 5X-EQU-20260622 | 5X-EQU CRJ9 | EBB–LUN–[HRE]–EBB | 2 | 22JUN26 09:55 – 17:39 |
 | 5X-KOB-20260623 | 5X-KOB CRJ9 | EBB–BJM–EBB–LUN–[HRE]–EBB | 4 | 23JUN26 08:43 – 24JUN 05:22 |
-| 5X-KOB-20260624 | 5X-KOB CRJ9 | EBB–ZNZ–[JRO]–EBB | 2 | 24JUN26 18:49 – 23:47 |
 | 5X-KDP-20260625 | 5X-KDP CRJ9 | EBB–MGQ–EBB–HRE–[LUN]–EBB | 4 | 25JUN26 05:34 – 22:46 |
-| 5X-KDP-20260626 | 5X-KDP CRJ9 | EBB–NBO–EBB–BJM–EBB–ZNZ–[JRO]–EBB | 6 | 26JUN26 12:44 – 27JUN 01:30 |
-| 5X-EQU-20260628 | 5X-EQU CRJ9 | EBB–MGQ–EBB–JRO–[ZNZ]–EBB | 4 | 28JUN26 05:34 – 18:24 |
 | 5X-KOB-20260629 | 5X-KOB CRJ9 | EBB–LUN–[HRE]–EBB | 2 | 29JUN26 10:05 – 17:45 |
-| 5X-KDP-20260630 | 5X-KDP CRJ9 | EBB–MGQ–EBB–[DAR]–EBB | 3 | 30JUN26 05:33 – 19:10 |
 
 ## Track coverage
 
-1 of the 430 flights have a track that covers only part of
+1 of the 442 flights have a track that covers only part of
 the flight: the export starts after take-off, stops in the cruise, or both.
 They are still logged — the flight happened and its days are not in doubt.
 The route comes from the flight record; the times come from the movement board's actual times (1 flights).

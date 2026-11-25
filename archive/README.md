@@ -12,8 +12,8 @@ does not. Nothing is shared between months except `reference/`.
 | August 2026 | 619 | 1,323 h 17 min | 1,049,216 | 14 | 152 | 47 | A338, B738, CRJ9 | [`2026-08/`](2026-08/) |
 | September 2026 | 589 | 1,219 h 51 min | 974,373 | 16 | 137 | 45 | A338, B738, CRJ9 | [`2026-09/`](2026-09/) |
 | October 2026 | 616 | 1,324 h 23 min | 958,990 | 17 | 148 | 47 | A338, B738, CRJ9 | [`2026-10/`](2026-10/) |
-| November 2026 (to the 6th) | 97 | 227 h 43 min | 85,173 | 14 | 28 | 9 | A338, B738, CRJ9 | [`2026-11/`](2026-11/) |
-| **total** | **2,948** | **6,340 h 28 min** | **4,875,293** | — | **747** | **211** | — | |
+| November 2026 (to the 25th) | 118 | 269 h 41 min | 113,654 | 16 | 37 | 9 | A338, B738, CRJ9 | [`2026-11/`](2026-11/) |
+| **total** | **2,969** | **6,382 h 26 min** | **4,903,775** | — | **756** | **211** | — | |
 
 Kilometres are the flown distance summed from the track positions, complete
 tracks only, so they run a little under the true path. The totals row is computed
