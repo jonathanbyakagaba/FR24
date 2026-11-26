@@ -7,13 +7,13 @@ does not. Nothing is shared between months except `reference/`.
 
 | month | flights | airborne | km flown | city pairs | rotations | untracked hops | types | folder |
 |---|---|---|---|---|---|---|---|---|
-| June 2026 | 430 | 1,021 h 58 min | 826,292 | 14 | 143 | 24 | A338, B738, CRJ9 | [`2026-06/`](2026-06/) |
-| July 2026 | 597 | 1,223 h 16 min | 981,250 | 14 | 139 | 39 | A338, B738, B788, CRJ9 | [`2026-07/`](2026-07/) |
-| August 2026 | 619 | 1,323 h 17 min | 1,049,216 | 14 | 152 | 47 | A338, B738, CRJ9 | [`2026-08/`](2026-08/) |
-| September 2026 | 589 | 1,219 h 51 min | 974,373 | 16 | 137 | 45 | A338, B738, CRJ9 | [`2026-09/`](2026-09/) |
-| October 2026 | 616 | 1,324 h 23 min | 958,990 | 17 | 148 | 47 | A338, B738, CRJ9 | [`2026-10/`](2026-10/) |
-| November 2026 (to the 25th) | 118 | 269 h 41 min | 113,654 | 16 | 37 | 9 | A338, B738, CRJ9 | [`2026-11/`](2026-11/) |
-| **total** | **2,969** | **6,382 h 26 min** | **4,903,775** | — | **756** | **211** | — | |
+| June 2026 | 442 | 1,030 h 06 min | 832,247 | 15 | 143 | 12 | A338, B738, CRJ9 | [`2026-06/`](2026-06/) |
+| July 2026 | 611 | 1,232 h 09 min | 987,537 | 15 | 139 | 25 | A338, B738, B788, CRJ9 | [`2026-07/`](2026-07/) |
+| August 2026 | 633 | 1,332 h 26 min | 1,055,764 | 15 | 152 | 33 | A338, B738, CRJ9 | [`2026-08/`](2026-08/) |
+| September 2026 | 602 | 1,228 h 02 min | 980,202 | 17 | 137 | 32 | A338, B738, CRJ9 | [`2026-09/`](2026-09/) |
+| October 2026 | 629 | 1,332 h 42 min | 964,911 | 18 | 148 | 34 | A338, B738, CRJ9 | [`2026-10/`](2026-10/) |
+| November 2026 (to the 26th) | 139 | 308 h 58 min | 135,469 | 17 | 43 | 8 | A338, B738, CRJ9 | [`2026-11/`](2026-11/) |
+| **total** | **3,056** | **6,464 h 23 min** | **4,956,130** | — | **762** | **144** | — | |
 
 Kilometres are the flown distance summed from the track positions, complete
 tracks only, so they run a little under the true path. The totals row is computed

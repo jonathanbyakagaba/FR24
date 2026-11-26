@@ -688,46 +688,46 @@
   },
   "months": {
     "2026-06": {
-      "closed_since": 12,
+      "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 12,
-      "swept": "2026-11-25T10:15:29Z"
+      "swept": "2026-11-26T09:55:05Z"
     },
     "2026-07": {
-      "closed_since": 14,
+      "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 25,
-      "swept": "2026-11-25T10:15:29Z"
+      "swept": "2026-11-26T09:55:05Z"
     },
     "2026-08": {
-      "closed_since": 14,
+      "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 33,
-      "swept": "2026-11-25T10:15:29Z"
+      "swept": "2026-11-26T09:55:05Z"
     },
     "2026-09": {
-      "closed_since": 13,
+      "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 31,
-      "swept": "2026-11-25T10:15:29Z"
+      "swept": "2026-11-26T09:55:05Z"
     },
     "2026-10": {
-      "closed_since": 13,
+      "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 32,
-      "swept": "2026-11-25T10:15:29Z"
+      "swept": "2026-11-26T09:55:05Z"
     },
     "2026-11": {
-      "closed_since": 1,
+      "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 4,
-      "swept": "2026-11-25T10:15:29Z"
+      "swept": "2026-11-26T09:55:05Z"
     }
   },
   "reach": {
@@ -735,12 +735,12 @@
     "oldest_served": "2026-06-03T18:40:53Z"
   },
   "totals": {
-    "closed": 67,
+    "closed": 0,
     "no_icao": 1,
     "open": 0,
     "out_of_range": 0,
     "parked": 137,
     "too_small": 6,
-    "updated": "2026-11-25T10:15:29Z"
+    "updated": "2026-11-26T09:55:05Z"
   }
 }
