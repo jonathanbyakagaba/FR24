@@ -692,42 +692,42 @@
       "open": 0,
       "open_keys": [],
       "parked": 12,
-      "swept": "2026-11-26T09:55:05Z"
+      "swept": "2026-11-27T09:59:04Z"
     },
     "2026-07": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 25,
-      "swept": "2026-11-26T09:55:05Z"
+      "swept": "2026-11-27T09:59:04Z"
     },
     "2026-08": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 33,
-      "swept": "2026-11-26T09:55:05Z"
+      "swept": "2026-11-27T09:59:04Z"
     },
     "2026-09": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 31,
-      "swept": "2026-11-26T09:55:05Z"
+      "swept": "2026-11-27T09:59:04Z"
     },
     "2026-10": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 32,
-      "swept": "2026-11-26T09:55:05Z"
+      "swept": "2026-11-27T09:59:04Z"
     },
     "2026-11": {
       "closed_since": 0,
       "open": 0,
       "open_keys": [],
       "parked": 4,
-      "swept": "2026-11-26T09:55:05Z"
+      "swept": "2026-11-27T09:59:04Z"
     }
   },
   "reach": {
@@ -741,6 +741,6 @@
     "out_of_range": 0,
     "parked": 137,
     "too_small": 6,
-    "updated": "2026-11-26T09:55:05Z"
+    "updated": "2026-11-27T09:59:04Z"
   }
 }
