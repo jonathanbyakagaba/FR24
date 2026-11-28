@@ -1,18 +1,18 @@
 # Uganda Airlines — November 2026
 
 Flight log in [AeroRoutes](https://www.aeroroutes.com/) notation, rebuilt from the
-month's Flightradar24 track exports (`archive/2026-11/tracks/`, 686 files).
+month's Flightradar24 track exports (`archive/2026-11/tracks/`, 715 files).
 
 | field | value |
 |---|---|
 | operator | Uganda Airlines (UR / UGD) |
-| period | 01NOV26 – 27NOV26 (part month, 10 days) |
-| flights | 160 |
-| airborne | 355 h 44 min |
-| distance flown | 156,038 km (complete tracks only) |
-| track coverage | 125 of 160 flights end to end |
-| city pairs | 32 directional / 18 undirected |
-| rotations | 48 (5 with an untracked hop) |
+| period | 01NOV26 – 28NOV26 (part month, 11 days) |
+| flights | 183 |
+| airborne | 402 h 58 min |
+| distance flown | 185,732 km (complete tracks only) |
+| track coverage | 146 of 183 flights end to end |
+| city pairs | 33 directional / 18 undirected |
+| rotations | 53 (5 with an untracked hop) |
 | airframes | 5X-EQU, 5X-KDP, 5X-KOB, 5X-NIL, ET-AOU, ET-APL |
 | types | A338, B738, B788, CRJ9 |
 
@@ -40,42 +40,46 @@ is logged under the date it departed, local time.
 ET845 ADD0730 – 1300CPT B788 5
 
 **Bujumbura – Entebbe**  
-*eff 01NOV26* 5 weekly CRJ900  
-UR361 BJM1942 – 2131EBB CRJ9 12347
+*eff 01NOV26* 6 weekly CRJ900  
+UR361 BJM1942 – 2131EBB CRJ9 123457
+
+**Cape Town – Addis Ababa**  
+*eff 27NOV26* 1 weekly B788  
+ET844 CPT1350 – 2115ADD B788 5
 
 **Dar es Salaam – Entebbe**  
-*eff 02NOV26* 4 weekly CRJ900  
+*eff 02NOV26* 5 weekly CRJ900  
 UR320 DAR0912 – 1045EBB CRJ9 3
 UR321 DAR1519 – 1646EBB CRJ9 12
-UR323 DAR0125 – 0254EBB CRJ9 134
+UR323 DAR0125 – 0254EBB CRJ9 1345
 
 **Entebbe – Bujumbura**  
-*eff 01NOV26* 5 weekly CRJ900  
-UR360 EBB1841 – 1826BJM CRJ9 12347
+*eff 01NOV26* 6 weekly CRJ900  
+UR360 EBB1841 – 1826BJM CRJ9 123457
 
 **Entebbe – Dar es Salaam**  
-*eff 01NOV26* 5 weekly CRJ900  
+*eff 01NOV26* 6 weekly CRJ900  
 UR320 EBB1200 – 1350DAR CRJ9 123
-UR322 EBB2200 – 2350DAR CRJ9 347
+UR322 EBB2200 – 2350DAR CRJ9 3457
 
 **Entebbe – Harare**  
 *eff 03NOV26* 3 weekly CRJ900 / 737-800  
 UR722 EBB1200 – 1400HRE CRJ9 234
 
 **Entebbe – Johannesburg**  
-*eff 01NOV26* 6 weekly CRJ900 / 737-800  
-UR710 EBB0830 – 1145JNB CRJ9 135
+*eff 01NOV26* 1 daily CRJ900 / 737-800  
+UR710 EBB0830 – 1145JNB B738 1356
 UR712 EBB1625 – 1940JNB CRJ9 247
 
 **Entebbe – Juba**  
 *eff 01NOV26* 6 weekly CRJ900  
 UR120 EBB1213 – 1203JUB CRJ9 2457
-UR122 EBB0940 – 0931JUB CRJ9 1234
+UR122 EBB0940 – 0931JUB CRJ9 12345
 
 **Entebbe – Kigali**  
-*eff 25NOV26* 3 weekly CRJ900  
+*eff 25NOV26* 4 weekly CRJ900  
 UR380 EBB1215 – 1145KGL CRJ9 35
-UR382 EBB0803 – 0735KGL CRJ9 4
+UR382 EBB0803 – 0735KGL CRJ9 46
 
 **Entebbe – Kilimanjaro**  
 *eff 01NOV26* 1 weekly CRJ900  
@@ -94,8 +98,8 @@ UR110 EBB1100 – 1740LGW A338 257
 UR720 EBB0918 – 1038LUN CRJ9 7
 
 **Entebbe – Mogadishu**  
-*eff 01NOV26* 3 weekly CRJ900  
-UR520 EBB0521 – 0716MGQ CRJ9 247
+*eff 01NOV26* 4 weekly CRJ900  
+UR520 EBB0521 – 0716MGQ CRJ9 2467
 
 **Entebbe – Mombasa**  
 *eff 01NOV26* 3 weekly CRJ900  
@@ -106,9 +110,9 @@ UR342 EBB1921 – 2035MBA CRJ9 357
 UR430 EBB2025 – 0605(+1)BOM A338 3
 
 **Entebbe – Nairobi**  
-*eff 01NOV26* 6 weekly CRJ900  
-UR200 EBB0750 – 0836NBO CRJ9 123457
-UR204 EBB2225 – 2331NBO CRJ9 234
+*eff 01NOV26* 1 daily CRJ900  
+UR200 EBB0750 – 0836NBO CRJ9 1234567
+UR204 EBB2225 – 2331NBO CRJ9 2345
 UR206 EBB1721 – 1810NBO CRJ9 27
 
 **Entebbe – Zanzibar**  
@@ -125,38 +129,38 @@ UR722 HRE1519 – 1557LUN CRJ9 2
 
 **Johannesburg – Entebbe**  
 *eff 02NOV26* 3 weekly CRJ900 / 737-800  
-UR711 JNB1417 – 1903EBB B738 13
+UR711 JNB1417 – 1903EBB B738 135
 UR713 JNB0307 – 0800EBB CRJ9 135
 
 **Juba – Entebbe**  
-*eff 01NOV26* 5 weekly CRJ900  
+*eff 01NOV26* 6 weekly CRJ900  
 UR121 JUB1326 – 1511EBB CRJ9 247
-UR123 JUB1038 – 1225EBB CRJ9 1234
+UR123 JUB1038 – 1225EBB CRJ9 12345
 
 **Kigali – Entebbe**  
-*eff 25NOV26* 3 weekly CRJ900  
+*eff 25NOV26* 4 weekly CRJ900  
 UR381 KGL1246 – 1416EBB CRJ9 35
-UR383 KGL0902 – 1034EBB CRJ9 4
+UR383 KGL0902 – 1034EBB CRJ9 46
 
 **Kilimanjaro – Entebbe**  
-*eff 01NOV26* 2 weekly CRJ900  
-UR334 JRO1700 – 1759EBB CRJ9 37
+*eff 01NOV26* 3 weekly CRJ900  
+UR334 JRO1700 – 1759EBB CRJ9 357
 
 **Lagos – Entebbe**  
-*eff 01NOV26* 3 weekly 737-800  
-UR901 LOS2225 – 0455(+1)EBB B738 247
+*eff 01NOV26* 4 weekly 737-800  
+UR901 LOS2225 – 0455(+1)EBB B738 2457
 
 **London Gatwick – Entebbe**  
-*eff 01NOV26* 2 weekly A330-800  
-UR111 LGW1810 – 0550(+1)EBB A338 27
+*eff 01NOV26* 3 weekly A330-800  
+UR111 LGW1810 – 0550(+1)EBB A338 257
 
 **Lusaka – Entebbe**  
 *eff 03NOV26* 3 weekly CRJ900 / 737-800  
 UR722 LUN1732 – 2055EBB CRJ9 234
 
 **Mogadishu – Entebbe**  
-*eff 01NOV26* 3 weekly CRJ900  
-UR521 MGQ0842 – 1036EBB CRJ9 247
+*eff 01NOV26* 4 weekly CRJ900  
+UR521 MGQ0842 – 1036EBB CRJ9 2467
 
 **Mombasa – Entebbe**  
 *eff 01NOV26* 3 weekly CRJ900  
@@ -167,56 +171,57 @@ UR343 MBA2157 – 2311EBB CRJ9 357
 UR431 BOM0850 – 1229EBB A338 4
 
 **Nairobi – Entebbe**  
-*eff 01NOV26* 6 weekly CRJ900  
-UR201 NBO1007 – 1051EBB CRJ9 123457
-UR205 NBO0042 – 0128EBB CRJ9 34
+*eff 01NOV26* 1 daily CRJ900  
+UR201 NBO1007 – 1051EBB CRJ9 1234567
+UR205 NBO0042 – 0128EBB CRJ9 345
 UR207 NBO2018 – 2105EBB CRJ9 27
 
 **Zanzibar – Kilimanjaro**  
-*eff 25NOV26* 1 weekly CRJ900  
-UR334 ZNZ1434 – 1512JRO CRJ9 3
+*eff 25NOV26* 2 weekly CRJ900  
+UR334 ZNZ1434 – 1512JRO CRJ9 35
 
 ## Route summary
 
 | route | flights | weekly | equipment | great-circle km | median air min |
 |---|---|---|---|---|---|
-| EBB-NBO | 14 | 6 | CRJ900 | 521 | 46 |
-| NBO-EBB | 14 | 6 | CRJ900 | 521 | 48 |
-| EBB-JNB | 11 | 6 | CRJ900 / 737-800 | 2946 | 255 |
-| EBB-JUB | 9 | 6 | CRJ900 | 545 | 51 |
-| JUB-EBB | 8 | 5 | CRJ900 | 545 | 46 |
-| EBB-BJM | 8 | 5 | CRJ900 | 511 | 46 |
-| BJM-EBB | 8 | 5 | CRJ900 | 511 | 48 |
-| EBB-DAR | 8 | 5 | CRJ900 | 1074 | 86 |
-| DAR-EBB | 8 | 4 | CRJ900 | 1074 | 87 |
-| JNB-EBB | 8 | 3 | CRJ900 / 737-800 | 2946 | 224 |
-| EBB-LOS | 5 | 4 | 737-800 | 3312 | 270 |
+| EBB-NBO | 16 | 7 | CRJ900 | 521 | 46 |
+| NBO-EBB | 16 | 7 | CRJ900 | 521 | 47 |
+| EBB-JNB | 12 | 7 | CRJ900 / 737-800 | 2946 | 255 |
+| EBB-JUB | 10 | 6 | CRJ900 | 545 | 51 |
+| JUB-EBB | 9 | 6 | CRJ900 | 545 | 46 |
+| EBB-BJM | 9 | 6 | CRJ900 | 511 | 46 |
+| BJM-EBB | 9 | 6 | CRJ900 | 511 | 48 |
+| EBB-DAR | 9 | 6 | CRJ900 | 1074 | 85 |
+| DAR-EBB | 9 | 5 | CRJ900 | 1074 | 87 |
+| JNB-EBB | 9 | 3 | CRJ900 / 737-800 | 2946 | 223 |
+| EBB-LOS | 6 | 4 | 737-800 | 3312 | 270 |
+| LOS-EBB | 6 | 4 | 737-800 | 3312 | 262 |
+| EBB-MGQ | 5 | 4 | CRJ900 | 1447 | 114 |
+| MGQ-EBB | 5 | 4 | CRJ900 | 1447 | 114 |
 | EBB-MBA | 5 | 3 | CRJ900 | 915 | 74 |
 | MBA-EBB | 5 | 3 | CRJ900 | 915 | 75 |
-| LOS-EBB | 5 | 3 | 737-800 | 3312 | 265 |
-| EBB-MGQ | 4 | 3 | CRJ900 | 1447 | 114 |
-| MGQ-EBB | 4 | 3 | CRJ900 | 1447 | 116 |
 | EBB-LGW | 4 | 3 | A330-800 | 6457 | 580 |
+| JRO-EBB | 4 | 3 | CRJ900 | 643 | 58 |
+| LGW-EBB | 4 | 3 | A330-800 | 6457 | 506 |
 | LUN-EBB | 4 | 3 | CRJ900 / 737-800 | 1765 | 143 |
-| JRO-EBB | 3 | 2 | CRJ900 | 643 | 58 |
-| LGW-EBB | 3 | 2 | A330-800 | 6457 | 520 |
+| EBB-ZNZ | 4 | 2 | CRJ900 | 1025 | 110 |
+| EBB-KGL | 4 | 4 | CRJ900 | 340 | 32 |
+| KGL-EBB | 4 | 4 | CRJ900 | 340 | 32 |
 | EBB-HRE | 3 | 3 | CRJ900 / 737-800 | 2004 | 180 |
-| EBB-ZNZ | 3 | 2 | CRJ900 | 1025 | 110 |
-| EBB-KGL | 3 | 3 | CRJ900 | 340 | 32 |
-| KGL-EBB | 3 | 3 | CRJ900 | 340 | 32 |
 | EBB-BOM | 2 | 1 | A330-800 | 4890 | 390 |
 | BOM-EBB | 2 | 1 | A330-800 | 4890 | 400 |
+| ZNZ-JRO | 2 | 2 | CRJ900 | 391 | 38 |
 | EBB-LUN | 1 | 1 | CRJ900 | 1765 | 140 |
 | EBB-JRO | 1 | 1 | CRJ900 | 643 | 110 |
 | HRE-EBB | 1 | 1 | CRJ900 | 2004 | 161 |
 | HRE-LUN | 1 | 1 | CRJ900 | 403 | 38 |
-| ZNZ-JRO | 1 | 1 | CRJ900 | 391 | 38 |
 | ADD-CPT | 1 | 1 | B788 | 5230 | 390 |
+| CPT-ADD | 1 | 1 | B788 | 5230 | 385 |
 
 ## Rotations
 
-A rotation is one airframe's day of flying, its legs chained in order: 48 this
-month, 43 with every sector of the chain in the record. In the 5 below, the
+A rotation is one airframe's day of flying, its legs chained in order: 53 this
+month, 48 with every sector of the chain in the record. In the 5 below, the
 aircraft puts down at one airport and is next heard from at another, so it
 must have flown a sector the movement board does not hold — 4 such hops. They
 are kept in place rather than dropped, so a rotation reads from its first
@@ -244,10 +249,10 @@ ground — so the airport is shown and the sector is not claimed.
 
 ## Track coverage
 
-35 of the 160 flights have a track that covers only part of
+37 of the 183 flights have a track that covers only part of
 the flight: the export starts after take-off, stops in the cruise, or both.
 They are still logged — the flight happened and its days are not in doubt.
-The route comes from the flight record; the times come from the board's scheduled times (35 flights).
+The route comes from the flight record; the times come from the board's scheduled times (37 flights).
 
 | flight | date | logged as | times from | what the track covers |
 |---|---|---|---|---|
@@ -286,3 +291,5 @@ The route comes from the flight record; the times come from the board's schedule
 | ET845 | 2026-11-27 | ADD-CPT | board, scheduled | track picks the flight up 258 km out; track stops 1004 km short |
 | UR710 | 2026-11-27 | EBB-JNB | board, scheduled | track stops 735 km short |
 | UR110 | 2026-11-27 | EBB-LGW | board, scheduled | track stops 5764 km short |
+| ET844 | 2026-11-27 | CPT-ADD | board, scheduled | track stops 110 km short |
+| UR710 | 2026-11-28 | EBB-JNB | board, scheduled | track stops 1014 km short |
